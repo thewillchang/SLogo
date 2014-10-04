@@ -5,6 +5,11 @@ import java.util.Observer;
 
 import javafx.scene.Node;
 
+/**
+ * view controller for main view--contains rest of views and places them accordingly
+ * @author Jonathan Tseng
+ *
+ */
 public class MainViewController implements Observer, ViewController {
 
 	@Override

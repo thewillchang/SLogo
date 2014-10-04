@@ -2,6 +2,11 @@ package exceptions;
 
 public class SLogoParsingException extends Exception {
 
+	/**
+	 * deffault 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	public SLogoParsingException() {
 		// TODO Auto-generated constructor stub
 	}

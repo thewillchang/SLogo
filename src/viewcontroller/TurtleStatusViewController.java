@@ -5,6 +5,12 @@ import java.util.Observer;
 
 import javafx.scene.Node;
 
+/**
+ * view controller for status of turtle that can be toggled
+ * i.e., view that shows turtle position
+ * @author Jonathan Tseng
+ *
+ */
 public class TurtleStatusViewController implements Observer, ViewController {
 
 	@Override

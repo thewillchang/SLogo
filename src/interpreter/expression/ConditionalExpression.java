@@ -4,14 +4,15 @@ import interpreter.SLogoResult;
 
 import java.util.Collection;
 
-public class ConditionalExpression implements SLogoExpression {
-
-	public ConditionalExpression() {
-		// TODO Auto-generated constructor stub
-	}
+/**
+ * superclass of SLogoExpressions for conditionals
+ * @author Jonathan Tseng
+ *
+ */
+public abstract class ConditionalExpression implements SLogoExpression {
 
 	@Override
-	public void loadArguments(Collection<String> args) {
+	public void loadArguments(Collection<SLogoExpression> args) {
 		// TODO Auto-generated method stub
 
 	}

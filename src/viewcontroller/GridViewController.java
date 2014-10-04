@@ -5,6 +5,11 @@ import java.util.Observer;
 
 import javafx.scene.Node;
 
+/**
+ * View Controller for Grid View (Where drawing and turtle is located on)
+ * @author Jonathan Tseng
+ *
+ */
 public class GridViewController implements Observer, ViewController {
 
 	@Override

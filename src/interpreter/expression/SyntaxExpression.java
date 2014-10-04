@@ -4,14 +4,16 @@ import interpreter.SLogoResult;
 
 import java.util.Collection;
 
-public class SyntaxExpression implements SLogoExpression {
-
-	public SyntaxExpression() {
-		// TODO Auto-generated constructor stub
-	}
+/**
+ * superclass for SLogoExpressions that are purely syntax
+ * examples include variables, constant numbers, and brackets
+ * @author Jonathan Tseng
+ *
+ */
+public abstract class SyntaxExpression implements SLogoExpression {
 
 	@Override
-	public void loadArguments(Collection<String> args) {
+	public void loadArguments(Collection<SLogoExpression> args) {
 		// TODO Auto-generated method stub
 
 	}

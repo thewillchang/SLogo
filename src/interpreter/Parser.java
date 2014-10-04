@@ -6,6 +6,12 @@ import java.util.Collection;
 
 import exceptions.SLogoParsingException;
 
+/**
+ * class that parses the input and creates an SLogoExpression representing it
+ * throws parsing exception if fails
+ * @author Jonathan Tseng
+ *
+ */
 public class Parser {
 
 	/**

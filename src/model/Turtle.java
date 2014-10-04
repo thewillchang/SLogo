@@ -1,10 +1,17 @@
 package model;
 
-import viewcontroller.TurtleViewController;
-
+/**
+ * Turtle Object. Contains its own Turtle Model and Turtle View Controllers
+ * @author Jonathan Tseng
+ *
+ */
 public class Turtle {
 
-	private TurtleModel myTurtleModel;
-	private TurtleViewController myTurtleViewController;
+	/**
+	 * updates the Turtle object's turtle model and in turn the object's turtle view controller
+	 */
+	public void update() {
+		
+	}
 	
 }

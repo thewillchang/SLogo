@@ -4,14 +4,15 @@ import interpreter.SLogoResult;
 
 import java.util.Collection;
 
-public class MathExpression implements SLogoExpression {
-
-	public MathExpression() {
-		// TODO Auto-generated constructor stub
-	}
+/**
+ * superclass of SLogoExpressions for Math expressions
+ * @author Jonathan Tseng
+ *
+ */
+public abstract class MathExpression implements SLogoExpression {
 
 	@Override
-	public void loadArguments(Collection<String> args) {
+	public void loadArguments(Collection<SLogoExpression> args) {
 		// TODO Auto-generated method stub
 
 	}

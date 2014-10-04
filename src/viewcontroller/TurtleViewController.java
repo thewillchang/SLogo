@@ -5,6 +5,11 @@ import java.util.Observer;
 
 import javafx.scene.Node;
 
+/**
+ * view controller for an individual turtle object
+ * @author Jonathan Tseng
+ *
+ */
 public class TurtleViewController implements Observer, ViewController {
 
 	@Override

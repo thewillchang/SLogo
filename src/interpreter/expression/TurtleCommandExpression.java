@@ -4,14 +4,15 @@ import interpreter.SLogoResult;
 
 import java.util.Collection;
 
-public class TurtleCommandExpression implements SLogoExpression {
-
-	public TurtleCommandExpression() {
-		// TODO Auto-generated constructor stub
-	}
+/**
+ * superclass for SLogoExpressions that are commands
+ * @author Jonathan Tseng
+ *
+ */
+public abstract class TurtleCommandExpression implements SLogoExpression {
 
 	@Override
-	public void loadArguments(Collection<String> args) {
+	public void loadArguments(Collection<SLogoExpression> args) {
 		// TODO Auto-generated method stub
 
 	}

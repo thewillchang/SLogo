@@ -6,11 +6,11 @@ import java.util.Observer;
 import javafx.scene.Node;
 
 /**
- * View Controller for the Text input where user types commands
+ * view controller for window for user defined methods 
  * @author Jonathan Tseng
  *
  */
-public class CommandPromptViewController implements Observer, ViewController {
+public class UserDefinedMethodsWindowViewController implements Observer, ViewController {
 
 	@Override
 	public Node getNode() {

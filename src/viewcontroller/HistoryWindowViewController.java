@@ -5,6 +5,11 @@ import java.util.Observer;
 
 import javafx.scene.Node;
 
+/**
+ * View controller for window of history of commands
+ * @author Jonathan Tseng
+ *
+ */
 public class HistoryWindowViewController implements Observer, ViewController {
 
 	@Override

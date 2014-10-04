@@ -4,16 +4,17 @@ import interpreter.SLogoResult;
 
 import java.util.Collection;
 
-public class UserDefinedMethodExpression implements SLogoExpression {
-
-	public UserDefinedMethodExpression() {
-		// TODO Auto-generated constructor stub
-	}
+/**
+ * class of SLogoExpressions for User Defined Expressions
+ * @author Jonathan Tseng
+ *
+ */
+public class UserDefinedExpression implements SLogoExpression{
 
 	@Override
-	public void loadArguments(Collection<String> args) {
+	public void loadArguments(Collection<SLogoExpression> args) {
 		// TODO Auto-generated method stub
-
+		
 	}
 
 	@Override
@@ -21,5 +22,6 @@ public class UserDefinedMethodExpression implements SLogoExpression {
 		// TODO Auto-generated method stub
 		return null;
 	}
+
 
 }

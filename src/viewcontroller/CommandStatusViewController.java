@@ -5,6 +5,11 @@ import java.util.Observer;
 
 import javafx.scene.Node;
 
+/**
+ * View Controller for status text for SLogo commands
+ * @author Jonathan Tseng
+ *
+ */
 public class CommandStatusViewController implements Observer, ViewController {
 
 	@Override
