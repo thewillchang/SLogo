@@ -1,19 +1,100 @@
 package test;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
+import interpreter.expression.ConditionalExpression;
+import interpreter.expression.MathExpression;
+import interpreter.expression.SLogoExpression;
+import interpreter.expression.SLogoExpressionFactory;
+import interpreter.expression.SyntaxExpression;
+import interpreter.expression.TurtleCommandExpression;
+import interpreter.expression.TurtleQueryExpression;
 
-import org.junit.AfterClass;
 import org.junit.Test;
 
+/**
+ * JUnit test class for SLogogExpressionFactory
+ * @author Jonathan Tseng
+ *
+ */
 public class SLogoExpressionFactoryTest {
 
-	@AfterClass
-	public static void tearDownAfterClass() throws Exception {
+	@Test
+	public void testInvalidArgumentsException() {
+		SLogoExpressionFactory factory = new SLogoExpressionFactory();
+		try {
+			factory.createExpression("fd 50 50");
+			fail("Should throw invalid arguments exception");
+		} catch (Exception e) {
+			assertTrue(e.getMessage().contains("Invalid number of arguments"));
+		}
+	}
+	
+	@Test
+	public void testUnimplementedMethodException() {
+		SLogoExpressionFactory factory = new SLogoExpressionFactory();
+		try {
+			factory.createExpression("helloworld");
+			fail("Should throw unimplemented method exception");
+		} catch (Exception e) {
+			assertTrue(e.getMessage().contains("unimplemented method"));
+		}
+	}
+	
+	
+	@Test
+	public void testCreateSLogoTurtleCommandExpression() {
+		SLogoExpressionFactory factory = new SLogoExpressionFactory();
+		try {
+			SLogoExpression expression = factory.createExpression("fd");
+			assertTrue(expression instanceof TurtleCommandExpression);
+		} catch (Exception e) {
+			fail("should not have thrown exception");
+		}
+	}
+	
+	@Test
+	public void testCreateSLogoMathExpression() {
+		SLogoExpressionFactory factory = new SLogoExpressionFactory();
+		try {
+			SLogoExpression expression = factory.createExpression("cos");
+			assertTrue(expression instanceof MathExpression);
+		} catch (Exception e) {
+			fail("should not have thrown exception");
+		}
+	}
+	
+	@Test
+	public void testCreateSLogoTurtleQueryExpression() {
+		SLogoExpressionFactory factory = new SLogoExpressionFactory();
+		try {
+			SLogoExpression expression = factory.createExpression("xcor");
+			assertTrue(expression instanceof TurtleQueryExpression);
+		} catch (Exception e) {
+			fail("should not have thrown exception");
+		}
+	}
+	
+	@Test
+	public void testCreateSLogoConditionalExpression() {
+		SLogoExpressionFactory factory = new SLogoExpressionFactory();
+		try {
+			SLogoExpression expression = factory.createExpression("equal?");
+			assertTrue(expression instanceof ConditionalExpression);
+		} catch (Exception e) {
+			fail("should not have thrown exception");
+		}
 	}
 
 	@Test
-	public void test() {
-		fail("Not yet implemented");
+	public void testCreateSLogoSyntaxExpression() {
+		SLogoExpressionFactory factory = new SLogoExpressionFactory();
+		try {
+			SLogoExpression expression = factory.createExpression("[");
+			assertTrue(expression instanceof SyntaxExpression);
+		} catch (Exception e) {
+			fail("should not have thrown exception");
+		}
 	}
 
 }
