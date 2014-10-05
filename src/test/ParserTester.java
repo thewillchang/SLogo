@@ -10,24 +10,21 @@ import org.junit.rules.ExpectedException;
 import exceptions.SLogoParsingException;
 
 public class ParserTester {
-    @Rule
-    public ExpectedException exception = ExpectedException.none();
     @Test
     public void parseExceptionTest() {
-        exception.expect(SLogoParsingException.class);
         Parser p = new Parser();
         String input = "forward 50 50";
         try {
             Collection<SLogoExpression> expression = p.parseSLogoExpression(input);
+            fail("Did not throw Exception");
         }
         catch (SLogoParsingException e) {
-            fail(exception.toString());
+            assertTrue(e instanceof SLogoParsingException);
         }
     }
 
     @Test
     public void singleCommandParseTest() {
-        exception.expect(SLogoParsingException.class);
         Parser p = new Parser();
         String input = "forward 50";
         try {
@@ -35,12 +32,11 @@ public class ParserTester {
             assertEquals(expressions.size(),1);
         }
         catch (SLogoParsingException e) {
-            fail(exception.toString());
+            fail(e.toString());
         }
     }
     @Test
     public void twoCommandParseTest() {
-        exception.expect(SLogoParsingException.class);
         Parser p = new Parser();
         String input = "forward 50 forward 50";
         try {
@@ -48,7 +44,7 @@ public class ParserTester {
             assertEquals(expressions.size(),2);
         }
         catch (SLogoParsingException e) {
-            fail(exception.toString());
+            fail(e.toString());
         }
     }
 }
