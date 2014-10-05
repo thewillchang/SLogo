@@ -21,8 +21,7 @@ public class ParserTester {
             Collection<SLogoExpression> expression = p.parseSLogoExpression(input);
         }
         catch (SLogoParsingException e) {
-            System.out.println(exception.toString());
-            fail();
+            fail(exception.toString());
         }
     }
 
@@ -36,9 +35,7 @@ public class ParserTester {
             assertEquals(expressions.size(),1);
         }
         catch (SLogoParsingException e) {
-            // TODO Auto-generated catch block
-            System.out.println("exception.toString()");
-            fail();
+            fail(exception.toString());
         }
     }
     @Test
@@ -51,8 +48,7 @@ public class ParserTester {
             assertEquals(expressions.size(),2);
         }
         catch (SLogoParsingException e) {
-            // TODO Auto-generated catch block
-            System.out.println("exception.toString()");
+            fail(exception.toString());
         }
     }
 }
