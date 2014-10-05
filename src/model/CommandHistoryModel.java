@@ -21,14 +21,6 @@ public class CommandHistoryModel extends Observable {
 	}
 	
 	/**
-	 * removes a command from the command history
-	 * @param command
-	 */
-	public void removeCommand(SLogoExpression command) {
-		
-	}
-	
-	/**
 	 * returns the full command history--used to update the viewcontroller
 	 * @return
 	 */

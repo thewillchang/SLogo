@@ -18,17 +18,6 @@ import org.junit.Test;
  *
  */
 public class SLogoExpressionFactoryTest {
-
-	@Test
-	public void testInvalidArgumentsException() {
-		SLogoExpressionFactory factory = new SLogoExpressionFactory();
-		try {
-			factory.createExpression("fd 50 50");
-			fail("Should throw invalid arguments exception");
-		} catch (Exception e) {
-			assertTrue(e.getMessage().contains("Invalid number of arguments"));
-		}
-	}
 	
 	@Test
 	public void testUnimplementedMethodException() {
