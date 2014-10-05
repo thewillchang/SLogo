@@ -22,6 +22,7 @@ public class ParserTester {
         }
         catch (SLogoParsingException e) {
             System.out.println(exception.toString());
+            fail();
         }
     }
 
@@ -37,6 +38,7 @@ public class ParserTester {
         catch (SLogoParsingException e) {
             // TODO Auto-generated catch block
             System.out.println("exception.toString()");
+            fail();
         }
     }
     @Test
