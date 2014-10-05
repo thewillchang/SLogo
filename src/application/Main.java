@@ -1,9 +1,11 @@
 package application;
 	
+import java.awt.Dimension;
+
 import javafx.application.Application;
 import javafx.stage.Stage;
-import javafx.scene.Scene;
-import javafx.scene.layout.BorderPane;
+import model.MainModel;
+import viewcontroller.MainViewController;
 
 /**
  * Main class that initializes the Application
@@ -11,13 +13,19 @@ import javafx.scene.layout.BorderPane;
  *
  */
 public class Main extends Application {
+	
+	public static final Dimension SIZE = new Dimension(1200, 700);
+	
+	private MainViewController myViewController;
+	private MainModel myModel;
+	
 	@Override
 	public void start(Stage primaryStage) {
 		try {
-			BorderPane root = new BorderPane();
-			Scene scene = new Scene(root,400,400);
-			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
-			primaryStage.setScene(scene);
+			myViewController = new MainViewController();
+			myModel = new MainModel();
+			primaryStage.setTitle("SLogo - as re-envisioned by Tanaka, Will, Abhishek, and Jonathan");
+			primaryStage.setScene(myViewController.getScene());
 			primaryStage.show();
 		} catch(Exception e) {
 			e.printStackTrace();

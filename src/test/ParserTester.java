@@ -1,15 +1,19 @@
 package test;
 
-import static org.junit.Assert.*;
-import java.util.Collection;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
 import interpreter.Parser;
 import interpreter.expression.SLogoExpression;
-import org.junit.Rule;
+
+import java.util.Collection;
+
 import org.junit.Test;
-import org.junit.rules.ExpectedException;
+
 import exceptions.SLogoParsingException;
 
 public class ParserTester {
+	
     @Test
     public void parseExceptionTest() {
         Parser p = new Parser();
@@ -35,6 +39,7 @@ public class ParserTester {
             fail(e.toString());
         }
     }
+    
     @Test
     public void twoCommandParseTest() {
         Parser p = new Parser();
