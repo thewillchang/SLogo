@@ -11,7 +11,7 @@ public class TurtleCommandResult extends SLogoResult {
     
     public TurtleCommandResult(int value) {
         super();
-        myValue = value;
+        
         
         
     }
@@ -30,7 +30,7 @@ public class TurtleCommandResult extends SLogoResult {
     @Override
     public int getValue () {
         // TODO Auto-generated method stub
-        return myValue;
+        return 0;
     }
 
 }
