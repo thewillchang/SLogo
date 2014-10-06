@@ -22,9 +22,15 @@ public class GridViewController implements Observer, ViewController {
 		myPane.setBackground(new Background(new BackgroundFill(Color.ALICEBLUE, 
 				new CornerRadii(0), new Insets(0))));
 		myGrid = new Group();
-		//myPane.setCenter(myGrid);
+		myPane.setCenter(myGrid);
 	}
 
+	public void addTurtle() {
+		TurtleViewController turtle = new TurtleViewController();
+		myGrid.getChildren().add(turtle.getNode());
+		
+	}
+	
 	@Override
 	public Node getNode() {
 		return myPane;
