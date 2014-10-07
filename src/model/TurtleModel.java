@@ -11,6 +11,10 @@ import com.sun.prism.Image;
  */
 public class TurtleModel extends Observable {
 	
+	private int myXPosition;
+	private int myYPosition;
+	private Image myImage;
+	
 	public Image getImage() {
 		return null;
 	}
