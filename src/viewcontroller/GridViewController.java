@@ -51,7 +51,7 @@ public class GridViewController implements Observer, ViewController {
 	}
 	
 	private void moveTurtles() {
-		TransitionState state = new TransitionState();
+		TransitionState state = new TransitionState(false, false, 0, 0, 0);
 		for (TurtleViewController turtleViewController : myTurtles) {
 			SLogoAnimation animation = rotateTurtle(turtleViewController, state);
 			animation.linkNextAnimation(moveTurtle(turtleViewController, state));

@@ -36,7 +36,6 @@ public class TransitionAnimation extends SLogoAnimation {
 		myTurtleViewController = turtleViewController;
 		myTurtle = myTurtleViewController.getNode();
 		myDistance = distance;
-		System.out.println(myTurtle.getRotate());
 		setAnimationLength(myDistance);
 	}
 	
@@ -57,9 +56,7 @@ public class TransitionAnimation extends SLogoAnimation {
 	public void attachTurtle(TurtleViewController turtleViewController,
 			TransitionState transitionState) {
 		myTurtleViewController = turtleViewController;
-		myXMove = transitionState.getXMove();
-		myYMove = transitionState.getYMove();
-		myDistance = Math.sqrt(myXMove * myXMove + myYMove * myYMove);
+		myDistance = transitionState.getMove();
 		setAnimationLength(myDistance);
 	}
 
