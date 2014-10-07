@@ -3,6 +3,7 @@ package transitionstate;
 /**
  * wrapper class for a transition state for the Grid. Specifies how to draw the next path.
  * @author Jonathan Tseng
+ * @author Tanaka Jimha
  *
  */
 public class TransitionState {
