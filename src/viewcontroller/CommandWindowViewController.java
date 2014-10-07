@@ -4,10 +4,10 @@ import java.awt.Dimension;
 import java.util.Observable;
 import java.util.Observer;
 
-import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.Priority;
 import javafx.scene.layout.VBox;
 import application.Main;
 
@@ -21,41 +21,45 @@ import application.Main;
 
 public class CommandWindowViewController implements Observer, ViewController {
 
-
 	public static final Dimension SIZE = new Dimension(
 			Main.SIZE.width / 2 * 9 / 10, Main.SIZE.height * 9 / 10);
 
 	private BorderPane myPane;
 	private VBox commandWindowVerticalBox;
-	private UserDefinedMethodsWindowViewController myUserDefinedMethodsView;
-	private UserDefinedVariablesWindowViewController myUserDefinedVariablesView;
-	private HistoryWindowViewController myHistoryView;
+	private UserDefinedMethodsViewController myUserDefinedMethodsView;
+	private UserDefinedVariablesViewController myUserDefinedVariablesView;
+	private CommandHistoryViewController myCommandHistoryView;
 	private CommandPromptViewController myCommandPromptView;
 	private CommandStatusViewController myCommandStatusView;
 
 	public CommandWindowViewController() {
 		myPane = new BorderPane();
-		
 		myPane.setPrefSize(SIZE.width, SIZE.height);
+
 		commandWindowVerticalBox = new VBox();
 		
 		HBox userDefinedHorizontalBox = placeUserDefinedBoxes();
-		myHistoryView = new HistoryWindowViewController();
+		myCommandHistoryView = new CommandHistoryViewController();
 		myCommandPromptView = new CommandPromptViewController();
 		myCommandStatusView = new CommandStatusViewController();
 		
-//		commandWindowVerticalBox.
-//		commandWindowVerticalBox.addAll(/*placeUserDefinedBoxes(), */myHistoryView, myCommandPromptView, myCommandStatusView);
+		VBox.setVgrow(userDefinedHorizontalBox, Priority.ALWAYS);
+		VBox.setVgrow(myCommandHistoryView.getNode(), Priority.ALWAYS);
+		VBox.setVgrow(myCommandPromptView.getNode(), Priority.ALWAYS);
+		VBox.setVgrow(myCommandStatusView.getNode(), Priority.ALWAYS);
+		commandWindowVerticalBox.getChildren().addAll(userDefinedHorizontalBox, myCommandHistoryView.getNode(), 
+				myCommandPromptView.getNode(), myCommandStatusView.getNode());
+		myPane.setCenter(commandWindowVerticalBox);
 	}
 	
 	private HBox placeUserDefinedBoxes() {
 		HBox userDefinedHorizontalBox = new HBox();
-		myUserDefinedMethodsView = new UserDefinedMethodsWindowViewController();
-		myUserDefinedVariablesView = new UserDefinedVariablesWindowViewController();
-		
-//		userDefinedHorizontalBox.addAll(myUserDefinedMethodsView, myUserDefinedVariablesView);
-//		return HBox;
-		return null;
+		myUserDefinedMethodsView = new UserDefinedMethodsViewController();
+		myUserDefinedVariablesView = new UserDefinedVariablesViewController();
+		HBox.setHgrow(myUserDefinedMethodsView.getNode(), Priority.ALWAYS);
+		HBox.setHgrow(myUserDefinedVariablesView.getNode(), Priority.ALWAYS);
+		userDefinedHorizontalBox.getChildren().addAll(myUserDefinedMethodsView.getNode(), myUserDefinedVariablesView.getNode());
+		return userDefinedHorizontalBox;
 	}
 
 	@Override
