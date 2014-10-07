@@ -1,7 +1,7 @@
-package interpreter.expression;
+package interpreter.expression.turtlecommand;
 
 import interpreter.SLogoResult;
-
+import interpreter.expression.SLogoExpression;
 import java.util.Collection;
 
 /**

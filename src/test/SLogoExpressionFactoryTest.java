@@ -7,7 +7,7 @@ import interpreter.expression.MathExpression;
 import interpreter.expression.SLogoExpression;
 import interpreter.expression.SLogoExpressionFactory;
 import interpreter.expression.SyntaxExpression;
-import interpreter.expression.TurtleCommandExpression;
+//import interpreter.expression.TurtleCommandExpression;
 import interpreter.expression.TurtleQueryExpression;
 
 import org.junit.Test;
@@ -30,7 +30,7 @@ public class SLogoExpressionFactoryTest {
 		}
 	}
 	
-	
+	/*
 	@Test
 	public void testCreateSLogoTurtleCommandExpression() {
 		SLogoExpressionFactory factory = new SLogoExpressionFactory();
@@ -40,7 +40,7 @@ public class SLogoExpressionFactoryTest {
 		} catch (Exception e) {
 			fail("should not have thrown exception");
 		}
-	}
+	}*/
 	
 	@Test
 	public void testCreateSLogoMathExpression() {

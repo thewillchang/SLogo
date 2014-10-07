@@ -10,10 +10,17 @@ public class TransitionState {
 
 	private boolean myPenUp;
 	private boolean myTurtleVisible;
-	private double myXMove;
-	private double myYMove;
+	private double myMove;
 	private double myRotateClockwise;
 	private double myRotateCounterClockwise;
+	
+	public TransitionState(boolean penUp, boolean visible, double distance, double rotateClock, double rotateCounter) {
+	    myPenUp = penUp;
+	    myTurtleVisible = visible;
+	    myMove = distance;
+	    myRotateClockwise = rotateClock;
+	    myRotateCounterClockwise = rotateCounter;
+	}
 	
 	/**
 	 * returns boolean of whether pen is up or down
@@ -32,19 +39,11 @@ public class TransitionState {
 	}
 	
 	/**
-	 * returns double for how much the turtle moves in the X direction
-	 * @return
-	 */
-	public double getXMove() {
-		return myXMove;
-	}
-	
-	/** 
-	 * returns double for how much the turtle moves in the Y direction
-	 * @return
-	 */
-	public double getYMove() {
-		return myYMove;
+         * returns double for how much the turtle moves in the forward direction
+         * @return
+         */
+	public double getMove() {
+	    return myMove;
 	}
 	
 	/**

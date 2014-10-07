@@ -21,19 +21,28 @@ public class MainViewController implements Observer, ViewController {
 	
 	private Scene myScene;
 	private BorderPane myPane;
-	private TurtleWindowViewController myGrid;
+	private TurtleWindowViewController myTurtleWindow;
+	private CommandWindowViewController myCommandWindow;
 	
 	public MainViewController() {
 		myPane = new BorderPane();
 		myScene = new Scene(myPane, Main.SIZE.width, Main.SIZE.height);
-		placeGridViewController();
+		placeTurtleWindowView();
+		placeCommandWindowView();
 	}
 	
-	private void placeGridViewController() {
-		myGrid = new TurtleWindowViewController();
-		BorderPane.setAlignment(myGrid.getNode(), Pos.CENTER);
-		BorderPane.setMargin(myGrid.getNode(), myGridMargin);
-		myPane.setLeft(myGrid.getNode());
+	private void placeTurtleWindowView() {
+		myTurtleWindow = new TurtleWindowViewController();
+		BorderPane.setAlignment(myTurtleWindow.getNode(), Pos.CENTER);
+		BorderPane.setMargin(myTurtleWindow.getNode(), myGridMargin);
+		myPane.setLeft(myTurtleWindow.getNode());
+	}
+	
+	private void placeCommandWindowView() {
+		myCommandWindow = new CommandWindowViewController();
+		BorderPane.setAlignment(myTurtleWindow.getNode(), Pos.CENTER);
+		BorderPane.setMargin(myTurtleWindow.getNode(), myGridMargin);
+		myPane.setRight(myCommandWindow.getNode());
 	}
 	
 	@Override

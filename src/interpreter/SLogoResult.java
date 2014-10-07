@@ -1,7 +1,7 @@
 package interpreter;
 
+import java.util.ArrayList;
 import java.util.List;
-
 import transitionstate.TransitionState;
 import exceptions.SLogoParsingException;
 
@@ -13,6 +13,11 @@ import exceptions.SLogoParsingException;
  */
 public abstract class SLogoResult {
 
+        List<TransitionState> myPreviousTransitionStates;
+        
+        public SLogoResult() {
+            myPreviousTransitionStates = new ArrayList<>();
+        }
 	/**
 	 * returns an exception if found when evaluating the SLogoExpression
 	 * @return

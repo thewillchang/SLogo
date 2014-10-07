@@ -4,7 +4,6 @@ import java.util.Observable;
 import java.util.Observer;
 
 import javafx.geometry.Insets;
-import javafx.scene.Group;
 import javafx.scene.Node;
 import javafx.scene.layout.Background;
 import javafx.scene.layout.BackgroundFill;
@@ -12,33 +11,31 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.CornerRadii;
 import javafx.scene.paint.Color;
 
-public class GridViewController implements Observer, ViewController {
+/**
+ * view controller for window for user defined variables
+ * 
+ * @author Jonathan Tseng
+ *
+ */
+public class UserDefinedVariablesViewController implements Observer,
+		ViewController {
 
 	private BorderPane myPane;
-	private Group myGrid;
-	
-	public GridViewController() {
+
+	public UserDefinedVariablesViewController() {
 		myPane = new BorderPane();
-		myPane.setBackground(new Background(new BackgroundFill(Color.ALICEBLUE, 
+		myPane.setBackground(new Background(new BackgroundFill(Color.BLACK, 
 				new CornerRadii(0), new Insets(0))));
-		myGrid = new Group();
-		myPane.setCenter(myGrid);
 	}
 
-	public void addTurtle() {
-		TurtleViewController turtle = new TurtleViewController();
-		myGrid.getChildren().add(turtle.getNode());
-		
-	}
-	
 	@Override
 	public Node getNode() {
 		return myPane;
 	}
 
 	@Override
-	public void update(Observable arg0, Object arg1) {
-		
+	public void update(Observable o, Object arg) {
+
 	}
 
 }
