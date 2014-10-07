@@ -21,10 +21,12 @@ import interpreter.expression.SLogoExpressionFactory;
 public class Interpreter {
 
     
-    
+    //TODO check if needed for future implementations...
     private Map<String, List<String>> commandMap;
     private Set<String> commandSet;
     
+    //TODO check if this map setup is good for all implementations...
+    private Map<String, String> referenceToCommandMap;
     
     private Parser myParser;
     private ResourceBundle myCommandReference; 
@@ -40,6 +42,7 @@ public class Interpreter {
         
         commandSet = new HashSet<>();
         commandMap = new HashMap<>();
+        referenceToCommandMap = new HashMap<>();
         setCommandReference(DEFAULT_LANGUAGE);
         
     }
@@ -63,14 +66,21 @@ public class Interpreter {
         }
     }
     
-    
+    /**
+     * Sets the Reference Language for SLogo Commands
+     * @param language to set to.
+     */
     private void setCommandReference(String language) {
         myCommandReference = ResourceBundle.getBundle("resources.languages." + language, Locale.US);
         commandSet = myCommandReference.keySet();
         for(String command : commandSet) {
             List<String> commandReferences = Arrays.asList(myCommandReference.getString(command).split(","));
             commandMap.put(command, commandReferences);
-            System.out.println(commandMap.get(command).get(0));
+            for(String reference : commandReferences) {
+                referenceToCommandMap.put(reference,command);
+                System.out.println(referenceToCommandMap.get(reference));
+            }
+            //System.out.println(commandMap.get(command).get(0));
         }
         
         
