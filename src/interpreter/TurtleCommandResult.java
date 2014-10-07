@@ -11,9 +11,6 @@ public class TurtleCommandResult extends SLogoResult {
     
     public TurtleCommandResult(int value) {
         super();
-        
-        
-        
     }
     @Override
     public SLogoParsingException getException () {

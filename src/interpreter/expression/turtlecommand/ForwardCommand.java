@@ -5,6 +5,7 @@ import interpreter.TurtleCommandResult;
 import interpreter.expression.SLogoExpression;
 import java.util.Collection;
 import java.util.List;
+import transitionstate.TransitionState;
 
 public class ForwardCommand extends TurtleCommandExpression {
     private SLogoExpression[] myParameters;
@@ -16,7 +17,18 @@ public class ForwardCommand extends TurtleCommandExpression {
 
     @Override
     public SLogoResult evaluate() {
-        return null;
+        SLogoResult previousResult = myParameters[0].evaluate();
+        TransitionState prevTransition = previousResult.getTransition().get(0);
+        TransitionState nextTransition = new TransitionState(prevTransition.getPenUp(), 
+                                                             prevTransition.getTurtleVisible(), 
+                                                             previousResult.getValue(), 
+                                                             prevTransition.getRotateClockwise(),
+                                                             prevTransition.getRotateCounterClockwise());
+        SLogoResult myResult = new TurtleCommandResult(previousResult.getValue());
+        myResult.getTransition().add(nextTransition);
+        myResult.getTransition().addAll(previousResult.getTransition());
+        return myResult;
+        
     }
 
 
