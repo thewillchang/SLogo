@@ -41,10 +41,11 @@ public class CommandWindowViewController implements Observer, ViewController {
 	
 	private void placeCommandWindows() {
 		commandWindowVerticalBox = new VBox();
+		commandWindowVerticalBox.setPadding(new Insets(10));
 		
 		HBox userDefinedHorizontalBox = placeUserDefinedBoxes();
 		myCommandHistoryView = new CommandHistoryViewController();
-		myCommandPromptView = new CommandPromptViewController();
+		myCommandPromptView = new CommandPromptViewController(this);
 		myCommandStatusView = new CommandStatusViewController();
 		
 		VBox.setVgrow(userDefinedHorizontalBox, Priority.ALWAYS);
@@ -54,9 +55,11 @@ public class CommandWindowViewController implements Observer, ViewController {
 		commandWindowVerticalBox.getChildren().addAll(userDefinedHorizontalBox, myCommandHistoryView.getNode(), 
 				myCommandPromptView.getNode(), myCommandStatusView.getNode());
 		
-		commandWindowVerticalBox.setPadding(new Insets(10));
-		
 		myPane.setCenter(commandWindowVerticalBox);
+	}
+	
+	public void updateStatusWindow(String commandFromPromptTextArea) {
+		myCommandStatusView.updateText(commandFromPromptTextArea);
 	}
 	
 	private HBox placeUserDefinedBoxes() {

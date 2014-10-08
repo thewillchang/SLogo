@@ -27,19 +27,29 @@ public class CommandStatusViewController implements Observer, ViewController {
 	
 	public CommandStatusViewController(){
 		myPane = new BorderPane();
-		myPane.setBackground(new Background(new BackgroundFill(Color.BLACK, 
+		myPane.setBackground(new Background(new BackgroundFill(Color.WHITE, 
 				new CornerRadii(0), new Insets(0))));
 		
 		myCommandStatusWindowVerticalBox = new VBox();
 
 		myTitleLabel = new Label("Command Status: ");
 		myTitleLabel.setFont(new SLogoFont().createTextFont());
-		myTitleLabel.setPadding(new Insets(10));
+		
+		myStatusLabel = new Label(">>");
+		myStatusLabel.setFont(new SLogoFont().createTextFont());
+		myStatusLabel.setPadding(new Insets(0));
+		
+		myCommandStatusWindowVerticalBox.getChildren().addAll(myTitleLabel, myStatusLabel);
+		myPane.setCenter(myCommandStatusWindowVerticalBox);
+	}
+	
+	public void updateText(String commandResult){
+		myStatusLabel.setText(commandResult);
 	}
 	
 	@Override
 	public Node getNode() {
-		return myTitleLabel;
+		return myPane;
 	}
 
 	@Override
