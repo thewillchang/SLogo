@@ -4,6 +4,7 @@ import java.awt.Dimension;
 import java.util.Observable;
 import java.util.Observer;
 
+import javafx.geometry.Insets;
 import javafx.scene.Node;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
@@ -35,7 +36,10 @@ public class CommandWindowViewController implements Observer, ViewController {
 	public CommandWindowViewController() {
 		myPane = new BorderPane();
 		myPane.setPrefSize(SIZE.width, SIZE.height);
-
+		placeCommandWindows();
+	}
+	
+	private void placeCommandWindows() {
 		commandWindowVerticalBox = new VBox();
 		
 		HBox userDefinedHorizontalBox = placeUserDefinedBoxes();
@@ -49,6 +53,9 @@ public class CommandWindowViewController implements Observer, ViewController {
 		VBox.setVgrow(myCommandStatusView.getNode(), Priority.ALWAYS);
 		commandWindowVerticalBox.getChildren().addAll(userDefinedHorizontalBox, myCommandHistoryView.getNode(), 
 				myCommandPromptView.getNode(), myCommandStatusView.getNode());
+		
+		commandWindowVerticalBox.setPadding(new Insets(10));
+		
 		myPane.setCenter(commandWindowVerticalBox);
 	}
 	
