@@ -10,6 +10,7 @@ import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.scene.Group;
 import javafx.scene.Node;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
@@ -127,6 +128,11 @@ public class TurtleViewController implements Observer, ViewController {
 	
 	public double getRadius() {
 		return mySize.getHeight() / 2;
+	}
+	
+	public void setImage(Image image) {
+		myTurtleImageView = new ImageView(image);
+		myAnimation.stop();
 	}
 	
 	@Override

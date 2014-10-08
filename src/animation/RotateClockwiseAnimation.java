@@ -1,7 +1,7 @@
 package animation;
 
+import model.Turtle;
 import transitionstate.TransitionState;
-import viewcontroller.TurtleViewController;
 
 public class RotateClockwiseAnimation extends RotateAnimation {
 	
@@ -10,9 +10,8 @@ public class RotateClockwiseAnimation extends RotateAnimation {
 	}
 
 	@Override
-	public void attachTurtle(TurtleViewController turtleViewController,
-			TransitionState transitionState) {
-		attachTurtle(turtleViewController, transitionState, true);
+	public void attachTurtle(Turtle turtle, TransitionState transitionState) {
+		attachTurtle(turtle, transitionState, true);
 	}
 	
 }

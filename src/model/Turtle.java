@@ -1,5 +1,7 @@
 package model;
 
+import javafx.scene.Node;
+import viewcontroller.Pen;
 import viewcontroller.TurtleViewController;
 
 /**
@@ -12,18 +14,31 @@ public class Turtle {
 	
 	private TurtleModel myTurtleModel;
 	private TurtleViewController myTurtleViewController;
-	private boolean isSelected;
+	private Pen myPen;
 	
-	public Turtle(){
-		this.myTurtleModel = new TurtleModel();
-		this.myTurtleViewController = new TurtleViewController();
-		
+	public Turtle() {
+		myTurtleModel = new TurtleModel();
+		myTurtleViewController = new TurtleViewController();
+		myPen = new Pen();
 	}
+	
+	public Pen getPen() {
+		return myPen;
+	}
+	
+	public Node getTurtle() {
+		return myTurtleViewController.getNode();
+	}
+	
+	public double getTurtleRadius() {
+		return myTurtleViewController.getRadius();
+	}
+	
 	/**
 	 * updates the Turtle object's turtle model and in turn the object's turtle view controller
 	 */
 	public void update() {
-		
+
 	}
 	
 }

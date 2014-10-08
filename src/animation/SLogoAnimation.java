@@ -1,12 +1,12 @@
 package animation;
 
-import transitionstate.TransitionState;
-import viewcontroller.TurtleViewController;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.util.Duration;
+import model.Turtle;
+import transitionstate.TransitionState;
 
 public abstract class SLogoAnimation {
 
@@ -23,7 +23,7 @@ public abstract class SLogoAnimation {
      * @param turtleViewController
      * @param transitionState
      */
-    public abstract void attachTurtle(TurtleViewController turtleViewController, TransitionState transitionState);
+    public abstract void attachTurtle(Turtle turtle, TransitionState transitionState);
     
     /**
      * attaches the frame representing what to be executed every cycle of the animation

@@ -1,48 +1,85 @@
 package animation;
 
+import javafx.geometry.Point2D;
 import javafx.scene.Node;
+import model.Turtle;
 import transitionstate.TransitionState;
 import viewcontroller.GridViewController;
-import viewcontroller.TurtleViewController;
 
 public class TransitionAnimation extends SLogoAnimation {
 
 	private double myXMove;
 	private double myYMove;
 	private double myDistance;
-	private TurtleViewController myTurtleViewController;
-	private Node myTurtle;
+	private Turtle myTurtle;
+	private boolean first;
+	private Point2D myLineStartingPoint;
+	private boolean myPenDown;
+	private int frameCount;
 	
 	public TransitionAnimation() {
+		frameCount = 0;
+		first = true;
 		attachFrame(event -> updateTransition());
 	}
 	
 	private void updateTransition() {
-		calculateMove();
-		if (myTurtle.getTranslateX() + myXMove > GridViewController.SIZE.width / 2 - myTurtleViewController.getRadius()) {
-			myTurtle.setTranslateX(-GridViewController.SIZE.width / 2 + myTurtleViewController.getRadius());
-		} else if (myTurtle.getTranslateX() + myXMove < -GridViewController.SIZE.width / 2 + myTurtleViewController.getRadius()) {
-			myTurtle.setTranslateX(GridViewController.SIZE.width / 2 - myTurtleViewController.getRadius());
-		} else if (myTurtle.getTranslateY() + myYMove > GridViewController.SIZE.height / 2 - myTurtleViewController.getRadius()) {
-			myTurtle.setTranslateY(-GridViewController.SIZE.height / 2 + myTurtleViewController.getRadius());
-		} else if (myTurtle.getTranslateY() + myYMove < -GridViewController.SIZE.height / 2 + myTurtleViewController.getRadius()) {
-			myTurtle.setTranslateY(GridViewController.SIZE.height / 2 - myTurtleViewController.getRadius());
+		frameCount++;
+		if (first) {
+			myLineStartingPoint = new Point2D(myTurtle.getTurtle().getTranslateX(), myTurtle.getTurtle().getTranslateY());
+			first = false;
 		}
-		myTurtle.setTranslateX(myTurtle.getTranslateX() + myXMove);
-		myTurtle.setTranslateY(myTurtle.getTranslateY() + myYMove);
+		calculateMove();
+		moveTurtle();
+		drawPath();
+		if (frameCount == myDistance) {
+			myTurtle.getPen().finishLine();
+		}
 	}
 
-	public void attachInfo(TurtleViewController turtleViewController, double distance) {
-		myTurtleViewController = turtleViewController;
-		myTurtle = myTurtleViewController.getNode();
+	private void moveTurtle() {
+		Node turtleNode = myTurtle.getTurtle();
+		checkWrapping();
+		turtleNode.setTranslateX(turtleNode.getTranslateX() + myXMove);
+		turtleNode.setTranslateY(turtleNode.getTranslateY() + myYMove);
+	}
+	
+	private void checkWrapping() {
+		Node turtleNode = myTurtle.getTurtle();
+		if (turtleNode.getTranslateX() + myXMove > GridViewController.SIZE.width / 2 - myTurtle.getTurtleRadius()) {
+			turtleNode.setTranslateX(-GridViewController.SIZE.width / 2 + myTurtle.getTurtleRadius());
+		} else if (turtleNode.getTranslateX() + myXMove < -GridViewController.SIZE.width / 2 + myTurtle.getTurtleRadius()) {
+			turtleNode.setTranslateX(GridViewController.SIZE.width / 2 - myTurtle.getTurtleRadius());
+		} else if (turtleNode.getTranslateY() + myYMove > GridViewController.SIZE.height / 2 - myTurtle.getTurtleRadius()) {
+			turtleNode.setTranslateY(-GridViewController.SIZE.height / 2 + myTurtle.getTurtleRadius());
+		} else if (turtleNode.getTranslateY() + myYMove < -GridViewController.SIZE.height / 2 + myTurtle.getTurtleRadius()) {
+			turtleNode.setTranslateY(GridViewController.SIZE.height / 2 - myTurtle.getTurtleRadius());
+		} else {
+			myTurtle.getPen().erase();
+			return;
+		}
+		myTurtle.getPen().finishLine();
+		myLineStartingPoint = new Point2D(turtleNode.getTranslateX(), turtleNode.getTranslateY());
+	}
+	   
+	private void drawPath() {
+		Point2D endPoint = new Point2D(myTurtle.getTurtle().getTranslateX(),
+				myTurtle.getTurtle().getTranslateY());
+		myTurtle.getPen().drawLine(myLineStartingPoint, endPoint, myPenDown, myTurtle.getTurtle());
+	}
+	
+	public void attachInfo(Turtle turtle, double distance) {
+		myTurtle = turtle;
 		myDistance = distance;
+		myPenDown = true;
 		setAnimationLength(myDistance);
 	}
 	
 	private void calculateMove() {
-		myXMove = Math.abs(Math.sin(Math.toRadians(myTurtle.getRotate())));
-		myYMove = Math.abs(Math.cos(Math.toRadians(myTurtle.getRotate())));
-		double rotation = myTurtle.getRotate() % 360;
+		Node turtleNode = myTurtle.getTurtle();
+		myXMove = Math.abs(Math.sin(Math.toRadians(turtleNode.getRotate())));
+		myYMove = Math.abs(Math.cos(Math.toRadians(turtleNode.getRotate())));
+		double rotation = turtleNode.getRotate() % 360;
 		if (rotation < 0) {
 			myXMove = (rotation > -180) ? -1 * myXMove : myXMove;
 			myYMove = (rotation > -90 || rotation < -270) ? myYMove : -1 * myYMove;
@@ -53,9 +90,9 @@ public class TransitionAnimation extends SLogoAnimation {
 	}
 	
 	@Override
-	public void attachTurtle(TurtleViewController turtleViewController,
-			TransitionState transitionState) {
-		myTurtleViewController = turtleViewController;
+	public void attachTurtle(Turtle turtle, TransitionState transitionState) {
+		myTurtle = turtle;
+		myPenDown = !transitionState.getPenUp();
 		myDistance = transitionState.getMove();
 		setAnimationLength(myDistance);
 	}
