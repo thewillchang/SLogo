@@ -5,7 +5,6 @@ import java.util.Observer;
 
 import javafx.event.EventHandler;
 import javafx.geometry.Insets;
-import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
@@ -30,7 +29,7 @@ public class CommandPromptViewController implements Observer, ViewController {
 	private BorderPane myPane;
 	private Label myTitleLabel;
 	private VBox myWindowVerticalBox;
-	private TextArea myCommandTextArea;
+	private TextArea myCommandPromptTextArea;
 	private CommandWindowViewController myCommandWindow;
 
 	public CommandPromptViewController(CommandWindowViewController commandWindow) {
@@ -44,24 +43,28 @@ public class CommandPromptViewController implements Observer, ViewController {
 		myTitleLabel.setFont(new SLogoFont().createTextFont());
 		myTitleLabel.setPadding(new Insets(0));
 
-		TextArea myCommandTextArea = new TextArea();
-		myCommandTextArea.setPrefRowCount(4);
-		myCommandTextArea.setWrapText(true);
-		myCommandTextArea.setOnKeyPressed(new EventHandler<KeyEvent>() {
+		myCommandPromptTextArea = new TextArea();
+		myCommandPromptTextArea.setPrefRowCount(4);
+		myCommandPromptTextArea.setWrapText(true);
+		myCommandPromptTextArea.setOnKeyPressed(new EventHandler<KeyEvent>() {
 			@Override
 			public void handle(KeyEvent arg0) {
 				if (arg0.getCode() == KeyCode.ENTER) {
-					passCommandToStatus(myCommandTextArea.getText());
-					myCommandTextArea.clear();
+					passCommandToStatus(myCommandPromptTextArea.getText());
+					myCommandPromptTextArea.clear();
 				}
 			}
 		});
 
 		myWindowVerticalBox = new VBox();
 		myWindowVerticalBox.getChildren().addAll(myTitleLabel,
-				myCommandTextArea);
+				myCommandPromptTextArea);
 
 		myPane.setCenter(myWindowVerticalBox);
+	}
+	
+	public void appendCommandToPromptTextArea(String commandFromPrelists) {
+		myCommandPromptTextArea.appendText(commandFromPrelists);
 	}
 
 	private void passCommandToStatus(String commandFromPromptTextArea) {

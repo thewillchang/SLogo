@@ -43,7 +43,7 @@ public class CommandStatusViewController implements Observer, ViewController {
 		myPane.setCenter(myCommandStatusWindowVerticalBox);
 	}
 	
-	public void updateText(String commandResult){
+	public void updateCommandStatusText(String commandResult){
 		myStatusLabel.setText(commandResult);
 	}
 	

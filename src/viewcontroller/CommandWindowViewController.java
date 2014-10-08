@@ -44,7 +44,7 @@ public class CommandWindowViewController implements Observer, ViewController {
 		commandWindowVerticalBox.setPadding(new Insets(10));
 		
 		HBox userDefinedHorizontalBox = placeUserDefinedBoxes();
-		myCommandHistoryView = new CommandHistoryViewController();
+		myCommandHistoryView = new CommandHistoryViewController(this);
 		myCommandPromptView = new CommandPromptViewController(this);
 		myCommandStatusView = new CommandStatusViewController();
 		
@@ -58,18 +58,22 @@ public class CommandWindowViewController implements Observer, ViewController {
 		myPane.setCenter(commandWindowVerticalBox);
 	}
 	
-	public void updateStatusWindow(String commandFromPromptTextArea) {
-		myCommandStatusView.updateText(commandFromPromptTextArea);
-	}
-	
 	private HBox placeUserDefinedBoxes() {
 		HBox userDefinedHorizontalBox = new HBox();
-		myUserDefinedMethodsView = new UserDefinedMethodsViewController();
+		myUserDefinedMethodsView = new UserDefinedMethodsViewController(this);
 		myUserDefinedVariablesView = new UserDefinedVariablesViewController();
 		HBox.setHgrow(myUserDefinedMethodsView.getNode(), Priority.ALWAYS);
 		HBox.setHgrow(myUserDefinedVariablesView.getNode(), Priority.ALWAYS);
 		userDefinedHorizontalBox.getChildren().addAll(myUserDefinedMethodsView.getNode(), myUserDefinedVariablesView.getNode());
 		return userDefinedHorizontalBox;
+	}
+	
+	public void updateCommandWindow(String commandFromPrelists) {
+		myCommandPromptView.appendCommandToPromptTextArea(commandFromPrelists);
+	}
+	
+	public void updateStatusWindow(String commandFromPromptTextArea) {
+		myCommandStatusView.updateCommandStatusText(commandFromPromptTextArea);
 	}
 
 	@Override

@@ -27,7 +27,7 @@ public class UserDefinedVariablesViewController implements Observer, ViewControl
 	private VBox myWindowVerticalBox;
 	private Label myTitleLabel;
 	private VBox myListVerticalBox;
-
+	
 	public UserDefinedVariablesViewController() {
 		myPane = new BorderPane();
 		myPane.setBackground(new Background(new BackgroundFill(Color.WHITE, 
