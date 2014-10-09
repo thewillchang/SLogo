@@ -1,48 +1,29 @@
 package viewcontroller.commands;
 
 import java.util.Observable;
-import java.util.Observer;
-
 import viewcontroller.SLogoFont;
-import viewcontroller.ViewController;
 import javafx.geometry.Insets;
 import javafx.scene.Node;
 import javafx.scene.control.Label;
-import javafx.scene.layout.Background;
-import javafx.scene.layout.BackgroundFill;
-import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.CornerRadii;
-import javafx.scene.layout.VBox;
-import javafx.scene.paint.Color;
 
 /**
  * View Controller for status text for SLogo commands
- * @author Jonathan Tseng
+ * @author Abhishek B
  *
  */
-public class CommandStatusViewController implements Observer, ViewController {
+public class CommandStatusViewController extends CommandWindowViewController {
 
-	private BorderPane myPane;
-	private VBox myCommandStatusWindowVerticalBox;
-	private Label myTitleLabel;
 	private Label myStatusLabel;
 	
 	public CommandStatusViewController(){
-		myPane = new BorderPane();
-		myPane.setBackground(new Background(new BackgroundFill(Color.WHITE, 
-				new CornerRadii(0), new Insets(0))));
-		
-		myCommandStatusWindowVerticalBox = new VBox();
-
-		myTitleLabel = new Label("Command Status: ");
+		myTitleLabel.setText("Command Status");
 		myTitleLabel.setFont(new SLogoFont().createTextFont());
 		
 		myStatusLabel = new Label(">>");
 		myStatusLabel.setFont(new SLogoFont().createTextFont());
 		myStatusLabel.setPadding(new Insets(0));
 		
-		myCommandStatusWindowVerticalBox.getChildren().addAll(myTitleLabel, myStatusLabel);
-		myPane.setCenter(myCommandStatusWindowVerticalBox);
+		myCommandWindowVerticalBox.getChildren().add(myStatusLabel);
 	}
 	
 	public void updateCommandStatusText(String commandResult){

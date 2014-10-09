@@ -3,47 +3,30 @@ package viewcontroller.commands;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Observable;
-import java.util.Observer;
-
 import viewcontroller.SLogoFont;
-import viewcontroller.ViewController;
-import javafx.geometry.Insets;
 import javafx.scene.Node;
 import javafx.scene.control.Label;
-import javafx.scene.layout.Background;
-import javafx.scene.layout.BackgroundFill;
-import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.CornerRadii;
 import javafx.scene.layout.VBox;
-import javafx.scene.paint.Color;
 
 /**
  * view controller for window for user defined variables 
  * @author Abhishek B
  *
  */
-public class UserDefinedVariablesViewController implements Observer, ViewController {
+public class UserDefinedVariablesViewController extends CommandWindowViewController {
 
-	private BorderPane myPane;
 	private List<Label> myVariableLabels;
-	private VBox myWindowVerticalBox;
-	private Label myTitleLabel;
 	private VBox myListVerticalBox;
 	
 	public UserDefinedVariablesViewController() {
-		myPane = new BorderPane();
-		myPane.setBackground(new Background(new BackgroundFill(Color.WHITE, 
-				new CornerRadii(0), new Insets(0))));
+		super();
 		
-		myTitleLabel = new Label("User Defined Variables: ");
+		myTitleLabel.setText("User Defined Variables");
 		myTitleLabel.setFont(new SLogoFont().createTextFont());
-		
+			
 		placeVariableList();
 
-		myWindowVerticalBox = new VBox();
-		myWindowVerticalBox.getChildren().addAll(myTitleLabel, myListVerticalBox);
-		
-		myPane.setCenter(myWindowVerticalBox);
+		myCommandWindowVerticalBox.getChildren().addAll(myListVerticalBox);
 	}
 	
 	private void placeVariableList() {

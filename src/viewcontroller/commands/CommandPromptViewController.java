@@ -32,9 +32,9 @@ public class CommandPromptViewController implements Observer, ViewController {
 	private Label myTitleLabel;
 	private VBox myWindowVerticalBox;
 	private TextArea myCommandPromptTextArea;
-	private CommandWindowViewController myCommandWindow;
+	private CommandWindowContainerViewController myCommandWindow;
 
-	public CommandPromptViewController(CommandWindowViewController commandWindow) {
+	public CommandPromptViewController(CommandWindowContainerViewController commandWindow) {
 		myCommandWindow = commandWindow;
 		
 		myPane = new BorderPane();
