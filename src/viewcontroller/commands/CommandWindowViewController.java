@@ -12,6 +12,11 @@ import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import viewcontroller.ViewController;
 
+/**
+ * Abstract class for command window units
+ * @author Abhishek B
+ *
+ */
 public abstract class CommandWindowViewController implements Observer, ViewController {
 	
 	protected BorderPane myPane;

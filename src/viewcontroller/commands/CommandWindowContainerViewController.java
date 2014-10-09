@@ -3,7 +3,6 @@ package viewcontroller.commands;
 import java.awt.Dimension;
 import java.util.Observable;
 import java.util.Observer;
-
 import viewcontroller.ViewController;
 import javafx.geometry.Insets;
 import javafx.scene.Node;
@@ -14,9 +13,8 @@ import javafx.scene.layout.VBox;
 import application.Main;
 
 /**
- * ViewController for Command Windows (where command prompt, command status,
- * history, and user defined windows are located)
- * 
+ * ViewController for containing all of the command windows
+ * (where prompt/status/history/user-defined windows are located) 
  * @author Abhishek B
  *
  */

@@ -1,34 +1,35 @@
 package viewcontroller;
 
 import java.util.Observable;
-import java.util.Observer;
-
+import viewcontroller.commands.CommandWindowViewController;
 import javafx.geometry.Insets;
-import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.control.Label;
 
-
 /**
- * view controller for status of turtle that can be toggled
- * i.e., view that shows turtle position
+ * view controller for status of turtle that can be toggled i.e., view that
+ * shows turtle position
+ * 
  * @author Jonathan Tseng
  *
  */
-public class TurtleStatusViewController implements Observer, ViewController {
+public class TurtleStatusViewController extends CommandWindowViewController {
 
 	private Label myLabel;
-	
+
 	public TurtleStatusViewController() {
-		myLabel = new Label("Turtle Status: ");
-		myLabel.setFont(new SLogoFont().createTextFont());
-		myLabel.setAlignment(Pos.CENTER);
+		super();
+		myTitleLabel.setText("Turtle Status");
+		myTitleLabel.setFont(new SLogoFont().createTextFont());
+		myLabel = new Label("jdaklas");
 		myLabel.setPadding(new Insets(10));
+
+		myCommandWindowVerticalBox.getChildren().add(myLabel);
 	}
-	
+
 	@Override
 	public Node getNode() {
-		return myLabel;
+		return myPane;
 	}
 
 	@Override

@@ -2,10 +2,14 @@ package viewcontroller.commands;
 
 import java.util.ArrayList;
 import java.util.List;
-
 import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
 
+/**
+ * Abstract 
+ * @author Abhishek B
+ *
+ */
 public abstract class CommandClickableListWindowViewController extends CommandWindowViewController {
 	
 	protected VBox myListVerticalBox;
