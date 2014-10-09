@@ -1,8 +1,10 @@
-package viewcontroller;
+package viewcontroller.commands;
 
 import java.util.Observable;
 import java.util.Observer;
 
+import viewcontroller.SLogoFont;
+import viewcontroller.ViewController;
 import javafx.geometry.Insets;
 import javafx.scene.Node;
 import javafx.scene.control.Label;

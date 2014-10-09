@@ -1,10 +1,9 @@
-package viewcontroller;
+package viewcontroller.commands;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Observable;
-import java.util.Observer;
+import java.util.*;
 
+import viewcontroller.SLogoFont;
+import viewcontroller.ViewController;
 import javafx.event.EventHandler;
 import javafx.geometry.Insets;
 import javafx.scene.Node;
@@ -18,13 +17,12 @@ import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 
 /**
- * view controller for window for user defined methods
+ * View controller for window of history of commands
  * 
  * @author Abhishek B
  *
  */
-public class UserDefinedMethodsViewController implements Observer,
-		ViewController {
+public class CommandHistoryViewController implements Observer, ViewController {
 
 	private BorderPane myPane;
 	private List<Label> myCommands;
@@ -33,14 +31,14 @@ public class UserDefinedMethodsViewController implements Observer,
 	private VBox myListVerticalBox;
 	private CommandWindowViewController myCommandWindow;
 
-	public UserDefinedMethodsViewController(
+	public CommandHistoryViewController(
 			CommandWindowViewController commandWindow) {
 		myCommandWindow = commandWindow;
 		myPane = new BorderPane();
 		myPane.setBackground(new Background(new BackgroundFill(Color.WHITE,
 				new CornerRadii(0), new Insets(0))));
 
-		myTitleLabel = new Label("User Defined Methods: ");
+		myTitleLabel = new Label("Command History Window: ");
 		myTitleLabel.setFont(new SLogoFont().createTextFont());
 
 		placeCommandList();
@@ -55,7 +53,7 @@ public class UserDefinedMethodsViewController implements Observer,
 	private void placeCommandList() {
 		myListVerticalBox = new VBox();
 		myCommands = new ArrayList<Label>();
-		addCommand("sit 50");
+		addCommand("fd 50");
 
 		for (Label command : myCommands) {
 			myListVerticalBox.getChildren().add(command);
@@ -83,5 +81,4 @@ public class UserDefinedMethodsViewController implements Observer,
 	public void update(Observable o, Object arg) {
 
 	}
-
 }

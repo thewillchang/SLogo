@@ -1,9 +1,10 @@
-package viewcontroller;
+package viewcontroller.commands;
 
 import java.awt.Dimension;
 import java.util.Observable;
 import java.util.Observer;
 
+import viewcontroller.ViewController;
 import javafx.geometry.Insets;
 import javafx.scene.Node;
 import javafx.scene.layout.BorderPane;

@@ -3,6 +3,7 @@ package viewcontroller;
 import java.util.Observable;
 import java.util.Observer;
 
+import viewcontroller.commands.CommandWindowViewController;
 import application.Main;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
