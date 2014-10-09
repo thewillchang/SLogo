@@ -2,20 +2,21 @@ package viewcontroller;
 
 import java.awt.Dimension;
 import java.util.ArrayList;
-import java.util.LinkedList;
 import java.util.List;
 import java.util.Observable;
 import java.util.Observer;
 
-import model.Turtle;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.geometry.Point2D;
 import javafx.scene.Group;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
+import javafx.scene.layout.HBox;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Line;
 import javafx.scene.shape.Rectangle;
+import model.Turtle;
 import transitionstate.TransitionState;
 import animation.RotateClockwiseAnimation;
 import animation.SLogoAnimation;
@@ -28,29 +29,65 @@ public class GridViewController implements Observer, ViewController {
 			TurtleWindowViewController.SIZE.height * 9 / 10);
 	private Group myGrid;
 	private List<Turtle> myTurtles;
-	private int myCurrentIndex;
-	private List<List<Line>> myLines;
+	
+	private DrawingViewHistory myDrawingViewHistory; 
+	
+	private Button b;
+	private Button undo;
+	private Button redo; 
 	
 	public GridViewController() {
 		myTurtles = new ArrayList<>();
+		myDrawingViewHistory  = new DrawingViewHistory();
 		myGrid = new Group();
 		myGrid.getChildren().add(new Rectangle(SIZE.width, SIZE.height, Color.ALICEBLUE));
-		myLines = new LinkedList<List<Line>>();
 		
 		addTurtle(new Turtle());
 		
-		
-		Button b = new Button();
+		b = new Button();
 		b.setText("test");
 		b.setOnAction(new EventHandler<ActionEvent>() {
 			@Override
 			public void handle(ActionEvent event) {
 				moveTurtles();
+				b.setDisable(true);
+				redo.setDisable(true);
+				undo.setDisable(true);
 			}
 		});
-		myGrid.getChildren().add(b);
+		
+		redo = new Button();
+		redo.setText("redo");
+		redo.setOnAction(event -> redo());
+		
+		undo = new Button();
+		undo.setText("undo");
+		undo.setOnAction(event -> undo());
+		HBox box = new HBox();
+		box.getChildren().addAll(b, undo, redo);
+		myGrid.getChildren().add(box);
+	}
+	
+	private void redo() {
+		for (Turtle turtle : myTurtles) {
+			DrawingViewState state = myDrawingViewHistory.redo(turtle);
+			if (!(state instanceof NullDrawingViewState)) {
+				drawLines(turtle, state.getLines());
+				redoTurtle(turtle, state);
+			}
+		}
 	}
 
+	public void undo() {
+		for (Turtle turtle : myTurtles) {
+			DrawingViewState state = myDrawingViewHistory.undo(turtle);
+			if (!(state instanceof NullDrawingViewState)) {
+				eraseLines(state.getLines());
+				undoTurtle(turtle, state);
+			}
+		}
+	}
+	
 	public void addTurtle(Turtle turtle) {
 		turtle.getPen().attachGrid(myGrid);
 		myTurtles.add(turtle);
@@ -60,32 +97,79 @@ public class GridViewController implements Observer, ViewController {
 	}
 	
 	private void moveTurtles() {
-		TransitionState state = new TransitionState(false, false, 0, 0, 0);
+		TransitionState state = new TransitionState(false, true, 100, 45, 0);
 		for (Turtle turtle : myTurtles) {
-			SLogoAnimation animation = rotateTurtle(turtle, state);
-			animation.linkNextAnimation(moveTurtle(turtle, state));
-			animation.startAnimation();
-			List<Line> lines = turtle.getPen().getAndClearLines();
-			myLines.add(lines);
-			for (Line line : lines) {
-				if (!myGrid.getChildren().contains(line)) {
-					myGrid.getChildren().add(line);
-				}
+			moveTurtle(turtle, state);
+		}
+	}
+	
+	private void moveTurtle(Turtle turtle, TransitionState state) {
+		turtle.getTurtle().setVisible(state.getTurtleVisible());
+		Point2D position = new Point2D(turtle.getTurtle().getTranslateX(), 
+				turtle.getTurtle().getTranslateY());
+		double rotation = turtle.getTurtle().getRotate();
+		SLogoAnimation rotateAnimation = rotateTurtle(turtle, state);
+		SLogoAnimation moveAnimation = walkTurtle(turtle, state);
+		moveAnimation.attachOnFinish(event -> finishedAnimation(turtle, position, rotation));
+		rotateAnimation.linkNextAnimation(moveAnimation);
+		rotateAnimation.startAnimation();
+	}
+	
+	private void finishedAnimation(Turtle turtle, Point2D startPosition, double startRotation) {
+		List<Line> lines = turtle.getPen().getAndClearLines();
+		Point2D endPosition = new Point2D(turtle.getTurtle().getTranslateX(), turtle.getTurtle().getTranslateY());
+		double endRotation = turtle.getTurtle().getRotate();
+		myDrawingViewHistory.addViewHistory(turtle, new DrawingViewState(startPosition, endPosition, startRotation, endRotation, lines));
+		drawLines(turtle, lines);
+		enableButtons();
+	}
+	
+	private void enableButtons() {
+		b.setDisable(false);
+		undo.setDisable(false);
+		redo.setDisable(false);
+	}
+	
+	private void drawLines(Turtle turtle, List<Line> lines) {
+		myGrid.getChildren().remove(turtle.getTurtle());
+		for (Line line : lines) {
+			if (!myGrid.getChildren().contains(line)) {
+				myGrid.getChildren().add(line);
+			}
+		}
+		myGrid.getChildren().add(turtle.getTurtle());
+	}
+	
+	private void eraseLines(List<Line> lines) {
+		for (Line line : lines) {
+			if (myGrid.getChildren().contains(line)) {
+				myGrid.getChildren().remove(line);
 			}
 		}
 	}
 	
-	private SLogoAnimation moveTurtle(Turtle turtle, TransitionState transitionState) {
+	private SLogoAnimation walkTurtle(Turtle turtle, TransitionState transitionState) {
 		TransitionAnimation transition = new TransitionAnimation();
-		transition.attachInfo(turtle, 100);
+		transition.attachTurtle(turtle, transitionState);
 		return transition;
 	}
 	
 	private SLogoAnimation rotateTurtle(Turtle turtle, TransitionState transitionState) {
 		RotateClockwiseAnimation rotation = new RotateClockwiseAnimation();
-		//rotation.attachTurtle(turtleViewController, transitionState);
-		rotation.attachInfo(turtle, 45);
+		rotation.attachTurtle(turtle, transitionState);
 		return rotation;
+	}
+	
+	private void undoTurtle(Turtle turtle, DrawingViewState state) {
+		turtle.getTurtle().setTranslateX(state.getStartPosition().getX());
+		turtle.getTurtle().setTranslateY(state.getStartPosition().getY());
+		turtle.getTurtle().setRotate(state.getStartRotation());
+	}
+	
+	private void redoTurtle(Turtle turtle, DrawingViewState state) {
+		turtle.getTurtle().setTranslateX(state.getEndPosition().getX());
+		turtle.getTurtle().setTranslateY(state.getEndPosition().getY());
+		turtle.getTurtle().setRotate(state.getEndRotation());
 	}
 	
 	@Override

@@ -10,7 +10,7 @@ import transitionstate.TransitionState;
 
 public abstract class SLogoAnimation {
 
-	private static final int FRAMES_PER_SECOND = 50;
+	private static final int FRAMES_PER_SECOND = 100;
 	private EventHandler<ActionEvent> myOneFrame;
     private Timeline myAnimation;
 
@@ -63,6 +63,10 @@ public abstract class SLogoAnimation {
      */
     public void linkNextAnimation(SLogoAnimation animation) {
     	myAnimation.setOnFinished(event -> animation.startAnimation());
+    }
+    
+    public void attachOnFinish(EventHandler<ActionEvent> event) {
+    	myAnimation.setOnFinished(event);
     }
     
 }

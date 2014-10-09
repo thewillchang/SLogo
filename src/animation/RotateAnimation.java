@@ -1,9 +1,8 @@
 package animation;
 
-import model.Turtle;
 import javafx.scene.Node;
+import model.Turtle;
 import transitionstate.TransitionState;
-import viewcontroller.TurtleViewController;
 
 public abstract class RotateAnimation extends SLogoAnimation {
 
@@ -22,12 +21,6 @@ public abstract class RotateAnimation extends SLogoAnimation {
 	protected void attachTurtle(Turtle turtle, TransitionState transitionState, boolean clockwise) {
 		myTurtle = turtle.getTurtle();
 		myDegrees = (clockwise) ? transitionState.getRotateClockwise() : transitionState.getRotateCounterClockwise();
-		setAnimationLength(myDegrees);
-	}
-	
-	public void attachInfo(Turtle turtle, double degrees) {
-		myTurtle = turtle.getTurtle();
-		myDegrees = degrees;
 		setAnimationLength(myDegrees);
 	}
 	

@@ -26,14 +26,14 @@ import application.Main;
  */
 public class TurtleViewController implements Observer, ViewController {
 
-	private final static int FRAMES_PER_SECOND = 10;
+	private final static int FRAMES_PER_SECOND = 7;
 	
 	private ImageView myTurtleImageView;
 	private Group myTurtle;
 	private Dimension mySize = new Dimension(Main.SIZE.width / 40, Main.SIZE.width / 40);
 	
 	private Timeline myAnimation;
-	private int myAnimationCount;
+	private boolean myAnimationFlip;
 	
 	private Circle myBody;
 	private Ellipse myHead;
@@ -41,6 +41,7 @@ public class TurtleViewController implements Observer, ViewController {
 	private Ellipse myFrontRightFoot;
 	private Ellipse myBackLeftFoot;
 	private Ellipse myBackRightFoot;
+	private Ellipse myTail;
 	
 	private List<Shape> turtleBodyParts;
 	
@@ -48,17 +49,81 @@ public class TurtleViewController implements Observer, ViewController {
 		myTurtle = new Group();
 		myAnimation = new Timeline();
 		createTurtle();
-		setAnimation();
+		animate();
+	}
+	
+	/**
+	 * colors the entire turtle
+	 * @param color
+	 */
+	public void colorTurtle(Color color) {
+		for (Node child : myTurtle.getChildren()) {
+			Shape bodyPart = (Shape) child;
+			bodyPart.setFill(color);
+		}
+	}
+	
+	/**
+	 * gets the radius of the turtle
+	 * @return
+	 */
+	public double getRadius() {
+		return mySize.getHeight() / 2;
+	}
+	
+	/**
+	 * sets the image of the turtle
+	 * @param image
+	 */
+	public void setImage(Image image) {
+		myTurtleImageView = new ImageView(image);
+		myAnimation.stop();
+	}
+	
+	@Override
+	public Node getNode() {
+		return (myTurtleImageView == null) ? myTurtle : myTurtleImageView;
+	}
+
+	@Override
+	public void update(Observable o, Object arg) {
+		
 	}
 	
 	private void createTurtle() {
 		turtleBodyParts = new ArrayList<Shape>();
+		createLegs();
+		createHeadBodyTail();
+		turtleBodyParts.add(myBody);
+		turtleBodyParts.add(myHead);
+		turtleBodyParts.add(myFrontLeftFoot);
+		turtleBodyParts.add(myFrontRightFoot);
+		turtleBodyParts.add(myBackLeftFoot);
+		turtleBodyParts.add(myBackRightFoot);
+		turtleBodyParts.add(myTail);
+		myTurtle.getChildren().clear();
+		myTurtle.getChildren().addAll(myHead, myFrontLeftFoot, myFrontRightFoot, myBackLeftFoot, myBackRightFoot, myTail, myBody);
+		colorTurtle(Color.LIMEGREEN);
+	}	
+	
+	/**
+	 * creates head, body, and tail of turtle
+	 */
+	private void createHeadBodyTail() {
 		myBody = new Circle(mySize.height / 2);
 		myBody.setStroke(Color.BROWN);
 		
 		myHead = new Ellipse(mySize.width / 5, mySize.height / 4);
 		myHead.setTranslateY(myHead.getTranslateY() - 2 * myHead.getRadiusY());
 		
+		myTail = new Ellipse(mySize.width / 12, mySize.height / 4);
+		myTail.setTranslateY(myTail.getTranslateY() + 2 * myTail.getRadiusY());
+	}
+	
+	/**
+	 * creates legs of turtle
+	 */
+	private void createLegs() {
 		myFrontLeftFoot = new Ellipse(mySize.width / 6, mySize.height / 4);
 		myFrontLeftFoot.setTranslateX(myFrontLeftFoot.getTranslateX() - 2 * myFrontLeftFoot.getRadiusX());
 		myFrontLeftFoot.setTranslateY(myFrontLeftFoot.getTranslateY() - myFrontLeftFoot.getRadiusY());
@@ -78,23 +143,12 @@ public class TurtleViewController implements Observer, ViewController {
 		myBackRightFoot.setTranslateX(myBackRightFoot.getTranslateX() + 2 * myBackRightFoot.getRadiusX());
 		myBackRightFoot.setTranslateY(myBackRightFoot.getTranslateY() + myBackRightFoot.getRadiusY());
 		myBackRightFoot.setRotate(-45);
-		
-		Ellipse tail = new Ellipse(mySize.width / 12, mySize.height / 4);
-		tail.setTranslateY(tail.getTranslateY() + 2 * tail.getRadiusY());
-		
-		turtleBodyParts.add(myBody);
-		turtleBodyParts.add(myHead);
-		turtleBodyParts.add(myFrontLeftFoot);
-		turtleBodyParts.add(myFrontRightFoot);
-		turtleBodyParts.add(myBackLeftFoot);
-		turtleBodyParts.add(myBackRightFoot);
-		turtleBodyParts.add(tail);
-		myTurtle.getChildren().clear();
-		myTurtle.getChildren().addAll(myHead, myFrontLeftFoot, myFrontRightFoot, myBackLeftFoot, myBackRightFoot, tail, myBody);
-		colorTurtle(Color.LIMEGREEN);
-	}	
+	}
 	
-	private void setAnimation() {
+	/**
+	 * animates the turtle indefinitely (wiggling of legs)
+	 */
+	private void animate() {
 		myAnimation = new Timeline();
 		myAnimation.setCycleCount(Timeline.INDEFINITE);
 		myAnimation.getKeyFrames().add(new KeyFrame(
@@ -107,42 +161,12 @@ public class TurtleViewController implements Observer, ViewController {
 	 * animates the turtle
 	 */
 	private void animateTurtle() {	
-		myAnimationCount++;
-		int change = (myAnimationCount % 2 == 0) ? 30 : -30;
+		int change = (myAnimationFlip) ? 30 : -30;
 		myFrontLeftFoot.setRotate(myFrontLeftFoot.getRotate() + change);
 		myFrontRightFoot.setRotate(myFrontRightFoot.getRotate() - change);
 		myBackLeftFoot.setRotate(myBackLeftFoot.getRotate() + change);
 		myBackRightFoot.setRotate(myBackRightFoot.getRotate() - change);
-	}
-	
-	/**
-	 * colors the entire turtle
-	 * @param color
-	 */
-	public void colorTurtle(Color color) {
-		for (Node child : myTurtle.getChildren()) {
-			Shape bodyPart = (Shape) child;
-			bodyPart.setFill(color);
-		}
-	}
-	
-	public double getRadius() {
-		return mySize.getHeight() / 2;
-	}
-	
-	public void setImage(Image image) {
-		myTurtleImageView = new ImageView(image);
-		myAnimation.stop();
-	}
-	
-	@Override
-	public Node getNode() {
-		return (myTurtleImageView == null) ? myTurtle : myTurtleImageView;
-	}
-
-	@Override
-	public void update(Observable o, Object arg) {
-		
+		myAnimationFlip = !myAnimationFlip;
 	}
 
 }

@@ -8,6 +8,7 @@ import viewcontroller.GridViewController;
 
 public class TransitionAnimation extends SLogoAnimation {
 
+	private boolean myDone;
 	private double myXMove;
 	private double myYMove;
 	private double myDistance;
@@ -18,12 +19,14 @@ public class TransitionAnimation extends SLogoAnimation {
 	private int frameCount;
 	
 	public TransitionAnimation() {
+		myDone = false;
 		frameCount = 0;
 		first = true;
 		attachFrame(event -> updateTransition());
 	}
 	
 	private void updateTransition() {
+		if (myDone) return;
 		frameCount++;
 		if (first) {
 			myLineStartingPoint = new Point2D(myTurtle.getTurtle().getTranslateX(), myTurtle.getTurtle().getTranslateY());
@@ -32,9 +35,10 @@ public class TransitionAnimation extends SLogoAnimation {
 		calculateMove();
 		moveTurtle();
 		drawPath();
-		if (frameCount == myDistance) {
+		if (frameCount >= myDistance) {
 			myTurtle.getPen().finishLine();
-		}
+			myTurtle.getPen().erase();
+		} 
 	}
 
 	private void moveTurtle() {
@@ -68,13 +72,6 @@ public class TransitionAnimation extends SLogoAnimation {
 		myTurtle.getPen().drawLine(myLineStartingPoint, endPoint, myPenDown, myTurtle.getTurtle());
 	}
 	
-	public void attachInfo(Turtle turtle, double distance) {
-		myTurtle = turtle;
-		myDistance = distance;
-		myPenDown = true;
-		setAnimationLength(myDistance);
-	}
-	
 	private void calculateMove() {
 		Node turtleNode = myTurtle.getTurtle();
 		myXMove = Math.abs(Math.sin(Math.toRadians(turtleNode.getRotate())));
@@ -91,6 +88,8 @@ public class TransitionAnimation extends SLogoAnimation {
 	
 	@Override
 	public void attachTurtle(Turtle turtle, TransitionState transitionState) {
+		myDone = transitionState.getMove() == 0;
+		if (myDone) return;
 		myTurtle = turtle;
 		myPenDown = !transitionState.getPenUp();
 		myDistance = transitionState.getMove();
