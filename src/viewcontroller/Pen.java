@@ -24,17 +24,32 @@ public class Pen {
 	private double myWidth;
 	private Group myGrid;
 	
+	/**
+	 * default Pen values;
+	 */
 	public Pen() {
-		myColor = Color.BLACK;
-		myWidth = 5;
+		this(Color.BLACK, 1.5);
+	}
+	
+	public Pen(Color color, double width) {
+		myColor = color;
+		myWidth = width;
 		myLines = new ArrayList<>();
 		myLine = new Line();
 	}
 	
+	/**
+	 * attaches the grid on which the pen is drawing
+	 * @param grid
+	 */
 	public void attachGrid(Group grid) {
 		myGrid = grid;
 	}
 	
+	/**
+	 * gets and clears the list of recently drawn lines 
+	 * @return
+	 */
 	public List<Line> getAndClearLines() {
 		List<Line> lines = new ArrayList<Line>(myLines);
 		myLines.clear();
@@ -58,12 +73,19 @@ public class Pen {
 		myLine.setTranslateY(start.getY() + GridViewController.SIZE.height / 2);
 	}
 	
+	/**
+	 * erases a line from the grid
+	 */
 	public void erase() {
 		myGrid.getChildren().remove(myLine);
 	}
 	
+	/**
+	 * finalizes a line by adding it to the current list of drawn lines
+	 */
 	public void finishLine() {
 		myLines.add(myLine);
+		myLine = new Line();
 	}
 	
 	/**

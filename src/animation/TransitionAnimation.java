@@ -37,7 +37,7 @@ public class TransitionAnimation extends SLogoAnimation {
 		drawPath();
 		if (frameCount >= myDistance) {
 			myTurtle.getPen().finishLine();
-			myTurtle.getPen().erase();
+			//myTurtle.getPen().erase();
 		} 
 	}
 

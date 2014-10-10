@@ -16,6 +16,7 @@ public abstract class SLogoAnimation {
 
     public SLogoAnimation() {
         myAnimation = new Timeline();
+        myAnimation.setRate(10);
     }
     
     /**
@@ -65,6 +66,10 @@ public abstract class SLogoAnimation {
     	myAnimation.setOnFinished(event -> animation.startAnimation());
     }
     
+    /**
+     * attaches an event to be executed when the animation finishes
+     * @param event
+     */
     public void attachOnFinish(EventHandler<ActionEvent> event) {
     	myAnimation.setOnFinished(event);
     }

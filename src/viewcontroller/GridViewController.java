@@ -96,23 +96,33 @@ public class GridViewController implements Observer, ViewController {
 		turtle.getTurtle().setLayoutY(SIZE.height / 2);
 	}
 	
-	private void moveTurtles() {
-		TransitionState state = new TransitionState(false, true, 100, 45, 0);
-		for (Turtle turtle : myTurtles) {
-			moveTurtle(turtle, state);
+	private void animateTurtle(Turtle turtle, List<TransitionState> states) {
+		SLogoAnimation animation = rotateTurtle(turtle, states.get(0));
+		SLogoAnimation currentAnimation = walkTurtle(turtle, states.get(0));
+		animation.linkNextAnimation(currentAnimation);
+		SLogoAnimation nextAnimation;
+		for (TransitionState state : states.subList(1, states.size())) {
+			nextAnimation = rotateTurtle(turtle, state);
+			currentAnimation.linkNextAnimation(nextAnimation);
+			currentAnimation = nextAnimation;
+			nextAnimation = walkTurtle(turtle, state);
+			currentAnimation.linkNextAnimation(nextAnimation);
+			currentAnimation = nextAnimation;
 		}
-	}
-	
-	private void moveTurtle(Turtle turtle, TransitionState state) {
-		turtle.getTurtle().setVisible(state.getTurtleVisible());
 		Point2D position = new Point2D(turtle.getTurtle().getTranslateX(), 
 				turtle.getTurtle().getTranslateY());
 		double rotation = turtle.getTurtle().getRotate();
-		SLogoAnimation rotateAnimation = rotateTurtle(turtle, state);
-		SLogoAnimation moveAnimation = walkTurtle(turtle, state);
-		moveAnimation.attachOnFinish(event -> finishedAnimation(turtle, position, rotation));
-		rotateAnimation.linkNextAnimation(moveAnimation);
-		rotateAnimation.startAnimation();
+		currentAnimation.attachOnFinish(event -> finishedAnimation(turtle, position, rotation));
+		animation.startAnimation();
+	}
+	
+	private void moveTurtles() {
+		List<TransitionState> states = new ArrayList<>();
+		for (int i = 0; i < 4; i ++) states.add(new TransitionState(false, true, 200, 110, 0));
+		for (Turtle turtle : myTurtles) {
+			//moveTurtle(turtle, new TransitionState(false, true, 200, 110, 0));
+			animateTurtle(turtle, states);
+		}
 	}
 	
 	private void finishedAnimation(Turtle turtle, Point2D startPosition, double startRotation) {
