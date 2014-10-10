@@ -4,6 +4,7 @@ import java.util.Observable;
 import java.util.Observer;
 
 import viewcontroller.commands.CommandWindowContainerViewController;
+import viewcontroller.turtlegrid.TurtleWindowViewController;
 import application.Main;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;

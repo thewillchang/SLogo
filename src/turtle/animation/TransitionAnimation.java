@@ -4,7 +4,7 @@ import javafx.geometry.Point2D;
 import javafx.scene.Node;
 import transitionstate.TransitionState;
 import turtle.Turtle;
-import viewcontroller.GridViewController;
+import viewcontroller.turtlegrid.GridViewController;
 
 public class TransitionAnimation extends SLogoAnimation {
 

@@ -1,9 +1,7 @@
-package viewcontroller;
+package turtle;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import turtle.Turtle;
 
 public class DrawingViewHistory {
 

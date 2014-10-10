@@ -1,6 +1,8 @@
-package viewcontroller;
+package viewcontroller.turtlegrid;
 
 import java.util.Observable;
+
+import viewcontroller.SLogoFont;
 import viewcontroller.commands.CommandWindowViewController;
 import javafx.geometry.Insets;
 import javafx.scene.Node;

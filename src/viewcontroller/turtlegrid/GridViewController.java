@@ -1,4 +1,4 @@
-package viewcontroller;
+package viewcontroller.turtlegrid;
 
 import java.awt.Dimension;
 import java.util.ArrayList;
@@ -18,6 +18,7 @@ import transitionstate.TransitionState;
 import turtle.Turtle;
 import turtle.animation.FullAnimation;
 import turtle.animation.ParallelAnimations;
+import viewcontroller.ViewController;
 
 public class GridViewController implements Observer, ViewController {
 

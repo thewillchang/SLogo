@@ -6,7 +6,6 @@ import java.util.List;
 import java.util.Observable;
 import java.util.Observer;
 
-import viewcontroller.DrawingViewState;
 import viewcontroller.ViewController;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;

@@ -3,7 +3,7 @@ package turtle;
 import java.util.ArrayList;
 import java.util.List;
 
-import viewcontroller.GridViewController;
+import viewcontroller.turtlegrid.GridViewController;
 import javafx.geometry.Point2D;
 import javafx.scene.Group;
 import javafx.scene.Node;

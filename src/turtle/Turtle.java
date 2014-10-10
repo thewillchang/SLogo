@@ -7,9 +7,6 @@ import javafx.scene.Node;
 import javafx.scene.shape.Line;
 import transitionstate.TransitionState;
 import turtle.animation.FullAnimation;
-import viewcontroller.DrawingViewHistory;
-import viewcontroller.DrawingViewState;
-import viewcontroller.NullDrawingViewState;
 
 /**
  * Turtle Object. Contains its own Turtle Model and Turtle View Controllers
