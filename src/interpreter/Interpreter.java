@@ -78,9 +78,9 @@ public class Interpreter {
             commandMap.put(command, commandReferences);
             for(String reference : commandReferences) {
                 referenceToCommandMap.put(reference,command);
-                System.out.println(referenceToCommandMap.get(reference));
+                
             }
-            //System.out.println(commandMap.get(command).get(0));
+            
         }
     }
     

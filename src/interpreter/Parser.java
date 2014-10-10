@@ -37,12 +37,12 @@ public class Parser {
      * @throws SLogoParsingException
      */
     public Collection<SLogoExpression> parseSLogoExpression (String input) throws SLogoParsingException {
-        createExpressionsFromProcessedInput(processInput(input));
-        return null;
+        return createExpressionsFromProcessedInput(processInput(input));
     }
 
     private Deque<String> processInput(String input) {
-        List<String> processedInputs = Arrays.asList(input.split("\\s+"));
+        //TODO check with Team/in future implementations for checking everything in as lowercase...
+        List<String> processedInputs = Arrays.asList(input.toLowerCase().split("\\s+"));
         Collections.reverse(processedInputs);
         return new ArrayDeque<>(processedInputs);
     }
@@ -60,7 +60,7 @@ public class Parser {
     public static void main(String[] args) throws SLogoParsingException
     {
         Parser p = new Parser();
-        String input = "forward";
+        String input = "forward 50";
         p.parseSLogoExpression(input);
        // System.out.println(p.parameterStack.size());
     }
