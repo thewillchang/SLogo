@@ -14,7 +14,7 @@ public class SLogoExpressionTest {
 
 	@Test
 	public void testTurtleExpression() {
-		SLogoExpressionFactory expressionFactory = new SLogoExpressionFactory();
+		SLogoExpressionFactory expressionFactory = new SLogoExpressionFactory("English");
 		SLogoExpression forward = null;
 		try {
 			forward = expressionFactory.createExpression("fd 70");
@@ -27,7 +27,7 @@ public class SLogoExpressionTest {
 
 	@Test
 	public void testMathExpression() {
-		SLogoExpressionFactory expressionFactory = new SLogoExpressionFactory();
+		SLogoExpressionFactory expressionFactory = new SLogoExpressionFactory("English");
 		SLogoExpression sum = null;
 		try {
 			sum = expressionFactory.createExpression("sum 30 40");
@@ -39,7 +39,7 @@ public class SLogoExpressionTest {
 
 	@Test
 	public void testBooleanExpression() {
-		SLogoExpressionFactory expressionFactory = new SLogoExpressionFactory();
+		SLogoExpressionFactory expressionFactory = new SLogoExpressionFactory("English");
 		SLogoExpression bool = null;
 		try {
 			bool = expressionFactory.createExpression("less 3 17");
@@ -51,7 +51,7 @@ public class SLogoExpressionTest {
 
 	@Test
 	public void testExceptionExpression() {
-		SLogoExpressionFactory expressionFactory = new SLogoExpressionFactory();
+		SLogoExpressionFactory expressionFactory = new SLogoExpressionFactory("English");
 		SLogoExpression exception;
 		try {
 			exception = expressionFactory.createExpression("forward forward");
