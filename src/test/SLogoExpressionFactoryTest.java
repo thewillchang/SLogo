@@ -21,7 +21,7 @@ public class SLogoExpressionFactoryTest {
 	
 	@Test
 	public void testUnimplementedMethodException() {
-		SLogoExpressionFactory factory = new SLogoExpressionFactory();
+		SLogoExpressionFactory factory = new SLogoExpressionFactory("English");
 		try {
 			factory.createExpression("helloworld");
 			fail("Should throw unimplemented method exception");
@@ -44,7 +44,7 @@ public class SLogoExpressionFactoryTest {
 	
 	@Test
 	public void testCreateSLogoMathExpression() {
-		SLogoExpressionFactory factory = new SLogoExpressionFactory();
+		SLogoExpressionFactory factory = new SLogoExpressionFactory("English");
 		try {
 			SLogoExpression expression = factory.createExpression("cos");
 			assertTrue(expression instanceof MathExpression);
@@ -55,7 +55,7 @@ public class SLogoExpressionFactoryTest {
 	
 	@Test
 	public void testCreateSLogoTurtleQueryExpression() {
-		SLogoExpressionFactory factory = new SLogoExpressionFactory();
+		SLogoExpressionFactory factory = new SLogoExpressionFactory("English");
 		try {
 			SLogoExpression expression = factory.createExpression("xcor");
 			assertTrue(expression instanceof TurtleQueryExpression);
@@ -66,7 +66,7 @@ public class SLogoExpressionFactoryTest {
 	
 	@Test
 	public void testCreateSLogoConditionalExpression() {
-		SLogoExpressionFactory factory = new SLogoExpressionFactory();
+		SLogoExpressionFactory factory = new SLogoExpressionFactory("English");
 		try {
 			SLogoExpression expression = factory.createExpression("equal?");
 			assertTrue(expression instanceof ConditionalExpression);
@@ -77,7 +77,7 @@ public class SLogoExpressionFactoryTest {
 
 	@Test
 	public void testCreateSLogoSyntaxExpression() {
-		SLogoExpressionFactory factory = new SLogoExpressionFactory();
+		SLogoExpressionFactory factory = new SLogoExpressionFactory("English");
 		try {
 			SLogoExpression expression = factory.createExpression("[");
 			assertTrue(expression instanceof SyntaxExpression);
