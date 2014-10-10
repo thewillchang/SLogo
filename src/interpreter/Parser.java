@@ -28,7 +28,7 @@ public class Parser {
     
 
     public Parser() {
-        myFactory = new SLogoExpressionFactory();
+        myFactory = new SLogoExpressionFactory("English");
     }
     /**
      * reads expression from back, parsing using a stack and returns list of expressions to evaluate
@@ -37,13 +37,12 @@ public class Parser {
      * @throws SLogoParsingException
      */
     public Collection<SLogoExpression> parseSLogoExpression (String input) throws SLogoParsingException {
-
-        createExpressionsFromProcessedInput(processInput(input));
-        return null;
+        return createExpressionsFromProcessedInput(processInput(input));
     }
 
     private Deque<String> processInput(String input) {
-        List<String> processedInputs = Arrays.asList(input.split("\\s"));
+        //TODO check with Team/in future implementations for checking everything in as lowercase...
+        List<String> processedInputs = Arrays.asList(input.toLowerCase().split("\\s+"));
         Collections.reverse(processedInputs);
         return new ArrayDeque<>(processedInputs);
     }
@@ -53,14 +52,9 @@ public class Parser {
 
         while(!processedInputStack.isEmpty()) {
             String input = processedInputStack.pop();
-            analyzeExpressionSyntax(myFactory.createExpression(input));
+            parameterStack.push(myFactory.createExpression(input));
         }
-
         return parameterStack;
-    }
-
-    private void analyzeExpressionSyntax(SLogoExpression expression) {
-
     }
 
     public static void main(String[] args) throws SLogoParsingException
@@ -68,6 +62,7 @@ public class Parser {
         Parser p = new Parser();
         String input = "forward 50";
         p.parseSLogoExpression(input);
+       // System.out.println(p.parameterStack.size());
     }
 
 }

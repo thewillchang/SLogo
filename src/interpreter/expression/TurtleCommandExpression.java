@@ -1,8 +1,7 @@
-package interpreter.expression.turtlecommand;
+package interpreter.expression;
 
+import java.util.List;
 import interpreter.SLogoResult;
-import interpreter.expression.SLogoExpression;
-import java.util.Collection;
 
 /**
  * superclass for SLogoExpressions that are commands
@@ -12,7 +11,7 @@ import java.util.Collection;
 public abstract class TurtleCommandExpression implements SLogoExpression {
 
 	@Override
-	public void loadArguments(Collection<SLogoExpression> args) {
+	public void loadArguments(List<SLogoExpression> args) {
 		// TODO Auto-generated method stub
 
 	}

@@ -1,8 +1,7 @@
 package interpreter.expression;
 
+import java.util.List;
 import interpreter.SLogoResult;
-
-import java.util.Collection;
 
 /**
  * superclass of SLogoExpressions for Math expressions
@@ -12,7 +11,7 @@ import java.util.Collection;
 public abstract class MathExpression implements SLogoExpression {
 
 	@Override
-	public void loadArguments(Collection<SLogoExpression> args) {
+	public void loadArguments(List<SLogoExpression> args) {
 		// TODO Auto-generated method stub
 
 	}
