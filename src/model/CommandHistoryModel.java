@@ -8,7 +8,6 @@ import java.util.Observable;
 
 /**
  * Model for History of commands user has typed
- * @author Jonathan Tseng
  * @author Tanaka Jimha
  *
  */

@@ -1,8 +1,10 @@
-package interpreter.expression;
+package interpreter.expression.conditional;
 
 import interpreter.SLogoResult;
+import interpreter.expression.SLogoExpression;
 
 import java.util.Collection;
+import java.util.List;
 
 /**
  * superclass of SLogoExpressions for conditionals
@@ -10,9 +12,10 @@ import java.util.Collection;
  *
  */
 public abstract class ConditionalExpression implements SLogoExpression {
+	
 
 	@Override
-	public void loadArguments(Collection<SLogoExpression> args) {
+	public void loadArguments(List<SLogoExpression> args) {
 		// TODO Auto-generated method stub
 
 	}

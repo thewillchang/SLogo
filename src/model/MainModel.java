@@ -14,7 +14,6 @@ import transitionstate.TransitionState;
 
 /**
  * main model of program--contains and updates other models
- * @author Jonathan Tseng
  * @author Tanaka Jimha
  *
  */

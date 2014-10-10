@@ -4,7 +4,6 @@ import viewcontroller.TurtleViewController;
 
 /**
  * Turtle Object. Contains its own Turtle Model and Turtle View Controllers
- * @author Jonathan Tseng
  * @author Tanaka Jimha
  *
  */

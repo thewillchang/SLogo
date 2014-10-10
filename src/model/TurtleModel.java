@@ -6,7 +6,7 @@ import com.sun.prism.Image;
 
 /**
  * Model for Turtle
- * @author Jonathan Tseng
+ * @author Tanaka Jimha
  *
  */
 public class TurtleModel extends Observable {

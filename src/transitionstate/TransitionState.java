@@ -22,6 +22,10 @@ public class TransitionState {
 	    myRotateCounterClockwise = rotateCounter;
 	}
 	
+	public TransitionState(){
+		
+	}
+	
 	/**
 	 * returns boolean of whether pen is up or down
 	 * @return

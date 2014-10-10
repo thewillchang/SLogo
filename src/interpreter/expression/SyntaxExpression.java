@@ -2,7 +2,7 @@ package interpreter.expression;
 
 import interpreter.SLogoResult;
 
-import java.util.Collection;
+import java.util.List;
 
 /**
  * superclass for SLogoExpressions that are purely syntax
@@ -13,7 +13,7 @@ import java.util.Collection;
 public abstract class SyntaxExpression implements SLogoExpression {
 
 	@Override
-	public void loadArguments(Collection<SLogoExpression> args) {
+	public void loadArguments(List<SLogoExpression> args) {
 		// TODO Auto-generated method stub
 
 	}
