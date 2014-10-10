@@ -57,6 +57,24 @@ public class Pen {
 		return lines;
 	}
 	
+	public void drawLines(Turtle turtle, List<Line> lines) {
+		myGrid.getChildren().remove(turtle.getTurtle());
+		for (Line line : lines) {
+			if (!myGrid.getChildren().contains(line)) {
+				myGrid.getChildren().add(line);
+			}
+		}
+		myGrid.getChildren().add(turtle.getTurtle());
+	}
+	
+	public void eraseLines(List<Line> lines) {
+		for (Line line : lines) {
+			if (myGrid.getChildren().contains(line)) {
+				myGrid.getChildren().remove(line);
+			}
+		}
+	}
+	
 	/**
 	 * creates a drawn path to place on the canvas
 	 * @return

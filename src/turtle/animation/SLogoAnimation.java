@@ -19,6 +19,10 @@ public abstract class SLogoAnimation {
         myAnimation.setRate(10);
     }
     
+    public Duration getDuration() {
+    	return new Duration(myAnimation.getTotalDuration().toMillis() / myAnimation.getRate());
+    }
+    
     /**
      * attaches a TurtleViewController and TransitionState to the animation
      * @param turtleViewController

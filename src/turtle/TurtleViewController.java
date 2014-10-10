@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Observable;
 import java.util.Observer;
 
+import viewcontroller.DrawingViewState;
 import viewcontroller.ViewController;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
@@ -69,7 +70,7 @@ public class TurtleViewController implements Observer, ViewController {
 	 * @return
 	 */
 	public double getRadius() {
-		return mySize.getHeight() / 2;
+		return mySize.getHeight() / 2 + myHead.getRadiusY();
 	}
 	
 	/**
@@ -88,7 +89,19 @@ public class TurtleViewController implements Observer, ViewController {
 
 	@Override
 	public void update(Observable o, Object arg) {
-		
+
+	}
+	
+	public void undoTurtle(Turtle turtle, DrawingViewState state) {
+		turtle.getTurtle().setTranslateX(state.getStartPosition().getX());
+		turtle.getTurtle().setTranslateY(state.getStartPosition().getY());
+		turtle.getTurtle().setRotate(state.getStartRotation());
+	}
+	
+	public void redoTurtle(Turtle turtle, DrawingViewState state) {
+		turtle.getTurtle().setTranslateX(state.getEndPosition().getX());
+		turtle.getTurtle().setTranslateY(state.getEndPosition().getY());
+		turtle.getTurtle().setRotate(state.getEndRotation());
 	}
 	
 	private void createTurtle() {

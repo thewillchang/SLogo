@@ -8,6 +8,7 @@ import viewcontroller.GridViewController;
 
 public class TransitionAnimation extends SLogoAnimation {
 
+	private boolean myForward;
 	private boolean myDone;
 	private double myXMove;
 	private double myYMove;
@@ -37,7 +38,6 @@ public class TransitionAnimation extends SLogoAnimation {
 		drawPath();
 		if (frameCount >= myDistance) {
 			myTurtle.getPen().finishLine();
-			//myTurtle.getPen().erase();
 		} 
 	}
 
@@ -84,15 +84,20 @@ public class TransitionAnimation extends SLogoAnimation {
 			myXMove = (rotation > 180) ? -1 * myXMove : myXMove;
 			myYMove = (rotation < 90 || rotation > 270) ? -1 * myYMove : myYMove;
 		}
+		if (!myForward) {
+			myXMove = -myXMove;
+			myYMove = -myYMove;
+		}
 	}
 	
 	@Override
 	public void attachTurtle(Turtle turtle, TransitionState transitionState) {
 		myDone = transitionState.getMove() == 0;
 		if (myDone) return;
+		myForward = transitionState.getMove() > 0;
 		myTurtle = turtle;
 		myPenDown = !transitionState.getPenUp();
-		myDistance = transitionState.getMove();
+		myDistance = Math.abs(transitionState.getMove());
 		setAnimationLength(myDistance);
 	}
 
