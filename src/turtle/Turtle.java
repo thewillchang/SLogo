@@ -50,7 +50,7 @@ public class Turtle {
 		List<Line> lines = turtle.getPen().getAndClearLines();
 		Point2D endPosition = new Point2D(turtle.getTurtle().getTranslateX(), turtle.getTurtle().getTranslateY());
 		double endRotation = turtle.getTurtle().getRotate();
-		myDrawingViewHistory.addViewHistory(turtle, new DrawingViewState(startPosition, endPosition, startRotation, endRotation, lines));
+		myDrawingViewHistory.addViewHistory(new DrawingViewState(startPosition, endPosition, startRotation, endRotation, lines));
 		myPen.drawLines(turtle, lines);
 	}	
 	

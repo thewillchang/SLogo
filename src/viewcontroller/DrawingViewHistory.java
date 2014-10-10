@@ -1,36 +1,32 @@
 package viewcontroller;
 
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.LinkedList;
 import java.util.List;
-import java.util.Map;
 
 import turtle.Turtle;
 
 public class DrawingViewHistory {
 
-	private Map<Turtle, List<DrawingViewState>> myTurtleStates;
-	private Map<Turtle, Integer> myTurtleIndices;
+	private List<DrawingViewState> myStates;
+	private int myIndex;
 	
 	public DrawingViewHistory() {
-		myTurtleIndices = new HashMap<>();
-		myTurtleStates = new HashMap<>();
+		myStates = new ArrayList<>();
+		myIndex = -1;
 	}
 	
-	public void addViewHistory(Turtle turtle, DrawingViewState state) {
-		if (!myTurtleIndices.containsKey(turtle)) {
-			myTurtleIndices.put(turtle, -1);
-			myTurtleStates.put(turtle, new LinkedList<DrawingViewState>());
-		} else {
-			List<DrawingViewState> states = new ArrayList<>();
-			for (int i = 0; i <= myTurtleIndices.get(turtle); i++) {
-				states.add(myTurtleStates.get(turtle).get(i));
-			}
-			myTurtleStates.put(turtle, states);
+	/**
+	 * adds a state of view history to the drawing view history
+	 * @param state
+	 */
+	public void addViewHistory(DrawingViewState state) {
+		List<DrawingViewState> states = new ArrayList<>();
+		for (int i = 0; i <= myIndex; i++) {
+			states.add(myStates.get(i));
 		}
-		myTurtleStates.get(turtle).add(state);
-		myTurtleIndices.put(turtle, myTurtleIndices.get(turtle) + 1);
+		myStates = states;
+		myStates.add(state);
+		myIndex++;
 	}
 	
 	/**
@@ -40,12 +36,11 @@ public class DrawingViewHistory {
 	 * @return
 	 */
 	public DrawingViewState undo(Turtle turtle) {
-		if (!myTurtleIndices.containsKey(turtle) || 
-				myTurtleIndices.get(turtle) == -1) {
+		if (myIndex == -1) {
 			return new NullDrawingViewState();
 		}
-		DrawingViewState state = myTurtleStates.get(turtle).get(myTurtleIndices.get(turtle));
-		myTurtleIndices.put(turtle, myTurtleIndices.get(turtle)- 1);
+		DrawingViewState state = myStates.get(myIndex);
+		myIndex--;
 		return state;
 	}
 	
@@ -56,13 +51,11 @@ public class DrawingViewHistory {
 	 * @return
 	 */
 	public DrawingViewState redo(Turtle turtle) {
-		if (!myTurtleIndices.containsKey(turtle) || 
-				!myTurtleStates.containsKey(turtle) || 
-				myTurtleIndices.get(turtle) == myTurtleStates.get(turtle).size() - 1) {
+		if (myIndex == myStates.size() - 1) {
 			return new NullDrawingViewState();
-		} 
-		myTurtleIndices.put(turtle, myTurtleIndices.get(turtle) + 1);
-		return myTurtleStates.get(turtle).get(myTurtleIndices.get(turtle));
+		}
+		myIndex++;
+		return myStates.get(myIndex);
 	}
 	
 }
