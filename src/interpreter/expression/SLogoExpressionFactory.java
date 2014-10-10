@@ -122,9 +122,9 @@ public class SLogoExpressionFactory {
                 }
             }
         }
-        for(String s : commandMap.get("Quotient")) {
+        /*for(String s : commandMap.get("Quotient")) {
             System.out.println("divide".matches(s));        
-        }
+        }*/
 
     }
 
