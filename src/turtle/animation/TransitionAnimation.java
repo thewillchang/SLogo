@@ -1,9 +1,9 @@
-package animation;
+package turtle.animation;
 
 import javafx.geometry.Point2D;
 import javafx.scene.Node;
-import model.Turtle;
 import transitionstate.TransitionState;
+import turtle.Turtle;
 import viewcontroller.GridViewController;
 
 public class TransitionAnimation extends SLogoAnimation {

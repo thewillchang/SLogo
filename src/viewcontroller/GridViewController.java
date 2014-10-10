@@ -16,11 +16,11 @@ import javafx.scene.layout.HBox;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Line;
 import javafx.scene.shape.Rectangle;
-import model.Turtle;
 import transitionstate.TransitionState;
-import animation.RotateClockwiseAnimation;
-import animation.SLogoAnimation;
-import animation.TransitionAnimation;
+import turtle.Turtle;
+import turtle.animation.RotateClockwiseAnimation;
+import turtle.animation.SLogoAnimation;
+import turtle.animation.TransitionAnimation;
 
 public class GridViewController implements Observer, ViewController {
 

@@ -1,8 +1,8 @@
-package animation;
+package turtle.animation;
 
 import javafx.scene.Node;
-import model.Turtle;
 import transitionstate.TransitionState;
+import turtle.Turtle;
 
 public abstract class RotateAnimation extends SLogoAnimation {
 

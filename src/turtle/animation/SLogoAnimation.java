@@ -1,12 +1,12 @@
-package animation;
+package turtle.animation;
 
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.util.Duration;
-import model.Turtle;
 import transitionstate.TransitionState;
+import turtle.Turtle;
 
 public abstract class SLogoAnimation {
 

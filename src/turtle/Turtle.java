@@ -1,8 +1,6 @@
-package model;
+package turtle;
 
 import javafx.scene.Node;
-import viewcontroller.Pen;
-import viewcontroller.TurtleViewController;
 
 /**
  * Turtle Object. Contains its own Turtle Model and Turtle View Controllers

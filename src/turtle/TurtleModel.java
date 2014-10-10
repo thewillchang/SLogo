@@ -1,4 +1,4 @@
-package model;
+package turtle;
 
 import java.util.Observable;
 

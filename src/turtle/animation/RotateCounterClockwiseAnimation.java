@@ -1,7 +1,7 @@
-package animation;
+package turtle.animation;
 
-import model.Turtle;
 import transitionstate.TransitionState;
+import turtle.Turtle;
 
 public class RotateCounterClockwiseAnimation extends RotateAnimation {
 
