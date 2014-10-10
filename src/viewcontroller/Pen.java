@@ -10,7 +10,6 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Line;
 import javafx.scene.shape.StrokeLineCap;
 
-
 /**
  * class for creating paths drawn
  * @author Jonathan Tseng
@@ -18,17 +17,18 @@ import javafx.scene.shape.StrokeLineCap;
  */
 public class Pen {
 
+	// default pen values
+	private static double ourDefaultWidth = 3;
+	private static Color ourDefaultColor = Color.BLACK;
+	
 	private Line myLine;
 	private List<Line> myLines;
 	private Color myColor;
 	private double myWidth;
 	private Group myGrid;
 	
-	/**
-	 * default Pen values;
-	 */
 	public Pen() {
-		this(Color.BLACK, 1.5);
+		this(ourDefaultColor, ourDefaultWidth);
 	}
 	
 	public Pen(Color color, double width) {
