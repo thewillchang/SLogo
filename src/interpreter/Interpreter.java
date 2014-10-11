@@ -46,9 +46,9 @@ public class Interpreter {
 
     public static void main(String[] args) throws SLogoParsingException {
         Interpreter interpreter = new Interpreter();
-        String input = "forward 50";
+        String input = "forward 1000 forward 1000";
         String input_error = "asdf";
-        System.out.println(interpreter.interpret(input).getTransition().get(0).getMove());
+        System.out.println(interpreter.interpret(input).getTransition().get(1).getMove());
     }
 
 

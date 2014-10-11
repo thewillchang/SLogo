@@ -46,7 +46,7 @@ public class Parser {
         loadedExpressions = new ArrayDeque<>(); 
         while (!expressionStack.isEmpty()) {
             SLogoExpression expression = expressionStack.pop();
-            expression.loadArguments(expressionStack);
+            expression.loadArguments(loadedExpressions);
             loadedExpressions.push(expression);
         }
         
@@ -55,7 +55,7 @@ public class Parser {
     private Deque<String> processInput(String input) {
         //TODO check with Team/in future implementations for checking everything in as lowercase...
         List<String> processedInputs = Arrays.asList(input.toLowerCase().split("\\s+"));
-        Collections.reverse(processedInputs);
+        //Collections.reverse(processedInputs);
         return new ArrayDeque<>(processedInputs);
     }
 
@@ -67,11 +67,15 @@ public class Parser {
         }
         return parameterStack;
     }
+    
+    /*
 
     public static void main(String[] args) throws SLogoParsingException {
         Parser p = new Parser();
         String input = "forward 50";
         p.parseSLogoExpression(input);
     }
+    
+    */
 
 }
