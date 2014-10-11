@@ -1,8 +1,7 @@
 package interpreter.expression;
 
-import interpreter.SLogoResult;
-
 import java.util.List;
+import interpreter.SLogoResult;
 
 /**
  * class of SLogoExpressions for User Defined Expressions

@@ -3,6 +3,8 @@ package viewcontroller;
 import java.util.Observable;
 import java.util.Observer;
 
+import viewcontroller.commands.CommandWindowContainerViewController;
+import viewcontroller.turtlegrid.TurtleWindowViewController;
 import application.Main;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
@@ -22,7 +24,7 @@ public class MainViewController implements Observer, ViewController {
 	private Scene myScene;
 	private BorderPane myPane;
 	private TurtleWindowViewController myTurtleWindow;
-	private CommandWindowViewController myCommandWindow;
+	private CommandWindowContainerViewController myCommandWindow;
 	
 	public MainViewController() {
 		myPane = new BorderPane();
@@ -39,7 +41,7 @@ public class MainViewController implements Observer, ViewController {
 	}
 	
 	private void placeCommandWindowView() {
-		myCommandWindow = new CommandWindowViewController();
+		myCommandWindow = new CommandWindowContainerViewController();
 		BorderPane.setAlignment(myTurtleWindow.getNode(), Pos.CENTER);
 		BorderPane.setMargin(myTurtleWindow.getNode(), myGridMargin);
 		myPane.setRight(myCommandWindow.getNode());

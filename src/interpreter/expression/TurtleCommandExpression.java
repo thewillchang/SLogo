@@ -1,9 +1,7 @@
-package interpreter.expression.turtlecommand;
-
-import interpreter.SLogoResult;
-import interpreter.expression.SLogoExpression;
+package interpreter.expression;
 
 import java.util.List;
+import interpreter.SLogoResult;
 
 /**
  * superclass for SLogoExpressions that are commands
