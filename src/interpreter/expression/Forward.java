@@ -8,10 +8,15 @@ import transitionstate.TransitionState;
 
 public class Forward extends TurtleCommandExpression {
     private Deque<SLogoExpression> myParameters;
-    
+
     @Override
     public void loadArguments(Deque<SLogoExpression> args) {
-        myParameters =  args;
+        try {
+            myParameters.add(args.pop());
+        }
+        catch (NullPointerException e) {
+            System.out.println("Empty Parameters List");
+        }
     }
 
     @Override
@@ -27,7 +32,7 @@ public class Forward extends TurtleCommandExpression {
         myResult.getTransition().add(nextTransition);
         myResult.getTransition().addAll(previousResult.getTransition());
         return myResult;
-        
+
     }
 
 
