@@ -53,6 +53,7 @@ public class View {
 		tab.setText("Workspace " + myWorkspaces.size());
 		tab.setContent(myCurrentWorkspace.getViewController().getNode());
 		myTabPane.getTabs().add(tab);
+		myTabPane.getSelectionModel().select(tab);
 	}	
 
 	public void init() {
