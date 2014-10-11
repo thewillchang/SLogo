@@ -2,20 +2,21 @@ package interpreter.expression;
 
 import interpreter.SLogoResult;
 import interpreter.TurtleCommandResult;
+import java.util.Deque;
 import java.util.List;
 import transitionstate.TransitionState;
 
 public class Forward extends TurtleCommandExpression {
-    private List<SLogoExpression> myParameters;
+    private Deque<SLogoExpression> myParameters;
     
     @Override
-    public void loadArguments(List<SLogoExpression> args) {
+    public void loadArguments(Deque<SLogoExpression> args) {
         myParameters =  args;
     }
 
     @Override
     public SLogoResult evaluate() {
-        SLogoResult previousResult = myParameters.get(0).evaluate();
+        SLogoResult previousResult = myParameters.pop().evaluate();
         TransitionState prevTransition = previousResult.getTransition().get(0);
         TransitionState nextTransition = new TransitionState(prevTransition.getPenUp(), 
                                                              prevTransition.getTurtleVisible(), 

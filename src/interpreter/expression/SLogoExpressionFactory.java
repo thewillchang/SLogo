@@ -1,6 +1,5 @@
 package interpreter.expression;
 
-import interpreter.Parser;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -40,6 +39,7 @@ public class SLogoExpressionFactory {
     private Set<String> commandSet;
 
     private Map<String,String> syntaxMap;
+    private Map<String,String> reverseSyntaxMap;
 
     private final String CLASS_PATH = "interpreter.expression.";
 
@@ -52,6 +52,7 @@ public class SLogoExpressionFactory {
         commandMap = new HashMap<>();
         referenceToCommandMap = new HashMap<>();
 
+        
         //Initializes syntaxMap
         initializeSyntaxMap();
 
@@ -69,6 +70,16 @@ public class SLogoExpressionFactory {
         syntaxMap.put("ListEnd",LIST_END);
         syntaxMap.put("GroupStart",GROUP_START);
         syntaxMap.put("GroupEnd",GROUP_END);
+        
+        reverseSyntaxMap = new HashMap<>();
+        reverseSyntaxMap.put(COMMENT,"Comment");
+        reverseSyntaxMap.put(CONSTANT, "Constant");
+        reverseSyntaxMap.put(VARIABLE, "Variable");
+        reverseSyntaxMap.put(COMMAND, "Command");
+        reverseSyntaxMap.put(LIST_START, "ListStart");
+        reverseSyntaxMap.put(LIST_END, "ListEnd");
+        reverseSyntaxMap.put(GROUP_START, "GroupStart");
+        reverseSyntaxMap.put(GROUP_END, "GroupEnd");
     }
 
     /**
@@ -81,7 +92,6 @@ public class SLogoExpressionFactory {
     public SLogoExpression createExpression (String command) throws SLogoParsingException {
         for(String reference : referenceToCommandMap.keySet()) {
             if(command.matches(reference)) {
-                System.out.println(command);    
                 try {
                     String classPathAndName = 
                             CLASS_PATH
@@ -99,7 +109,28 @@ public class SLogoExpressionFactory {
             }
 
         }
-        throw new SLogoParsingException("asdf");
+        for(String reference: reverseSyntaxMap.keySet()) {
+            
+            if(command.matches(reference)) {
+                try {
+                    String classPathAndName = 
+                            CLASS_PATH
+                            + reverseSyntaxMap.get(reference);
+                    Class<?> commandClass = Class.forName(classPathAndName);
+                    Constant expression = (Constant) commandClass.newInstance();
+                    expression.setValue(Double.parseDouble(command));
+                    return expression;
+                }
+                catch (ClassNotFoundException e) {
+                    System.out.println("No such class.");
+                } catch (InstantiationException e) {
+                    System.out.println("Failed to Instantiate");
+                } catch (IllegalAccessException e) {
+                    System.out.println("Illegal Access");
+                }
+            }
+        }
+        throw new SLogoParsingException("Command not found");
     }
 
     /**
@@ -121,10 +152,9 @@ public class SLogoExpressionFactory {
                     referenceToCommandMap.put(reference,command);
                 }
             }
+
         }
-        /*for(String s : commandMap.get("Quotient")) {
-            System.out.println("divide".matches(s));        
-        }*/
+        
 
     }
 
