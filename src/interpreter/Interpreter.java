@@ -1,18 +1,11 @@
 package interpreter;
 
-import java.util.Arrays;
-import java.util.Collection;
+
 import java.util.Deque;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Locale;
-import java.util.Map;
-import java.util.ResourceBundle;
-import java.util.Set;
+
 import exceptions.SLogoParsingException;
 import interpreter.expression.SLogoExpression;
-import interpreter.expression.SLogoExpressionFactory;
+
 
 /**
  * Interprets and processes user input, sending results to the model
@@ -20,15 +13,16 @@ import interpreter.expression.SLogoExpressionFactory;
  *
  */
 public class Interpreter {
-    
+
     private Parser myParser;
-    
+    private ExpressionEvaluator myEvaluator;
+
     /**
      * Constructor
      */
     public Interpreter() {
         myParser = new Parser();
-        
+        myEvaluator = new ExpressionEvaluator();
     }
 
 
@@ -40,24 +34,23 @@ public class Interpreter {
     public SLogoResult interpret(String input) {
         try {
             Deque<SLogoExpression> parsedExpressions = myParser.parseSLogoExpression(input);
-            while(!parsedExpressions.isEmpty()) {
-                
-            }
-            return null;
+            return myEvaluator.evaluateExpressionsAndMergeResults(parsedExpressions);
         }
         catch (SLogoParsingException e) {
             // TODO update without printing stack trace
-            e.printStackTrace();
-            return null;
+            System.out.println("Invalid Input");
         }
+        return null;
     }
-    
 
-    
+
+
     public static void main(String[] args) throws SLogoParsingException {
         Interpreter interpreter = new Interpreter();
-        
-        
+        String input = "forward 50";
+        String input_error = "asdf";
+        System.out.println(interpreter.interpret(input).getTransition().size());
+        //interpreter.interpret(input_error);
     }
 
 

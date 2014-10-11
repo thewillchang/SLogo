@@ -4,11 +4,8 @@ import java.util.List;
 import transitionstate.TransitionState;
 import exceptions.SLogoParsingException;
 
-public class SyntaxResult extends SLogoResult {
+public class EndResult extends SLogoResult {
 
-    public SyntaxResult (double value) {
-        super(value);
-    }
     @Override
     public SLogoParsingException getException () {
         // TODO Auto-generated method stub
@@ -17,12 +14,14 @@ public class SyntaxResult extends SLogoResult {
 
     @Override
     public List<TransitionState> getTransition () {
-        return myTransitionStates;
+        // TODO Auto-generated method stub
+        return null;
     }
 
     @Override
     public double getValue () {
-        return myValue;
+        // TODO Auto-generated method stub
+        return 0;
     }
 
 }

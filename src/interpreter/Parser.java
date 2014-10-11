@@ -32,18 +32,24 @@ public class Parser {
      * @throws SLogoParsingException
      */
     public Deque<SLogoExpression> parseSLogoExpression (String input) throws SLogoParsingException {
+        try{
         Deque<SLogoExpression> expressionStack = createExpressionsFromProcessedInput(processInput(input));
         loadAllExpressionParameters(expressionStack);
+        }
+        catch (SLogoParsingException e) {
+            System.out.println("Invalid Input");
+        }
         return loadedExpressions;
     }
 
     private void loadAllExpressionParameters(Deque<SLogoExpression> expressionStack) {
         loadedExpressions = new ArrayDeque<>(); 
-        while(!expressionStack.isEmpty()) {
+        while (!expressionStack.isEmpty()) {
             SLogoExpression expression = expressionStack.pop();
-            expression.loadArguments(loadedExpressions);
+            expression.loadArguments(expressionStack);
             loadedExpressions.push(expression);
         }
+        
     }
     
     private Deque<String> processInput(String input) {
@@ -52,12 +58,9 @@ public class Parser {
         Collections.reverse(processedInputs);
         return new ArrayDeque<>(processedInputs);
     }
-    
-    
 
     private Deque<SLogoExpression> createExpressionsFromProcessedInput (Deque<String> processedInputStack) 
             throws SLogoParsingException {
-
         while(!processedInputStack.isEmpty()) {
             String input = processedInputStack.pop();
             parameterStack.push(myFactory.createExpression(input));

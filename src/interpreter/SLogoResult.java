@@ -14,14 +14,16 @@ import exceptions.SLogoParsingException;
  */
 public abstract class SLogoResult {
 
-        protected List<TransitionState> myPreviousTransitionStates;
+        protected List<TransitionState> myTransitionStates;
         protected ResourceBundle myProperties;
         protected double myValue;
         
         
         
         public SLogoResult() {
-            myPreviousTransitionStates = new ArrayList<>();
+            myTransitionStates = new ArrayList<>();
+            //TODO change this
+            myValue = 0;
         }
         
         public SLogoResult(double value){

@@ -24,13 +24,11 @@ public class TurtleCommandResult extends SLogoResult {
 
     @Override
     public List<TransitionState> getTransition () {
-        // TODO Auto-generated method stub
-        return null;
+        return myTransitionStates;
     }
 
     @Override
     public double getValue () {
-        // TODO Auto-generated method stub
         return myValue;
     }
 
