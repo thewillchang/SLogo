@@ -68,12 +68,10 @@ public class Parser {
         return parameterStack;
     }
 
-    public static void main(String[] args) throws SLogoParsingException
-    {
+    public static void main(String[] args) throws SLogoParsingException {
         Parser p = new Parser();
         String input = "forward 50";
         p.parseSLogoExpression(input);
-        
     }
 
 }

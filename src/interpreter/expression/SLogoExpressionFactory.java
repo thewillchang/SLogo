@@ -101,9 +101,11 @@ public class SLogoExpressionFactory {
                 }
                 catch (ClassNotFoundException e) {
                     System.out.println("No such class.");
-                } catch (InstantiationException e) {
+                } 
+                catch (InstantiationException e) {
                     System.out.println("Failed to Instantiate");
-                } catch (IllegalAccessException e) {
+                } 
+                catch (IllegalAccessException e) {
                     System.out.println("Illegal Access");
                 }
             }

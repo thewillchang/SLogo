@@ -37,7 +37,6 @@ public class Interpreter {
             return myEvaluator.evaluateExpressionsAndMergeResults(parsedExpressions);
         }
         catch (SLogoParsingException e) {
-            // TODO update without printing stack trace
             System.out.println("Invalid Input");
         }
         return null;
@@ -49,8 +48,7 @@ public class Interpreter {
         Interpreter interpreter = new Interpreter();
         String input = "forward 50";
         String input_error = "asdf";
-        System.out.println(interpreter.interpret(input).getTransition().size());
-        //interpreter.interpret(input_error);
+        System.out.println(interpreter.interpret(input).getTransition().get(0).getMove());
     }
 
 
