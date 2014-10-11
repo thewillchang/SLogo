@@ -1,6 +1,6 @@
 package interpreter.expression;
 
-import java.util.List;
+import java.util.Deque;
 import interpreter.SLogoResult;
 
 /**
@@ -11,7 +11,7 @@ import interpreter.SLogoResult;
 public class UserDefinedExpression implements SLogoExpression{
 
 	@Override
-	public void loadArguments(List<SLogoExpression> args) {
+	public void loadArguments(Deque<SLogoExpression> args) {
 		// TODO Auto-generated method stub
 		
 	}

@@ -1,6 +1,6 @@
 package interpreter.expression;
 
-import java.util.List;
+import java.util.Deque;
 import interpreter.SLogoResult;
 
 /**
@@ -14,7 +14,7 @@ public interface SLogoExpression {
 	 * loads the list of expressions as arguments for the expression
 	 * @param args
 	 */
-	public void loadArguments(List<SLogoExpression> args);
+	public void loadArguments(Deque<SLogoExpression> args);
 	
 	/**
 	 * evaluates the expression and returns an SLogoResult
