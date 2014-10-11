@@ -1,6 +1,7 @@
 package model;
 
-import viewcontroller.TurtleViewController;
+import turtle.TurtleModel;
+import turtle.TurtleViewController;
 
 /**
  * Turtle Object. Contains its own Turtle Model and Turtle View Controllers

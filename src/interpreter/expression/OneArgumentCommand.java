@@ -2,15 +2,15 @@ package interpreter.expression;
 
 import interpreter.SLogoResult;
 
-import java.util.List;
+import java.util.Deque;
 
 public class OneArgumentCommand implements SLogoExpression {
 	
 	private SLogoExpression operand1;
 
 	@Override
-	public void loadArguments(List<SLogoExpression> args) {
-		this.operand1 = args.get(0);	
+	public void loadArguments(Deque<SLogoExpression> args) {
+		this.operand1 = args.pop();	
 	}
 
 	@Override

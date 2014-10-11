@@ -29,7 +29,7 @@ public class ConditionalResult extends SLogoResult {
 	}
 
 	@Override
-	public int getValue() {
+	public double getValue() {
 
 		return this.myValue;
 	}

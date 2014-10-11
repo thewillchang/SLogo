@@ -3,8 +3,7 @@ package interpreter.expression.conditional;
 import interpreter.SLogoResult;
 import interpreter.expression.SLogoExpression;
 
-import java.util.Collection;
-import java.util.List;
+import java.util.Deque;
 
 /**
  * superclass of SLogoExpressions for conditionals
@@ -15,7 +14,7 @@ public abstract class ConditionalExpression implements SLogoExpression {
 	
 
 	@Override
-	public void loadArguments(List<SLogoExpression> args) {
+	public void loadArguments(Deque<SLogoExpression> args) {
 		// TODO Auto-generated method stub
 
 	}

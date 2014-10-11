@@ -3,7 +3,7 @@ package interpreter.expression.mathematical;
 import interpreter.SLogoResult;
 import interpreter.expression.SLogoExpression;
 
-import java.util.List;
+import java.util.Deque;
 
 /**
  * superclass of SLogoExpressions for Math expressions
@@ -16,9 +16,9 @@ public abstract class MathExpression implements SLogoExpression {
 	private SLogoExpression operand2;
 	
 	@Override
-	public void loadArguments(List<SLogoExpression> args) {
-		operand1 = args.get(0);
-		operand2 = args.get(1);
+	public void loadArguments(Deque<SLogoExpression> args) {
+		operand1 = args.pop();
+		operand2 = args.pop();
 	}
 
 	@Override

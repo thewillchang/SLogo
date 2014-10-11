@@ -2,7 +2,7 @@ package interpreter.expression;
 
 import interpreter.SLogoResult;
 
-import java.util.List;
+import java.util.Deque;
 
 public class TwoArgumentCommand implements SLogoExpression{
 
@@ -10,9 +10,9 @@ public class TwoArgumentCommand implements SLogoExpression{
 	private SLogoExpression operand2;
 	
 	@Override
-	public void loadArguments(List<SLogoExpression> args) {
-		this.operand1 = args.get(0);
-		this.operand2 = args.get(1);
+	public void loadArguments(Deque<SLogoExpression> args) {
+		this.operand1 = args.pop();
+		this.operand2 = args.pop();
 		
 	}
 

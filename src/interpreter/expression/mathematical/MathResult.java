@@ -14,10 +14,10 @@ import interpreter.SLogoResult;
 
 public class MathResult extends SLogoResult {
 	
-	private int myValue;
+	private double myValue;
 	private TransitionState myState;
 	
-	public MathResult(int value, TransitionState state){
+	public MathResult(double value, TransitionState state){
 		this.myValue = value;
 		this.myState = state;
 	}
@@ -35,7 +35,7 @@ public class MathResult extends SLogoResult {
 	}
 
 	@Override
-	public int getValue() {
+	public double getValue() {
 		// TODO Auto-generated method stub
 		return myValue;
 	}

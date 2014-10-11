@@ -4,7 +4,7 @@ import interpreter.SLogoResult;
 import interpreter.expression.SLogoExpression;
 import interpreter.expression.TwoArgumentCommand;
 
-import java.util.List;
+import java.util.Deque;
 
 import transitionstate.TransitionState;
 
@@ -21,7 +21,7 @@ public class Less extends TwoArgumentCommand {
 	private SLogoExpression operand2;
 	
 	@Override
-	public void loadArguments(List<SLogoExpression> args) {
+	public void loadArguments(Deque<SLogoExpression> args) {
 		super.loadArguments(args);
 	}
 
