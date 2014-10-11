@@ -2,21 +2,31 @@ package interpreter;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.ResourceBundle;
 import transitionstate.TransitionState;
 import exceptions.SLogoParsingException;
 
 
 /**
  * wrapper class for results of interpreting an SLogo command
- * @author Jonathan Tseng
+ * @author Jonathan Tseng and Will Chang
  *
  */
 public abstract class SLogoResult {
 
-        List<TransitionState> myPreviousTransitionStates;
+        protected List<TransitionState> myPreviousTransitionStates;
+        protected ResourceBundle myProperties;
+        protected double myValue;
+        
+        
         
         public SLogoResult() {
             myPreviousTransitionStates = new ArrayList<>();
+        }
+        
+        public SLogoResult(double value){
+            this();
+            myValue = value;
         }
 	/**
 	 * returns an exception if found when evaluating the SLogoExpression
@@ -34,6 +44,6 @@ public abstract class SLogoResult {
 	 * returns the integer output from evaluating the SLogoExpression
 	 * @return
 	 */
-	public abstract int getValue();
+	public abstract double getValue();
 	
 }
