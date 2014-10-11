@@ -19,9 +19,10 @@ import transitionstate.TransitionState;
  */
 public class MainModel extends Observable{
 
-	Interpreter myInterpreter;
-	Turtle myTurtle;
-	Collection<TransitionState> myTransitionStates;
+	private Interpreter myInterpreter;
+	private Turtle myTurtle;
+	private Collection<TransitionState> myTransitionState;
+	private String language;
 
 	final String PROPERTIES_FILENAME = "SLogoState";
 	final String LANGUAGE_PROPERTY = "Language";
@@ -30,7 +31,7 @@ public class MainModel extends Observable{
 
 		this.myInterpreter = new Interpreter();
 		this.myTurtle = new Turtle();
-		this.myTransitionStates = new ArrayList<TransitionState>();
+		this.myTransitionState = new ArrayList<TransitionState>();
 
 	}
 
@@ -39,7 +40,7 @@ public class MainModel extends Observable{
 	 * @param sLogoCommand
 	 */
 	public void interpretSLogoCommand(String sLogoCommand) {
-		myInterpreter.interpret(sLogoCommand);
+		myTransitionState = myInterpreter.interpret(sLogoCommand).getTransition();
 	}
 
 	/**
@@ -48,7 +49,9 @@ public class MainModel extends Observable{
 	 */
 	public void setLanguage(String languageName) {
 		setProperty(LANGUAGE_PROPERTY, languageName);
+		this.language = languageName;
 	}
+	
 
 	private void setProperty(String propertyName, String value){
 

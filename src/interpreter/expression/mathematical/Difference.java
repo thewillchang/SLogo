@@ -1,4 +1,4 @@
-package interpreter.expression.conditional;
+package interpreter.expression.mathematical;
 
 import interpreter.SLogoResult;
 import interpreter.expression.SLogoExpression;
@@ -8,18 +8,11 @@ import java.util.List;
 
 import transitionstate.TransitionState;
 
-/**
- * Implements the < operation on given operands
- * @author Tanaka Jimha
- * 
- *
- */
-
-public class Less extends TwoArgumentCommand {
+public class Difference extends TwoArgumentCommand {
 
 	private SLogoExpression operand1;
 	private SLogoExpression operand2;
-	
+
 	@Override
 	public void loadArguments(List<SLogoExpression> args) {
 		super.loadArguments(args);
@@ -27,11 +20,11 @@ public class Less extends TwoArgumentCommand {
 
 	@Override
 	public SLogoResult evaluate() {
-		int value = (operand1.evaluate().getValue() < operand2.evaluate().getValue()) ? 1 : 0;
+
+		int value = (operand1.evaluate().getValue() - operand2.evaluate().getValue());
 		TransitionState state = new TransitionState();
-		
-		return new ConditionalResult(value, state);
+
+		return  new MathResult(value, state);
+
 	}
-	
-	
 }

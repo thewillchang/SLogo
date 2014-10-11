@@ -6,6 +6,12 @@ import transitionstate.TransitionState;
 import exceptions.SLogoParsingException;
 import interpreter.SLogoResult;
 
+/**
+ * Wrapper for Results of Math operations
+ * @author Tanaka Jimha
+ *
+ */
+
 public class MathResult extends SLogoResult {
 	
 	private int myValue;
