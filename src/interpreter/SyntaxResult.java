@@ -1,21 +1,14 @@
 package interpreter;
 
 import java.util.List;
-import java.util.Locale;
-import java.util.ResourceBundle;
 import transitionstate.TransitionState;
 import exceptions.SLogoParsingException;
-/**
- * @author Will Chang 
- */
 
+public class SyntaxResult extends SLogoResult {
 
-public class TurtleCommandResult extends SLogoResult {
-    
-    public TurtleCommandResult(double myValue) {
-        super(myValue);
+    public SyntaxResult (double value) {
+        super(value);
     }
-    
     @Override
     public SLogoParsingException getException () {
         // TODO Auto-generated method stub
@@ -31,7 +24,7 @@ public class TurtleCommandResult extends SLogoResult {
     @Override
     public double getValue () {
         // TODO Auto-generated method stub
-        return myValue;
+        return 0;
     }
 
 }
