@@ -2,6 +2,7 @@ package interpreter;
 
 import java.util.Arrays;
 import java.util.Collection;
+import java.util.Deque;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -19,31 +20,14 @@ import interpreter.expression.SLogoExpressionFactory;
  *
  */
 public class Interpreter {
-
-    
-    //TODO check if needed for future implementations...
-    private Map<String, List<String>> commandMap;
-    private Set<String> commandSet;
-    
-    //TODO check if this map setup is good for all implementations...
-    private Map<String, String> referenceToCommandMap;
     
     private Parser myParser;
-    private ResourceBundle myCommandReference; 
     
-    private final String DEFAULT_LANGUAGE = "English";
-
-
     /**
      * Constructor
      */
     public Interpreter() {
         myParser = new Parser();
-        
-        commandSet = new HashSet<>();
-        commandMap = new HashMap<>();
-        referenceToCommandMap = new HashMap<>();
-        setCommandReference(DEFAULT_LANGUAGE);
         
     }
 
@@ -55,8 +39,10 @@ public class Interpreter {
      */
     public SLogoResult interpret(String input) {
         try {
-            Collection<SLogoExpression> parsedExpressions = myParser.parseSLogoExpression(input);
-            
+            Deque<SLogoExpression> parsedExpressions = myParser.parseSLogoExpression(input);
+            while(!parsedExpressions.isEmpty()) {
+                
+            }
             return null;
         }
         catch (SLogoParsingException e) {
@@ -66,23 +52,7 @@ public class Interpreter {
         }
     }
     
-    /**
-     * Sets the Reference Language for SLogo Commands
-     * @param language to set to.
-     */
-    private void setCommandReference(String language) {
-        myCommandReference = ResourceBundle.getBundle("resources.languages." + language, Locale.US);
-        commandSet = myCommandReference.keySet();
-        for(String command : commandSet) {
-            List<String> commandReferences = Arrays.asList(myCommandReference.getString(command).split(","));
-            commandMap.put(command, commandReferences);
-            for(String reference : commandReferences) {
-                referenceToCommandMap.put(reference,command);
-                
-            }
-            
-        }
-    }
+
     
     public static void main(String[] args) throws SLogoParsingException {
         Interpreter interpreter = new Interpreter();
