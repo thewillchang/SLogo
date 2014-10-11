@@ -1,7 +1,9 @@
-package interpreter.expression;
+package interpreter.expression.mathematical;
 
-import java.util.Deque;
 import interpreter.SLogoResult;
+import interpreter.expression.SLogoExpression;
+
+import java.util.List;
 
 /**
  * superclass of SLogoExpressions for Math expressions
@@ -9,11 +11,14 @@ import interpreter.SLogoResult;
  *
  */
 public abstract class MathExpression implements SLogoExpression {
-
+	
+	private SLogoExpression operand1;
+	private SLogoExpression operand2;
+	
 	@Override
-	public void loadArguments(Deque<SLogoExpression> args) {
-		// TODO Auto-generated method stub
-
+	public void loadArguments(List<SLogoExpression> args) {
+		operand1 = args.get(0);
+		operand2 = args.get(1);
 	}
 
 	@Override

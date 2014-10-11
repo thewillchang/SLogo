@@ -30,6 +30,14 @@ public class TurtleWindowViewController implements Observer, ViewController {
 		placeGridView();
 	}
 	
+	public void undoClicked() {
+		myGridView.undo();
+	}
+	
+	public void redoClicked() {
+		myGridView.redo();
+	}
+	
 	private void placeStatusView() {
 		myStatusView = new TurtleStatusViewController();
 		BorderPane.setAlignment(myStatusView.getNode(), Pos.CENTER);

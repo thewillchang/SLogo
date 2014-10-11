@@ -7,7 +7,6 @@ import java.util.Collection;
 
 /**
  * Model for User Defined Variables
- * @author Jonathan Tseng
  * @author Tanaka Jimha
  *
  */

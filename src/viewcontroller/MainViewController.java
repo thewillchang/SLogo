@@ -3,14 +3,12 @@ package viewcontroller;
 import java.util.Observable;
 import java.util.Observer;
 
-import viewcontroller.commands.CommandWindowContainerViewController;
-import viewcontroller.turtlegrid.TurtleWindowViewController;
-import application.Main;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Node;
-import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
+import viewcontroller.commands.CommandWindowContainerViewController;
+import viewcontroller.turtlegrid.TurtleWindowViewController;
 
 /**
  * view controller for main view--contains rest of views and places them accordingly
@@ -19,16 +17,14 @@ import javafx.scene.layout.BorderPane;
  */
 public class MainViewController implements Observer, ViewController {
 
-	private final static Insets myGridMargin = new Insets(25);
+	private final static Insets GRID_MARGIN = new Insets(15);
 	
-	private Scene myScene;
 	private BorderPane myPane;
 	private TurtleWindowViewController myTurtleWindow;
 	private CommandWindowContainerViewController myCommandWindow;
 	
 	public MainViewController() {
 		myPane = new BorderPane();
-		myScene = new Scene(myPane, Main.SIZE.width, Main.SIZE.height);
 		placeTurtleWindowView();
 		placeCommandWindowView();
 	}
@@ -36,15 +32,23 @@ public class MainViewController implements Observer, ViewController {
 	private void placeTurtleWindowView() {
 		myTurtleWindow = new TurtleWindowViewController();
 		BorderPane.setAlignment(myTurtleWindow.getNode(), Pos.CENTER);
-		BorderPane.setMargin(myTurtleWindow.getNode(), myGridMargin);
+		BorderPane.setMargin(myTurtleWindow.getNode(), GRID_MARGIN);
 		myPane.setLeft(myTurtleWindow.getNode());
 	}
 	
 	private void placeCommandWindowView() {
 		myCommandWindow = new CommandWindowContainerViewController();
 		BorderPane.setAlignment(myTurtleWindow.getNode(), Pos.CENTER);
-		BorderPane.setMargin(myTurtleWindow.getNode(), myGridMargin);
+		BorderPane.setMargin(myTurtleWindow.getNode(), GRID_MARGIN);
 		myPane.setRight(myCommandWindow.getNode());
+	}
+	
+	public void undoClicked() {
+		myTurtleWindow.undoClicked();
+	}
+	
+	public void redoClicked() {
+		myTurtleWindow.redoClicked();
 	}
 	
 	@Override
@@ -55,10 +59,6 @@ public class MainViewController implements Observer, ViewController {
 	@Override
 	public Node getNode() {
 		return myPane;
-	}
-
-	public Scene getScene() {
-		return myScene;
 	}
 	
 }

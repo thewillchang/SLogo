@@ -2,13 +2,13 @@ package test;
 
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
-import interpreter.expression.ConditionalExpression;
-import interpreter.expression.MathExpression;
 import interpreter.expression.SLogoExpression;
 import interpreter.expression.SLogoExpressionFactory;
 import interpreter.expression.SyntaxExpression;
 //import interpreter.expression.TurtleCommandExpression;
 import interpreter.expression.TurtleQueryExpression;
+import interpreter.expression.conditional.ConditionalExpression;
+import interpreter.expression.mathematical.MathExpression;
 
 import org.junit.Test;
 
