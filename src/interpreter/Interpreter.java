@@ -16,18 +16,20 @@ public class Interpreter {
 
     private Parser myParser;
     private ExpressionEvaluator myEvaluator;
+    private CommandReferenceLibrary myLibrary;
 
     /**
      * Constructor
      */
     public Interpreter() {
-        myParser = new Parser();
+        myLibrary = new CommandReferenceLibrary();
+        myParser = new Parser(myLibrary);
         myEvaluator = new ExpressionEvaluator();
     }
 
 
     /**
-     * interprets an SLogo command and returns an SLogo result
+     * Interprets user input, parses into SLogoExpressions, and returns an SLogo result
      * @param command 
      * @return
      */
@@ -47,7 +49,6 @@ public class Interpreter {
     public static void main(String[] args) throws SLogoParsingException {
         Interpreter interpreter = new Interpreter();
         String input = "forward 1000 forward 1000";
-        String input_error = "asdf";
         System.out.println(interpreter.interpret(input).getTransition().get(1).getMove());
     }
 
