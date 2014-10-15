@@ -3,18 +3,17 @@ package test;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
+import interpreter.CommandReferenceLibrary;
+import interpreter.SLogoExpressionFactory;
 import interpreter.expression.SLogoExpression;
-import interpreter.expression.SLogoExpressionFactory;
-
 import org.junit.Test;
-
 import exceptions.SLogoParsingException;
 
 public class SLogoExpressionTest {
 
 	@Test
 	public void testTurtleExpression() {
-		SLogoExpressionFactory expressionFactory = new SLogoExpressionFactory("English");
+		SLogoExpressionFactory expressionFactory = new SLogoExpressionFactory(new CommandReferenceLibrary());
 		SLogoExpression forward = null;
 		try {
 			forward = expressionFactory.createExpression("fd 70");
@@ -27,7 +26,7 @@ public class SLogoExpressionTest {
 
 	@Test
 	public void testMathExpression() {
-		SLogoExpressionFactory expressionFactory = new SLogoExpressionFactory("English");
+		SLogoExpressionFactory expressionFactory = new SLogoExpressionFactory(new CommandReferenceLibrary());
 		SLogoExpression sum = null;
 		try {
 			sum = expressionFactory.createExpression("sum 30 40");
@@ -39,7 +38,7 @@ public class SLogoExpressionTest {
 
 	@Test
 	public void testBooleanExpression() {
-		SLogoExpressionFactory expressionFactory = new SLogoExpressionFactory("English");
+		SLogoExpressionFactory expressionFactory = new SLogoExpressionFactory(new CommandReferenceLibrary());
 		SLogoExpression bool = null;
 		try {
 			bool = expressionFactory.createExpression("less 3 17");
@@ -51,7 +50,7 @@ public class SLogoExpressionTest {
 
 	@Test
 	public void testExceptionExpression() {
-		SLogoExpressionFactory expressionFactory = new SLogoExpressionFactory("English");
+		SLogoExpressionFactory expressionFactory = new SLogoExpressionFactory(new CommandReferenceLibrary());
 		SLogoExpression exception;
 		try {
 			exception = expressionFactory.createExpression("forward forward");
