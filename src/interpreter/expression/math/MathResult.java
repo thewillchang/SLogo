@@ -1,4 +1,4 @@
-package interpreter.expression.mathematical;
+package interpreter.expression.math;
 
 import java.util.List;
 
