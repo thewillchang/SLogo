@@ -3,7 +3,7 @@ package exceptions;
 public class SLogoParsingException extends Exception {
 
 	/**
-	 * deffault 
+	 * default 
 	 */
 	private static final long serialVersionUID = 1L;
 

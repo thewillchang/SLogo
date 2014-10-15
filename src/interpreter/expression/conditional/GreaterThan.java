@@ -15,7 +15,7 @@ import transitionstate.TransitionState;
  *
  */
 
-public class Greater extends TwoArgumentCommand {
+public class GreaterThan extends TwoArgumentCommand {
 
 	private SLogoExpression operand1;
 	private SLogoExpression operand2;
