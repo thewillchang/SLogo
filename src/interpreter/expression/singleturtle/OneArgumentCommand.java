@@ -1,7 +1,7 @@
-package interpreter.expression;
+package interpreter.expression.singleturtle;
 
 import interpreter.SLogoResult;
-
+import interpreter.expression.SLogoExpression;
 import java.util.Deque;
 
 public class OneArgumentCommand implements SLogoExpression {

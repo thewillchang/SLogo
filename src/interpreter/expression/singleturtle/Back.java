@@ -13,10 +13,10 @@ import transitionstate.TransitionState;
  * @author Will Chang
  *
  */
-public class Forward extends TurtleCommandExpression {
+public class Back extends TurtleCommandExpression {
     private Deque<SLogoExpression> myParameters;
 
-    public Forward () {
+    public Back () {
         myParameters = new ArrayDeque<>();
     }
     @Override
@@ -43,7 +43,7 @@ public class Forward extends TurtleCommandExpression {
                                                              prevTransition.getRotateCounterClockwise());*/
         TransitionState nextTransition = new TransitionState(false, 
                                                              true, 
-                                                             previousResult.getValue(), 
+                                                             previousResult.getValue()*(-1), 
                                                              0,
                                                              0);
         SLogoResult myResult = new TurtleCommandResult(previousResult.getValue());
@@ -52,6 +52,5 @@ public class Forward extends TurtleCommandExpression {
         return myResult;
 
     }
-
 
 }
