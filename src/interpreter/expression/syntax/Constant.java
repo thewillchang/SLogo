@@ -1,9 +1,11 @@
-package interpreter.expression;
+package interpreter.expression.syntax;
 
 import java.util.Deque;
 import java.util.List;
 import interpreter.SLogoResult;
 import interpreter.SyntaxResult;
+import interpreter.expression.SLogoExpression;
+import interpreter.expression.SyntaxExpression;
 
 /**
  * 
