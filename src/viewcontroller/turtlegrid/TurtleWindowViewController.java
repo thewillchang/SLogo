@@ -1,13 +1,11 @@
 package viewcontroller.turtlegrid;
 
 import java.awt.Dimension;
-import java.util.Observable;
-import java.util.Observer;
 
-import viewcontroller.ViewController;
 import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.layout.BorderPane;
+import viewcontroller.ViewController;
 import application.Main;
 
 /**

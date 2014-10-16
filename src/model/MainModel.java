@@ -7,7 +7,6 @@ import java.io.IOException;
 import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.Observable;
 import java.util.Properties;
 
 import transitionstate.TransitionState;

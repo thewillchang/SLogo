@@ -2,11 +2,11 @@ package viewcontroller.commands;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Observable;
-import viewcontroller.SLogoFont;
+
 import javafx.scene.Node;
 import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
+import viewcontroller.SLogoFont;
 
 /**
  * view controller for window for user defined variables 
@@ -44,11 +44,6 @@ public class UserDefinedVariablesViewController extends CommandWindowViewControl
 	@Override
 	public Node getNode() {
 		return myPane;
-	}
-
-	@Override
-	public void update(Observable o, Object arg) {
-		
 	}
 
 }

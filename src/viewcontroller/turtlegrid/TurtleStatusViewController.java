@@ -1,7 +1,5 @@
 package viewcontroller.turtlegrid;
 
-import java.util.Observable;
-
 import javafx.geometry.Insets;
 import javafx.scene.Node;
 import javafx.scene.control.Label;
@@ -32,12 +30,6 @@ public class TurtleStatusViewController extends CommandWindowViewController {
 	@Override
 	public Node getNode() {
 		return myPane;
-	}
-
-	@Override
-	public void update(Observable o, Object arg) {
-		// TODO Auto-generated method stub
-		
 	}
 	
 }

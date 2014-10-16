@@ -1,12 +1,10 @@
 package viewcontroller.commands;
 
-import java.util.*;
-
-import viewcontroller.SLogoFont;
 import javafx.event.EventHandler;
 import javafx.scene.Node;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
+import viewcontroller.SLogoFont;
 
 /**
  * View controller for window of history of commands
@@ -55,8 +53,4 @@ public class CommandHistoryViewController extends CommandClickableListWindowView
 		return myPane;
 	}
 
-	@Override
-	public void update(Observable o, Object arg) {
-
-	}
 }

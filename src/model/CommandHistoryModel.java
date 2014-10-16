@@ -4,7 +4,6 @@ import interpreter.expression.SLogoExpression;
 
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.Observable;
 
 /**
  * Model for History of commands user has typed

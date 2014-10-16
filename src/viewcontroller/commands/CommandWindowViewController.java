@@ -1,7 +1,5 @@
 package viewcontroller.commands;
 
-import java.util.Observer;
-
 import javafx.geometry.Insets;
 import javafx.scene.control.Label;
 import javafx.scene.layout.Background;
@@ -17,7 +15,7 @@ import viewcontroller.ViewController;
  * @author Abhishek B
  *
  */
-public abstract class CommandWindowViewController implements Observer, ViewController {
+public abstract class CommandWindowViewController implements ViewController {
 	
 	protected BorderPane myPane;
 	protected VBox myCommandWindowVerticalBox;

@@ -1,11 +1,5 @@
 package viewcontroller.commands;
 
-import java.util.Observable;
-import java.util.Observer;
-
-import model.MainModel;
-import viewcontroller.SLogoFont;
-import viewcontroller.ViewController;
 import javafx.event.EventHandler;
 import javafx.geometry.Insets;
 import javafx.scene.Node;
@@ -19,6 +13,9 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.CornerRadii;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
+import model.MainModel;
+import viewcontroller.SLogoFont;
+import viewcontroller.ViewController;
 
 /**
  * View Controller for the Text input where user types commands
@@ -27,7 +24,7 @@ import javafx.scene.paint.Color;
  *
  */
 
-public class CommandPromptViewController implements Observer, ViewController {
+public class CommandPromptViewController implements ViewController {
 
 	private BorderPane myPane;
 	private Label myTitleLabel;
@@ -81,11 +78,6 @@ public class CommandPromptViewController implements Observer, ViewController {
 	@Override
 	public Node getNode() {
 		return myPane;
-	}
-
-	@Override
-	public void update(Observable o, Object arg) {
-
 	}
 
 }

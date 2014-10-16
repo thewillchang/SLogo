@@ -1,10 +1,9 @@
 package viewcontroller.commands;
 
-import java.util.Observable;
-import viewcontroller.SLogoFont;
 import javafx.geometry.Insets;
 import javafx.scene.Node;
 import javafx.scene.control.Label;
+import viewcontroller.SLogoFont;
 
 /**
  * View Controller for status text for SLogo commands
@@ -33,11 +32,6 @@ public class CommandStatusViewController extends CommandWindowViewController {
 	@Override
 	public Node getNode() {
 		return myPane;
-	}
-
-	@Override
-	public void update(Observable o, Object arg) {
-		
 	}
 
 }

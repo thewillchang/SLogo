@@ -3,8 +3,6 @@ package viewcontroller.turtlegrid;
 import java.awt.Dimension;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Observable;
-import java.util.Observer;
 
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;

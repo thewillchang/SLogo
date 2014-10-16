@@ -1,11 +1,10 @@
 package viewcontroller.commands;
 
-import java.util.Observable;
-import viewcontroller.SLogoFont;
 import javafx.event.EventHandler;
 import javafx.scene.Node;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
+import viewcontroller.SLogoFont;
 
 /**
  * view controller for window for user defined methods
@@ -47,11 +46,6 @@ public class UserDefinedMethodsViewController extends CommandClickableListWindow
 	@Override
 	public Node getNode() {
 		return myPane;
-	}
-
-	@Override
-	public void update(Observable o, Object arg) {
-
 	}
 
 }

@@ -1,13 +1,10 @@
 package viewcontroller;
 
-import java.util.Observable;
-import java.util.Observer;
-
-import model.MainModel;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.layout.BorderPane;
+import model.MainModel;
 import viewcontroller.commands.CommandWindowContainerViewController;
 import viewcontroller.turtlegrid.TurtleWindowViewController;
 
