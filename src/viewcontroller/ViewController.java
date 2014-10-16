@@ -3,7 +3,7 @@ package viewcontroller;
 import javafx.scene.Node;
 
 /**
- * view controller interface implmented by all view controllers
+ * view controller interface implemented by all view controllers
  * @author Jonathan Tseng
  *
  */

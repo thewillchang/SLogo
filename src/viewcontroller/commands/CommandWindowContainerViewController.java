@@ -54,7 +54,7 @@ public class CommandWindowContainerViewController implements Observer, ViewContr
 		VBox.setVgrow(userDefinedHorizontalBox, Priority.ALWAYS);
 		VBox.setVgrow(myCommandHistoryView.getNode(), Priority.ALWAYS);
 		VBox.setVgrow(myCommandPromptView.getNode(), Priority.ALWAYS);
-		VBox.setVgrow(myCommandStatusView.getNode(), Priority.ALWAYS);
+		VBox.setVgrow(myCommandStatusView.getNode(), Priority.ALWAYS); 
 		commandWindowVerticalBox.getChildren().addAll(userDefinedHorizontalBox, myCommandHistoryView.getNode(), 
 				myCommandPromptView.getNode(), myCommandStatusView.getNode());
 		

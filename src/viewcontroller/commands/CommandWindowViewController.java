@@ -32,6 +32,4 @@ public abstract class CommandWindowViewController implements Observer, ViewContr
 		myCommandWindowVerticalBox.getChildren().add(myTitleLabel);
 		myPane.setCenter(myCommandWindowVerticalBox);
 	}
-	
-	
 }
