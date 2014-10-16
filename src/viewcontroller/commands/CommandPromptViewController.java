@@ -3,6 +3,7 @@ package viewcontroller.commands;
 import java.util.Observable;
 import java.util.Observer;
 
+import model.MainModel;
 import viewcontroller.SLogoFont;
 import viewcontroller.ViewController;
 import javafx.event.EventHandler;
@@ -30,12 +31,12 @@ public class CommandPromptViewController implements Observer, ViewController {
 
 	private BorderPane myPane;
 	private Label myTitleLabel;
+	private MainModel myMainModel;
 	private VBox myWindowVerticalBox;
 	private TextArea myCommandPromptTextArea;
-	private CommandWindowContainerViewController myCommandWindow;
 
-	public CommandPromptViewController(CommandWindowContainerViewController commandWindow) {
-		myCommandWindow = commandWindow;
+	public CommandPromptViewController(MainModel mainModel) {
+		myMainModel = mainModel;
 		
 		myPane = new BorderPane();
 		myPane.setBackground(new Background(new BackgroundFill(Color.WHITE,
@@ -45,19 +46,8 @@ public class CommandPromptViewController implements Observer, ViewController {
 		myTitleLabel.setFont(new SLogoFont().createTextFont());
 		myTitleLabel.setPadding(new Insets(0));
 
-		myCommandPromptTextArea = new TextArea();
-		myCommandPromptTextArea.setPrefRowCount(4);
-		myCommandPromptTextArea.setWrapText(true);
-		myCommandPromptTextArea.setOnKeyPressed(new EventHandler<KeyEvent>() {
-			@Override
-			public void handle(KeyEvent arg0) {
-				if (arg0.getCode() == KeyCode.ENTER) {
-					passCommandToStatus(myCommandPromptTextArea.getText());
-					myCommandPromptTextArea.clear();
-				}
-			}
-		});
-
+		setUpCommandPromptTextArea();
+		
 		myWindowVerticalBox = new VBox();
 		myWindowVerticalBox.getChildren().addAll(myTitleLabel,
 				myCommandPromptTextArea);
@@ -65,12 +55,27 @@ public class CommandPromptViewController implements Observer, ViewController {
 		myPane.setCenter(myWindowVerticalBox);
 	}
 	
+	private void setUpCommandPromptTextArea() {
+		myCommandPromptTextArea = new TextArea();
+		myCommandPromptTextArea.setPrefRowCount(4);
+		myCommandPromptTextArea.setWrapText(true);
+		myCommandPromptTextArea.setOnKeyPressed(new EventHandler<KeyEvent>() {
+			@Override
+			public void handle(KeyEvent arg0) {
+				if (arg0.getCode() == KeyCode.ENTER) {
+					passCommandToModel(myCommandPromptTextArea.getText());
+					myCommandPromptTextArea.clear();
+				}
+			}
+		});
+	}
+	
 	public void appendCommandToPromptTextArea(String commandFromPrelists) {
 		myCommandPromptTextArea.appendText(commandFromPrelists);
 	}
 
-	private void passCommandToStatus(String commandFromPromptTextArea) {
-		myCommandWindow.updateStatusWindow(commandFromPromptTextArea);
+	private void passCommandToModel(String commandFromPromptTextArea) {
+		myMainModel.interpretSLogoCommand(commandFromPromptTextArea);
 	}
 	
 	@Override
