@@ -11,7 +11,7 @@ import java.util.Observable;
  * @author Tanaka Jimha
  *
  */
-public class UserDefinedMethodsModel extends Observable {
+public class UserDefinedMethodsModel {
 	
 	private Collection<SLogoExpression> userMethods;
 	

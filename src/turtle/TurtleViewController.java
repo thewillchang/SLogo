@@ -25,7 +25,7 @@ import application.Main;
  * @author Jonathan Tseng
  *
  */
-public class TurtleViewController implements Observer, ViewController {
+public class TurtleViewController implements ViewController {
 
 	private final static int FRAMES_PER_SECOND = 7;
 	
@@ -84,11 +84,6 @@ public class TurtleViewController implements Observer, ViewController {
 	@Override
 	public Node getNode() {
 		return (myTurtleImageView == null) ? myTurtle : myTurtleImageView;
-	}
-
-	@Override
-	public void update(Observable o, Object arg) {
-
 	}
 	
 	public void undoTurtle(Turtle turtle, DrawingViewState state) {

@@ -18,7 +18,7 @@ import turtle.Turtle;
  * @author Tanaka Jimha
  *
  */
-public class MainModel extends Observable{
+public class MainModel {
 
 	private Interpreter myInterpreter;
 	private Turtle myTurtle;

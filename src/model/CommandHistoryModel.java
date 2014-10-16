@@ -11,7 +11,7 @@ import java.util.Observable;
  * @author Tanaka Jimha
  *
  */
-public class CommandHistoryModel extends Observable {
+public class CommandHistoryModel {
 	
 	private Collection<SLogoExpression> commandHistory;
 	

@@ -19,7 +19,7 @@ import turtle.animation.FullAnimation;
 import turtle.animation.ParallelAnimations;
 import viewcontroller.ViewController;
 
-public class GridViewController implements Observer, ViewController {
+public class GridViewController implements ViewController {
 
 	public final static Dimension SIZE = new Dimension(
 			TurtleWindowViewController.SIZE.width * 12 / 10, 
@@ -93,11 +93,6 @@ public class GridViewController implements Observer, ViewController {
 	@Override
 	public Node getNode() {
 		return myGrid;
-	}
-
-	@Override
-	public void update(Observable arg0, Object arg1) {
-		
 	}
 
 }

@@ -15,7 +15,7 @@ import viewcontroller.turtlegrid.TurtleWindowViewController;
  * @author Jonathan Tseng
  *
  */
-public class MainViewController implements Observer, ViewController {
+public class MainViewController implements ViewController {
 
 	private final static Insets GRID_MARGIN = new Insets(15);
 	
@@ -49,11 +49,6 @@ public class MainViewController implements Observer, ViewController {
 	
 	public void redoClicked() {
 		myTurtleWindow.redoClicked();
-	}
-	
-	@Override
-	public void update(Observable o, Object arg) {
-		
 	}
 
 	@Override

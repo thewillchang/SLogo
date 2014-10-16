@@ -15,7 +15,7 @@ import application.Main;
  * @author Jonathan Tseng
  *
  */
-public class TurtleWindowViewController implements Observer, ViewController {
+public class TurtleWindowViewController implements ViewController {
 
 	public static final Dimension SIZE = new Dimension(Main.SIZE.width / 2 * 9/ 10, Main.SIZE.height * 9 / 10);
 	
@@ -53,11 +53,6 @@ public class TurtleWindowViewController implements Observer, ViewController {
 	@Override
 	public Node getNode() {
 		return myPane;
-	}
-
-	@Override
-	public void update(Observable o, Object arg) {
-		
 	}
 
 }
