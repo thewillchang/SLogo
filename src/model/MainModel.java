@@ -11,7 +11,7 @@ import java.util.Observable;
 import java.util.Properties;
 
 import transitionstate.TransitionState;
-import turtle.Turtle;
+import model.Turtle;
 
 /**
  * main model of program--contains and updates other models

@@ -1,7 +1,12 @@
 package interpreter.expression;
 
+<<<<<<< Updated upstream
 import java.util.Deque;
+=======
+>>>>>>> Stashed changes
 import interpreter.SLogoResult;
+
+import java.util.List;
 
 /**
  * Interface that SLogo Expressions must implement

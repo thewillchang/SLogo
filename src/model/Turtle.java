@@ -1,7 +1,10 @@
 package model;
 
+<<<<<<< Updated upstream
 import turtle.TurtleModel;
 import turtle.TurtleViewController;
+=======
+>>>>>>> Stashed changes
 
 /**
  * Turtle Object. Contains its own Turtle Model and Turtle View Controllers

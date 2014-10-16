@@ -4,7 +4,11 @@ import interpreter.SLogoResult;
 import interpreter.expression.SLogoExpression;
 import interpreter.expression.TwoArgumentCommand;
 
+<<<<<<< Updated upstream
 import java.util.Deque;
+=======
+import java.util.List;
+>>>>>>> Stashed changes
 
 import transitionstate.TransitionState;
 
@@ -21,7 +25,11 @@ public class Less extends TwoArgumentCommand {
 	private SLogoExpression operand2;
 	
 	@Override
+<<<<<<< Updated upstream
 	public void loadArguments(Deque<SLogoExpression> args) {
+=======
+	public void loadArguments(List<SLogoExpression> args) {
+>>>>>>> Stashed changes
 		super.loadArguments(args);
 	}
 

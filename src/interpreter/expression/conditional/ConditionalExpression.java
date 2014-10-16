@@ -3,7 +3,12 @@ package interpreter.expression.conditional;
 import interpreter.SLogoResult;
 import interpreter.expression.SLogoExpression;
 
+<<<<<<< Updated upstream:src/interpreter/expression/conditional/ConditionalExpression.java
 import java.util.Deque;
+=======
+
+import java.util.List;
+>>>>>>> Stashed changes:src/interpreter/expression/conditional/ConditionalExpression.java
 
 /**
  * superclass of SLogoExpressions for conditionals

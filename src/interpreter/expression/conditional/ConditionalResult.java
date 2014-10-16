@@ -29,7 +29,11 @@ public class ConditionalResult extends SLogoResult {
 	}
 
 	@Override
+<<<<<<< Updated upstream
 	public double getValue() {
+=======
+	public int getValue() {
+>>>>>>> Stashed changes
 
 		return this.myValue;
 	}

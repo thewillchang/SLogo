@@ -1,13 +1,13 @@
 package interpreter.expression;
 
-<<<<<<< Updated upstream
-import java.util.Deque;
-=======
->>>>>>> Stashed changes
+import java.util.List;
 import interpreter.SLogoResult;
 
+<<<<<<< HEAD
+=======
 import java.util.List;
 
+>>>>>>> tfj3
 /**
  * superclass for SLogoExpressions that are Turtle Queries
  * @author Jonathan Tseng
@@ -16,12 +16,11 @@ import java.util.List;
 public abstract class TurtleQueryExpression implements SLogoExpression {
 
 	@Override
-<<<<<<< Updated upstream
-	public void loadArguments(Deque<SLogoExpression> args) {
-=======
 	public void loadArguments(List<SLogoExpression> args) {
-
->>>>>>> Stashed changes
+<<<<<<< HEAD
+=======
+		
+>>>>>>> tfj3
 		// TODO Auto-generated method stub
 
 	}
