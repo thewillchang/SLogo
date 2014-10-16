@@ -44,12 +44,26 @@ public class Interpreter {
         return null;
     }
 
-
+    public void setLogoLanguage(String language) {
+        myLibrary = new CommandReferenceLibrary(language);
+        myParser = new Parser(myLibrary);
+    }
+    
+    public CommandReferenceLibrary getCommandReferenceLibrary() {
+        return myLibrary;
+    }
 
     public static void main(String[] args) throws SLogoParsingException {
         Interpreter interpreter = new Interpreter();
         String input = "forward 1000 forward 1000";
-        System.out.println(interpreter.interpret(input).getTransition().get(1).getMove());
+        CommandReferenceLibrary lib = interpreter.getCommandReferenceLibrary();
+        System.out.println(interpreter.interpret(input).getTransition().get(0).getMove());
+        System.out.println(lib.getLogoLanguage());
+        interpreter.setLogoLanguage("Chinese");
+        CommandReferenceLibrary lib1 = interpreter.getCommandReferenceLibrary();
+        System.out.println(lib1.getLogoLanguage());
+        String input1 = "qj 1000 qj 1000";
+        System.out.println(interpreter.interpret(input1).getTransition().get(0).getMove());
     }
 
 

@@ -4,14 +4,13 @@ import interpreter.expression.SLogoExpression;
 
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.Observable;
 
 /**
  * Model for User Defined Methods
  * @author Tanaka Jimha
  *
  */
-public class UserDefinedMethodsModel extends Observable {
+public class UserDefinedMethodsModel {
 	
 	private Collection<SLogoExpression> userMethods;
 	

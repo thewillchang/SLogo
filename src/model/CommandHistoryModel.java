@@ -4,14 +4,13 @@ import interpreter.expression.SLogoExpression;
 
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.Observable;
 
 /**
  * Model for History of commands user has typed
  * @author Tanaka Jimha
  *
  */
-public class CommandHistoryModel extends Observable {
+public class CommandHistoryModel {
 	
 	private Collection<SLogoExpression> commandHistory;
 	

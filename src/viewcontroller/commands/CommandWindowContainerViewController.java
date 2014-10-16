@@ -1,17 +1,15 @@
 package viewcontroller.commands;
 
 import java.awt.Dimension;
-import java.util.Observable;
-import java.util.Observer;
 
-import model.MainModel;
-import viewcontroller.ViewController;
 import javafx.geometry.Insets;
 import javafx.scene.Node;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Priority;
 import javafx.scene.layout.VBox;
+import model.MainModel;
+import viewcontroller.ViewController;
 import application.Main;
 
 /**
@@ -21,7 +19,7 @@ import application.Main;
  *
  */
 
-public class CommandWindowContainerViewController implements Observer, ViewController {
+public class CommandWindowContainerViewController implements ViewController {
 
 	public static final Dimension SIZE = new Dimension(
 			Main.SIZE.width / 2 * 9 / 10, Main.SIZE.height * 9 / 10);
@@ -43,8 +41,8 @@ public class CommandWindowContainerViewController implements Observer, ViewContr
 	}
 	
 	private void placeCommandWindows() {
-		commandWindowVerticalBox = new VBox();
-		commandWindowVerticalBox.setPadding(new Insets(10));
+		commandWindowVerticalBox = new VBox(10);
+		commandWindowVerticalBox.setPadding(new Insets(20));
 		
 		HBox userDefinedHorizontalBox = placeUserDefinedBoxes();
 		myCommandHistoryView = new CommandHistoryViewController(this);
@@ -84,8 +82,4 @@ public class CommandWindowContainerViewController implements Observer, ViewContr
 		return myPane;
 	}
 
-	@Override
-	public void update(Observable o, Object arg) {
-
-	}
 }

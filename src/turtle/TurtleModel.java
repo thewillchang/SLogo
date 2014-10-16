@@ -1,15 +1,14 @@
 package turtle;
 
-import java.util.Observable;
+import javafx.scene.image.Image;
 
-import com.sun.prism.Image;
 
 /**
  * Model for Turtle
  * @author Tanaka Jimha
  *
  */
-public class TurtleModel extends Observable {
+public class TurtleModel {
 	
 	private int myXPosition;
 	private int myYPosition;

@@ -3,8 +3,6 @@ package viewcontroller.turtlegrid;
 import java.awt.Dimension;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Observable;
-import java.util.Observer;
 
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -19,7 +17,7 @@ import turtle.animation.FullAnimation;
 import turtle.animation.ParallelAnimations;
 import viewcontroller.ViewController;
 
-public class GridViewController implements Observer, ViewController {
+public class GridViewController implements ViewController {
 
 	public final static Dimension SIZE = new Dimension(
 			TurtleWindowViewController.SIZE.width * 12 / 10, 
@@ -93,11 +91,6 @@ public class GridViewController implements Observer, ViewController {
 	@Override
 	public Node getNode() {
 		return myGrid;
-	}
-
-	@Override
-	public void update(Observable arg0, Object arg1) {
-		
 	}
 
 }

@@ -1,13 +1,10 @@
 package viewcontroller;
 
-import java.util.Observable;
-import java.util.Observer;
-
-import model.MainModel;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.layout.BorderPane;
+import model.MainModel;
 import viewcontroller.commands.CommandWindowContainerViewController;
 import viewcontroller.turtlegrid.TurtleWindowViewController;
 
@@ -16,7 +13,7 @@ import viewcontroller.turtlegrid.TurtleWindowViewController;
  * @author Jonathan Tseng
  *
  */
-public class MainViewController implements Observer, ViewController {
+public class MainViewController implements ViewController, MainModelObserver {
 
 	private final static Insets GRID_MARGIN = new Insets(15);
 	
@@ -51,15 +48,16 @@ public class MainViewController implements Observer, ViewController {
 	public void redoClicked() {
 		myTurtleWindow.redoClicked();
 	}
-	
-	@Override
-	public void update(Observable o, Object arg) {
-		
-	}
 
 	@Override
 	public Node getNode() {
 		return myPane;
+	}
+
+	@Override
+	public void update(MainModel model) {
+		// TODO Auto-generated method stub
+		
 	}
 	
 }

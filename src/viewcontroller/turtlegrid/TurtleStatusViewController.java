@@ -1,12 +1,10 @@
 package viewcontroller.turtlegrid;
 
-import java.util.Observable;
-
-import viewcontroller.SLogoFont;
-import viewcontroller.commands.CommandWindowViewController;
 import javafx.geometry.Insets;
 import javafx.scene.Node;
 import javafx.scene.control.Label;
+import viewcontroller.SLogoFont;
+import viewcontroller.commands.CommandWindowViewController;
 
 /**
  * view controller for status of turtle that can be toggled i.e., view that
@@ -33,10 +31,5 @@ public class TurtleStatusViewController extends CommandWindowViewController {
 	public Node getNode() {
 		return myPane;
 	}
-
-	@Override
-	public void update(Observable o, Object arg) {
-
-	}
-
+	
 }

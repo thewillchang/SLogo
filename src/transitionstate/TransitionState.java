@@ -1,5 +1,6 @@
 package transitionstate;
 
+
 /**
  * wrapper class for a transition state for the Grid. Specifies how to draw the next path.
  * @author Jonathan Tseng
@@ -8,29 +9,33 @@ package transitionstate;
  */
 public class TransitionState {
 
-	private boolean myPenUp;
-	private boolean myTurtleVisible;
+	private PenChange myPenUp;
+	private VisibleChange myTurtleVisible;
 	private double myMove;
 	private double myRotateClockwise;
 	private double myRotateCounterClockwise;
 	
-	public TransitionState(boolean penUp, boolean visible, double distance, double rotateClock, double rotateCounter) {
-	    myPenUp = penUp;
-	    myTurtleVisible = visible;
+	public static enum PenChange {
+		CHANGE_UP, CHANGE_DOWN, NO_CHANGE
+	}
+	
+	public static enum VisibleChange {
+		CHANGE_VISIBLE, CHANGE_INVISIBLE, NO_CHANGE
+	}
+	
+	public TransitionState(PenChange penChange, VisibleChange visibleChange, double distance, double rotateClock, double rotateCounter) {
+	    myPenUp = penChange;
+	    myTurtleVisible = visibleChange;
 	    myMove = distance;
 	    myRotateClockwise = rotateClock;
 	    myRotateCounterClockwise = rotateCounter;
-	}
-	
-	public TransitionState(){
-		
 	}
 	
 	/**
 	 * returns boolean of whether pen is up or down
 	 * @return
 	 */
-	public boolean getPenUp() {
+	public PenChange getPenUp() {
 		return myPenUp;
 	}
 	
@@ -38,7 +43,7 @@ public class TransitionState {
 	 * returns boolean of whether turtle is visible or not
 	 * @return
 	 */
-	public boolean getTurtleVisible() {
+	public VisibleChange getTurtleVisible() {
 		return myTurtleVisible;
 	}
 	

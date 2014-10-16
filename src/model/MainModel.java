@@ -7,32 +7,34 @@ import java.io.IOException;
 import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.Observable;
+import java.util.List;
 import java.util.Properties;
 
 import transitionstate.TransitionState;
 import turtle.Turtle;
+import viewcontroller.MainModelObserver;
 
 /**
  * main model of program--contains and updates other models
  * @author Tanaka Jimha
  *
  */
-public class MainModel extends Observable{
+public class MainModel {
 
+	private List<MainModelObserver> myObservers;
 	private Interpreter myInterpreter;
-	private Turtle myTurtle;
-	private Collection<TransitionState> myTransitionState;
+	private List<Turtle> myTurtles;
+	private List<TransitionState> myTransitionState;
 	private String language;
 
 	final String PROPERTIES_FILENAME = "SLogoState";
 	final String LANGUAGE_PROPERTY = "Language";
 
 	public MainModel(){
-
+		this.myObservers = new ArrayList<>();
 		this.myInterpreter = new Interpreter();
-		this.myTurtle = new Turtle();
 		this.myTransitionState = new ArrayList<TransitionState>();
+		this.myTurtles = new ArrayList<>();
 	}
 
 	/**
@@ -41,6 +43,7 @@ public class MainModel extends Observable{
 	 */
 	public void interpretSLogoCommand(String sLogoCommand) {
 		myTransitionState = myInterpreter.interpret(sLogoCommand).getTransition();
+		notifyObservers();
 	}
 
 	/**
@@ -52,23 +55,40 @@ public class MainModel extends Observable{
 		this.language = languageName;
 	}
 	
-
+	public void attachObservers(Collection<MainModelObserver> observers) {
+		for (MainModelObserver observer : observers) {
+			myObservers.add(observer);
+		}
+	}
+	
+	private void notifyObservers() {
+		for (MainModelObserver observer : myObservers) {
+			observer.update(this);
+		}
+	}
+	
+	public CommandHistoryModel getCommandHistory() {
+		return null;
+	}
+	
+	public UserDefinedMethodsModel getUserDefinedMethods() {
+		return null;
+	}
+	
+	public UserDefinedVariablesModel getUserDefinedVariables() {
+		return null;
+	}
+	
 	private void setProperty(String propertyName, String value){
-
 		Properties prop = new Properties();
 		OutputStream output = null;
 
 		try {
-
 			output = new FileOutputStream(PROPERTIES_FILENAME);
-
 			// set the properties value
 			prop.setProperty(propertyName, value);
-
-
 			// save properties to project root folder
 			prop.store(output, null);
-
 		} catch (IOException io) {
 			io.printStackTrace();
 		} finally {
