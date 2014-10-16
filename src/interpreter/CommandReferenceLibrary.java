@@ -38,7 +38,7 @@ public class CommandReferenceLibrary {
     private Map<String,String> reverseSyntaxMap;
     private Map<String,String> commandToDirectoryMap;
 
-
+    private String myLanguage;
 
     private ResourceBundle myCommandReference; 
     private ResourceBundle myDirectoryListing;
@@ -51,8 +51,10 @@ public class CommandReferenceLibrary {
         this("English");
     }
 
-    protected CommandReferenceLibrary(String language) {
+    public CommandReferenceLibrary(String language) {
 
+        myLanguage = language;
+        
         commandSet = new HashSet<>();
         //commandMap = new HashMap<>();
         referenceToCommandMap = new HashMap<>();
@@ -65,22 +67,29 @@ public class CommandReferenceLibrary {
         setCommandReference(language);
     }
     
-    protected void addUserDefinedCommand(String command) {
+    public void addUserDefinedCommand(String command) {
         return;
     }
     
-    protected Map<String,String> getReferencesToCommands() {
+    public Map<String,String> getReferencesToCommands() {
         return referenceToCommandMap;
     }
     
-    protected Map<String,String> getCommandsToDirectories() {
+    public Map<String,String> getCommandsToDirectories() {
         return commandToDirectoryMap;
     }
     
-    protected Map<String,String> getReverseSyntaxes() {
+    public Map<String,String> getReverseSyntaxes() {
         return reverseSyntaxMap;
     }
     
+    public Set<String> getSyntaxSet() {
+        return syntaxMap.keySet();
+    }
+    
+    public String getLogoLanguage() {
+        return myLanguage;
+    }
     
     //TODO temp fix, will refactor
     private void initializeSyntaxMap () {

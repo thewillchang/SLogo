@@ -37,10 +37,8 @@ public class Parser {
      */
     public Deque<SLogoExpression> parseSLogoExpression (String input) throws SLogoParsingException {
         try {
-
             Deque<SLogoExpression> expressionStack = createExpressionsFromProcessedInput(processInput(input));
             loadAllExpressionParameters(expressionStack);
-
         }
         catch (SLogoParsingException e) {
             System.out.println("Invalid Input");
@@ -60,7 +58,7 @@ public class Parser {
             //feeds inorder into Factory, gets reverse ordered stack?...
             String input = processedInputStack.pop();
             parameterStack.push(myFactory.createExpression(input));
-            if(input.equals("to")) {
+            if(input.equals("to")&&!processedInputStack.isEmpty()) {
                 try {
                     String undefinedCommand = processedInputStack.pop();
                     parameterStack.push(myFactory.defineUserCommand(undefinedCommand));
@@ -70,7 +68,6 @@ public class Parser {
                     parameterStack.clear();
                 }
             }
-
         }
         return parameterStack;
     }
@@ -102,14 +99,15 @@ public class Parser {
 
 
 
-    /*
+
 
     public static void main(String[] args) throws SLogoParsingException {
-        Parser p = new Parser();
+        Parser p = new Parser(new CommandReferenceLibrary());
         String input = "forward 50";
+
         p.parseSLogoExpression(input);
     }
 
-     */
+
 
 }
