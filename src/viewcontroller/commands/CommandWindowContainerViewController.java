@@ -41,8 +41,8 @@ public class CommandWindowContainerViewController implements ViewController {
 	}
 	
 	private void placeCommandWindows() {
-		commandWindowVerticalBox = new VBox();
-		commandWindowVerticalBox.setPadding(new Insets(10));
+		commandWindowVerticalBox = new VBox(10);
+		commandWindowVerticalBox.setPadding(new Insets(20));
 		
 		HBox userDefinedHorizontalBox = placeUserDefinedBoxes();
 		myCommandHistoryView = new CommandHistoryViewController(this);

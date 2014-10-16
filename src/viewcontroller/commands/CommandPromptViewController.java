@@ -6,6 +6,8 @@ import javafx.scene.Node;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyCodeCombination;
+import javafx.scene.input.KeyCombination;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.Background;
 import javafx.scene.layout.BackgroundFill;
@@ -45,11 +47,14 @@ public class CommandPromptViewController implements ViewController {
 
 		setUpCommandPromptTextArea();
 		
-		myWindowVerticalBox = new VBox();
+		myPane.setTop(myTitleLabel);
+		myPane.setCenter(myCommandPromptTextArea);
+		
+		/*myWindowVerticalBox = new VBox();
 		myWindowVerticalBox.getChildren().addAll(myTitleLabel,
 				myCommandPromptTextArea);
 
-		myPane.setCenter(myWindowVerticalBox);
+		myPane.setCenter(myWindowVerticalBox);(*/
 	}
 	
 	private void setUpCommandPromptTextArea() {
