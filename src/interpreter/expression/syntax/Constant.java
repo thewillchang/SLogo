@@ -26,8 +26,9 @@ public class Constant extends SyntaxExpression {
         
     }
 
-    public void setValue(double value) {
-        myConstantValue = value;
+    @Override
+    public void setValue(String value) {
+        myConstantValue = Double.parseDouble(value);
     }
     
     @Override
