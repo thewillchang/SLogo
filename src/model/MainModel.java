@@ -33,7 +33,6 @@ public class MainModel extends Observable{
 		this.myInterpreter = new Interpreter();
 		this.myTurtle = new Turtle();
 		this.myTransitionState = new ArrayList<TransitionState>();
-
 	}
 
 	/**

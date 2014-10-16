@@ -3,6 +3,8 @@ package viewcontroller.commands;
 import java.awt.Dimension;
 import java.util.Observable;
 import java.util.Observer;
+
+import model.MainModel;
 import viewcontroller.ViewController;
 import javafx.geometry.Insets;
 import javafx.scene.Node;
@@ -24,6 +26,7 @@ public class CommandWindowContainerViewController implements Observer, ViewContr
 	public static final Dimension SIZE = new Dimension(
 			Main.SIZE.width / 2 * 9 / 10, Main.SIZE.height * 9 / 10);
 
+	private MainModel myMainModel;
 	private BorderPane myPane;
 	private VBox commandWindowVerticalBox;
 	private UserDefinedMethodsViewController myUserDefinedMethodsView;
@@ -32,7 +35,8 @@ public class CommandWindowContainerViewController implements Observer, ViewContr
 	private CommandPromptViewController myCommandPromptView;
 	private CommandStatusViewController myCommandStatusView;
 
-	public CommandWindowContainerViewController() {
+	public CommandWindowContainerViewController(MainModel mainModel) {
+		myMainModel = mainModel;
 		myPane = new BorderPane();
 		myPane.setPrefSize(SIZE.width, SIZE.height);
 		placeCommandWindows();
@@ -44,7 +48,7 @@ public class CommandWindowContainerViewController implements Observer, ViewContr
 		
 		HBox userDefinedHorizontalBox = placeUserDefinedBoxes();
 		myCommandHistoryView = new CommandHistoryViewController(this);
-		myCommandPromptView = new CommandPromptViewController(this);
+		myCommandPromptView = new CommandPromptViewController(myMainModel);
 		myCommandStatusView = new CommandStatusViewController();
 		
 		VBox.setVgrow(userDefinedHorizontalBox, Priority.ALWAYS);
