@@ -6,14 +6,11 @@ import javafx.scene.Node;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.input.KeyCode;
-import javafx.scene.input.KeyCodeCombination;
-import javafx.scene.input.KeyCombination;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.Background;
 import javafx.scene.layout.BackgroundFill;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.CornerRadii;
-import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import model.MainModel;
 import viewcontroller.SLogoFont;
@@ -31,7 +28,6 @@ public class CommandPromptViewController implements ViewController {
 	private BorderPane myPane;
 	private Label myTitleLabel;
 	private MainModel myMainModel;
-	private VBox myWindowVerticalBox;
 	private TextArea myCommandPromptTextArea;
 
 	public CommandPromptViewController(MainModel mainModel) {
@@ -49,12 +45,6 @@ public class CommandPromptViewController implements ViewController {
 		
 		myPane.setTop(myTitleLabel);
 		myPane.setCenter(myCommandPromptTextArea);
-		
-		/*myWindowVerticalBox = new VBox();
-		myWindowVerticalBox.getChildren().addAll(myTitleLabel,
-				myCommandPromptTextArea);
-
-		myPane.setCenter(myWindowVerticalBox);(*/
 	}
 	
 	private void setUpCommandPromptTextArea() {
@@ -67,6 +57,9 @@ public class CommandPromptViewController implements ViewController {
 				if (arg0.getCode() == KeyCode.ENTER) {
 					passCommandToModel(myCommandPromptTextArea.getText());
 					myCommandPromptTextArea.clear();
+					myCommandPromptTextArea.positionCaret(-1);
+					//myCommandPromptTextArea.positionCaret(0);
+					System.out.println("here");
 				}
 			}
 		});
