@@ -27,7 +27,7 @@ public class GreaterThan extends TwoArgumentCommand {
 
 	@Override
 	public SLogoResult evaluate() {
-		int value = (operand1.evaluate().getValue() < operand2.evaluate().getValue()) ? 1 : 0;
+		int value = (operand1.evaluate().getValue() > operand2.evaluate().getValue()) ? 1 : 0;
 		TransitionState state = new TransitionState();
 		
 		return new ConditionalResult(value, state);

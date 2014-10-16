@@ -16,7 +16,9 @@ public abstract class SyntaxExpression implements SLogoExpression {
 		// TODO Auto-generated method stub
 
 	}
-
+	
+	public abstract void setValue(String value);
+	
 	@Override
 	public SLogoResult evaluate() {
 		// TODO Auto-generated method stub

@@ -15,7 +15,7 @@ import transitionstate.TransitionState;
  *
  */
 
-public class Less extends TwoArgumentCommand {
+public class LessThan extends TwoArgumentCommand {
 
 	private SLogoExpression operand1;
 	private SLogoExpression operand2;

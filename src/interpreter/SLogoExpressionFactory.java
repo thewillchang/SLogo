@@ -3,6 +3,7 @@ package interpreter;
 import interpreter.expression.*;
 import interpreter.expression.syntax.*;
 import java.util.Map;
+import java.util.Set;
 import exceptions.SLogoParsingException;
 
 /**
@@ -16,10 +17,13 @@ public class SLogoExpressionFactory {
     private Map<String,String> myReferenceToCommandMap;
     private Map<String,String> myReverseSyntaxMap;
     private Map<String,String> myCommandToDirectoryMap;
+    
+    private Set<String> mySyntaxSet;
+    
     private CommandReferenceLibrary myLibrary;
 
     private final String CLASS_PATH = "interpreter.expression.";
-    
+
     /**
      * Constructor
      * @param library
@@ -36,22 +40,28 @@ public class SLogoExpressionFactory {
         myReferenceToCommandMap = myLibrary.getReferencesToCommands();
         myReverseSyntaxMap = myLibrary.getReverseSyntaxes();
         myCommandToDirectoryMap = myLibrary.getCommandsToDirectories();
-    }
-    
-    private SLogoExpression checkExpressionTypeAndGenerate(String command, 
-                                                Map<String, String> referenceMap) 
-                                                        throws SLogoParsingException {
         
+        mySyntaxSet = myLibrary.getSyntaxSet();
+    }
+
+    private SLogoExpression checkExpressionTypeAndGenerate(String command, 
+                                                           Map<String, String> referenceMap) {
+
         for(String reference : referenceMap.keySet()) {
             if(command.matches(reference)) {
                 try {
                     String expressionName = referenceMap.get(reference);
+                    
                     String classPathAndName = 
                             CLASS_PATH 
                             + myCommandToDirectoryMap.get(expressionName)
                             + expressionName;
                     Class<?> commandClass = Class.forName(classPathAndName);
-                    return (SLogoExpression) commandClass.newInstance();
+                    SLogoExpression expression = (SLogoExpression) commandClass.newInstance();
+                    if(mySyntaxSet.contains(expressionName)) {
+                       ((SyntaxExpression) expression).setValue(command);
+                    }
+                    return expression;
                 }
                 catch (ClassNotFoundException e) {
                     System.out.println("No such class.");
@@ -64,7 +74,7 @@ public class SLogoExpressionFactory {
                 }
             }
         }
-        throw new SLogoParsingException("Command not found");
+        return null;
     }
 
     /**
@@ -83,9 +93,9 @@ public class SLogoExpressionFactory {
         //TODO define user defined commands, also refactor for lists etc.
         return null;
     }
-    
-  
-/*
+
+
+    /*
     public static void main(String[] args) throws SLogoParsingException
     {
 
@@ -98,6 +108,6 @@ public class SLogoExpressionFactory {
         System.out.println("*".matches("[^A-Za-z0-9]"));
         // System.out.println(p.parameterStack.size());
     }
-*/
+     */
 
 }

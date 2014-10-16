@@ -13,31 +13,34 @@ import interpreter.SLogoResult;
  */
 
 public class MathResult extends SLogoResult {
-	
-	private double myValue;
-	private TransitionState myState;
-	
-	public MathResult(double value, TransitionState state){
-		this.myValue = value;
-		this.myState = state;
-	}
 
-	@Override
-	public SLogoParsingException getException() {
-		// TODO Auto-generated method stub
-		return null;
-	}
+    private double myValue;
+    private TransitionState myState;
 
-	@Override
-	public List<TransitionState> getTransition() {
-		// TODO Auto-generated method stub
-		return null;
-	}
+    public MathResult(double value) {
+        this.myValue = value;
+    }
+    public MathResult(double value, TransitionState state){
+        this.myValue = value;
+        this.myState = state;
+    }
 
-	@Override
-	public double getValue() {
-		// TODO Auto-generated method stub
-		return myValue;
-	}
+    @Override
+    public SLogoParsingException getException() {
+        // TODO Auto-generated method stub
+        return null;
+    }
+
+    @Override
+    public List<TransitionState> getTransition() {
+        // TODO Auto-generated method stub
+        return null;
+    }
+
+    @Override
+    public double getValue() {
+        // TODO Auto-generated method stub
+        return myValue;
+    }
 
 }
