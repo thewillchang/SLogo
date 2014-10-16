@@ -13,7 +13,7 @@ import viewcontroller.turtlegrid.TurtleWindowViewController;
  * @author Jonathan Tseng
  *
  */
-public class MainViewController implements ViewController {
+public class MainViewController implements ViewController, MainModelObserver {
 
 	private final static Insets GRID_MARGIN = new Insets(15);
 	
@@ -52,6 +52,12 @@ public class MainViewController implements ViewController {
 	@Override
 	public Node getNode() {
 		return myPane;
+	}
+
+	@Override
+	public void update(MainModel model) {
+		// TODO Auto-generated method stub
+		
 	}
 	
 }
