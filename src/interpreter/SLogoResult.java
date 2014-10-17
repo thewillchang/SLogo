@@ -17,6 +17,7 @@ public abstract class SLogoResult {
         protected List<TransitionState> myTransitionStates;
         protected ResourceBundle myProperties;
         protected double myValue;
+        private boolean myHasError;
         
         
         
@@ -24,6 +25,7 @@ public abstract class SLogoResult {
             myTransitionStates = new ArrayList<>();
             //TODO change this
             myValue = 0;
+            myHasError = false;
         }
         
         public SLogoResult(double value){
@@ -47,5 +49,9 @@ public abstract class SLogoResult {
 	 * @return
 	 */
 	public abstract double getValue();
+	
+	public boolean getHasError(){
+		return myHasError; 
+	}
 	
 }

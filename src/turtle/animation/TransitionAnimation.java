@@ -39,6 +39,7 @@ public class TransitionAnimation extends SLogoAnimation {
 		if (frameCount >= myDistance) {
 			myTurtle.getPen().finishLine();
 		} 
+		myTurtle.updateModel();
 	}
 
 	private void moveTurtle() {
@@ -96,7 +97,8 @@ public class TransitionAnimation extends SLogoAnimation {
 		if (myDone) return;
 		myForward = transitionState.getMove() > 0;
 		myTurtle = turtle;
-		myPenDown = !transitionState.getPenUp();
+		myTurtle.updateVisualState(transitionState);
+		myPenDown = myTurtle.getPen().getPenDown();
 		myDistance = Math.abs(transitionState.getMove());
 		setAnimationLength(myDistance);
 	}
