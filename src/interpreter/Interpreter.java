@@ -55,15 +55,9 @@ public class Interpreter {
 
     public static void main(String[] args) throws SLogoParsingException {
         Interpreter interpreter = new Interpreter();
-        String input = "forward 1000 forward 1000";
+        String input = "repeat 10 [ ]";
         CommandReferenceLibrary lib = interpreter.getCommandReferenceLibrary();
-        System.out.println(interpreter.interpret(input).getTransition().get(0).getMove());
-        System.out.println(lib.getLogoLanguage());
-        interpreter.setLogoLanguage("Chinese");
-        CommandReferenceLibrary lib1 = interpreter.getCommandReferenceLibrary();
-        System.out.println(lib1.getLogoLanguage());
-        String input1 = "qj 1000 qj 1000";
-        System.out.println(interpreter.interpret(input1).getTransition().get(0).getMove());
+        System.out.println(interpreter.interpret(input).getTransition().size());
     }
 
 
