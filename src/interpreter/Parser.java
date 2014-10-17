@@ -87,14 +87,14 @@ public class Parser {
      * Loads all parameters into all generated expressions.
      * @param expressionStack
      */
-    private void loadAllExpressionParameters(Deque<SLogoExpression> expressionStack) {
+    private void loadAllExpressionParameters (Deque<SLogoExpression> expressionStack) 
+            throws SLogoParsingException, NullPointerException {
         loadedExpressions = new ArrayDeque<>(); 
         while (!expressionStack.isEmpty()) {
             SLogoExpression expression = expressionStack.pop();
             expression.loadArguments(loadedExpressions);
             loadedExpressions.push(expression);
         }
-
     }
 
 

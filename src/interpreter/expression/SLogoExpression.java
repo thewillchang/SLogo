@@ -1,6 +1,7 @@
 package interpreter.expression;
 
 import java.util.Deque;
+import exceptions.SLogoParsingException;
 import interpreter.SLogoResult;
 
 /**
@@ -13,8 +14,10 @@ public interface SLogoExpression {
 	/**
 	 * loads the list of expressions as arguments for the expression
 	 * @param args
+	 * @throws NullPointerException 
+	 * @throws SLogoParsingException 
 	 */
-	public void loadArguments(Deque<SLogoExpression> args);
+	public void loadArguments(Deque<SLogoExpression> args) throws SLogoParsingException, NullPointerException;
 	
 	/**
 	 * evaluates the expression and returns an SLogoResult

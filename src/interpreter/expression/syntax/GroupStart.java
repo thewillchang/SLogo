@@ -1,5 +1,22 @@
 package interpreter.expression.syntax;
 
-public class GroupStart {
+import java.util.Deque;
+import interpreter.SLogoResult;
+import interpreter.expression.SLogoExpression;
+
+public class GroupStart implements SLogoExpression {
+
+    @Override
+    public void loadArguments (Deque<SLogoExpression> args) {
+        while(!args.isEmpty()) {
+            
+        }
+    }
+
+    @Override
+    public SLogoResult evaluate () {
+        // TODO Auto-generated method stub
+        return null;
+    }
 
 }
