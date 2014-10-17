@@ -15,6 +15,7 @@ import javafx.scene.shape.Circle;
 import javafx.scene.shape.Ellipse;
 import javafx.scene.shape.Shape;
 import javafx.util.Duration;
+import transitionstate.TransitionState.VisibleChange;
 import viewcontroller.ViewController;
 import application.Main;
 
@@ -49,6 +50,14 @@ public class TurtleViewController implements ViewController {
 		myAnimation = new Timeline();
 		createTurtle();
 		animate();
+	}
+	
+	public void updateVisible(VisibleChange visibleChange) {
+		if (visibleChange.equals(VisibleChange.CHANGE_INVISIBLE)) {
+			myTurtle.setVisible(false);
+		} else if (visibleChange.equals(VisibleChange.CHANGE_VISIBLE)) {
+			myTail.setVisible(true);
+		}
 	}
 	
 	/**

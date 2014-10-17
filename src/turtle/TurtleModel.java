@@ -1,6 +1,7 @@
 package turtle;
 
-import javafx.scene.image.Image;
+import javafx.geometry.Point2D;
+
 
 
 /**
@@ -10,12 +11,21 @@ import javafx.scene.image.Image;
  */
 public class TurtleModel {
 	
-	private int myXPosition;
-	private int myYPosition;
-	private Image myImage;
+	private double myXPosition;
+	private double myYPosition;
 	
-	public Image getImage() {
-		return null;
+	public TurtleModel() {
+		myXPosition = 0;
+		myYPosition = 0;
+	}
+	
+	public void update(TurtleViewController turtleViewController) {
+		myXPosition = turtleViewController.getNode().getTranslateX();
+		myYPosition = turtleViewController.getNode().getTranslateY() * -1;
+	}
+	
+	public Point2D getPosition() {
+		return new Point2D(myXPosition, myYPosition);
 	}
 	
 }
