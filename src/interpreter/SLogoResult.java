@@ -53,5 +53,10 @@ public abstract class SLogoResult {
 	public boolean getHasError(){
 		return myHasError; 
 	}
+
+    public void setValue (double value) {
+        // TODO Auto-generated method stub
+        
+    }
 	
 }
