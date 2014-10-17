@@ -1,7 +1,5 @@
 package model;
 
-import interpreter.expression.SLogoExpression;
-
 import java.util.ArrayList;
 import java.util.Collection;
 
@@ -12,16 +10,16 @@ import java.util.Collection;
  */
 public class UserDefinedMethodsModel {
 	
-	private Collection<SLogoExpression> userMethods;
+	private Collection<String> userMethods;
 	
 	public UserDefinedMethodsModel(){
-		this.userMethods = new ArrayList<SLogoExpression>();
+		this.userMethods = new ArrayList<String>();
 	}
 	/**
 	 * returns the current list of user defined methods
 	 * @return
 	 */
-	public Collection<SLogoExpression> getMethods() {
+	public Collection<String> getMethods() {
 		return userMethods;
 	}
 	
@@ -30,7 +28,7 @@ public class UserDefinedMethodsModel {
 	 * if method already exists with same name, then it is replaced
 	 * @param expression
 	 */
-	public void putMethod(SLogoExpression method) {
+	public void putMethod(String method) {
 		this.userMethods.add(method);
 	}
 	

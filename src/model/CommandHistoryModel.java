@@ -1,7 +1,5 @@
 package model;
 
-import interpreter.expression.SLogoExpression;
-
 import java.util.ArrayList;
 import java.util.Collection;
 
@@ -12,16 +10,16 @@ import java.util.Collection;
  */
 public class CommandHistoryModel {
 	
-	private Collection<SLogoExpression> commandHistory;
+	private Collection<String> commandHistory;
 	
 	public CommandHistoryModel(){
-		 this.commandHistory = new ArrayList<SLogoExpression>();
+		 this.commandHistory = new ArrayList<String>();
 	}
 	/**
 	 * adds a command to the command history
 	 * @param command
 	 */
-	public void addCommand(SLogoExpression command) {
+	public void addCommand(String command) {
 		this.commandHistory.add(command);
 	}
 	
@@ -29,7 +27,7 @@ public class CommandHistoryModel {
 	 * returns the full command history--used to update the viewcontroller
 	 * @return
 	 */
-	public Collection<SLogoExpression> getHistory() {
+	public Collection<String> getHistory() {
 		return commandHistory;
 	}
 	

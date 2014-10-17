@@ -1,6 +1,7 @@
 package model;
 
 import interpreter.Interpreter;
+import interpreter.SLogoResult;
 
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -26,6 +27,10 @@ public class MainModel {
 	private List<Turtle> myTurtles;
 	private List<TransitionState> myTransitionState;
 	private String language;
+	private CommandHistoryModel myCommandHistoryModel;
+	private UserDefinedMethodsModel myUserDefinedMethodsModel;
+	private UserDefinedVariablesModel myUserDefinedVariablesModel;
+	
 
 	final String PROPERTIES_FILENAME = "SLogoState";
 	final String LANGUAGE_PROPERTY = "Language";
@@ -35,6 +40,9 @@ public class MainModel {
 		this.myInterpreter = new Interpreter();
 		this.myTransitionState = new ArrayList<TransitionState>();
 		this.myTurtles = new ArrayList<>();
+		this.myCommandHistoryModel = new CommandHistoryModel();
+		this.myUserDefinedMethodsModel = new UserDefinedMethodsModel();
+		this.myUserDefinedVariablesModel = new UserDefinedVariablesModel();
 	}
 
 	/**
@@ -42,7 +50,11 @@ public class MainModel {
 	 * @param sLogoCommand
 	 */
 	public void interpretSLogoCommand(String sLogoCommand) {
-		myTransitionState = myInterpreter.interpret(sLogoCommand).getTransition();
+		SLogoResult myResult = myInterpreter.interpret(sLogoCommand);
+		myTransitionState = myResult.getTransition();
+		if(!myResult.getHasError()){
+			myCommandHistoryModel.addCommand(sLogoCommand);
+		}
 		notifyObservers();
 	}
 
@@ -68,15 +80,15 @@ public class MainModel {
 	}
 	
 	public CommandHistoryModel getCommandHistory() {
-		return null;
+		return this.myCommandHistoryModel;
 	}
 	
 	public UserDefinedMethodsModel getUserDefinedMethods() {
-		return null;
+		return this.myUserDefinedMethodsModel;
 	}
 	
 	public UserDefinedVariablesModel getUserDefinedVariables() {
-		return null;
+		return this.myUserDefinedVariablesModel;
 	}
 	
 	private void setProperty(String propertyName, String value){
@@ -103,5 +115,4 @@ public class MainModel {
 		}
 	}
 }
-
 

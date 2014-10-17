@@ -1,7 +1,5 @@
 package model;
 
-import interpreter.expression.SLogoExpression;
-
 import java.util.ArrayList;
 import java.util.Collection;
 
@@ -12,17 +10,17 @@ import java.util.Collection;
  */
 public class UserDefinedVariablesModel {
 	
-	private  Collection<SLogoExpression> uservariables;
+	private  Collection<String> uservariables;
 	
 	public UserDefinedVariablesModel(){
-		this.uservariables = new ArrayList<SLogoExpression>();
+		this.uservariables = new ArrayList<String>();
 	}
 
 	/**
 	 * returns the current list of user defined variables
 	 * @return
 	 */
-	public Collection<SLogoExpression> getVariables() {
+	public Collection<String> getVariables() {
 		return this.uservariables;
 	}
 	
@@ -31,7 +29,7 @@ public class UserDefinedVariablesModel {
 	 * if variable already exists with same name, then it is replaced
 	 * @param expression
 	 */
-	public void putVariable(SLogoExpression variable) {
+	public void putVariable(String variable) {
 		this.uservariables.add(variable);
 	}
 	
