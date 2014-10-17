@@ -16,17 +16,19 @@ import turtle.animation.FullAnimation;
  */
 public class Turtle {
 	
-	private int id;
+	private int myId;
 	private TurtleModel myTurtleModel;
 	private TurtleViewController myTurtleViewController;
 	private Pen myPen;
 	private DrawingViewHistory myDrawingViewHistory;  
+	private boolean myVisible;
 	
 	public Turtle() {
 		myTurtleModel = new TurtleModel();
 		myTurtleViewController = new TurtleViewController();
 		myPen = new Pen();
-		id = 0;
+		myId = 0;
+		myVisible = true;
 		myDrawingViewHistory  = new DrawingViewHistory();
 	}
 	
@@ -67,8 +69,16 @@ public class Turtle {
 		}
 	}
 	
+	public int getId() {
+		return myId;
+	}
+	
 	public Pen getPen() {
 		return myPen;
+	}
+	
+	public boolean getVisible() {
+		return myVisible;
 	}
 	
 	public Node getTurtle() {
@@ -79,11 +89,13 @@ public class Turtle {
 		return myTurtleViewController.getRadius();
 	}
 	
-	/**
-	 * updates the Turtle object's turtle model and in turn the object's turtle view controller
-	 */
-	public void update() {
-
+	public void updateModel() {
+		myTurtleModel.update(myTurtleViewController);
+	}
+	
+	public void updateVisualState(TransitionState transitionState) {
+		myPen.update(transitionState.getPenChange());
+		myTurtleViewController.updateVisible(transitionState.getVisibleChange());
 	}
 	
 }

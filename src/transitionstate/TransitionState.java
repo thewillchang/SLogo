@@ -35,7 +35,7 @@ public class TransitionState {
 	 * returns boolean of whether pen is up or down
 	 * @return
 	 */
-	public PenChange getPenUp() {
+	public PenChange getPenChange() {
 		return myPenUp;
 	}
 	
@@ -43,7 +43,7 @@ public class TransitionState {
 	 * returns boolean of whether turtle is visible or not
 	 * @return
 	 */
-	public VisibleChange getTurtleVisible() {
+	public VisibleChange getVisibleChange() {
 		return myTurtleVisible;
 	}
 	

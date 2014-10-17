@@ -3,13 +3,14 @@ package turtle;
 import java.util.ArrayList;
 import java.util.List;
 
-import viewcontroller.turtlegrid.GridViewController;
 import javafx.geometry.Point2D;
 import javafx.scene.Group;
 import javafx.scene.Node;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Line;
 import javafx.scene.shape.StrokeLineCap;
+import transitionstate.TransitionState.PenChange;
+import viewcontroller.turtlegrid.GridViewController;
 
 /**
  * class for creating paths drawn
@@ -27,16 +28,18 @@ public class Pen {
 	private Color myColor;
 	private double myWidth;
 	private Group myGrid;
+	private boolean myPenDown;
 	
 	public Pen() {
 		this(ourDefaultColor, ourDefaultWidth);
 	}
 	
 	public Pen(Color color, double width) {
-		myColor = color;
-		myWidth = width;
+		setColor(ourDefaultColor);
+		setWidth(ourDefaultWidth);
 		myLines = new ArrayList<>();
 		myLine = new Line();
+		myPenDown = true;
 	}
 	
 	/**
@@ -80,6 +83,7 @@ public class Pen {
 	 * @return
 	 */
 	public void drawLine(Point2D start, Point2D end, boolean penDown, Node turtle) {
+		if (!myPenDown) return;
 		myLine = new Line(0, 0, end.getX() - start.getX(), end.getY() - start.getY());
 		myLine.setStroke(myColor);
 		myLine.setVisible(penDown);
@@ -107,11 +111,23 @@ public class Pen {
 		myLine = new Line();
 	}
 	
+	public void update(PenChange penChange) {
+		if (penChange.equals(PenChange.CHANGE_DOWN)) {
+			myPenDown = true;
+		} else if (penChange.equals(PenChange.CHANGE_UP)) {
+			myPenDown = false;
+		}
+	}
+	
+	public boolean getPenDown() {
+		return myPenDown;
+	}
+	
 	/**
 	 * sets the width of the pen stroke
 	 * @param width
 	 */
-	public void setWidth(double width) {
+	private void setWidth(double width) {
 		myWidth = width;
 	}
 
@@ -119,7 +135,7 @@ public class Pen {
 	 * sets the color of the pen
 	 * @param color
 	 */
-	public void setColor(Color color) {
+	private void setColor(Color color) {
 		myColor = color;
 	}
 	
