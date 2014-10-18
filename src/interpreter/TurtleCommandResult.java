@@ -11,11 +11,15 @@ import exceptions.SLogoParsingException;
 
 
 public class TurtleCommandResult extends SLogoResult {
-    
+
+    public TurtleCommandResult () {
+        super(0);
+    }
+
     public TurtleCommandResult(double myValue) {
         super(myValue);
     }
-    
+
     @Override
     public SLogoParsingException getException () {
         // TODO Auto-generated method stub
