@@ -41,7 +41,7 @@ public class CommandStatusViewController extends CommandWindowViewController imp
 	@Override
 	public void update(MainModel model) {
 		SLogoResult latestResult = model.getResult();
-		if(!latestResult.getHasError())
+		if(latestResult != null && !latestResult.getHasError())
 		{
 			updateCommandStatusText(Double.toString(latestResult.getValue()));
 		}

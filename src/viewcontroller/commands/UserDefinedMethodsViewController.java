@@ -1,10 +1,9 @@
 package viewcontroller.commands;
 
+import java.util.List;
 import javafx.scene.Node;
-import javafx.scene.control.Label;
 import model.MainModel;
 import model.UserDefinedMethodsModel;
-import model.UserDefinedVariablesModel;
 import viewcontroller.MainModelObserver;
 import viewcontroller.SLogoFont;
 
@@ -14,22 +13,14 @@ import viewcontroller.SLogoFont;
  * @author Abhishek B
  *
  */
-public class UserDefinedMethodsViewController extends CommandClickableListWindowViewController implements MainModelObserver {
+public class UserDefinedMethodsViewController extends
+		CommandClickableListWindowViewController implements MainModelObserver {
 
-	public UserDefinedMethodsViewController(
-			CommandWindowContainerViewController commandWindowContainer) {
+	public UserDefinedMethodsViewController(CommandWindowContainerViewController commandWindowContainer) {
 		super();
 		myCommandWindowContainer = commandWindowContainer;
 		myTitleLabel.setText("User Defined Methods: ");
 		myTitleLabel.setFont(new SLogoFont().createTextFont());
-		placeCommandList();
-	}
-
-	private void placeCommandList() {
-		addCommand("sit 50");
-		for (Label command : myCommands) {
-			myListVerticalBox.getChildren().add(command);
-		}
 	}
 
 	@Override
@@ -39,8 +30,11 @@ public class UserDefinedMethodsViewController extends CommandClickableListWindow
 
 	@Override
 	public void update(MainModel model) {
-		UserDefinedMethodsModel myModel = model.getUserDefinedMethods();
-		
+		myListVerticalBox.getChildren().clear();
+		UserDefinedMethodsModel userModel = model.getUserDefinedMethods();
+		List<String> userDefinedMethods = userModel.getMethods();
+		for (String userDefinedMethod : userDefinedMethods) {
+			addCommand(userDefinedMethod);
+		}
 	}
-
 }

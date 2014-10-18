@@ -6,55 +6,57 @@ import java.util.ResourceBundle;
 import transitionstate.TransitionState;
 import exceptions.SLogoParsingException;
 
-
 /**
  * wrapper class for results of interpreting an SLogo command
+ * 
  * @author Jonathan Tseng and Will Chang
  *
  */
 public abstract class SLogoResult {
 
-    protected List<TransitionState> myTransitionStates;
-    protected ResourceBundle myProperties;
-    protected double myValue;
-    private boolean myHasError;
+	protected List<TransitionState> myTransitionStates;
+	protected ResourceBundle myProperties;
+	protected double myValue;
+	private boolean myHasError;
 
+	public SLogoResult() {
+		this(0);
+	}
 
+	public SLogoResult(double value) {
+		myHasError = false;
+		myTransitionStates = new ArrayList<>();
+		myValue = value;
+	}
 
-    public SLogoResult() {
-        this(0);
-    }
+	/**
+	 * returns an exception if found when evaluating the SLogoExpression
+	 * 
+	 * @return
+	 */
+	public abstract SLogoParsingException getException();
 
-    public SLogoResult(double value){
-        myHasError = false;
-        myTransitionStates = new ArrayList<>();
-        myValue = value;
-    }
-    /**
-     * returns an exception if found when evaluating the SLogoExpression
-     * @return
-     */
-    public abstract SLogoParsingException getException();
+	/**
+	 * returns a list of transition states from evaluating the SLogoExpression
+	 * 
+	 * @return
+	 */
+	public abstract List<TransitionState> getTransition();
 
-    /**
-     * returns a list of transition states from evaluating the SLogoExpression
-     * @return
-     */
-    public abstract List<TransitionState> getTransition();
+	/**
+	 * returns the integer output from evaluating the SLogoExpression
+	 * 
+	 * @return
+	 */
+	public abstract double getValue();
 
-    /**
-     * returns the integer output from evaluating the SLogoExpression
-     * @return
-     */
-    public abstract double getValue();
+	public boolean getHasError() {
+		return myHasError;
+	}
 
-    public boolean getHasError(){
-        return myHasError; 
-    }
+	public void setValue(double value) {
+		// TODO Auto-generated method stub
 
-    public void setValue (double value) {
-        // TODO Auto-generated method stub
-
-    }
+	}
 
 }

@@ -2,6 +2,7 @@ package model;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 
 /**
  * Model for User Defined Methods
@@ -10,7 +11,7 @@ import java.util.Collection;
  */
 public class UserDefinedMethodsModel {
 	
-	private Collection<String> userMethods;
+	private List<String> userMethods;
 	
 	public UserDefinedMethodsModel(){
 		this.userMethods = new ArrayList<String>();
@@ -19,7 +20,7 @@ public class UserDefinedMethodsModel {
 	 * returns the current list of user defined methods
 	 * @return
 	 */
-	public Collection<String> getMethods() {
+	public List<String> getMethods() {
 		return userMethods;
 	}
 	

@@ -17,12 +17,10 @@ public abstract class CommandClickableListWindowViewController extends CommandWi
 	
 	protected CommandWindowContainerViewController myCommandWindowContainer;
 	protected VBox myListVerticalBox;
-	protected List<Label> myCommands;
 
 	public CommandClickableListWindowViewController() {
 		super();
 		myListVerticalBox = new VBox();
-		myCommands = new ArrayList<Label>();
 		myCommandWindowVerticalBox.getChildren().add(myListVerticalBox);
 	}
 	
@@ -34,7 +32,7 @@ public abstract class CommandClickableListWindowViewController extends CommandWi
 				myCommandWindowContainer.updateCommandWindow(commandLabelString);
 			}
 		});
-		myCommands.add(commandLabel);
+		myListVerticalBox.getChildren().add(commandLabel);
 	}
 	
 }

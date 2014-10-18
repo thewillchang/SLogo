@@ -1,8 +1,10 @@
 package viewcontroller.commands;
 
+import java.util.List;
+
+import model.CommandHistoryModel;
 import model.MainModel;
 import javafx.scene.Node;
-import javafx.scene.control.Label;
 import viewcontroller.MainModelObserver;
 import viewcontroller.SLogoFont;
 
@@ -13,26 +15,13 @@ import viewcontroller.SLogoFont;
  *
  */
 
-public class CommandHistoryViewController extends
-		CommandClickableListWindowViewController implements MainModelObserver {
+public class CommandHistoryViewController extends CommandClickableListWindowViewController implements MainModelObserver {
 
-	public CommandHistoryViewController(
-			CommandWindowContainerViewController commandWindow) {
+	public CommandHistoryViewController(CommandWindowContainerViewController commandWindowContainer) {
 		super();
-		myCommandWindowContainer = commandWindow;
-
+		myCommandWindowContainer = commandWindowContainer;
 		myTitleLabel.setText("Command History Window: ");
 		myTitleLabel.setFont(new SLogoFont().createTextFont());
-
-		placeCommandList();
-	}
-
-	private void placeCommandList() {
-		addCommand("fd 50");
-
-		for (Label command : myCommands) {
-			myListVerticalBox.getChildren().add(command);
-		}
 	}
 
 	@Override
@@ -42,8 +31,11 @@ public class CommandHistoryViewController extends
 
 	@Override
 	public void update(MainModel model) {
-		// TODO Auto-generated method stub
-
+		myListVerticalBox.getChildren().clear();
+		CommandHistoryModel historyModel = model.getCommandHistory();
+		List<String> commandHistory = historyModel.getHistory();
+		for (String command : commandHistory) {
+			addCommand(command);
+		}	
 	}
-
 }

@@ -2,6 +2,7 @@ package model;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 
 /**
  * Model for History of commands user has typed
@@ -10,7 +11,7 @@ import java.util.Collection;
  */
 public class CommandHistoryModel {
 	
-	private Collection<String> commandHistory;
+	private List<String> commandHistory;
 	
 	public CommandHistoryModel(){
 		 this.commandHistory = new ArrayList<String>();
@@ -27,7 +28,7 @@ public class CommandHistoryModel {
 	 * returns the full command history--used to update the viewcontroller
 	 * @return
 	 */
-	public Collection<String> getHistory() {
+	public List<String> getHistory() {
 		return commandHistory;
 	}
 	
