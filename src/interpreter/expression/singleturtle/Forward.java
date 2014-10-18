@@ -1,9 +1,7 @@
 package interpreter.expression.singleturtle;
 
 import interpreter.SLogoResult;
-import interpreter.TurtleCommandResult;
 import interpreter.expression.SLogoExpression;
-import java.util.ArrayDeque;
 import java.util.Deque;
 import transitionstate.TransitionState;
 import transitionstate.TransitionState.PenChange;
@@ -18,32 +16,13 @@ public class Forward extends TurtleCommandExpression {
     private Deque<SLogoExpression> myParameters;
 
     public Forward () {
-        myParameters = new ArrayDeque<>();
+        super();
     }
+    
     @Override
-    public void loadArguments(Deque<SLogoExpression> args) {
-        try {
-            myParameters.add(args.pop());
-        }
-        catch (NullPointerException e) {
-            System.out.println("Empty Parameters List");
-        }
+    protected void setNextTransition (SLogoResult myResult, double value) {
+        myResult.getTransition().add(new TransitionState(PenChange.NO_CHANGE, VisibleChange.NO_CHANGE, value,0,0));
+        
     }
-
-    @Override
-    public SLogoResult evaluate() {
-        SLogoResult previousResult = myParameters.pop().evaluate();
-        TransitionState nextTransition = new TransitionState(PenChange.NO_CHANGE, 
-                                                             VisibleChange.NO_CHANGE, 
-                                                             previousResult.getValue(), 
-                                                             0,
-                                                             0);
-        SLogoResult myResult = new TurtleCommandResult(previousResult.getValue());
-        myResult.getTransition().add(nextTransition);
-        myResult.getTransition().addAll(previousResult.getTransition());
-        return myResult;
-
-    }
-
 
 }

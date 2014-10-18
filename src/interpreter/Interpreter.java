@@ -55,7 +55,7 @@ public class Interpreter {
 
     public static void main(String[] args) throws SLogoParsingException {
         Interpreter interpreter = new Interpreter();
-        String input = "repeat 10 [ ]";
+        String input = "forward forward 50";
         CommandReferenceLibrary lib = interpreter.getCommandReferenceLibrary();
         System.out.println(interpreter.interpret(input).getTransition().size());
     }

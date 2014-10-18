@@ -2,12 +2,15 @@ package interpreter.expression.singleturtle;
 
 import java.util.ArrayDeque;
 import java.util.Deque;
-import transitionstate.NullTransitionState;
+
+import transitionstate.TransitionState;
+import transitionstate.TransitionState.PenChange;
+import transitionstate.TransitionState.VisibleChange;
 import exceptions.SLogoParsingException;
 import interpreter.SLogoResult;
 import interpreter.TurtleCommandResult;
 import interpreter.expression.SLogoExpression;
-import interpreter.expression.conditional.ConditionalResult;
+
 
 /**
  * superclass for SLogoExpressions that are commands
@@ -21,6 +24,7 @@ public abstract class TurtleCommandExpression implements SLogoExpression {
     public TurtleCommandExpression() {
         //specifyNumberAndLoad(args,myNumArgs);
         myArguments = new ArrayDeque<>();
+        myNumArgs = 1;
     }
 
     @Override
@@ -32,7 +36,7 @@ public abstract class TurtleCommandExpression implements SLogoExpression {
     }
 
     @Override
-    public SLogoResult evaluate() throws SLogoParsingException, NullPointerException {
+    public SLogoResult evaluate() {
         Deque<SLogoResult> results = new ArrayDeque<>();
         while(!myArguments.isEmpty()) {
             results.add(myArguments.pop().evaluate());
@@ -40,18 +44,17 @@ public abstract class TurtleCommandExpression implements SLogoExpression {
         return applyOperatorAndMerge(results);
     }
 
-    protected SLogoResult applyOperatorAndMerge (Deque<SLogoResult> results) 
-            throws SLogoParsingException {
-        SLogoResult argument = results.pop();
+    protected SLogoResult applyOperatorAndMerge (Deque<SLogoResult> results) {
+        SLogoResult argument;
         SLogoResult myResult = new TurtleCommandResult();
-        
-        while(!results.isEmpty()) {
-            argument = results.pop();
-            myResult.getTransition().addAll(argument.getTransition());
-        }
-        double value = argument.getValue(); 
-        myResult.setValue(argument.getValue());
-        myResult.getTransition().add(argument.getValue());
+        argument = results.pop();
+        myResult.getTransition().addAll(argument.getTransition());
+        double value = argument.getValue();
+        myResult.setValue(value);
+        setNextTransition(myResult, value);
+        //myResult.getTransition().add(new TransitionState(PenChange.NO_CHANGE, VisibleChange.NO_CHANGE, value,0,0));
         return myResult;
     }
+    
+    protected abstract void setNextTransition(SLogoResult myResult, double value); 
 }
