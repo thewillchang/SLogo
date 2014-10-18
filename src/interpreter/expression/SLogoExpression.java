@@ -22,7 +22,8 @@ public interface SLogoExpression {
 	/**
 	 * evaluates the expression and returns an SLogoResult
 	 * @return
+	 * @throws SLogoParsingException 
 	 */
-	public SLogoResult evaluate();
+	public SLogoResult evaluate() throws SLogoParsingException;
 	
 }

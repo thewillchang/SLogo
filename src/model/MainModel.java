@@ -7,7 +7,6 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
 import java.util.Properties;
 
@@ -67,10 +66,8 @@ public class MainModel {
 		this.language = languageName;
 	}
 	
-	public void attachObservers(Collection<MainModelObserver> observers) {
-		for (MainModelObserver observer : observers) {
-			myObservers.add(observer);
-		}
+	public void attachObserver(MainModelObserver observer) {
+		myObservers.add(observer);
 	}
 	
 	private void notifyObservers() {

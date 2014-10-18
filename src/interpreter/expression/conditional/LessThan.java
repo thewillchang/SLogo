@@ -14,7 +14,8 @@ import transitionstate.TransitionState;
  * 
  *
  */
-
+//TODO TANAKA, PLEASE REFACTOR 
+//- WILL
 public class LessThan extends TwoArgumentCommand {
 
 	private SLogoExpression operand1;

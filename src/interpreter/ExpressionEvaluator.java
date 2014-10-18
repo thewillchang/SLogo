@@ -2,6 +2,7 @@ package interpreter;
 
 import interpreter.expression.SLogoExpression;
 import java.util.Deque;
+import exceptions.SLogoParsingException;
 
 /**
  * Evaluates given Expressions and merges results as needed
@@ -23,9 +24,10 @@ public class ExpressionEvaluator {
     /**
      * Evaluates all expressions and Merges the Results
      * @param parsedExpressions
+     * @throws SLogoParsingException 
      * @returns one SLogo results
      */
-    public SLogoResult evaluateExpressionsAndMergeResults (Deque<SLogoExpression> parsedExpressions) {
+    public SLogoResult evaluateExpressionsAndMergeResults (Deque<SLogoExpression> parsedExpressions) throws SLogoParsingException {
         while(!parsedExpressions.isEmpty()) {
             SLogoResult result = parsedExpressions.pop().evaluate();
             myResultMerger.append(result);

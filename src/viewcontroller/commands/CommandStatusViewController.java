@@ -1,8 +1,10 @@
 package viewcontroller.commands;
 
+import model.MainModel;
 import javafx.geometry.Insets;
 import javafx.scene.Node;
 import javafx.scene.control.Label;
+import viewcontroller.MainModelObserver;
 import viewcontroller.SLogoFont;
 
 /**
@@ -10,7 +12,7 @@ import viewcontroller.SLogoFont;
  * @author Abhishek B
  *
  */
-public class CommandStatusViewController extends CommandWindowViewController {
+public class CommandStatusViewController extends CommandWindowViewController implements MainModelObserver {
 
 	private Label myStatusLabel;
 	
@@ -32,6 +34,12 @@ public class CommandStatusViewController extends CommandWindowViewController {
 	@Override
 	public Node getNode() {
 		return myPane;
+	}
+
+	@Override
+	public void update(MainModel model) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

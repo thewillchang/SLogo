@@ -1,5 +1,8 @@
 package viewcontroller;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Node;
@@ -20,8 +23,11 @@ public class MainViewController implements ViewController, MainModelObserver {
 	private BorderPane myPane;
 	private TurtleWindowViewController myTurtleWindow;
 	private CommandWindowContainerViewController myCommandWindow;
+	private List<MainModelObserver> myChildObservers;
 	
 	public MainViewController(MainModel mainModel) {
+		myChildObservers = new ArrayList<>();
+		mainModel.attachObserver(this);
 		myPane = new BorderPane();
 		placeTurtleWindowView();
 		placeCommandWindowView(mainModel);
@@ -32,6 +38,7 @@ public class MainViewController implements ViewController, MainModelObserver {
 		BorderPane.setAlignment(myTurtleWindow.getNode(), Pos.CENTER);
 		BorderPane.setMargin(myTurtleWindow.getNode(), GRID_MARGIN);
 		myPane.setLeft(myTurtleWindow.getNode());
+		myChildObservers.add(myTurtleWindow);
 	}
 	
 	private void placeCommandWindowView(MainModel mainModel) {
@@ -39,6 +46,7 @@ public class MainViewController implements ViewController, MainModelObserver {
 		BorderPane.setAlignment(myTurtleWindow.getNode(), Pos.CENTER);
 		BorderPane.setMargin(myTurtleWindow.getNode(), GRID_MARGIN);
 		myPane.setRight(myCommandWindow.getNode());
+		myChildObservers.add(myCommandWindow);
 	}
 	
 	public void undoClicked() {
@@ -56,8 +64,9 @@ public class MainViewController implements ViewController, MainModelObserver {
 
 	@Override
 	public void update(MainModel model) {
-		// TODO Auto-generated method stub
-		
+		for (MainModelObserver child : myChildObservers) {
+			child.update(model);
+		}
 	}
 	
 }
