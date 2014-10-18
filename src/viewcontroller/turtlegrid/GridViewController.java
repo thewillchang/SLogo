@@ -1,5 +1,7 @@
 package viewcontroller.turtlegrid;
 
+import interpreter.SLogoResult;
+
 import java.awt.Dimension;
 import java.util.ArrayList;
 import java.util.List;
@@ -39,12 +41,7 @@ public class GridViewController implements ViewController, MainModelObserver {
 	public GridViewController() {
 		myTurtles = new ArrayList<>();
 		myGrid = new Group();
-		Rectangle background = new Rectangle(SIZE.width, SIZE.height, Color.web("#000099"));
-		myGrid.getChildren().add(background);
-		
-		addTurtle(new Turtle());
-		//addTurtle(new Turtle());
-		//addTurtle(new Turtle());
+		setBackground();
 		
 		b = new Button();
 		b.setText("test");
@@ -56,6 +53,11 @@ public class GridViewController implements ViewController, MainModelObserver {
 			}
 		});
 		myGrid.getChildren().add(b);
+	}
+	
+	private void setBackground() {
+		Rectangle background = new Rectangle(SIZE.width, SIZE.height, Color.web("#000099"));
+		myGrid.getChildren().add(background);
 	}
 	
 	public void redo() {
@@ -70,13 +72,50 @@ public class GridViewController implements ViewController, MainModelObserver {
 		}
 	}
 	
-	public void addTurtle(Turtle turtle) {
-		turtle.getPen().attachGrid(myGrid);
-		myTurtles.add(turtle);
-		myGrid.getChildren().add(turtle.getTurtle());
-		turtle.getTurtle().setLayoutX(SIZE.width / 2);
-		turtle.getTurtle().setLayoutY(SIZE.height / 2);
-	}	
+	private void enableButtons() {
+		b.setDisable(false);
+	}
+	
+	@Override
+	public Node getNode() {
+		return myGrid;
+	}
+
+	@Override
+	public void update(MainModel model) {
+		if (model.isTurtleAdded()) {
+			updateTurtles(model.getTurtles());
+		} else {
+			moveTurtles(model.getTurtles(), model.getResult());
+		}	
+	}
+	
+	private void updateTurtles(List<Turtle> turtles) {
+		for (Turtle turtle : turtles) {
+			if (!myTurtles.contains(turtle)) {
+				myTurtles.add(turtle);
+				turtle.getPen().attachGrid(myGrid);
+				myGrid.getChildren().add(turtle.getTurtle());
+				turtle.getTurtle().setLayoutX(SIZE.width / 2);
+				turtle.getTurtle().setLayoutY(SIZE.height / 2);
+			}
+		}
+	}
+	
+	private void moveTurtles(List<Turtle> turtles, SLogoResult result) {
+		if (!result.getHasError()) {
+			List<FullAnimation> animations = new ArrayList<>();
+			for (Turtle turtle : turtles) {
+				List<TransitionState> states = result.getTransition();
+				FullAnimation animation = turtle.animate(states);
+				animations.add(animation);
+			}
+			ParallelAnimations parallelAnimations = new ParallelAnimations();
+			parallelAnimations.loadAnimations(animations);
+			parallelAnimations.attachOnFinished(event -> enableButtons());
+			parallelAnimations.playParallelAnimations();
+		}
+	}
 	
 	private void moveTurtles() {
 		List<FullAnimation> animations = new ArrayList<>();
@@ -91,21 +130,6 @@ public class GridViewController implements ViewController, MainModelObserver {
 		parallelAnimations.loadAnimations(animations);
 		parallelAnimations.attachOnFinished(event -> enableButtons());
 		parallelAnimations.playParallelAnimations();
-	}
-	
-	private void enableButtons() {
-		b.setDisable(false);
-	}
-	
-	@Override
-	public Node getNode() {
-		return myGrid;
-	}
-
-	@Override
-	public void update(MainModel model) {
-		// TODO Auto-generated method stub
-		
 	}
 
 }
