@@ -4,6 +4,7 @@ import interpreter.SLogoResult;
 import interpreter.expression.SLogoExpression;
 import java.util.ArrayDeque;
 import java.util.Deque;
+import transitionstate.NullTransitionState;
 import exceptions.SLogoParsingException;
 
 /**
@@ -62,6 +63,11 @@ public abstract class ConditionalExpression implements SLogoExpression {
             myResult.getTransition().addAll(argument.getTransition());
         }
         myResult.setValue(condition? 1 : 0);
+        //TODO check design... Also what happens if multiple null transitionstates?
+        //is it not a waste of display processing?
+        //also for exceptions... keep in Results? or put into Transitionstates as well?
+        //Need to add error check during Result merging...
+        myResult.getTransition().add(new NullTransitionState());
         return myResult;
     }
     
