@@ -3,6 +3,8 @@ package viewcontroller.commands;
 import javafx.scene.Node;
 import javafx.scene.control.Label;
 import model.MainModel;
+import model.UserDefinedMethodsModel;
+import model.UserDefinedVariablesModel;
 import viewcontroller.MainModelObserver;
 import viewcontroller.SLogoFont;
 
@@ -37,7 +39,7 @@ public class UserDefinedMethodsViewController extends CommandClickableListWindow
 
 	@Override
 	public void update(MainModel model) {
-		// TODO Auto-generated method stub
+		UserDefinedMethodsModel myModel = model.getUserDefinedMethods();
 		
 	}
 

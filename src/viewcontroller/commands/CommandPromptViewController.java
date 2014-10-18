@@ -19,7 +19,7 @@ import viewcontroller.ViewController;
 /**
  * View Controller for the Text input where user types commands
  * 
- * @author Jonathan Tseng
+ * @author Abhishek B
  *
  */
 
@@ -57,8 +57,6 @@ public class CommandPromptViewController implements ViewController {
 				if (arg0.getCode() == KeyCode.ENTER) {
 					passCommandToModel(myCommandPromptTextArea.getText());
 					myCommandPromptTextArea.clear();
-					myCommandPromptTextArea.positionCaret(-1);
-					//myCommandPromptTextArea.positionCaret(0);
 				}
 			}
 		});

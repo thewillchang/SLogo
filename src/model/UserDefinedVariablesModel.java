@@ -1,7 +1,11 @@
 package model;
 
+import interpreter.expression.SLogoExpression;
+
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Model for User Defined Variables
@@ -10,18 +14,18 @@ import java.util.Collection;
  */
 public class UserDefinedVariablesModel {
 	
-	private  Collection<String> uservariables;
+	private Map<String, Double> myUserVariables;
 	
 	public UserDefinedVariablesModel(){
-		this.uservariables = new ArrayList<String>();
+		this.myUserVariables = new HashMap<>();
 	}
 
 	/**
 	 * returns the current list of user defined variables
 	 * @return
 	 */
-	public Collection<String> getVariables() {
-		return this.uservariables;
+	public Map<String, Double> getVariables() {
+		return this.myUserVariables;
 	}
 	
 	/**
@@ -29,8 +33,8 @@ public class UserDefinedVariablesModel {
 	 * if variable already exists with same name, then it is replaced
 	 * @param expression
 	 */
-	public void putVariable(String variable) {
-		this.uservariables.add(variable);
+	public void putVariable(String variable, double value) {
+		this.myUserVariables.put(variable, value);
 	}
 	
 }

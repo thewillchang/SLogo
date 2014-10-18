@@ -13,13 +13,14 @@ import viewcontroller.SLogoFont;
  *
  */
 
-public class CommandHistoryViewController extends CommandClickableListWindowViewController implements MainModelObserver {
+public class CommandHistoryViewController extends
+		CommandClickableListWindowViewController implements MainModelObserver {
 
 	public CommandHistoryViewController(
 			CommandWindowContainerViewController commandWindow) {
 		super();
 		myCommandWindowContainer = commandWindow;
-		
+
 		myTitleLabel.setText("Command History Window: ");
 		myTitleLabel.setFont(new SLogoFont().createTextFont());
 
@@ -42,7 +43,7 @@ public class CommandHistoryViewController extends CommandClickableListWindowView
 	@Override
 	public void update(MainModel model) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 }

@@ -1,6 +1,8 @@
 package viewcontroller.commands;
 
+import interpreter.SLogoResult;
 import model.MainModel;
+import model.UserDefinedVariablesModel;
 import javafx.geometry.Insets;
 import javafx.scene.Node;
 import javafx.scene.control.Label;
@@ -38,8 +40,11 @@ public class CommandStatusViewController extends CommandWindowViewController imp
 
 	@Override
 	public void update(MainModel model) {
-		// TODO Auto-generated method stub
-		
+		SLogoResult latestResult = model.getResult();
+		if(!latestResult.getHasError())
+		{
+			updateCommandStatusText(Double.toString(latestResult.getValue()));
+		}
 	}
 
 }

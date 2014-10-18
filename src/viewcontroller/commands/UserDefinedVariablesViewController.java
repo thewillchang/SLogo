@@ -1,17 +1,23 @@
 package viewcontroller.commands;
 
+import interpreter.expression.SLogoExpression;
+
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import javafx.event.EventHandler;
 import javafx.scene.Node;
 import javafx.scene.control.Label;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
 import model.MainModel;
+import model.UserDefinedVariablesModel;
 import viewcontroller.MainModelObserver;
 import viewcontroller.SLogoFont;
 
@@ -24,36 +30,28 @@ import viewcontroller.SLogoFont;
 public class UserDefinedVariablesViewController extends
 		CommandWindowViewController implements MainModelObserver {
 
-	private List<Label> myVariableLabels;
-	private List<TextField> myTextInputs;
-	private VBox myListVerticalBox;
+	private Map<String, Double> myVariableMap;	
+	private TableView myTable;
 
 	public UserDefinedVariablesViewController() {
 		super();
-
 		myTitleLabel.setText("User Defined Variables");
 		myTitleLabel.setFont(new SLogoFont().createTextFont());
-
-		placeVariableList();
-
-		myCommandWindowVerticalBox.getChildren().addAll(myListVerticalBox);
+		placeVariableTable();
 	}
 
-	private void placeVariableList() {
-		myListVerticalBox = new VBox();
-		myVariableLabels = new ArrayList<Label>();
-		addVariable("x");
-		addVariable("y");
+	private void placeVariableTable() {
+		myTable = new TableView();
+		myTable.setEditable(true);
+		TableColumn variableNameColumn = new TableColumn("Variable Name");
+		TableColumn variableValueColumn = new TableColumn("Value");
+		myTable.getColumns().addAll(variableNameColumn, variableValueColumn);
+		myCommandWindowVerticalBox.getChildren().addAll(myTable);
+//		addVariable("x");
+//		addVariable("y");
 	}
 
-	/*
-	 * private void addVariable(String variableLabelString) { Label
-	 * variableLabel = new Label(variableLabelString);
-	 * myVariableLabels.add(variableLabel);
-	 * myListVerticalBox.getChildren().add(variableLabel); }
-	 */
-
-	protected void addVariable(String variableLabelString) {
+/*	protected void addVariable(String variableLabelString) {
 		Label variableLabel = new Label(variableLabelString);
 		variableLabel.setOnMouseClicked(new EventHandler<MouseEvent>() {
 			@Override
@@ -76,7 +74,7 @@ public class UserDefinedVariablesViewController extends
 		myVariableLabels.add(variableLabel);
 		myListVerticalBox.getChildren().add(variableLabel);
 	}
-
+*/
 	@Override
 	public Node getNode() {
 		return myPane;
@@ -84,7 +82,12 @@ public class UserDefinedVariablesViewController extends
 
 	@Override
 	public void update(MainModel model) {
-		// TODO Auto-generated method stub
+		UserDefinedVariablesModel myModel = model.getUserDefinedVariables();
+		myVariableMap = myModel.getVariables();
+		updateVariableList();
+	}
+
+	private void updateVariableList() {
 		
 	}
 
