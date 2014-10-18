@@ -1,9 +1,7 @@
 package viewcontroller.commands;
 
-import javafx.event.EventHandler;
 import javafx.scene.Node;
 import javafx.scene.control.Label;
-import javafx.scene.input.MouseEvent;
 import viewcontroller.SLogoFont;
 
 /**
@@ -14,8 +12,6 @@ import viewcontroller.SLogoFont;
  */
 
 public class CommandHistoryViewController extends CommandClickableListWindowViewController {
-
-	private CommandWindowContainerViewController myCommandWindowContainer;
 
 	public CommandHistoryViewController(
 			CommandWindowContainerViewController commandWindow) {
@@ -34,18 +30,6 @@ public class CommandHistoryViewController extends CommandClickableListWindowView
 		for (Label command : myCommands) {
 			myListVerticalBox.getChildren().add(command);
 		}
-	}
-
-	private void addCommand(String commandLabelString) {
-		Label commandLabel = new Label(commandLabelString);
-		commandLabel.setOnMouseClicked(new EventHandler<MouseEvent>() {
-			@Override
-			public void handle(MouseEvent arg0) {
-				myCommandWindowContainer.updateCommandWindow(commandLabelString);
-			}
-
-		});
-		myCommands.add(commandLabel);
 	}
 
 	@Override

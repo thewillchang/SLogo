@@ -59,7 +59,6 @@ public class CommandPromptViewController implements ViewController {
 					myCommandPromptTextArea.clear();
 					myCommandPromptTextArea.positionCaret(-1);
 					//myCommandPromptTextArea.positionCaret(0);
-					System.out.println("here");
 				}
 			}
 		});

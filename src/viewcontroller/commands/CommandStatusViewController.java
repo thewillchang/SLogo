@@ -18,7 +18,7 @@ public class CommandStatusViewController extends CommandWindowViewController {
 		myTitleLabel.setText("Command Status");
 		myTitleLabel.setFont(new SLogoFont().createTextFont());
 		
-		myStatusLabel = new Label(">>");
+		myStatusLabel = new Label();
 		myStatusLabel.setFont(new SLogoFont().createTextFont());
 		myStatusLabel.setPadding(new Insets(0));
 		
