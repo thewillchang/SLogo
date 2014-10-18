@@ -26,6 +26,11 @@ public class TurtleCommandResult extends SLogoResult {
         return null;
     }
 
+    @Override 
+    public void setValue(double value) {
+        myValue = value;
+    }
+    
     @Override
     public List<TransitionState> getTransition () {
         return myTransitionStates;

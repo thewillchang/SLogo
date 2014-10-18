@@ -106,7 +106,10 @@ public class Parser {
         Parser p = new Parser(new CommandReferenceLibrary());
         String input = "forward 50";
 
-        p.parseSLogoExpression(input);
+       Deque<SLogoExpression> list = p.parseSLogoExpression(input);
+        System.out.println( list.pop().evaluate().getValue());
+
+        
     }
 
 

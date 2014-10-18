@@ -44,7 +44,7 @@ public abstract class ConditionalExpression implements SLogoExpression {
     }*/
 
     @Override
-    public SLogoResult evaluate() throws SLogoParsingException, NullPointerException {
+    public SLogoResult evaluate() {
         Deque<SLogoResult> results = new ArrayDeque<>();
         while(!myArguments.isEmpty()) {
             results.add(myArguments.pop().evaluate());
@@ -52,9 +52,8 @@ public abstract class ConditionalExpression implements SLogoExpression {
         return applyOperatorAndMerge(results);
     }
     
-    protected SLogoResult applyOperatorAndMerge (Deque<SLogoResult> results) 
-            throws SLogoParsingException {
-        SLogoResult argument = results.pop();
+    protected SLogoResult applyOperatorAndMerge (Deque<SLogoResult> results) {
+        SLogoResult argument;
         SLogoResult myResult = new ConditionalResult();
         boolean condition = true;
         while(!results.isEmpty()) {
