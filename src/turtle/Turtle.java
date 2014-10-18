@@ -89,6 +89,10 @@ public class Turtle {
 		return myTurtleViewController.getRadius();
 	}
 	
+	public boolean isSelected() {
+		return myTurtleViewController.isSelected();
+	}
+	
 	public void updateModel() {
 		myTurtleModel.update(myTurtleViewController);
 	}

@@ -43,13 +43,45 @@ public class TurtleViewController implements ViewController {
 	private Ellipse myBackRightFoot;
 	private Ellipse myTail;
 	
-	private List<Shape> turtleBodyParts;
+	private List<Shape> myTurtleBodyParts;
+	
+	private boolean myIsSelected;
 	
 	public TurtleViewController() {
 		myTurtle = new Group();
 		myAnimation = new Timeline();
 		createTurtle();
 		animate();
+		setClickHandle();
+		myIsSelected = false;
+		toggleSelection();
+	}
+	
+	private void setClickHandle() {
+		myTurtle.setOnMouseClicked(event -> toggleSelection());
+	}
+	
+	private void toggleSelection() {
+		myIsSelected = !myIsSelected;
+		if (myIsSelected) {
+			for (Shape bodyPart : myTurtleBodyParts) {
+				bodyPart.setStroke(Color.GOLD);
+				bodyPart.setStrokeWidth(getRadius() / 10);
+			}
+		} else {
+			for (Shape bodyPart : myTurtleBodyParts) {
+				if (!bodyPart.equals(myBody)) {
+					bodyPart.setStrokeWidth(0);
+				} else {
+					bodyPart.setStrokeWidth(getRadius() / 20);
+					bodyPart.setStroke(Color.BROWN);
+				}
+			}
+		}
+	}
+	
+	public boolean isSelected() {
+		return myIsSelected;
 	}
 	
 	public void updateVisible(VisibleChange visibleChange) {
@@ -106,16 +138,16 @@ public class TurtleViewController implements ViewController {
 	}
 	
 	private void createTurtle() {
-		turtleBodyParts = new ArrayList<Shape>();
+		myTurtleBodyParts = new ArrayList<Shape>();
 		createLegs();
 		createHeadBodyTail();
-		turtleBodyParts.add(myBody);
-		turtleBodyParts.add(myHead);
-		turtleBodyParts.add(myFrontLeftFoot);
-		turtleBodyParts.add(myFrontRightFoot);
-		turtleBodyParts.add(myBackLeftFoot);
-		turtleBodyParts.add(myBackRightFoot);
-		turtleBodyParts.add(myTail);
+		myTurtleBodyParts.add(myBody);
+		myTurtleBodyParts.add(myHead);
+		myTurtleBodyParts.add(myFrontLeftFoot);
+		myTurtleBodyParts.add(myFrontRightFoot);
+		myTurtleBodyParts.add(myBackLeftFoot);
+		myTurtleBodyParts.add(myBackRightFoot);
+		myTurtleBodyParts.add(myTail);
 		myTurtle.getChildren().clear();
 		myTurtle.getChildren().addAll(myHead, myFrontLeftFoot, myFrontRightFoot, myBackLeftFoot, myBackRightFoot, myTail, myBody);
 		colorTurtle(Color.LIMEGREEN);
@@ -125,14 +157,15 @@ public class TurtleViewController implements ViewController {
 	 * creates head, body, and tail of turtle
 	 */
 	private void createHeadBodyTail() {
-		myBody = new Circle(mySize.height / 2);
-		myBody.setStroke(Color.BROWN);
-		
 		myHead = new Ellipse(mySize.width / 5, mySize.height / 4);
 		myHead.setTranslateY(myHead.getTranslateY() - 2 * myHead.getRadiusY());
 		
 		myTail = new Ellipse(mySize.width / 12, mySize.height / 4);
 		myTail.setTranslateY(myTail.getTranslateY() + 2 * myTail.getRadiusY());
+		
+		myBody = new Circle(mySize.height / 2);
+		myBody.setStroke(Color.BROWN);
+		myBody.setStrokeWidth(getRadius() / 20);
 	}
 	
 	/**
