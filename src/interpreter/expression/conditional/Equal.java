@@ -1,34 +1,35 @@
 package interpreter.expression.conditional;
 
 import interpreter.SLogoResult;
-import interpreter.expression.SLogoExpression;
-import interpreter.expression.TwoArgumentCommand;
+import java.util.ArrayDeque;
 import java.util.Deque;
-import transitionstate.TransitionState;
 
 /**
  * 
- * @author Will
+ * @author Will Chang
  *
  */
 
-public class Equal extends TwoArgumentCommand {
+public class Equal extends ConditionalExpression { 
+    private Deque<Double> valuesToCompare;
     
-    private SLogoExpression operand1;
-    private SLogoExpression operand2;
+    public Equal () {
+        super();
+        //TODO Refactor... arguments specified in Library? or how?...
+        myNumArgs = 2;
+        valuesToCompare = new ArrayDeque<>();
+    }
     
+    
+    //TODO Refactor...
     @Override
-    public void loadArguments(Deque<SLogoExpression> args) {
-            super.loadArguments(args);
+    protected boolean hasSatisfiedCondition (SLogoResult argument) {
+        if (valuesToCompare.isEmpty()) {
+            valuesToCompare.push(argument.getValue());
+            return true;
+        }
+        return valuesToCompare.peek() == argument.getValue();
     }
 
-    @Override
-    public SLogoResult evaluate() {
-            int value = (operand1.evaluate().getValue() == operand2.evaluate().getValue()) ? 1 : 0;
-            TransitionState state = new TransitionState();
-            
-            return new ConditionalResult(value, state);
-    }
-    
-    
+
 }
