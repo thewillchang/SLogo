@@ -10,7 +10,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
 
-import transitionstate.TransitionState;
 import turtle.Turtle;
 import viewcontroller.MainModelObserver;
 
@@ -21,11 +20,12 @@ import viewcontroller.MainModelObserver;
  */
 public class MainModel {
 
+	private boolean myTurtleAdded;
 	private List<MainModelObserver> myObservers;
 	private Interpreter myInterpreter;
 	private List<Turtle> myTurtles;
-	private List<TransitionState> myTransitionState;
-	private String language;
+	private SLogoResult mySLogoResult;
+	private String myLanguage;
 	private CommandHistoryModel myCommandHistoryModel;
 	private UserDefinedMethodsModel myUserDefinedMethodsModel;
 	private UserDefinedVariablesModel myUserDefinedVariablesModel;
@@ -37,21 +37,42 @@ public class MainModel {
 	public MainModel(){
 		this.myObservers = new ArrayList<>();
 		this.myInterpreter = new Interpreter();
-		this.myTransitionState = new ArrayList<TransitionState>();
 		this.myTurtles = new ArrayList<>();
 		this.myCommandHistoryModel = new CommandHistoryModel();
 		this.myUserDefinedMethodsModel = new UserDefinedMethodsModel();
 		this.myUserDefinedVariablesModel = new UserDefinedVariablesModel();
+		myTurtleAdded = false;
 	}
 
+	/**
+	 * adds a turtle
+	 */
+	public void addTurtle(Turtle turtle) {
+		myTurtles.add(turtle);
+		myTurtleAdded = true;
+		notifyObservers();
+		myTurtleAdded = false;
+	}	
+	
+	public List<Turtle> getTurtles() {
+		return myTurtles;
+	}
+	
+	public boolean isTurtleAdded() {
+		return myTurtleAdded;
+	}
+	
+	public SLogoResult getResult() {
+		return mySLogoResult;
+	}
+	
 	/**
 	 * interprets a String SLogoCommand by passing it to the Interpreter
 	 * @param sLogoCommand
 	 */
 	public void interpretSLogoCommand(String sLogoCommand) {
-		SLogoResult myResult = myInterpreter.interpret(sLogoCommand);
-		myTransitionState = myResult.getTransition();
-		if(!myResult.getHasError()){
+		mySLogoResult = myInterpreter.interpret(sLogoCommand);
+		if(!mySLogoResult.getHasError()){
 			myCommandHistoryModel.addCommand(sLogoCommand);
 		}
 		notifyObservers();
@@ -59,11 +80,11 @@ public class MainModel {
 
 	/**
 	 * used to set the language in which the commands are written in
-	 * @param language
+	 * @param myLanguage
 	 */
 	public void setLanguage(String languageName) {
 		setProperty(LANGUAGE_PROPERTY, languageName);
-		this.language = languageName;
+		this.myLanguage = languageName;
 	}
 	
 	public void attachObserver(MainModelObserver observer) {

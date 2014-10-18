@@ -1,5 +1,6 @@
 package viewcontroller;
 
+import turtle.Turtle;
 import model.MainModel;
 
 /**
@@ -15,6 +16,7 @@ public class Workspace {
 	public Workspace() {
 		myMainModel = new MainModel();
 		myMainViewController = new MainViewController(myMainModel);
+		myMainModel.addTurtle(new Turtle());
 	}
 	
 	public MainViewController getViewController() {
