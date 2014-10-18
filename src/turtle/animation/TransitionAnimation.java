@@ -6,6 +6,11 @@ import transitionstate.TransitionState;
 import turtle.Turtle;
 import viewcontroller.turtlegrid.GridViewController;
 
+/**
+ * Animation class for moving the turtle along a line
+ * @author Jonathan Tseng
+ *
+ */
 public class TransitionAnimation extends SLogoAnimation {
 
 	private boolean myForward;

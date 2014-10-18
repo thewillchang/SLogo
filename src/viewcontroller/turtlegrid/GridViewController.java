@@ -11,15 +11,22 @@ import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
+import model.MainModel;
 import transitionstate.TransitionState;
 import transitionstate.TransitionState.PenChange;
 import transitionstate.TransitionState.VisibleChange;
 import turtle.Turtle;
 import turtle.animation.FullAnimation;
 import turtle.animation.ParallelAnimations;
+import viewcontroller.MainModelObserver;
 import viewcontroller.ViewController;
 
-public class GridViewController implements ViewController {
+/**
+ * View Controller for Grid view that has the turtles
+ * @author Jonathan Tseng
+ *
+ */
+public class GridViewController implements ViewController, MainModelObserver {
 
 	public final static Dimension SIZE = new Dimension(
 			TurtleWindowViewController.SIZE.width * 12 / 10, 
@@ -93,6 +100,12 @@ public class GridViewController implements ViewController {
 	@Override
 	public Node getNode() {
 		return myGrid;
+	}
+
+	@Override
+	public void update(MainModel model) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

@@ -11,6 +11,8 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
+import model.MainModel;
+import viewcontroller.MainModelObserver;
 import viewcontroller.SLogoFont;
 
 /**
@@ -20,7 +22,7 @@ import viewcontroller.SLogoFont;
  *
  */
 public class UserDefinedVariablesViewController extends
-		CommandWindowViewController {
+		CommandWindowViewController implements MainModelObserver {
 
 	private List<Label> myVariableLabels;
 	private List<TextField> myTextInputs;
@@ -91,6 +93,12 @@ public class UserDefinedVariablesViewController extends
 	@Override
 	public Node getNode() {
 		return myPane;
+	}
+
+	@Override
+	public void update(MainModel model) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

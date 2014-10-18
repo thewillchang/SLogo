@@ -7,6 +7,7 @@ import javafx.geometry.Point2D;
 /**
  * Model for Turtle
  * @author Tanaka Jimha
+ * @author Jonathan Tseng
  *
  */
 public class TurtleModel {

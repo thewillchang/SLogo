@@ -1,7 +1,9 @@
 package viewcontroller.commands;
 
+import model.MainModel;
 import javafx.scene.Node;
 import javafx.scene.control.Label;
+import viewcontroller.MainModelObserver;
 import viewcontroller.SLogoFont;
 
 /**
@@ -11,7 +13,7 @@ import viewcontroller.SLogoFont;
  *
  */
 
-public class CommandHistoryViewController extends CommandClickableListWindowViewController {
+public class CommandHistoryViewController extends CommandClickableListWindowViewController implements MainModelObserver {
 
 	public CommandHistoryViewController(
 			CommandWindowContainerViewController commandWindow) {
@@ -35,6 +37,12 @@ public class CommandHistoryViewController extends CommandClickableListWindowView
 	@Override
 	public Node getNode() {
 		return myPane;
+	}
+
+	@Override
+	public void update(MainModel model) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }
