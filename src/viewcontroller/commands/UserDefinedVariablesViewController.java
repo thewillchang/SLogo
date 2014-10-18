@@ -37,19 +37,6 @@ public class UserDefinedVariablesViewController extends
 		myCommandWindowVerticalBox.getChildren().addAll(myListVerticalBox);
 	}
 
-	private void placeEditableList() {
-		myListVerticalBox = new VBox();
-		myTextInputs = new ArrayList<TextField>();
-		addEditable("x");
-	}
-
-	private void addEditable(String string) {
-		TextField variableLabel = new TextField(string);
-		variableLabel.setEditable(true);
-		myTextInputs.add(variableLabel);
-		myListVerticalBox.getChildren().add(variableLabel);
-	}
-
 	private void placeVariableList() {
 		myListVerticalBox = new VBox();
 		myVariableLabels = new ArrayList<Label>();
