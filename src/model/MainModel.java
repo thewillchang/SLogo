@@ -25,7 +25,7 @@ public class MainModel {
 	private Interpreter myInterpreter;
 	private List<Turtle> myTurtles;
 	private List<TransitionState> myTransitionState;
-	private String language;
+	private String myLanguage;
 	private CommandHistoryModel myCommandHistoryModel;
 	private UserDefinedMethodsModel myUserDefinedMethodsModel;
 	private UserDefinedVariablesModel myUserDefinedVariablesModel;
@@ -59,11 +59,11 @@ public class MainModel {
 
 	/**
 	 * used to set the language in which the commands are written in
-	 * @param language
+	 * @param myLanguage
 	 */
 	public void setLanguage(String languageName) {
 		setProperty(LANGUAGE_PROPERTY, languageName);
-		this.language = languageName;
+		this.myLanguage = languageName;
 	}
 	
 	public void attachObserver(MainModelObserver observer) {
