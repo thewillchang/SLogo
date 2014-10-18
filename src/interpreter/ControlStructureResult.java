@@ -6,14 +6,14 @@ import exceptions.SLogoParsingException;
 
 public class ControlStructureResult extends SLogoResult{
 
-    
+
     public ControlStructureResult() {
         super();
     }
     public ControlStructureResult(double myValue) {
         super(myValue);
     }
-    
+
     @Override
     public SLogoParsingException getException () {
         // TODO Auto-generated method stub
@@ -24,7 +24,7 @@ public class ControlStructureResult extends SLogoResult{
     public List<TransitionState> getTransition () {
         return myTransitionStates;
     }
-    
+
     @Override
     public void setValue(double value) {
         myValue = value;
@@ -34,5 +34,11 @@ public class ControlStructureResult extends SLogoResult{
     public double getValue () {
         return myValue;
     }
-    
+
 }
+
+
+
+
+
+

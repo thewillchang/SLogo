@@ -8,7 +8,11 @@ public class SLogoResultMerger {
     private Deque<SLogoResult> resultsToMerge;
     
     public SLogoResultMerger() {
-        resultsToMerge = new ArrayDeque<>();
+        this(new ArrayDeque<>());
+    }
+    
+    public SLogoResultMerger(Deque<SLogoResult> results) {
+        resultsToMerge = results;
     }
     
     /**

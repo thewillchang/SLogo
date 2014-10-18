@@ -1,6 +1,8 @@
 package viewcontroller.commands;
 
 import java.awt.Dimension;
+import java.util.ArrayList;
+import java.util.List;
 
 import javafx.geometry.Insets;
 import javafx.scene.Node;
@@ -9,6 +11,7 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.Priority;
 import javafx.scene.layout.VBox;
 import model.MainModel;
+import viewcontroller.MainModelObserver;
 import viewcontroller.ViewController;
 import application.Main;
 
@@ -19,7 +22,7 @@ import application.Main;
  *
  */
 
-public class CommandWindowContainerViewController implements ViewController {
+public class CommandWindowContainerViewController implements ViewController, MainModelObserver {
 
 	public static final Dimension SIZE = new Dimension(
 			Main.SIZE.width / 2 * 9 / 10, Main.SIZE.height * 9 / 10);
@@ -32,8 +35,10 @@ public class CommandWindowContainerViewController implements ViewController {
 	private CommandHistoryViewController myCommandHistoryView;
 	private CommandPromptViewController myCommandPromptView;
 	private CommandStatusViewController myCommandStatusView;
+	private List<MainModelObserver> myChildObservers;
 
 	public CommandWindowContainerViewController(MainModel mainModel) {
+		myChildObservers = new ArrayList<>();
 		myMainModel = mainModel;
 		myPane = new BorderPane();
 		myPane.setPrefSize(SIZE.width, SIZE.height);
@@ -52,9 +57,12 @@ public class CommandWindowContainerViewController implements ViewController {
 		VBox.setVgrow(userDefinedHorizontalBox, Priority.ALWAYS);
 		VBox.setVgrow(myCommandHistoryView.getNode(), Priority.ALWAYS);
 		VBox.setVgrow(myCommandPromptView.getNode(), Priority.ALWAYS);
-		VBox.setVgrow(myCommandStatusView.getNode(), Priority.ALWAYS);
+		VBox.setVgrow(myCommandStatusView.getNode(), Priority.ALWAYS); 
 		commandWindowVerticalBox.getChildren().addAll(userDefinedHorizontalBox, myCommandHistoryView.getNode(), 
 				myCommandPromptView.getNode(), myCommandStatusView.getNode());
+		
+		myChildObservers.add(myCommandHistoryView);
+		myChildObservers.add(myCommandStatusView);
 		
 		myPane.setCenter(commandWindowVerticalBox);
 	}
@@ -66,6 +74,8 @@ public class CommandWindowContainerViewController implements ViewController {
 		HBox.setHgrow(myUserDefinedMethodsView.getNode(), Priority.ALWAYS);
 		HBox.setHgrow(myUserDefinedVariablesView.getNode(), Priority.ALWAYS);
 		userDefinedHorizontalBox.getChildren().addAll(myUserDefinedMethodsView.getNode(), myUserDefinedVariablesView.getNode());
+		myChildObservers.add(myUserDefinedMethodsView);
+		myChildObservers.add(myUserDefinedVariablesView);
 		return userDefinedHorizontalBox;
 	}
 	
@@ -80,6 +90,13 @@ public class CommandWindowContainerViewController implements ViewController {
 	@Override
 	public Node getNode() {
 		return myPane;
+	}
+
+	@Override
+	public void update(MainModel model) {
+		for (MainModelObserver child : myChildObservers) {
+			child.update(model);
+		}
 	}
 
 }

@@ -1,9 +1,9 @@
 package viewcontroller.commands;
 
-import javafx.event.EventHandler;
+import model.MainModel;
 import javafx.scene.Node;
 import javafx.scene.control.Label;
-import javafx.scene.input.MouseEvent;
+import viewcontroller.MainModelObserver;
 import viewcontroller.SLogoFont;
 
 /**
@@ -13,9 +13,7 @@ import viewcontroller.SLogoFont;
  *
  */
 
-public class CommandHistoryViewController extends CommandClickableListWindowViewController {
-
-	private CommandWindowContainerViewController myCommandWindowContainer;
+public class CommandHistoryViewController extends CommandClickableListWindowViewController implements MainModelObserver {
 
 	public CommandHistoryViewController(
 			CommandWindowContainerViewController commandWindow) {
@@ -36,21 +34,15 @@ public class CommandHistoryViewController extends CommandClickableListWindowView
 		}
 	}
 
-	private void addCommand(String commandLabelString) {
-		Label commandLabel = new Label(commandLabelString);
-		commandLabel.setOnMouseClicked(new EventHandler<MouseEvent>() {
-			@Override
-			public void handle(MouseEvent arg0) {
-				myCommandWindowContainer.updateCommandWindow(commandLabelString);
-			}
-
-		});
-		myCommands.add(commandLabel);
-	}
-
 	@Override
 	public Node getNode() {
 		return myPane;
+	}
+
+	@Override
+	public void update(MainModel model) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

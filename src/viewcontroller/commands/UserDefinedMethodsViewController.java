@@ -1,9 +1,9 @@
 package viewcontroller.commands;
 
-import javafx.event.EventHandler;
 import javafx.scene.Node;
 import javafx.scene.control.Label;
-import javafx.scene.input.MouseEvent;
+import model.MainModel;
+import viewcontroller.MainModelObserver;
 import viewcontroller.SLogoFont;
 
 /**
@@ -12,9 +12,7 @@ import viewcontroller.SLogoFont;
  * @author Abhishek B
  *
  */
-public class UserDefinedMethodsViewController extends CommandClickableListWindowViewController {
-
-	private CommandWindowContainerViewController myCommandWindowContainer;
+public class UserDefinedMethodsViewController extends CommandClickableListWindowViewController implements MainModelObserver {
 
 	public UserDefinedMethodsViewController(
 			CommandWindowContainerViewController commandWindowContainer) {
@@ -32,20 +30,15 @@ public class UserDefinedMethodsViewController extends CommandClickableListWindow
 		}
 	}
 
-	private void addCommand(String commandLabelString) {
-		Label commandLabel = new Label(commandLabelString);
-		commandLabel.setOnMouseClicked(new EventHandler<MouseEvent>() {
-			@Override
-			public void handle(MouseEvent arg0) {
-				myCommandWindowContainer.updateCommandWindow(commandLabelString);
-			}
-		});
-		myCommands.add(commandLabel);
-	}
-
 	@Override
 	public Node getNode() {
 		return myPane;
+	}
+
+	@Override
+	public void update(MainModel model) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }
