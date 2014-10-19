@@ -61,18 +61,20 @@ public class View {
 	}
 	
 	public void undoClicked() {
-		if (myCurrentWorkspace == null) System.out.println("shit");
-		else myCurrentWorkspace.getViewController().undoClicked();
+		if (myCurrentWorkspace != null) {
+			myCurrentWorkspace.getViewController().undoClicked();
+		}
 	}
 	
 	public void redoClicked() {
-		myCurrentWorkspace.getViewController().redoClicked();
+		if (myCurrentWorkspace != null) {
+			myCurrentWorkspace.getViewController().redoClicked();
+		}
 	}
 	
 	public void showHelp() {
 		HelpDialogBox helpBox = new HelpDialogBox(HELP_URL);
 		helpBox.show();
-		System.out.println("here");
 	}
 	
 	public Scene getScene() {
@@ -87,7 +89,11 @@ public class View {
 	}
 	
 	private void tabChanged(ObservableValue<? extends Tab> observable, Tab oldTab, Tab newTab) {
-		myCurrentWorkspace = myWorkspaces.get(Integer.parseInt(newTab.idProperty().getValue()));
+		try {
+			myCurrentWorkspace = myWorkspaces.get(Integer.parseInt(newTab.idProperty().getValue()));
+		} catch (Exception e) {
+			//do nothing
+		}
 	}
 	
 	private void placeMenuBar() {

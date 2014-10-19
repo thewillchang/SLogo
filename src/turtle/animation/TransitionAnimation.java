@@ -50,8 +50,10 @@ public class TransitionAnimation extends SLogoAnimation {
 	private void moveTurtle() {
 		Node turtleNode = myTurtle.getTurtle();
 		checkWrapping();
+		if (myDistance <= 0) return;
 		turtleNode.setTranslateX(turtleNode.getTranslateX() + myXMove);
 		turtleNode.setTranslateY(turtleNode.getTranslateY() + myYMove);
+		myDistance -= 1;
 	}
 	
 	private void checkWrapping() {
@@ -85,7 +87,7 @@ public class TransitionAnimation extends SLogoAnimation {
 		double rotation = turtleNode.getRotate() % 360;
 		if (rotation < 0) {
 			myXMove = (rotation > -180) ? -1 * myXMove : myXMove;
-			myYMove = (rotation > -90 || rotation < -270) ? myYMove : -1 * myYMove;
+			myYMove = (rotation > -90 || rotation < -270) ? -1 * myYMove : myYMove;
 		} else {
 			myXMove = (rotation > 180) ? -1 * myXMove : myXMove;
 			myYMove = (rotation < 90 || rotation > 270) ? -1 * myYMove : myYMove;
