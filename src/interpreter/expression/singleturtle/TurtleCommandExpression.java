@@ -2,10 +2,6 @@ package interpreter.expression.singleturtle;
 
 import java.util.ArrayDeque;
 import java.util.Deque;
-
-import transitionstate.TransitionState;
-import transitionstate.TransitionState.PenChange;
-import transitionstate.TransitionState.VisibleChange;
 import exceptions.SLogoParsingException;
 import interpreter.SLogoResult;
 import interpreter.TurtleCommandResult;
@@ -24,6 +20,7 @@ public abstract class TurtleCommandExpression implements SLogoExpression {
     public TurtleCommandExpression() {
         //specifyNumberAndLoad(args,myNumArgs);
         myArguments = new ArrayDeque<>();
+        //TODO Update
         myNumArgs = 1;
     }
 
@@ -52,7 +49,6 @@ public abstract class TurtleCommandExpression implements SLogoExpression {
         double value = argument.getValue();
         myResult.setValue(value);
         setNextTransition(myResult, value);
-        //myResult.getTransition().add(new TransitionState(PenChange.NO_CHANGE, VisibleChange.NO_CHANGE, value,0,0));
         return myResult;
     }
     
