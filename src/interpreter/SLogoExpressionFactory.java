@@ -95,19 +95,18 @@ public class SLogoExpressionFactory {
     }
 
 
-    /*
+    
     public static void main(String[] args) throws SLogoParsingException
     {
 
-        Pattern pattern = Pattern.compile("[a-zA-z_]+(\\?)?");
-        SLogoExpressionFactory factory = new SLogoExpressionFactory();
+      
+        SLogoExpressionFactory factory = new SLogoExpressionFactory(new CommandReferenceLibrary());
 
 
-        System.out.println(pattern.matches("[A-Za-z0-9]","0"));
         //String temp = "[a-zA-z_]+(\?)?";
-        System.out.println("*".matches("[^A-Za-z0-9]"));
+        System.out.println("]".matches("[a-zA-z_] + (\\?)?"));
         // System.out.println(p.parameterStack.size());
     }
-     */
+     
 
 }

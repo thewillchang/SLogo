@@ -23,7 +23,7 @@ public class CommandReferenceLibrary {
     private final String COMMENT = "\\#"; 
     private final String CONSTANT = "-?[0-9]+\\.?[0-9]*";
     private final String VARIABLE = ":[a-zA-z]+";
-    private final String COMMAND = "[a-zA-z_]+(\\?)?";
+    private final String COMMAND = "[a-zA-z_] + (\\?)?";
     private final String LIST_START = "\\[";
     private final String LIST_END = "\\]";
     private final String GROUP_START = "\\(";
