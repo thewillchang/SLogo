@@ -1,30 +1,21 @@
 package interpreter.expression.math;
 
-import interpreter.SLogoResult;
-import interpreter.expression.SLogoExpression;
-import interpreter.expression.TwoArgumentCommand;
-
 import java.util.Deque;
+import interpreter.SLogoResult;
 
-import transitionstate.TransitionState;
+public class Sum extends MathExpression {
 
-public class Sum extends TwoArgumentCommand {
-
-    private SLogoExpression operand1;
-    private SLogoExpression operand2;
-
-    @Override
-    public void loadArguments(Deque<SLogoExpression> args) {
-        super.loadArguments(args);
+    public Sum () {
+        super();
+        myNumArgs = 2;
     }
 
     @Override
-    public SLogoResult evaluate() {
-
-        double value = (operand1.evaluate().getValue() + operand2.evaluate().getValue());
-        TransitionState state = new TransitionState();
-
-        return  new MathResult(value, state);
-
+    protected double applyMath (Deque<SLogoResult> results) {
+        double sum = 0;
+        while(!results.isEmpty()) {
+            sum += results.pop().getValue();
+        }
+        return sum;
     }
 }
