@@ -47,8 +47,8 @@ public class MainModel {
 	/**
 	 * adds a turtle
 	 */
-	public void addTurtle(Turtle turtle) {
-		myTurtles.add(turtle);
+	public void addTurtle() {
+		myTurtles.add(new Turtle());
 		myTurtleAdded = true;
 		notifyObservers();
 		myTurtleAdded = false;

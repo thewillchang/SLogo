@@ -72,6 +72,12 @@ public class View {
 		}
 	}
 	
+	public void addTurtleClicked() {
+		if (myCurrentWorkspace != null) {
+			myCurrentWorkspace.getMainModel().addTurtle();
+		}
+	}
+	
 	public void showHelp() {
 		HelpDialogBox helpBox = new HelpDialogBox(HELP_URL);
 		helpBox.show();

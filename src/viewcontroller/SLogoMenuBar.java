@@ -9,6 +9,7 @@ public class SLogoMenuBar extends MenuBar {
 	private final static String FILE_STRING = "File";
 	private final static String HELP_STRING = "Help";
 	private final static String NEW_WORKSPACE_STRING = "New workspace";
+	private final static String ADD_TURTLE_STRING = "Add turtle";
 	
 	private final static String EDIT_STRING = "Edit";
 	private final static String REDO_STRING = "Redo";
@@ -20,6 +21,7 @@ public class SLogoMenuBar extends MenuBar {
 	private MenuItem myUndoMenuItem;
 	
 	private MenuItem myNewWorkspaceMenuItem;
+	private MenuItem myAddTurtleMenuItem;
 	private MenuItem myHelpMenuItem;
 	
 	public SLogoMenuBar(View parentView) {
@@ -46,7 +48,9 @@ public class SLogoMenuBar extends MenuBar {
 		myHelpMenuItem.setOnAction(event -> myParentView.showHelp());
 		myNewWorkspaceMenuItem = new MenuItem(NEW_WORKSPACE_STRING);
 		myNewWorkspaceMenuItem.setOnAction(event -> myParentView.addNewWorkspace());
-		fileMenu.getItems().addAll(myNewWorkspaceMenuItem, myHelpMenuItem);
+		myAddTurtleMenuItem = new MenuItem(ADD_TURTLE_STRING);
+		myAddTurtleMenuItem.setOnAction(event -> myParentView.addTurtleClicked());
+		fileMenu.getItems().addAll(myNewWorkspaceMenuItem, myAddTurtleMenuItem, myHelpMenuItem);
 		getMenus().add(fileMenu);
 	}
 
