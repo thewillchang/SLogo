@@ -5,6 +5,7 @@ import interpreter.expression.SLogoExpression;
 import java.util.ArrayDeque;
 import java.util.Deque;
 import java.util.List;
+import transitionstate.NullTransitionState;
 import transitionstate.TransitionState;
 
 /**
@@ -58,6 +59,6 @@ public abstract class MathExpression implements SLogoExpression {
             transitionStates.addAll(result.getTransition());
         }
         //Add a nulltransition? at the end...?
-        //transitionStates.add(new NullTransitionState());
+        transitionStates.add(new NullTransitionState());
     }
 }
