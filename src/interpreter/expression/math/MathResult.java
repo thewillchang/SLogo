@@ -8,21 +8,18 @@ import interpreter.SLogoResult;
 
 /**
  * Wrapper for Results of Math operations
- * @author Tanaka Jimha
+ * @author Will Chang and Tanaka Jimha
  *
  */
 
 public class MathResult extends SLogoResult {
 
-    private double myValue;
-    private TransitionState myState;
-
-    public MathResult(double value) {
-        this.myValue = value;
+    public MathResult() {
+        super();
     }
-    public MathResult(double value, TransitionState state){
-        this.myValue = value;
-        this.myState = state;
+    
+    public MathResult(double value) {
+        super(value);   
     }
 
     @Override
@@ -33,13 +30,11 @@ public class MathResult extends SLogoResult {
 
     @Override
     public List<TransitionState> getTransition() {
-        // TODO Auto-generated method stub
-        return null;
+        return myTransitionStates;
     }
 
     @Override
     public double getValue() {
-        // TODO Auto-generated method stub
         return myValue;
     }
 

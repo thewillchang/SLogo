@@ -1,30 +1,22 @@
 package interpreter.expression.math;
 
-import interpreter.SLogoResult;
-import interpreter.expression.SLogoExpression;
-import interpreter.expression.TwoArgumentCommand;
-
 import java.util.Deque;
+import interpreter.SLogoResult;
 
-import transitionstate.TransitionState;
+/**
+ * 
+ * @author Will Chang
+ *
+ */
 
-public class Difference extends TwoArgumentCommand {
+public class Difference extends MathExpression {
 
-	private SLogoExpression operand1;
-	private SLogoExpression operand2;
-
-	@Override
-	public void loadArguments(Deque<SLogoExpression> args) {
-		super.loadArguments(args);
-	}
-
-	@Override
-	public SLogoResult evaluate() {
-
-		double value = (operand1.evaluate().getValue() - operand2.evaluate().getValue());
-		TransitionState state = new TransitionState();
-
-		return  new MathResult(value, state);
-
-	}
+    public Difference () {
+        super();
+        myNumArgs = 2;
+    }
+    @Override
+    protected double applyMath (Deque<SLogoResult> results) {
+        return results.pop().getValue() - results.pop().getValue();
+    }
 }
