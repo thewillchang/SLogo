@@ -55,8 +55,7 @@ public abstract class SLogoResult {
 	}
 
 	public void setValue(double value) {
-		// TODO Auto-generated method stub
-
+		myValue = value;
 	}
 
 }

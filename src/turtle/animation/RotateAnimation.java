@@ -24,7 +24,7 @@ public abstract class RotateAnimation extends SLogoAnimation {
 		myTurtle = turtle.getTurtle();
 		myDegrees = (clockwise) ? transitionState.getRotateClockwise() : transitionState.getRotateCounterClockwise();
 		myDone = (myDegrees == 0);
-		setAnimationLength(myDegrees);
+		setAnimationLength(Math.abs(myDegrees));
 	}
 	
 	/**
@@ -33,11 +33,12 @@ public abstract class RotateAnimation extends SLogoAnimation {
 	private void updateRotate(boolean clockwise) {
 		if (myDone) return;
 		if (Math.abs(myDegrees) < 1) {
-			myTurtle.setRotate((myTurtle.getRotate() - myDegrees) % 360);
+			int rotation = ((clockwise) ? 1 : -1) * ((myDegrees > 0) ? 1 : -1);
+			myTurtle.setRotate((myTurtle.getRotate() + rotation * myDegrees) % 360);
 		} else {
-			int rotation = (clockwise) ? 1 : -1;
+			int rotation = ((clockwise) ? 1 : -1) * ((myDegrees > 0) ? 1 : -1);
 			myTurtle.setRotate((myTurtle.getRotate() + rotation) % 360);
-			myDegrees -= rotation;
+			myDegrees -= ((clockwise) ? 1 : -1) * rotation;
 		}
 	}
 

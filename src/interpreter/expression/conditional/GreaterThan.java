@@ -1,38 +1,29 @@
 package interpreter.expression.conditional;
 
 import interpreter.SLogoResult;
-import interpreter.expression.SLogoExpression;
-import interpreter.expression.TwoArgumentCommand;
-
+import java.util.ArrayDeque;
 import java.util.Deque;
-
-import transitionstate.TransitionState;
 
 /**
  * Implements the < operation on given operands
- * @author Tanaka Jimha
- * 
- *
+ * @authors Tanaka Jimha and Will Chang
  */
-//TODO TANAKA, PLEASE REFACTOR 
-//- WILL
-public class GreaterThan extends TwoArgumentCommand {
 
-	private SLogoExpression operand1;
-	private SLogoExpression operand2;
+public class GreaterThan extends ConditionalExpression {
+    private Deque<Double> valuesToCompare;
+    
+    public GreaterThan () {
+        super();
+        myNumArgs = 2;
+        valuesToCompare = new ArrayDeque<>();
+    }
 	
-	@Override
-	public void loadArguments(Deque<SLogoExpression> args) {
-		super.loadArguments(args);
-	}
-
-	@Override
-	public SLogoResult evaluate() {
-		int value = (operand1.evaluate().getValue() > operand2.evaluate().getValue()) ? 1 : 0;
-		TransitionState state = new TransitionState();
-		
-		return new ConditionalResult(value, state);
-	}
-	
-	
+    @Override
+    protected boolean hasSatisfiedCondition (SLogoResult argument) {
+        if (valuesToCompare.isEmpty()) {
+            valuesToCompare.push(argument.getValue());
+            return true;
+        }
+        return valuesToCompare.peek() > argument.getValue();
+    }
 }

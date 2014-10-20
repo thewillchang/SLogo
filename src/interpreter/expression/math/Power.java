@@ -1,47 +1,19 @@
 package interpreter.expression.math;
 
-import interpreter.SLogoResult;
-import interpreter.TurtleCommandResult;
-import interpreter.expression.SLogoExpression;
-import interpreter.expression.singleturtle.TurtleCommandExpression;
-import java.util.ArrayDeque;
 import java.util.Deque;
-import transitionstate.TransitionState;
+import interpreter.SLogoResult;
 
 public class Power extends MathExpression {
-    private Deque<SLogoExpression> myParameters;
 
     public Power () {
-        myParameters = new ArrayDeque<>();
-    }
-    @Override
-    public void loadArguments(Deque<SLogoExpression> args) {
-        try {
-            myParameters.add(args.pop());
-            myParameters.add(args.pop());
-        }
-        catch (NullPointerException e) {
-            System.out.println("Empty Parameters List");
-        }
+        super();
+        myNumArgs = 2;
     }
 
     @Override
-    public SLogoResult evaluate() {
-        SLogoResult base = myParameters.pop().evaluate();
-        SLogoResult power = myParameters.pop().evaluate();
-
-        double value = Math.pow(base.getValue(), power.getValue());
-
-        TransitionState nextTransition = new TransitionState(false, 
-                                                             true, 
-                                                             value, 
-                                                             0,
-                                                             0);
-        SLogoResult myResult = new MathResult(value);
-        myResult.getTransition().add(nextTransition);
-        myResult.getTransition().addAll(base.getTransition());
-        myResult.getTransition().addAll(power.getTransition());
-        return myResult;
-
+    protected double applyMath (Deque<SLogoResult> results) {
+        double base = results.pop().getValue();
+        double power = results.pop().getValue();
+        return Math.pow(base, power);
     }
 }

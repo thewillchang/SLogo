@@ -10,14 +10,14 @@ import transitionstate.TransitionState.VisibleChange;
  * @author Will Chang
  *
  */
-public class Left extends TurtleCommandExpression {
-    public Left () {
+public class Backward extends TurtleCommandExpression {
+    public Backward () {
         super();
     }
     
     @Override
     protected void setNextTransition (SLogoResult myResult, double value) {
-        myResult.getTransition().add(new TransitionState(PenChange.NO_CHANGE, VisibleChange.NO_CHANGE, 0, 0, value));
+        myResult.getTransition().add(new TransitionState(PenChange.NO_CHANGE, VisibleChange.NO_CHANGE, (-1)*value, 0, 0));
         
     }
 }
