@@ -1,6 +1,8 @@
 package interpreter.expression;
 
+import java.util.ArrayDeque;
 import java.util.Deque;
+import exceptions.SLogoParsingException;
 import model.MainModel;
 import interpreter.CommandReferenceLibrary;
 import interpreter.SLogoResult;
@@ -8,16 +10,17 @@ import interpreter.SLogoResult;
 /**
  * superclass for SLogoExpressions that are purely syntax
  * examples include variables, constant numbers, and brackets
- * @author Jonathan Tseng
+ * @author Will Chang and Jonathan Tseng
  *
  */
 public abstract class SyntaxExpression implements SLogoExpression {
     protected CommandReferenceLibrary myLibrary;
     protected MainModel myModel;
     protected int myNumArgs;
+    protected Deque<SLogoExpression> myArguments;
     
     public SyntaxExpression() {
-        
+        myArguments = new ArrayDeque<>();
     }
     
     @Override
@@ -35,9 +38,10 @@ public abstract class SyntaxExpression implements SLogoExpression {
     }
     
     @Override
-    public void loadArguments(Deque<SLogoExpression> args) {
-        // TODO Auto-generated method stub
-
+    public void loadArguments(Deque<SLogoExpression> args) throws SLogoParsingException, NullPointerException{
+        for(int i = 0; i < myNumArgs; i++) {
+            myArguments.add(args.pop());
+        }
     }
     
    
@@ -46,7 +50,6 @@ public abstract class SyntaxExpression implements SLogoExpression {
 
     @Override
     public SLogoResult evaluate() {
-        // TODO Auto-generated method stub
         return null;
     }
 

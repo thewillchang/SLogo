@@ -2,6 +2,7 @@ package interpreter.expression.syntax;
 
 import java.util.Deque;
 import model.MainModel;
+import interpreter.CommandReferenceLibrary;
 import interpreter.SLogoResult;
 import interpreter.expression.SLogoExpression;
 
@@ -22,6 +23,18 @@ public class GroupStart implements SLogoExpression {
 
     @Override
     public void loadModel (MainModel model) {
+        // TODO Auto-generated method stub
+        
+    }
+
+    @Override
+    public void setNumArgs (int value) {
+        // TODO Auto-generated method stub
+        
+    }
+
+    @Override
+    public void loadLibrary (CommandReferenceLibrary library) {
         // TODO Auto-generated method stub
         
     }
