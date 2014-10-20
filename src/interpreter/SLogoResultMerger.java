@@ -32,6 +32,7 @@ public class SLogoResultMerger {
         while (!resultsToMerge.isEmpty()) {
             SLogoResult nextResult = resultsToMerge.pop();
             topResult.getTransition().addAll(nextResult.getTransition());
+            topResult.setValue(nextResult.getValue());
         }
         return topResult;
     }

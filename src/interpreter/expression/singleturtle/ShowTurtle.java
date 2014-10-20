@@ -5,9 +5,6 @@ import transitionstate.TransitionState.PenChange;
 import transitionstate.TransitionState.VisibleChange;
 
 public class ShowTurtle extends TurtleCommandExpression {
-    public ShowTurtle () {
-        super();
-    }
     
     @Override
     protected void setNextTransition (SLogoResult myResult, double value) {

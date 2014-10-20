@@ -11,10 +11,6 @@ import transitionstate.TransitionState.VisibleChange;
  *
  */
 public class Right extends TurtleCommandExpression {
-
-    public Right () {
-        super();
-    }
     
     @Override
     protected void setNextTransition (SLogoResult myResult, double value) {

@@ -2,7 +2,7 @@ package interpreter;
 
 
 import java.util.Deque;
-
+import model.MainModel;
 import exceptions.SLogoParsingException;
 import interpreter.expression.SLogoExpression;
 
@@ -17,13 +17,15 @@ public class Interpreter {
     private Parser myParser;
     private ExpressionEvaluator myEvaluator;
     private CommandReferenceLibrary myLibrary;
+    private MainModel myModel;
 
     /**
      * Constructor
      */
-    public Interpreter() {
+    public Interpreter(MainModel model) {
+        myModel = model;
         myLibrary = new CommandReferenceLibrary();
-        myParser = new Parser(myLibrary);
+        myParser = new Parser(myLibrary, myModel);
         myEvaluator = new ExpressionEvaluator();
     }
 
@@ -33,7 +35,7 @@ public class Interpreter {
      * @param command 
      * @return
      */
-    public SLogoResult interpret(String input) {
+    public SLogoResult interpret (String input) {
         try {
             Deque<SLogoExpression> parsedExpressions = myParser.parseSLogoExpression(input);
             return myEvaluator.evaluateExpressionsAndMergeResults(parsedExpressions);
@@ -46,15 +48,15 @@ public class Interpreter {
 
     public void setLogoLanguage(String language) {
         myLibrary = new CommandReferenceLibrary(language);
-        myParser = new Parser(myLibrary);
+        myParser = new Parser(myLibrary, myModel);
     }
     
-    public CommandReferenceLibrary getCommandReferenceLibrary() {
+    public CommandReferenceLibrary getCommandReferenceLibrary () {
         return myLibrary;
     }
 
     public static void main(String[] args) throws SLogoParsingException {
-        Interpreter interpreter = new Interpreter();
+        Interpreter interpreter = new Interpreter(new MainModel());
         String input = "forward forward 50";
         CommandReferenceLibrary lib = interpreter.getCommandReferenceLibrary();
         System.out.println(interpreter.interpret(input).getTransition().size());

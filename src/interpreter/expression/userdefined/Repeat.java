@@ -1,4 +1,4 @@
-package interpreter.expression.variable;
+package interpreter.expression.userdefined;
 
 import java.util.ArrayDeque;
 import java.util.ArrayList;

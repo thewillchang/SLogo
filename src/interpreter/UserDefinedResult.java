@@ -1,33 +1,38 @@
 package interpreter;
 
 import java.util.List;
-import transitionstate.NullTransitionState;
 import transitionstate.TransitionState;
 import exceptions.SLogoParsingException;
 
-public class SyntaxResult extends SLogoResult {
+public class UserDefinedResult extends SLogoResult {
 
-    public SyntaxResult (double value) {
-        super(value);
-        myTransitionStates.add(new NullTransitionState());
+    public UserDefinedResult() {
+        super();
     }
-    public SyntaxResult () {
-        // TODO Auto-generated constructor stub
+    public UserDefinedResult(double myValue) {
+        super(myValue);
     }
+
     @Override
     public SLogoParsingException getException () {
+        // TODO Auto-generated method stub
         return null;
     }
 
     @Override
     public List<TransitionState> getTransition () {
-        myTransitionStates.add(new NullTransitionState());
         return myTransitionStates;
+    }
+
+    @Override
+    public void setValue(double value) {
+        myValue = value;
     }
 
     @Override
     public double getValue () {
         return myValue;
     }
+
 
 }

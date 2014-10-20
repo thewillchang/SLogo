@@ -5,6 +5,7 @@ import java.util.ArrayDeque;
 import java.util.Arrays;
 import java.util.Deque;
 import java.util.List;
+import model.MainModel;
 import exceptions.SLogoParsingException;
 
 /**
@@ -14,19 +15,24 @@ import exceptions.SLogoParsingException;
  *
  */
 public class Parser {
-    private Deque<SLogoExpression> parameterStack = new ArrayDeque<>();
-    private Deque<SLogoExpression> loadedExpressions = new ArrayDeque<>();
+    private Deque<SLogoExpression> parameterStack;
+    private Deque<SLogoExpression> loadedExpressions;
 
     private SLogoExpressionFactory myFactory;
     private CommandReferenceLibrary myLibrary;
+    private MainModel myModel;
 
     /**
      * Constructor
      * @param library
      */
-    public Parser(CommandReferenceLibrary library) {
+    public Parser(CommandReferenceLibrary library, MainModel model) {
+        myModel = model;
         myLibrary = library;
-        myFactory = new SLogoExpressionFactory(library);
+        myFactory = new SLogoExpressionFactory(library, model);
+        
+        parameterStack =  new ArrayDeque<>();
+        loadedExpressions = new ArrayDeque<>();
     }
 
     /**
@@ -55,10 +61,10 @@ public class Parser {
     private Deque<SLogoExpression> createExpressionsFromProcessedInput (Deque<String> processedInputStack) 
             throws SLogoParsingException {
         while(!processedInputStack.isEmpty()) {
-            //feeds inorder into Factory, gets reverse ordered stack?...
+            //feeds inorder into Factory, gets reverse ordered stack?...        
             String input = processedInputStack.pop();
             parameterStack.push(myFactory.createExpression(input));
-            if(input.equals("to")&&!processedInputStack.isEmpty()) {
+            /*if(input.equals("to")&&!processedInputStack.isEmpty()) {
                 try {
                     String undefinedCommand = processedInputStack.pop();
                     parameterStack.push(myFactory.defineUserCommand(undefinedCommand));
@@ -67,7 +73,7 @@ public class Parser {
                     System.out.println("Failed to specify sufficient parameters.");
                     parameterStack.clear();
                 }
-            }
+            }*/
         }
         return parameterStack;
     }
@@ -103,7 +109,7 @@ public class Parser {
 
 
     public static void main(String[] args) throws SLogoParsingException {
-        Parser p = new Parser(new CommandReferenceLibrary());
+        Parser p = new Parser(new CommandReferenceLibrary(), new MainModel());
         String input = "sum 50 50";
 
        Deque<SLogoExpression> list = p.parseSLogoExpression(input);

@@ -4,12 +4,7 @@ import java.util.Deque;
 import interpreter.SLogoResult;
 
 public class Sum extends MathExpression {
-
-    public Sum () {
-        super();
-        myNumArgs = 2;
-    }
-
+    
     @Override
     protected double applyMath (Deque<SLogoResult> results) {
         double sum = 0;

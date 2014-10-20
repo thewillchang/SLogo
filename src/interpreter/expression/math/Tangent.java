@@ -11,11 +11,6 @@ import interpreter.SLogoResult;
 
 public class Tangent extends MathExpression {
 
-    public Tangent () {
-        super();
-        myNumArgs = 1;
-    }
-
     @Override
     protected double applyMath (Deque<SLogoResult> results) {
         return Math.tan(results.pop().getValue());
