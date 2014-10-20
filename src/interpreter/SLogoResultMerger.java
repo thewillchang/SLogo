@@ -3,15 +3,21 @@ package interpreter;
 import java.util.ArrayDeque;
 import java.util.Deque;
 
+/**
+ * 
+ * @author Will
+ *
+ */
+
 public class SLogoResultMerger {
 
     private Deque<SLogoResult> resultsToMerge;
     
-    public SLogoResultMerger() {
+    public SLogoResultMerger () {
         this(new ArrayDeque<>());
     }
     
-    public SLogoResultMerger(Deque<SLogoResult> results) {
+    public SLogoResultMerger (Deque<SLogoResult> results) {
         resultsToMerge = results;
     }
     
@@ -19,7 +25,7 @@ public class SLogoResultMerger {
      * Adds an SLogoResult to be merged
      * @param result to be merged
      */
-    protected void append(SLogoResult result) {
+    protected void append (SLogoResult result) {
         resultsToMerge.add(result);
     }
     
@@ -27,7 +33,7 @@ public class SLogoResultMerger {
      * Merges all SLogoResults
      * @return one SLogo result containing all changes
      */
-    protected SLogoResult mergeAndReturn() {
+    protected SLogoResult mergeAndReturn () {
         SLogoResult topResult = resultsToMerge.pop();
         while (!resultsToMerge.isEmpty()) {
             SLogoResult nextResult = resultsToMerge.pop();

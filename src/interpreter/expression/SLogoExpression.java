@@ -22,15 +22,15 @@ public interface SLogoExpression {
 	 */
 	public abstract void loadArguments(Deque<SLogoExpression> args) throws SLogoParsingException, NullPointerException;
 	
-	public void setNumArgs(int value);
+	public abstract void setNumArgs(int value);
 	
-	public void loadLibrary(CommandReferenceLibrary library);
+	public abstract void loadLibrary(CommandReferenceLibrary library);
 	
 	/**
 	 * Loads the model
 	 * @param mode
 	 */
-	public void loadModel(MainModel model);
+	public abstract void loadModel(MainModel model);
 	
 	
 	
