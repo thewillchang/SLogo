@@ -7,8 +7,6 @@ import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
-import javafx.scene.input.KeyCode;
-import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.Background;
 import javafx.scene.layout.BackgroundFill;
 import javafx.scene.layout.BorderPane;
@@ -51,7 +49,8 @@ public class CommandPromptViewController implements ViewController {
 		myCommandPromptHorizontalBox = new HBox(10);
 		HBox.setHgrow(myCommandPromptTextArea, Priority.ALWAYS);
 		HBox.setHgrow(mySubmitButton, Priority.ALWAYS);
-		myCommandPromptHorizontalBox.getChildren().addAll(myCommandPromptTextArea, mySubmitButton);
+		myCommandPromptHorizontalBox.getChildren().addAll(
+				myCommandPromptTextArea, mySubmitButton);
 
 		myPane.setTop(myTitleLabel);
 		myPane.setCenter(myCommandPromptHorizontalBox);
@@ -61,13 +60,14 @@ public class CommandPromptViewController implements ViewController {
 		myCommandPromptTextArea = new TextArea();
 		myCommandPromptTextArea.setPrefRowCount(4);
 		myCommandPromptTextArea.setWrapText(true);
-		
+
 		mySubmitButton = new Button(">");
 		mySubmitButton.setOnAction(new EventHandler<ActionEvent>() {
-		    @Override public void handle(ActionEvent e) {
-		        passCommandToModel(myCommandPromptTextArea.getText());
+			@Override
+			public void handle(ActionEvent e) {
+				passCommandToModel(myCommandPromptTextArea.getText());
 				myCommandPromptTextArea.clear();
-		    }
+			}
 		});
 	}
 
