@@ -12,7 +12,8 @@ import interpreter.SLogoResult;
  *
  */
 public interface SLogoExpression {
-
+        //TODO implement iterator
+    
 	/**
 	 * loads the list of expressions as arguments for the expression
 	 * @param args
