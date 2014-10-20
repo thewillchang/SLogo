@@ -1,4 +1,4 @@
-package interpreter.expression.variable;
+package interpreter.expression.userdefined;
 
 public class MakeVariable {
 

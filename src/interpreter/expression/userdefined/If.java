@@ -1,4 +1,4 @@
-package interpreter.expression.variable;
+package interpreter.expression.userdefined;
 import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.Deque;
@@ -10,10 +10,11 @@ import interpreter.CommandReferenceLibrary;
 import interpreter.ControlStructureResult;
 import interpreter.SLogoResult;
 import interpreter.expression.SLogoExpression;
+import interpreter.expression.UserDefinedExpression;
 import interpreter.expression.syntax.ListEnd;
 import interpreter.expression.syntax.ListStart;
 
-public class If implements SLogoExpression {
+public class If extends UserDefinedExpression {
     private SLogoExpression myCondition;
     private List<SLogoExpression>  myList = new ArrayList<>();
     private int myNumArgs;
@@ -24,26 +25,9 @@ public class If implements SLogoExpression {
     @Override
     public void loadArguments (Deque<SLogoExpression> args) throws SLogoParsingException,
     NullPointerException {
-        myCondition = args.pop();
-
-        
-        if(ListStart.class.equals(args.pop().getClass())) {
-            while(!ListEnd.class.equals(args.peek())) {
-                myList.add(args.pop());
-            }
-            //A safety check
-            if(ListEnd.class.equals(args.peek())) {
-                args.pop();
-            }
-            else {
-                throw new SLogoParsingException();
-            }
+        for(int i = 0; i < myNumArgs; i++) {
+             myArguments.add(args.pop());
         }
-        else {
-            throw new SLogoParsingException();
-        }
-
-
     }
 
     @Override
