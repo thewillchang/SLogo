@@ -11,9 +11,6 @@ import transitionstate.TransitionState.VisibleChange;
  *
  */
 public class Backward extends TurtleCommandExpression {
-    public Backward () {
-        super();
-    }
     
     @Override
     protected void setNextTransition (SLogoResult myResult, double value) {

@@ -5,11 +5,6 @@ import interpreter.SLogoResult;
 
 public class Power extends MathExpression {
 
-    public Power () {
-        super();
-        myNumArgs = 2;
-    }
-
     @Override
     protected double applyMath (Deque<SLogoResult> results) {
         double base = results.pop().getValue();

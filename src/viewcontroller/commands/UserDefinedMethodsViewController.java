@@ -3,7 +3,7 @@ package viewcontroller.commands;
 import java.util.List;
 import javafx.scene.Node;
 import model.MainModel;
-import model.UserDefinedMethodsModel;
+import model.UserDefinedCommandsModel;
 import viewcontroller.MainModelObserver;
 import viewcontroller.SLogoFont;
 
@@ -31,8 +31,8 @@ public class UserDefinedMethodsViewController extends
 	@Override
 	public void update(MainModel model) {
 		myListVerticalBox.getChildren().clear();
-		UserDefinedMethodsModel userModel = model.getUserDefinedMethods();
-		List<String> userDefinedMethods = userModel.getMethods();
+		UserDefinedCommandsModel userModel = model.getUserDefinedMethods();
+		List<String> userDefinedMethods = userModel.getDefinedCommands();
 		for (String userDefinedMethod : userDefinedMethods) {
 			addCommand(userDefinedMethod);
 		}

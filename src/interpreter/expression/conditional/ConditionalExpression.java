@@ -1,9 +1,11 @@
 package interpreter.expression.conditional;
 
+import interpreter.CommandReferenceLibrary;
 import interpreter.SLogoResult;
 import interpreter.expression.SLogoExpression;
 import java.util.ArrayDeque;
 import java.util.Deque;
+import model.MainModel;
 import transitionstate.NullTransitionState;
 import exceptions.SLogoParsingException;
 
@@ -18,12 +20,21 @@ public abstract class ConditionalExpression implements SLogoExpression {
     //TODO Add resource bundle to ConditionalExpression??? Or CommandReferenceLibrary
     //That can specify numArgs through a getter....
     
+    
     protected Deque<SLogoExpression> myArguments;
+    protected Deque<Double> valuesToCompare;
     protected int myNumArgs;
+    
+    protected CommandReferenceLibrary myLibrary;
+    protected MainModel myModel;
     
     public ConditionalExpression () {
         myArguments = new ArrayDeque<>();
-
+        valuesToCompare = new ArrayDeque<>();
+    }
+    
+    public void setNumArgs(int value) {
+        myNumArgs = value;
     }
     
     @Override
@@ -35,6 +46,16 @@ public abstract class ConditionalExpression implements SLogoExpression {
         }
     }
 
+    @Override
+    public void loadLibrary(CommandReferenceLibrary library) {
+        myLibrary = library;
+    }
+    
+    @Override
+    public void loadModel(MainModel model) {
+        myModel = model;
+    }
+    
 
     /*public void specifyNumberAndLoad (Deque<SLogoExpression> args, int numArgs) 
             throws SLogoParsingException, NullPointerException {

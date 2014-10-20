@@ -1,7 +1,9 @@
 package interpreter.expression;
 
 import java.util.Deque;
+import model.MainModel;
 import exceptions.SLogoParsingException;
+import interpreter.CommandReferenceLibrary;
 import interpreter.SLogoResult;
 
 /**
@@ -17,13 +19,27 @@ public interface SLogoExpression {
 	 * @throws NullPointerException 
 	 * @throws SLogoParsingException 
 	 */
-	public void loadArguments(Deque<SLogoExpression> args) throws SLogoParsingException, NullPointerException;
+	public abstract void loadArguments(Deque<SLogoExpression> args) throws SLogoParsingException, NullPointerException;
+	
+	public void setNumArgs(int value);
+	
+	public void loadLibrary(CommandReferenceLibrary library);
+	
+	/**
+	 * Loads the model
+	 * @param mode
+	 */
+	public void loadModel(MainModel model);
+	
+	
 	
 	/**
 	 * evaluates the expression and returns an SLogoResult
 	 * @return
 	 * @throws SLogoParsingException 
 	 */
-	public SLogoResult evaluate();
+	public abstract SLogoResult evaluate();
+	
+	
 	
 }

@@ -11,12 +11,6 @@ import interpreter.SLogoResult;
 
 public class Random extends MathExpression { 
 
-    public Random () {
-        super();
-        myNumArgs = 1;
-        
-    }
-
     @Override
     protected double applyMath (Deque<SLogoResult> results) {
         return Math.random()*results.pop().getValue();

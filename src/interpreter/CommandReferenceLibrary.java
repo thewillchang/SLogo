@@ -1,13 +1,17 @@
 package interpreter;
 
+import interpreter.expression.SLogoExpression;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 import java.util.ResourceBundle;
 import java.util.Set;
+import model.UserDefinedCommandsModel;
+import model.UserDefinedVariablesModel;
 /**
  * Holds references to Syntax etc.
  * @author Will Chang
@@ -17,7 +21,7 @@ import java.util.Set;
 public class CommandReferenceLibrary {
 
     //private Map<Pattern, String> patternsToCommandMap;
-    private Map<String, String> referenceToCommandMap;
+    private Map<String, String> myReferenceToCommandMap;
 
 
     private final String COMMENT = "\\#"; 
@@ -31,19 +35,28 @@ public class CommandReferenceLibrary {
 
     //Deprecated
     //private Map<String, List<String>> commandMap;
-    private Set<String> commandSet;
-    private Set<String> directorySet;
+    private Set<String> myCommandSet;
+    private Set<String> myDirectorySet;
 
-    private Map<String,String> syntaxMap;
-    private Map<String,String> reverseSyntaxMap;
-    private Map<String,String> commandToDirectoryMap;
+    private Map<String,String> mySyntaxMap;
+    private Map<String,String> myReverseSyntaxMap;
+    private Map<String,String> myCommandToDirectoryMap;
+    private Map<String, Integer> myCommandToNumArgsMap;
+    
+    private Map<String, SLogoExpression> myUserDefinedCommandsMap; 
+    private Map<String, SLogoExpression> myUserDefinedVariablesMap;
 
     private String myLanguage;
 
     private ResourceBundle myCommandReference; 
     private ResourceBundle myDirectoryListing;
+    private ResourceBundle myNumberArguments;
 
 
+    //TODO Refactor or delete... the functionality is the same as hashmap.....
+    private UserDefinedCommandsModel myDefinedMethods;
+    private UserDefinedVariablesModel myDefinedVariables;
+    
     //private final String DEFAULT_LANGUAGE = "English";
 
 
@@ -55,63 +68,90 @@ public class CommandReferenceLibrary {
 
         myLanguage = language;
         
-        commandSet = new HashSet<>();
+        myCommandSet = new HashSet<>();
         //commandMap = new HashMap<>();
-        referenceToCommandMap = new HashMap<>();
+        myReferenceToCommandMap = new HashMap<>();
 
-        directorySet = new HashSet<>();
-        commandToDirectoryMap = new HashMap<>();
+        myDirectorySet = new HashSet<>();
+        myCommandToDirectoryMap = new HashMap<>();
+        myCommandToNumArgsMap = new HashMap<>();
+        
+        myDefinedMethods = new UserDefinedCommandsModel();
+        myDefinedVariables = new UserDefinedVariablesModel();
+        
+        myUserDefinedCommandsMap = new HashMap<>();
+        myUserDefinedVariablesMap = new HashMap<>();
 
-        //Initializes syntaxMap
+        //TODO refactor..
         initializeSyntaxMap(); 
+        
         setCommandReference(language);
+        initializeNumArgsMap();
     }
     
-    public void addUserDefinedCommand(String command) {
+    private void initializeNumArgsMap () {
+        for(String command : myCommandSet) {
+            myCommandToNumArgsMap.put(command, Integer.valueOf(myNumberArguments.getString(command).split("\\s+")[0]));
+        }
+    }
+
+    public void addUserDefinedCommand (String command) {
         return;
     }
     
-    public Map<String,String> getReferencesToCommands() {
-        return referenceToCommandMap;
+    public Map<String, SLogoExpression> getUserDefinedCommands () {
+        return myUserDefinedCommandsMap;
     }
     
-    public Map<String,String> getCommandsToDirectories() {
-        return commandToDirectoryMap;
+    public Map<String, SLogoExpression> getUserDefinedVariables () {
+        return myUserDefinedVariablesMap;
     }
     
-    public Map<String,String> getReverseSyntaxes() {
-        return reverseSyntaxMap;
+    public Map<String,Integer> getCommandsToNumArgs () {
+        return myCommandToNumArgsMap;
     }
     
-    public Set<String> getSyntaxSet() {
-        return syntaxMap.keySet();
+    public Map<String,String> getReferencesToCommands () {
+        return myReferenceToCommandMap;
     }
     
-    public String getLogoLanguage() {
+    public Map<String,String> getCommandsToDirectories () {
+        return myCommandToDirectoryMap;
+    }
+    
+    public Map<String,String> getReverseSyntaxes () {
+        return myReverseSyntaxMap;
+    }
+    
+    public Set<String> getSyntaxSet () {
+        return mySyntaxMap.keySet();
+    }
+    
+    public String getLogoLanguage () {
         return myLanguage;
     }
     
     //TODO temp fix, will refactor
     private void initializeSyntaxMap () {
-        syntaxMap = new HashMap<>();
-        syntaxMap.put("Comment",COMMENT);
-        syntaxMap.put("Constant",CONSTANT);
-        syntaxMap.put("Variable",VARIABLE);
-        syntaxMap.put("Command",COMMAND);
-        syntaxMap.put("ListStart",LIST_START);
-        syntaxMap.put("ListEnd",LIST_END);
-        syntaxMap.put("GroupStart",GROUP_START);
-        syntaxMap.put("GroupEnd",GROUP_END);
+        mySyntaxMap = new HashMap<>();
+        mySyntaxMap.put("Comment",COMMENT);
+        mySyntaxMap.put("Constant",CONSTANT);
+        mySyntaxMap.put("Variable",VARIABLE);
+        mySyntaxMap.put("Command",COMMAND);
+        mySyntaxMap.put("ListStart",LIST_START);
+        mySyntaxMap.put("ListEnd",LIST_END);
+        mySyntaxMap.put("GroupStart",GROUP_START);
+        mySyntaxMap.put("GroupEnd",GROUP_END);
         
-        reverseSyntaxMap = new HashMap<>();
-        reverseSyntaxMap.put(COMMENT,"Comment");
-        reverseSyntaxMap.put(CONSTANT, "Constant");
-        reverseSyntaxMap.put(VARIABLE, "Variable");
-        reverseSyntaxMap.put(COMMAND, "Command");
-        reverseSyntaxMap.put(LIST_START, "ListStart");
-        reverseSyntaxMap.put(LIST_END, "ListEnd");
-        reverseSyntaxMap.put(GROUP_START, "GroupStart");
-        reverseSyntaxMap.put(GROUP_END, "GroupEnd");
+        myReverseSyntaxMap = new LinkedHashMap<>();
+        myReverseSyntaxMap.put(COMMENT,"Comment");
+        myReverseSyntaxMap.put(CONSTANT, "Constant");
+        myReverseSyntaxMap.put(VARIABLE, "Variable");
+        myReverseSyntaxMap.put(LIST_START, "ListStart");
+        myReverseSyntaxMap.put(LIST_END, "ListEnd");
+        myReverseSyntaxMap.put(GROUP_START, "GroupStart");
+        myReverseSyntaxMap.put(GROUP_END, "GroupEnd");
+        myReverseSyntaxMap.put(COMMAND, "Command");
     }
     
     /**
@@ -121,14 +161,15 @@ public class CommandReferenceLibrary {
     private void setCommandReference (String language) {
         myCommandReference = ResourceBundle.getBundle("resources.languages." + language, Locale.US);
         myDirectoryListing = ResourceBundle.getBundle("resources.languages.DirectoryListing", Locale.US);
+        myNumberArguments  = ResourceBundle.getBundle("resources.languages.NumberArguments", Locale.US);
         
-        commandSet = myCommandReference.keySet();
-        directorySet = myDirectoryListing.keySet();
-        Set<String> syntaxSet = syntaxMap.keySet();
+        myCommandSet = myCommandReference.keySet();
+        myDirectorySet = myDirectoryListing.keySet();
+        Set<String> syntaxSet = mySyntaxMap.keySet();
         
         //SpecialRegex...
         String specialRegex = "[^A-Za-z0-9]";
-        for(String command : commandSet) {
+        for(String command : myCommandSet) {
             //Tempory fix for special characters from syntax set
             if(!syntaxSet.contains(command)) {
                 List<String> commandReferences = Arrays.asList(myCommandReference.getString(command).split(","));
@@ -139,16 +180,17 @@ public class CommandReferenceLibrary {
                     if(reference.matches(specialRegex)) {
                         reference = "\\" + reference;
                     }
-                    referenceToCommandMap.put(reference,command);
+                    myReferenceToCommandMap.put(reference,command);
                 }
             }
 
         }
         
-        for(String directory : directorySet) {
+        //Setup for normal commands
+        for(String directory : myDirectorySet) {
                 List<String> directoryReferences = Arrays.asList(myDirectoryListing.getString(directory).split(","));
                 for(String reference : directoryReferences) {
-                    commandToDirectoryMap.put(reference,directory);    
+                    myCommandToDirectoryMap.put(reference,directory);    
                 }
         }
     }

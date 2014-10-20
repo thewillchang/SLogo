@@ -10,14 +10,7 @@ import java.util.Deque;
  */
 
 public class GreaterThan extends ConditionalExpression {
-    private Deque<Double> valuesToCompare;
-    
-    public GreaterThan () {
-        super();
-        myNumArgs = 2;
-        valuesToCompare = new ArrayDeque<>();
-    }
-	
+
     @Override
     protected boolean hasSatisfiedCondition (SLogoResult argument) {
         if (valuesToCompare.isEmpty()) {

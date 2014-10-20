@@ -6,6 +6,7 @@ import static org.junit.Assert.fail;
 import interpreter.CommandReferenceLibrary;
 import interpreter.SLogoExpressionFactory;
 import interpreter.expression.SLogoExpression;
+import model.MainModel;
 import org.junit.Test;
 import exceptions.SLogoParsingException;
 
@@ -13,7 +14,8 @@ public class SLogoExpressionTest {
 
 	@Test
 	public void testTurtleExpression() {
-		SLogoExpressionFactory expressionFactory = new SLogoExpressionFactory(new CommandReferenceLibrary());
+	    
+		SLogoExpressionFactory expressionFactory = new SLogoExpressionFactory(new CommandReferenceLibrary(), new MainModel());
 		SLogoExpression forward = null;
 		try {
 			forward = expressionFactory.createExpression("fd 70");
@@ -21,36 +23,36 @@ public class SLogoExpressionTest {
 
 			fail("Forward Expression Test failed");
 		}
-		assertEquals(forward.evaluate().getValue(), 70 );
+		assertTrue(forward.evaluate().getValue()==70 );
 	}
 
 	@Test
 	public void testMathExpression() {
-		SLogoExpressionFactory expressionFactory = new SLogoExpressionFactory(new CommandReferenceLibrary());
+		SLogoExpressionFactory expressionFactory = new SLogoExpressionFactory(new CommandReferenceLibrary(),new MainModel());
 		SLogoExpression sum = null;
 		try {
 			sum = expressionFactory.createExpression("sum 30 40");
 		} catch (SLogoParsingException e) {
 			fail("Sum Expression Test failed");
 		}
-		assertEquals(sum.evaluate().getValue(), 70 );
+		assertTrue(sum.evaluate().getValue()== 70 );
 	}
 
 	@Test
 	public void testBooleanExpression() {
-		SLogoExpressionFactory expressionFactory = new SLogoExpressionFactory(new CommandReferenceLibrary());
+		SLogoExpressionFactory expressionFactory = new SLogoExpressionFactory(new CommandReferenceLibrary(),new MainModel());
 		SLogoExpression bool = null;
 		try {
 			bool = expressionFactory.createExpression("less 3 17");
 		} catch (SLogoParsingException e) {
 			fail("Boolean Expression Test failed");
 		}
-		assertEquals(bool.evaluate().getValue(), 1 );
+		assertTrue(bool.evaluate().getValue()== 1 );
 	}
 
 	@Test
 	public void testExceptionExpression() {
-		SLogoExpressionFactory expressionFactory = new SLogoExpressionFactory(new CommandReferenceLibrary());
+		SLogoExpressionFactory expressionFactory = new SLogoExpressionFactory(new CommandReferenceLibrary(),new MainModel());
 		SLogoExpression exception;
 		try {
 			exception = expressionFactory.createExpression("forward forward");
