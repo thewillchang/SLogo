@@ -7,9 +7,10 @@ import interpreter.SLogoExpressionFactory;
 import interpreter.expression.SLogoExpression;
 import interpreter.expression.SyntaxExpression;
 //import interpreter.expression.TurtleCommandExpression;
-import interpreter.expression.TurtleQueryExpression;
 import interpreter.expression.conditional.ConditionalExpression;
 import interpreter.expression.math.MathExpression;
+import interpreter.expression.query.TurtleQueryExpression;
+import model.MainModel;
 import org.junit.Test;
 
 /**
@@ -21,7 +22,7 @@ public class SLogoExpressionFactoryTest {
 	
 	@Test
 	public void testUnimplementedMethodException() {
-		SLogoExpressionFactory factory = new SLogoExpressionFactory(new CommandReferenceLibrary());
+		SLogoExpressionFactory factory = new SLogoExpressionFactory(new CommandReferenceLibrary(),new MainModel());
 		try {
 			factory.createExpression("helloworld");
 			fail("Should throw unimplemented method exception");
@@ -44,7 +45,7 @@ public class SLogoExpressionFactoryTest {
 	
 	@Test
 	public void testCreateSLogoMathExpression() {
-		SLogoExpressionFactory factory = new SLogoExpressionFactory(new CommandReferenceLibrary());
+		SLogoExpressionFactory factory = new SLogoExpressionFactory(new CommandReferenceLibrary(),new MainModel());
 		try {
 			SLogoExpression expression = factory.createExpression("cos");
 			assertTrue(expression instanceof MathExpression);
@@ -55,7 +56,7 @@ public class SLogoExpressionFactoryTest {
 	
 	@Test
 	public void testCreateSLogoTurtleQueryExpression() {
-		SLogoExpressionFactory factory = new SLogoExpressionFactory(new CommandReferenceLibrary());
+		SLogoExpressionFactory factory = new SLogoExpressionFactory(new CommandReferenceLibrary(),new MainModel());
 		try {
 			SLogoExpression expression = factory.createExpression("xcor");
 			assertTrue(expression instanceof TurtleQueryExpression);
@@ -66,7 +67,7 @@ public class SLogoExpressionFactoryTest {
 	
 	@Test
 	public void testCreateSLogoConditionalExpression() {
-		SLogoExpressionFactory factory = new SLogoExpressionFactory(new CommandReferenceLibrary());
+		SLogoExpressionFactory factory = new SLogoExpressionFactory(new CommandReferenceLibrary(),new MainModel());
 		try {
 			SLogoExpression expression = factory.createExpression("equal?");
 			assertTrue(expression instanceof ConditionalExpression);
@@ -77,7 +78,7 @@ public class SLogoExpressionFactoryTest {
 
 	@Test
 	public void testCreateSLogoSyntaxExpression() {
-		SLogoExpressionFactory factory = new SLogoExpressionFactory(new CommandReferenceLibrary());
+		SLogoExpressionFactory factory = new SLogoExpressionFactory(new CommandReferenceLibrary(),new MainModel());
 		try {
 			SLogoExpression expression = factory.createExpression("[");
 			assertTrue(expression instanceof SyntaxExpression);

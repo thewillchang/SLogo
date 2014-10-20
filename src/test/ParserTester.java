@@ -7,6 +7,7 @@ import interpreter.CommandReferenceLibrary;
 import interpreter.Parser;
 import interpreter.expression.SLogoExpression;
 import java.util.Collection;
+import model.MainModel;
 import org.junit.Test;
 import exceptions.SLogoParsingException;
 
@@ -14,7 +15,7 @@ public class ParserTester {
 	
     @Test
     public void parseExceptionTest() {
-        Parser p = new Parser(new CommandReferenceLibrary());
+        Parser p = new Parser(new CommandReferenceLibrary(), new MainModel());
         String input = "forward 50 50";
         try {
             Collection<SLogoExpression> expression = p.parseSLogoExpression(input);
@@ -27,7 +28,7 @@ public class ParserTester {
 
     @Test
     public void singleCommandParseTest() {
-        Parser p = new Parser(new CommandReferenceLibrary());
+        Parser p = new Parser(new CommandReferenceLibrary(), new MainModel());
         String input = "forward 50";
         try {
             Collection<SLogoExpression> expressions = p.parseSLogoExpression(input);
@@ -40,7 +41,7 @@ public class ParserTester {
     
     @Test
     public void twoCommandParseTest() {
-        Parser p = new Parser(new CommandReferenceLibrary());
+        Parser p = new Parser(new CommandReferenceLibrary(), new MainModel());
         String input = "forward 50 forward 50";
         try {
             Collection<SLogoExpression> expressions = p.parseSLogoExpression(input);
