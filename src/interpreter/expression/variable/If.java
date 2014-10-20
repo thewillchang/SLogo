@@ -3,8 +3,10 @@ import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.Deque;
 import java.util.List;
+import model.MainModel;
 import transitionstate.TransitionState;
 import exceptions.SLogoParsingException;
+import interpreter.CommandReferenceLibrary;
 import interpreter.ControlStructureResult;
 import interpreter.SLogoResult;
 import interpreter.expression.SLogoExpression;
@@ -14,6 +16,7 @@ import interpreter.expression.syntax.ListStart;
 public class If implements SLogoExpression {
     private SLogoExpression myCondition;
     private List<SLogoExpression>  myList = new ArrayList<>();
+    private int myNumArgs;
 
     //if expr is not 0, runs the commands given in the list
     //returns the value of the final command executed
@@ -23,7 +26,7 @@ public class If implements SLogoExpression {
     NullPointerException {
         myCondition = args.pop();
 
-        //Checks for list
+        
         if(ListStart.class.equals(args.pop().getClass())) {
             while(!ListEnd.class.equals(args.peek())) {
                 myList.add(args.pop());
@@ -65,5 +68,23 @@ public class If implements SLogoExpression {
         }
         
         return myResult;
+    }
+
+    @Override
+    public void setNumArgs (int value) {
+        myNumArgs = value;
+        
+    }
+
+    @Override
+    public void loadLibrary (CommandReferenceLibrary library) {
+        // TODO Auto-generated method stub
+        
+    }
+
+    @Override
+    public void loadModel (MainModel model) {
+        // TODO Auto-generated method stub
+        
     }
 }

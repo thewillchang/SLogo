@@ -11,18 +11,6 @@ import java.util.Deque;
  */
 
 public class NotEqual extends ConditionalExpression {
-    
-    
-    private Deque<Double> valuesToCompare;
-    
-    public NotEqual () {
-        super();
-        //TODO Refactor... arguments specified in Library? or how?...
-        myNumArgs = 2;
-        valuesToCompare = new ArrayDeque<>();
-    }
-    
-    
     //TODO Refactor...
     @Override
     protected boolean hasSatisfiedCondition (SLogoResult argument) {

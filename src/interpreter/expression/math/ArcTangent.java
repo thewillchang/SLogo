@@ -10,11 +10,6 @@ import interpreter.SLogoResult;
  */
 
 public class ArcTangent extends MathExpression {
-
-    public ArcTangent () {
-        super();
-        myNumArgs = 1;
-    }
     
     @Override
     protected double applyMath (Deque<SLogoResult> results) {

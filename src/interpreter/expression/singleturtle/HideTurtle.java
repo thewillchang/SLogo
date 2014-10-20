@@ -10,9 +10,6 @@ import transitionstate.TransitionState.VisibleChange;
  *
  */
 public class HideTurtle extends TurtleCommandExpression {
-    public HideTurtle () {
-        super();
-    }
     
     @Override
     protected void setNextTransition (SLogoResult myResult, double value) {

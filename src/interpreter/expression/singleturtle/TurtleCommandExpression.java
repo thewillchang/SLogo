@@ -2,7 +2,9 @@ package interpreter.expression.singleturtle;
 
 import java.util.ArrayDeque;
 import java.util.Deque;
+import model.MainModel;
 import exceptions.SLogoParsingException;
+import interpreter.CommandReferenceLibrary;
 import interpreter.SLogoResult;
 import interpreter.TurtleCommandResult;
 import interpreter.expression.SLogoExpression;
@@ -16,14 +18,17 @@ import interpreter.expression.SLogoExpression;
 public abstract class TurtleCommandExpression implements SLogoExpression {
     protected Deque<SLogoExpression> myArguments;
     protected int myNumArgs;
+    protected CommandReferenceLibrary myLibrary;
+    protected MainModel myModel;
 
     public TurtleCommandExpression() {
-        //specifyNumberAndLoad(args,myNumArgs);
         myArguments = new ArrayDeque<>();
-        //TODO Update
-        myNumArgs = 1;
     }
 
+    public void setNumArgs(int value) {
+        myNumArgs = value;
+    }
+    
     @Override
     public void loadArguments(Deque<SLogoExpression> args)  
             throws SLogoParsingException, NullPointerException {
@@ -32,6 +37,16 @@ public abstract class TurtleCommandExpression implements SLogoExpression {
         }
     }
 
+    @Override
+    public void loadLibrary(CommandReferenceLibrary library) {
+        myLibrary = library;
+    }
+    
+    @Override
+    public void loadModel(MainModel model) {
+        myModel = model;
+    }
+    
     @Override
     public SLogoResult evaluate() {
         Deque<SLogoResult> results = new ArrayDeque<>();

@@ -10,12 +10,6 @@ import interpreter.SLogoResult;
  */
 public class Remainder extends MathExpression {
 
-
-    public Remainder () {
-        super();
-        myNumArgs = 2;
-    }
-
     @Override
     protected double applyMath (Deque<SLogoResult> results) {
         double numerator = results.pop().getValue();

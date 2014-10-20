@@ -11,14 +11,6 @@ import java.util.Deque;
 
 public class LessThan extends ConditionalExpression {
 
-    private Deque<Double> valuesToCompare;
-
-    public LessThan () {
-        super();
-        myNumArgs = 2;
-        valuesToCompare = new ArrayDeque<>();
-    }
-
     @Override
     protected boolean hasSatisfiedCondition (SLogoResult argument) {
         if (valuesToCompare.isEmpty()) {

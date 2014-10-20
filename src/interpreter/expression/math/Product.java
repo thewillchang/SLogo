@@ -5,11 +5,6 @@ import interpreter.SLogoResult;
 
 public class Product extends MathExpression{
 
-    public Product () {
-        super();
-        myNumArgs = 2;
-    }
-
     @Override
     protected double applyMath (Deque<SLogoResult> results) {
         double value = 1;
