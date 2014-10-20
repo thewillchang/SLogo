@@ -11,6 +11,9 @@ public class SyntaxResult extends SLogoResult {
         super(value);
         myTransitionStates.add(new NullTransitionState());
     }
+    public SyntaxResult () {
+        // TODO Auto-generated constructor stub
+    }
     @Override
     public SLogoParsingException getException () {
         return null;
@@ -18,6 +21,7 @@ public class SyntaxResult extends SLogoResult {
 
     @Override
     public List<TransitionState> getTransition () {
+        myTransitionStates.add(new NullTransitionState());
         return myTransitionStates;
     }
 

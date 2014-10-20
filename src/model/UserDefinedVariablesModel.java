@@ -9,7 +9,7 @@ import java.util.Map;
 
 /**
  * Model for User Defined Variables
- * @author Tanaka Jimha
+ * @author Tanaka Jimha and Will Chang
  *
  */
 public class UserDefinedVariablesModel {
@@ -17,7 +17,7 @@ public class UserDefinedVariablesModel {
 	private Map<String, Double> myUserVariables;
 	
 	public UserDefinedVariablesModel(){
-		this.myUserVariables = new HashMap<>();
+		myUserVariables = new HashMap<>();
 	}
 
 	/**
@@ -25,7 +25,7 @@ public class UserDefinedVariablesModel {
 	 * @return
 	 */
 	public Map<String, Double> getVariables() {
-		return this.myUserVariables;
+		return myUserVariables;
 	}
 	
 	/**
@@ -34,7 +34,7 @@ public class UserDefinedVariablesModel {
 	 * @param expression
 	 */
 	public void putVariable(String variable, double value) {
-		this.myUserVariables.put(variable, value);
+		myUserVariables.put(variable, value);
 	}
 	
 }
