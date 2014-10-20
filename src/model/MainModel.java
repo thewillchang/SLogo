@@ -27,7 +27,7 @@ public class MainModel {
 	private SLogoResult mySLogoResult;
 	private String myLanguage;
 	private CommandHistoryModel myCommandHistoryModel;
-	private UserDefinedMethodsModel myUserDefinedMethodsModel;
+	private UserDefinedCommandsModel myUserDefinedMethodsModel;
 	private UserDefinedVariablesModel myUserDefinedVariablesModel;
 	
 
@@ -36,10 +36,10 @@ public class MainModel {
 
 	public MainModel(){
 		this.myObservers = new ArrayList<>();
-		this.myInterpreter = new Interpreter();
+		this.myInterpreter = new Interpreter(this);
 		this.myTurtles = new ArrayList<>();
 		this.myCommandHistoryModel = new CommandHistoryModel();
-		this.myUserDefinedMethodsModel = new UserDefinedMethodsModel();
+		this.myUserDefinedMethodsModel = new UserDefinedCommandsModel();
 		this.myUserDefinedVariablesModel = new UserDefinedVariablesModel();
 		myTurtleAdded = false;
 	}
@@ -101,7 +101,7 @@ public class MainModel {
 		return this.myCommandHistoryModel;
 	}
 	
-	public UserDefinedMethodsModel getUserDefinedMethods() {
+	public UserDefinedCommandsModel getUserDefinedMethods() {
 		return this.myUserDefinedMethodsModel;
 	}
 	
