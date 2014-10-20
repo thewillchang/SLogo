@@ -61,14 +61,6 @@ public class CommandPromptViewController implements ViewController {
 		myCommandPromptTextArea = new TextArea();
 		myCommandPromptTextArea.setPrefRowCount(4);
 		myCommandPromptTextArea.setWrapText(true);
-		myCommandPromptTextArea.setOnKeyPressed(new EventHandler<KeyEvent>() {
-			@Override
-			public void handle(KeyEvent arg0) {
-				if (arg0.getCode() == KeyCode.ENTER) {
-					myCommandPromptTextArea.setText(myCommandPromptTextArea.getText() + "\n");
-				}
-			}
-		});
 		
 		mySubmitButton = new Button(">");
 		mySubmitButton.setOnAction(new EventHandler<ActionEvent>() {
@@ -79,8 +71,8 @@ public class CommandPromptViewController implements ViewController {
 		});
 	}
 
-	public void appendCommandToPromptTextArea(String commandFromPrelists) {
-		myCommandPromptTextArea.appendText(commandFromPrelists);
+	public void appendCommandToPromptTextArea(String commandFromLists) {
+		myCommandPromptTextArea.appendText(commandFromLists);
 	}
 
 	private void passCommandToModel(String commandFromPromptTextArea) {

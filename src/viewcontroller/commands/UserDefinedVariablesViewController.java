@@ -93,7 +93,7 @@ public class UserDefinedVariablesViewController extends
 		 * PropertyValueFactory<Variable, Double>("myVariableValue"));
 		 */
 		// myTable.setItems(data);
-		// myTable.getColumns().addAll(variableNameColumn, variableValueColumn);
+		// myTable.getColumns().addAll(variableNameColumn, variableValueColumn);	
 		// myTable.getItems().add(new Variable("x", 5));
 		//	myCommandWindowVerticalBox.getChildren().addAll(table);
 	}
