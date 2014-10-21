@@ -110,7 +110,7 @@ public class Parser {
 
     public static void main(String[] args) throws SLogoParsingException {
         Parser p = new Parser(new CommandReferenceLibrary(), new MainModel());
-        String input = "sum 50 50";
+        String input = "equal? 1 0";
 
        Deque<SLogoExpression> list = p.parseSLogoExpression(input);
         System.out.println( list.pop().evaluate().getValue());

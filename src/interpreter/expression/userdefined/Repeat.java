@@ -9,6 +9,7 @@ import exceptions.SLogoParsingException;
 import interpreter.ControlStructureResult;
 import interpreter.SLogoResult;
 import interpreter.expression.SLogoExpression;
+import interpreter.expression.UserDefinedExpression;
 import interpreter.expression.syntax.ListEnd;
 import interpreter.expression.syntax.ListStart;
 
@@ -18,7 +19,7 @@ import interpreter.expression.syntax.ListStart;
  *
  */
 
-public class Repeat implements SLogoExpression {
+public class Repeat extends UserDefinedExpression {
     private SLogoExpression myMaxRep;
     private List<SLogoExpression>  myList = new ArrayList<>();
     
@@ -74,5 +75,12 @@ public class Repeat implements SLogoExpression {
         //Sets the result value to that of last result
         myResult.setValue(myResults.getLast().getValue());
         return myResult;
+    }
+
+
+    @Override
+    public void setValue (String value) {
+        // TODO Auto-generated method stub
+        
     }
 }

@@ -24,14 +24,12 @@ public class ListStart extends SyntaxExpression {
     public void loadArguments (Deque<SLogoExpression> args) throws SLogoParsingException, NullPointerException{
         while(!args.isEmpty()) {
             SLogoExpression argument = args.pop();
+            myArguments.add(argument);
             if(argument instanceof ListEnd) {
                 break;
             }
-            else {
-                myArguments.add(argument);
-            }
         }
-        if(myArguments.size() <= 1 || !(myArguments.peekLast() instanceof ListEnd)) {
+        if(myArguments.size() == 0 || !(myArguments.peekLast() instanceof ListEnd)) {
             throw new SLogoParsingException();
         }
     }
@@ -40,9 +38,9 @@ public class ListStart extends SyntaxExpression {
     public SLogoResult evaluate () {
         Deque<SLogoResult> results = new ArrayDeque<>();
         for(SLogoExpression expression : myArguments) {
+            if(!(expression instanceof ListEnd))
             results.add(expression.evaluate());
         }
-        
         return merge(results);
     }
     
@@ -51,6 +49,7 @@ public class ListStart extends SyntaxExpression {
         List<TransitionState> transitionStates = myResult.getTransition();
         for(SLogoResult result : results) {
             transitionStates.addAll(result.getTransition());
+            myResult.setValue(result.getValue());
         }
         return myResult;
     }

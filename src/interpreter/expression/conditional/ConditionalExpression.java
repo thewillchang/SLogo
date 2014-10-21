@@ -83,7 +83,7 @@ public abstract class ConditionalExpression implements SLogoExpression {
             myResult.getTransition().addAll(argument.getTransition());
         }
         myResult.setValue(condition? 1 : 0);
-        myResult.getTransition().add(new NullTransitionState());
+        //myResult.getTransition().add(new NullTransitionState());
         return myResult;
     }
     

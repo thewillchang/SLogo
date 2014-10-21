@@ -3,8 +3,9 @@ package interpreter.expression.userdefined;
 import java.util.Deque;
 import interpreter.SLogoResult;
 import interpreter.expression.SLogoExpression;
+import interpreter.expression.UserDefinedExpression;
 
-public class DoTimes implements SLogoExpression {
+public class DoTimes extends UserDefinedExpression {
     
     //DOTIMES [ variable limit ]
      //       [ command(s) ]  runs the commands for each value specified in the range, i.e., from (1 - limit) inclusive 
@@ -20,5 +21,11 @@ public class DoTimes implements SLogoExpression {
     public SLogoResult evaluate () {
         // TODO Auto-generated method stub
         return null;
+    }
+
+    @Override
+    public void setValue (String value) {
+        // TODO Auto-generated method stub
+        
     }
 }

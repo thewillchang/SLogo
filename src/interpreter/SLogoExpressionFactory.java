@@ -111,6 +111,6 @@ public class SLogoExpressionFactory {
 
     public static void main(String[] args) throws SLogoParsingException {     
         SLogoExpressionFactory factory = new SLogoExpressionFactory(new CommandReferenceLibrary(), new MainModel());
-        System.out.println("]".matches("[a-zA-z_]"));
+        System.out.println("equal?".matches("equal?"));
     }
 }

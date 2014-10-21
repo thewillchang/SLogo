@@ -15,59 +15,40 @@ import interpreter.expression.syntax.ListEnd;
 import interpreter.expression.syntax.ListStart;
 
 public class If extends UserDefinedExpression {
-    private SLogoExpression myCondition;
-    private List<SLogoExpression>  myList = new ArrayList<>();
-    private int myNumArgs;
 
-    //if expr is not 0, runs the commands given in the list
-    //returns the value of the final command executed
 
-    @Override
-    public void loadArguments (Deque<SLogoExpression> args) throws SLogoParsingException,
-    NullPointerException {
-        for(int i = 0; i < myNumArgs; i++) {
-             myArguments.add(args.pop());
-        }
-    }
 
     @Override
     public SLogoResult evaluate () {
-        SLogoResult myResult = new ControlStructureResult();
-        List<TransitionState> transitionStates = myResult.getTransition();
+        
+        
 
         Deque<SLogoResult> myResults = new ArrayDeque<>();
-
-        int bool = (int) myCondition.evaluate().getValue();
-        if (bool != 0) {
-            for(SLogoExpression expression : myList) {
-                myResults.add(expression.evaluate());
-            }
-            for(SLogoResult result : myResults) {
-                transitionStates.addAll(result.getTransition());    
-            }
-            myResult.setValue(myResults.getLast().getValue());
-        }
-        else {
-            myResult.setValue(0);
-        }
         
+        SLogoResult condition = myArguments.pop().evaluate();
+
+        myResults.add(condition);
+        if (condition.getValue() > 0) {
+           myResults.add(myArguments.pop().evaluate());
+        }
+        return merge(myResults);
+        
+    }
+
+
+    private SLogoResult merge (Deque<SLogoResult> myResults) {
+        SLogoResult myResult = new ControlStructureResult();
+        List<TransitionState> transitionStates = myResult.getTransition();
+        for(SLogoResult result : myResults) {
+            transitionStates.addAll(result.getTransition());
+            myResult.setValue(result.getValue());
+        }
         return myResult;
     }
 
-    @Override
-    public void setNumArgs (int value) {
-        myNumArgs = value;
-        
-    }
 
     @Override
-    public void loadLibrary (CommandReferenceLibrary library) {
-        // TODO Auto-generated method stub
-        
-    }
-
-    @Override
-    public void loadModel (MainModel model) {
+    public void setValue (String value) {
         // TODO Auto-generated method stub
         
     }
