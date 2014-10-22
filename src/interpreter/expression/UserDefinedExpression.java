@@ -1,5 +1,6 @@
 package interpreter.expression;
 
+import java.util.ArrayDeque;
 import java.util.Deque;
 import model.MainModel;
 import exceptions.SLogoParsingException;
@@ -8,40 +9,44 @@ import interpreter.SLogoResult;
 
 /**
  * class of SLogoExpressions for User Defined Expressions
- * @author Jonathan Tseng
+ * @author Will Chang and Jonathan Tseng
  *
  */
-public class UserDefinedExpression implements SLogoExpression{
-
-    @Override
-    public void loadArguments (Deque<SLogoExpression> args) throws SLogoParsingException,
-                                                           NullPointerException {
-        // TODO Auto-generated method stub
-
+public abstract class UserDefinedExpression implements SLogoExpression{
+    protected CommandReferenceLibrary myLibrary;
+    protected MainModel myModel;
+    protected int myNumArgs;
+    protected Deque<SLogoExpression> myArguments;
+    
+    public UserDefinedExpression () {
+        myArguments = new ArrayDeque<>();
     }
-
+    
     @Override
     public void setNumArgs (int value) {
-        // TODO Auto-generated method stub
-
+        myNumArgs = value;
     }
+    
+    @Override
+    public void loadLibrary(CommandReferenceLibrary library) {
+        myLibrary = library;
+    }
+    @Override
+    public void loadModel(MainModel model) {
+        myModel = model;
+    }
+    
+    @Override
+    public void loadArguments(Deque<SLogoExpression> args) throws SLogoParsingException, NullPointerException{
+        for(int i = 0; i < myNumArgs; i++) {
+            myArguments.add(args.pop());
+        }
+    }
+    
+    public abstract void setValue(String value);
 
     @Override
-    public void loadLibrary (CommandReferenceLibrary library) {
-        // TODO Auto-generated method stub
-
-    }
-
-    @Override
-    public void loadModel (MainModel model) {
-        // TODO Auto-generated method stub
-
-    }
-
-    @Override
-    public SLogoResult evaluate () {
-        // TODO Auto-generated method stub
+    public SLogoResult evaluate() {
         return null;
     }
-
 }

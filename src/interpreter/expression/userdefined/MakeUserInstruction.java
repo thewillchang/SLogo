@@ -22,5 +22,10 @@ public class MakeUserInstruction extends TurtleCommandExpression{
     public SLogoResult evaluate() {
         return null;
     }
+    @Override
+    protected void setNextTransition (SLogoResult myResult, double value) {
+        // TODO Auto-generated method stub
+        
+    }
 
 }
