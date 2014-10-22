@@ -16,6 +16,7 @@ import javafx.scene.shape.Ellipse;
 import javafx.scene.shape.Shape;
 import javafx.util.Duration;
 import transitionstate.TransitionState.VisibleChange;
+import turtle.draw.DrawingViewState;
 import viewcontroller.ViewController;
 import application.Main;
 

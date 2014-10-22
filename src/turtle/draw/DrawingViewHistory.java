@@ -1,7 +1,9 @@
-package turtle;
+package turtle.draw;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import turtle.Turtle;
 
 public class DrawingViewHistory {
 

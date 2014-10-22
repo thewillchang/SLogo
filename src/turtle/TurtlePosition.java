@@ -10,14 +10,29 @@ import javafx.geometry.Point2D;
  * @author Jonathan Tseng
  *
  */
-public class TurtleModel {
+public class TurtlePosition {
 	
 	private double myXPosition;
 	private double myYPosition;
+	private double myRotate;
 	
-	public TurtleModel() {
+	public TurtlePosition() {
 		myXPosition = 0;
 		myYPosition = 0;
+		myRotate = 0;
+	}
+	
+	public double getRotate() {
+		return myRotate;
+	}
+	
+	public void updateCoordinates(Point2D coordinates) {
+		myXPosition = coordinates.getX();
+		myYPosition = coordinates.getY();
+	}
+	
+	public void setRotate(double rotate) {
+		myRotate = rotate;
 	}
 	
 	public void update(TurtleViewController turtleViewController) {

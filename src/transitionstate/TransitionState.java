@@ -1,5 +1,9 @@
 package transitionstate;
 
+import java.util.Collection;
+import java.util.HashSet;
+import java.util.Set;
+
 
 /**
  * wrapper class for a transition state for the Grid. Specifies how to draw the next path.
@@ -14,6 +18,7 @@ public class TransitionState {
 	private double myMove;
 	private double myRotateClockwise;
 	private double myRotateCounterClockwise;
+	private Set<Integer> myTurtleIDs;
 	
 	public static enum PenChange {
 		CHANGE_UP, CHANGE_DOWN, NO_CHANGE
@@ -29,6 +34,15 @@ public class TransitionState {
 	    myMove = distance;
 	    myRotateClockwise = rotateClock;
 	    myRotateCounterClockwise = rotateCounter;
+	    myTurtleIDs = new HashSet<>();
+	}
+	
+	public void setTurtles(Collection<Integer> turtleIDs) {
+		myTurtleIDs.addAll(turtleIDs);
+	}
+	
+	public Collection<Integer> getTurtles() {
+		return myTurtleIDs;
 	}
 	
 	/**
