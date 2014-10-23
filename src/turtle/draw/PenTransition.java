@@ -18,24 +18,32 @@ public class PenTransition extends LinearTransition {
 	@Override
 	public void setTurtle(Turtle turtle) {
 		super.setTurtle(turtle);
+	}
+	
+	@Override
+	public void setDistance(double distance) {
+		super.setDistance(distance);
 		createLine();
-		setStartPoint();
 		setEndPoint(myStartX, myStartY);
 	}
-
+	
+	private void createLine() {
+		myLine = new Line();
+		setStartPoint();
+		formatLine();
+		drawLine();
+	}
+	
 	private void formatLine() {
 		myLine.setStroke(myTurtle.getPen().getColor());
 		myLine.setStrokeWidth(myTurtle.getPen().getWidth());
 		myLine.setStrokeLineCap(StrokeLineCap.ROUND);
 	}
 	
-	private void createLine() {
-		myLine = new Line();
-		formatLine();
-	}
-	
-	public Line getLine() {
-		return myLine;
+	private void drawLine() {
+		if (myDistance != 0) {
+			myTurtle.getPen().drawLine(myLine);
+		}
 	}
 	
 	private void setStartPoint() {
@@ -77,7 +85,6 @@ public class PenTransition extends LinearTransition {
 			myX = myX * (1 - frac);
 			myY = myY * (1 - frac);
 			myDoneFrac = frac;
-			myTurtle.getPen().drawLine(myTurtle.getTurtle(), myLine);
 		}
 	}
 

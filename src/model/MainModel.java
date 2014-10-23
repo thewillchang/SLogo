@@ -11,8 +11,13 @@ import java.util.List;
 import java.util.Map;
 import java.util.Properties;
 
+import javafx.animation.Animation;
+import javafx.animation.ParallelTransition;
+import javafx.scene.shape.Line;
 import transitionstate.TransitionState;
 import turtle.Turtle;
+import turtle.TurtleHistoryState;
+import turtle.TurtleListHistory;
 import viewcontroller.MainModelObserver;
 
 /**
@@ -23,16 +28,18 @@ import viewcontroller.MainModelObserver;
 public class MainModel {
 
 	private boolean myTurtleAdded;
+	private boolean myFailedParse;
 	private List<MainModelObserver> myObservers;
 	private Interpreter myInterpreter;
 	private List<Turtle> myTurtles;
+	private TurtleListHistory myTurtleListHistory;
 	private SLogoResult mySLogoResult;
 	private String myLanguage;
 	private CommandHistoryModel myCommandHistoryModel;
 	private UserDefinedCommandsModel myUserDefinedMethodsModel;
 	private UserDefinedVariablesModel myUserDefinedVariablesModel;
-	private Map<Turtle, List<TransitionState>>  myTurtleTransitionMapping;
 	
+	private ParallelTransition myAnimation;
 
 	final String PROPERTIES_FILENAME = "SLogoState";
 	final String LANGUAGE_PROPERTY = "Language";
@@ -45,8 +52,10 @@ public class MainModel {
 		this.myUserDefinedMethodsModel = new UserDefinedCommandsModel();
 		this.myUserDefinedVariablesModel = new UserDefinedVariablesModel();
 		myTurtleAdded = false;
+		myAnimation = new ParallelTransition();
+		myTurtleListHistory = new TurtleListHistory();
 	}
-
+	
 	/**
 	 * adds a turtle
 	 */
@@ -75,20 +84,37 @@ public class MainModel {
 	 */
 	public void interpretSLogoCommand(String sLogoCommand) {
 		mySLogoResult = myInterpreter.interpret(sLogoCommand);
+		myFailedParse = mySLogoResult.getHasError();
 		if(!mySLogoResult.getHasError()){
 			myCommandHistoryModel.addCommand(sLogoCommand);
 			updateModel();
 		}
 		notifyObservers();
+		myFailedParse = false;
 	}
 
-	private void updateModel() {
-		ModelUpdater updater = new ModelUpdater();
-		myTurtleTransitionMapping = updater.updateModel(myTurtles, mySLogoResult.getTransition());
+	public boolean failedParse() {
+		return myFailedParse;
 	}
 	
-	public Map<Turtle, List<TransitionState>> getTurtleTransitionMapping() {
-		return myTurtleTransitionMapping;
+	private void updateModel() {
+		ModelUpdater updater = new ModelUpdater();
+		Map<Turtle, List<TransitionState>>  turtleTransitionMap = 
+				updater.updateModel(myTurtles, mySLogoResult.getTransition());
+		setMyAnimation(turtleTransitionMap);
+	}
+	
+	private void setMyAnimation(Map<Turtle, List<TransitionState>> map) {
+		myAnimation = new ParallelTransition();
+		for (Turtle turtle : map.keySet()) {
+			Animation animation = turtle.createAnimation(map.get(turtle));
+			myAnimation.getChildren().add(animation);
+		}
+		myTurtleListHistory.updateList(map.keySet());
+	}
+	
+	public Animation getAnimation() {
+		return myAnimation;
 	}
 	
 	/**
@@ -145,5 +171,26 @@ public class MainModel {
 
 		}
 	}
+	
+	public void undoClicked() {
+		TurtleHistoryState state = myTurtleListHistory.undo();
+		myAnimation = state.getAnimation();
+		myAnimation.setRate(Math.abs(myAnimation.getRate()) * -1);
+		for (Line line : state.getLines()) {
+			line.setVisible(false);
+		}
+		notifyObservers();
+	}
+	
+	public void redoClicked() {
+		TurtleHistoryState state = myTurtleListHistory.redo();
+		myAnimation = state.getAnimation();
+		myAnimation.setRate(Math.abs(myAnimation.getRate()));
+		for (Line line : state.getLines()) {
+			line.setVisible(true);
+		}
+		notifyObservers();
+	}
+	
 }
 

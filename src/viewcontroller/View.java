@@ -63,13 +63,13 @@ public class View {
 	
 	public void undoClicked() {
 		if (myCurrentWorkspace != null) {
-			myCurrentWorkspace.getViewController().undoClicked();
+			myCurrentWorkspace.getMainModel().undoClicked();
 		}
 	}
 	
 	public void redoClicked() {
 		if (myCurrentWorkspace != null) {
-			myCurrentWorkspace.getViewController().redoClicked();
+			myCurrentWorkspace.getMainModel().redoClicked();
 		}
 	}
 	

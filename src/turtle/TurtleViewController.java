@@ -16,7 +16,6 @@ import javafx.scene.shape.Ellipse;
 import javafx.scene.shape.Shape;
 import javafx.util.Duration;
 import transitionstate.TransitionState.VisibleChange;
-import turtle.draw.DrawingViewState;
 import viewcontroller.ViewController;
 import application.Main;
 
@@ -124,18 +123,6 @@ public class TurtleViewController implements ViewController {
 	@Override
 	public Node getNode() {
 		return (myTurtleImageView == null) ? myTurtle : myTurtleImageView;
-	}
-	
-	public void undoTurtle(Turtle turtle, DrawingViewState state) {
-		turtle.getTurtle().setTranslateX(state.getStartPosition().getX());
-		turtle.getTurtle().setTranslateY(state.getStartPosition().getY());
-		turtle.getTurtle().setRotate(state.getStartRotation());
-	}
-	
-	public void redoTurtle(Turtle turtle, DrawingViewState state) {
-		turtle.getTurtle().setTranslateX(state.getEndPosition().getX());
-		turtle.getTurtle().setTranslateY(state.getEndPosition().getY());
-		turtle.getTurtle().setRotate(state.getEndRotation());
 	}
 	
 	private void createTurtle() {

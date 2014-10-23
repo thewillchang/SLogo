@@ -48,14 +48,6 @@ public class MainViewController implements ViewController, MainModelObserver {
 		myPane.setRight(myCommandWindow.getNode());
 		myChildObservers.add(myCommandWindow);
 	}
-	
-	public void undoClicked() {
-		myTurtleWindow.undoClicked();
-	}
-	
-	public void redoClicked() {
-		myTurtleWindow.redoClicked();
-	}
 
 	@Override
 	public Node getNode() {
