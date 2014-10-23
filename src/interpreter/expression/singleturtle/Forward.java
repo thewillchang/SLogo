@@ -13,8 +13,6 @@ import transitionstate.TransitionState.VisibleChange;
  *
  */
 public class Forward extends TurtleCommandExpression {
-    private Deque<SLogoExpression> myParameters;
-
     public Forward () {
         super();
     }
