@@ -6,6 +6,7 @@ import javafx.geometry.Insets;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.ScrollBar;
 import javafx.scene.control.TextArea;
 import javafx.scene.layout.Background;
 import javafx.scene.layout.BackgroundFill;
@@ -58,6 +59,7 @@ public class CommandPromptViewController implements ViewController {
 
 	private void setUpCommandPrompt() {
 		myCommandPromptTextArea = new TextArea();
+		myCommandPromptTextArea.setPrefColumnCount(10);
 		myCommandPromptTextArea.setPrefRowCount(4);
 		myCommandPromptTextArea.setWrapText(true);
 
