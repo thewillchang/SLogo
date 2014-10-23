@@ -25,6 +25,7 @@ public class GridViewController implements ViewController, MainModelObserver {
 	public final static Dimension SIZE = new Dimension(
 			TurtleWindowViewController.SIZE.width * 12 / 10, 
 			TurtleWindowViewController.SIZE.height * 9 / 10);
+	private GridLines myGridLines;
 	private Group myGrid;
 	private Rectangle myGridBackground;
 	private List<Turtle> myTurtles;
@@ -38,7 +39,8 @@ public class GridViewController implements ViewController, MainModelObserver {
 	private void setBackground() {
 		Rectangle background = new Rectangle(SIZE.width, SIZE.height, View.BACKGROUND_COLOR);
 		myGridBackground = new Rectangle(SIZE.width, SIZE.height, Color.web("#000099"));
-		myGrid.getChildren().addAll(background, myGridBackground);
+		myGridLines = new GridLines(myGridBackground.getHeight(), myGridBackground.getWidth());
+		myGrid.getChildren().addAll(background, myGridBackground, myGridLines);
 	}
 	
 	@Override
@@ -53,6 +55,10 @@ public class GridViewController implements ViewController, MainModelObserver {
 		} else if (!model.failedParse()) {
 			moveTurtles(model.getAnimation());
 		}	
+	}
+	
+	public void toggleGridLines() {
+		myGridLines.toggle();
 	}
 	
 	private void updateTurtles(List<Turtle> turtles) {
@@ -74,10 +80,20 @@ public class GridViewController implements ViewController, MainModelObserver {
 		myGridBackground.setHeight(SIZE.height - padding * 2);
 		myGridBackground.setTranslateX(padding);
 		myGridBackground.setTranslateY(padding);
+
+		myGridLines.changeSize(myGridBackground.getHeight(), myGridBackground.getWidth());
+		myGridLines.setTranslateX(padding);
+		myGridLines.setTranslateY(padding);
 	}
 	
 	private void moveTurtles(Animation animation) {
 		//TODO setOnFinish reenable view
+		for (Turtle turtle : myTurtles) {
+			myGrid.getChildren().remove(turtle.getTurtle());
+		}
+		for (Turtle turtle : myTurtles) {
+			myGrid.getChildren().add(turtle.getTurtle());
+		}
 		animation.play();
 	}
 	

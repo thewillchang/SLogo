@@ -33,6 +33,10 @@ public class MainViewController implements ViewController, MainModelObserver {
 		placeCommandWindowView(mainModel);
 	}
 	
+	public void toggleGridLines() {
+		myTurtleWindow.toggleGridLines();
+	}
+	
 	private void placeTurtleWindowView() {
 		myTurtleWindow = new TurtleWindowViewController();
 		BorderPane.setAlignment(myTurtleWindow.getNode(), Pos.CENTER);

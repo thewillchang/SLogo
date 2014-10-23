@@ -46,6 +46,10 @@ public class TurtleWindowViewController implements ViewController, MainModelObse
 		myChildObservers.add(myGridView);
 	}
 	
+	public void toggleGridLines() {
+		myGridView.toggleGridLines();
+	}
+	
 	@Override
 	public Node getNode() {
 		return myPane;
