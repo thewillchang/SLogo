@@ -15,6 +15,7 @@ import exceptions.SLogoParsingException;
  */
 public class SLogoExpressionFactory {
 
+    
     private Map<String,String> myReferenceToCommandMap;
     private Map<String,String> myReverseSyntaxMap;
     private Map<String,String> myCommandToDirectoryMap;
@@ -28,6 +29,10 @@ public class SLogoExpressionFactory {
     private MainModel myModel;
 
     private final String CLASS_PATH = "interpreter.expression.";
+    
+    private enum StringType {
+        REGEX, NORMAL
+    }
 
     /**
      * Constructor
@@ -60,18 +65,17 @@ public class SLogoExpressionFactory {
      * @throws ParsingException
      */
     public SLogoExpression createExpression (String command) throws SLogoParsingException {
-        SLogoExpression expression = checkTypeAndInitialize(command, myReferenceToCommandMap);
-        return (expression == null) ? checkTypeAndInitialize(command, myReverseSyntaxMap) : expression;
+        SLogoExpression expression = checkTypeAndInitialize(command, myReferenceToCommandMap, StringType.NORMAL);
+        return (expression == null) ? checkTypeAndInitialize(command, myReverseSyntaxMap, StringType.REGEX) : expression;
     }
 
+    //Need a special case for checking variables/user defined methods, would be getting from the maps...
     private SLogoExpression checkTypeAndInitialize(String command, 
-                                               Map<String, String> referenceMap) {
-
+                                               Map<String, String> referenceMap, StringType type) {
         for(String reference : referenceMap.keySet()) {
-            if(command.matches(reference)) {
+            if(isMatch(command, reference, type)) {
                 try {
                     String name = referenceMap.get(reference);
-
                     String classPathAndName = 
                             CLASS_PATH 
                             + myCommandToDirectoryMap.get(name)
@@ -95,9 +99,17 @@ public class SLogoExpressionFactory {
                 }
             }
         }
+        //TODO Create an EmptyExpression as a null object holder.
         return null;
     }
 
+    private boolean isMatch(String command, String reference, StringType type) {
+        if(StringType.NORMAL == type) {
+            return command.equals(reference);
+        }
+        return command.matches(reference);
+    }
+    
     private void initializeExpression(SLogoExpression expression, String name) {
         expression.setNumArgs(myCommandToNumArgsMap.get(name));
         expression.loadLibrary(myLibrary);
@@ -111,6 +123,9 @@ public class SLogoExpressionFactory {
 
     public static void main(String[] args) throws SLogoParsingException {     
         SLogoExpressionFactory factory = new SLogoExpressionFactory(new CommandReferenceLibrary(), new MainModel());
-        System.out.println("equal?".matches("equal?"));
+        for(String s :"asdf|asdf".split("\\|") )
+        {       System.out.println(s);
+            System.out.println(s.length());
+        }
     }
 }
