@@ -1,7 +1,9 @@
 package interpreter.expression.singleturtle;
 
 import java.util.ArrayDeque;
+import java.util.ArrayList;
 import java.util.Deque;
+import java.util.List;
 import model.MainModel;
 import exceptions.SLogoParsingException;
 import interpreter.CommandReferenceLibrary;
@@ -50,8 +52,8 @@ public abstract class TurtleCommandExpression implements SLogoExpression {
     @Override
     public SLogoResult evaluate() {
         Deque<SLogoResult> results = new ArrayDeque<>();
-        while(!myArguments.isEmpty()) {
-            results.add(myArguments.pop().evaluate());
+        for(SLogoExpression expression : myArguments) {
+            results.add(expression.evaluate());
         }
         return applyOperatorAndMerge(results);
     }
