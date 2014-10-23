@@ -1,11 +1,12 @@
 package viewcontroller.turtlegrid;
 
-import interpreter.SLogoResult;
-
 import java.awt.Dimension;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
+import javafx.animation.Animation;
+import javafx.animation.ParallelTransition;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.Group;
@@ -18,9 +19,8 @@ import transitionstate.TransitionState;
 import transitionstate.TransitionState.PenChange;
 import transitionstate.TransitionState.VisibleChange;
 import turtle.Turtle;
-import turtle.animation.FullAnimation;
-import turtle.animation.ParallelAnimations;
 import viewcontroller.MainModelObserver;
+import viewcontroller.View;
 import viewcontroller.ViewController;
 
 /**
@@ -34,7 +34,10 @@ public class GridViewController implements ViewController, MainModelObserver {
 			TurtleWindowViewController.SIZE.width * 12 / 10, 
 			TurtleWindowViewController.SIZE.height * 9 / 10);
 	private Group myGrid;
+	private Rectangle myGridBackground;
 	private List<Turtle> myTurtles;
+	
+	private ParallelTransition myAnimation;
 	
 	private Button b;
 	
@@ -52,23 +55,35 @@ public class GridViewController implements ViewController, MainModelObserver {
 				b.setDisable(true);
 			}
 		});
-		myGrid.getChildren().add(b);
+		
+		Button c = new Button();
+		c.setTranslateX(100);
+		c.setText("what");
+		c.setOnAction(event->slow());
+		
+		myGrid.getChildren().addAll(b, c);
+	}
+	
+	private void slow() {
+		myAnimation.setRate(Math.abs(myAnimation.getRate()) * 1.5);
+		//myAnimation.play();
 	}
 	
 	private void setBackground() {
-		Rectangle background = new Rectangle(SIZE.width, SIZE.height, Color.web("#000099"));
-		myGrid.getChildren().add(background);
+		Rectangle background = new Rectangle(SIZE.width, SIZE.height, View.BACKGROUND_COLOR);
+		myGridBackground = new Rectangle(SIZE.width, SIZE.height, Color.web("#000099"));
+		myGrid.getChildren().addAll(background, myGridBackground);
 	}
 	
 	public void redo() {
 		for (Turtle turtle : myTurtles) {
-			turtle.redo();
+			//turtle.redo();
 		}
 	}
 
 	public void undo() {
 		for (Turtle turtle : myTurtles) {
-			turtle.undo();
+			//turtle.undo();
 		}
 	}
 	
@@ -86,7 +101,9 @@ public class GridViewController implements ViewController, MainModelObserver {
 		if (model.isTurtleAdded()) {
 			updateTurtles(model.getTurtles());
 		} else {
-			moveTurtles(model.getTurtles(), model.getResult());
+			if (!model.getResult().getHasError()) {
+				moveTurtles(model.getTurtleTransitionMapping());
+			}
 		}	
 	}
 	
@@ -96,40 +113,44 @@ public class GridViewController implements ViewController, MainModelObserver {
 				myTurtles.add(turtle);
 				turtle.getPen().attachGrid(myGrid);
 				myGrid.getChildren().add(turtle.getTurtle());
-				turtle.getTurtle().setLayoutX(SIZE.width / 2);
-				turtle.getTurtle().setLayoutY(SIZE.height / 2);
+				turtle.getTurtle().setTranslateX(turtle.getTurtle().getTranslateX() + SIZE.width / 2);
+				turtle.getTurtle().setTranslateY(turtle.getTurtle().getTranslateY() + SIZE.height / 2);
 			}
+			fixGridBackground(turtle.getTurtleRadius());
 		}
 	}
 	
-	private void moveTurtles(List<Turtle> turtles, SLogoResult result) {
-		if (!result.getHasError()) {
-			List<FullAnimation> animations = new ArrayList<>();
-			for (Turtle turtle : turtles) {
-				List<TransitionState> states = result.getTransition();
-				FullAnimation animation = turtle.animate(states);
-				animations.add(animation);
-			}
-			ParallelAnimations parallelAnimations = new ParallelAnimations();
-			parallelAnimations.loadAnimations(animations);
-			parallelAnimations.attachOnFinished(event -> enableButtons());
-			parallelAnimations.playParallelAnimations();
+	private void fixGridBackground(double pad) {
+		double padding = pad * 19 / 20;
+		myGridBackground.setWidth(SIZE.width - padding * 2);
+		myGridBackground.setHeight(SIZE.height - padding * 2);
+		myGridBackground.setTranslateX(padding);
+		myGridBackground.setTranslateY(padding);
+	}
+	
+	private void moveTurtles(Map<Turtle, List<TransitionState>> mapping) {
+		myAnimation = new ParallelTransition();
+		for (Turtle turtle : mapping.keySet()) {
+			Animation animation = turtle.update(mapping.get(turtle));
+			myAnimation.getChildren().add(animation);
 		}
+		myAnimation.setOnFinished(event->enableButtons());
+		myAnimation.play();
 	}
 	
 	private void moveTurtles() {
-		List<FullAnimation> animations = new ArrayList<>();
-		for (Turtle turtle : myTurtles) {
-			List<TransitionState> states = new ArrayList<>();
-			for (int i = 0; i < 4; i ++) states.add(new TransitionState(PenChange.NO_CHANGE, VisibleChange.NO_CHANGE, 100 + Math.random() * 100, Math.random() * 180, Math.random() * 180));
-			
-			FullAnimation animation = turtle.animate(states);
-			animations.add(animation);
+		List<TransitionState> states = new ArrayList<>();
+		for (int i = 0; i < 1; i ++) {
+			TransitionState state = new TransitionState(PenChange.CHANGE_DOWN, VisibleChange.CHANGE_VISIBLE, 100, 45, 0);
+			states.add(state);
 		}
-		ParallelAnimations parallelAnimations = new ParallelAnimations();
-		parallelAnimations.loadAnimations(animations);
-		parallelAnimations.attachOnFinished(event -> enableButtons());
-		parallelAnimations.playParallelAnimations();
+		
+		for (Turtle turtle : myTurtles) {
+			Animation anim;
+			anim = turtle.update(states);
+			anim.setOnFinished(event->enableButtons());
+			anim.play();
+		}
 	}
 
 }

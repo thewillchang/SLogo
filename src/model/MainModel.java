@@ -8,8 +8,10 @@ import java.io.IOException;
 import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.Properties;
 
+import transitionstate.TransitionState;
 import turtle.Turtle;
 import viewcontroller.MainModelObserver;
 
@@ -29,6 +31,7 @@ public class MainModel {
 	private CommandHistoryModel myCommandHistoryModel;
 	private UserDefinedCommandsModel myUserDefinedMethodsModel;
 	private UserDefinedVariablesModel myUserDefinedVariablesModel;
+	private Map<Turtle, List<TransitionState>>  myTurtleTransitionMapping;
 	
 
 	final String PROPERTIES_FILENAME = "SLogoState";
@@ -74,10 +77,20 @@ public class MainModel {
 		mySLogoResult = myInterpreter.interpret(sLogoCommand);
 		if(!mySLogoResult.getHasError()){
 			myCommandHistoryModel.addCommand(sLogoCommand);
+			updateModel();
 		}
 		notifyObservers();
 	}
 
+	private void updateModel() {
+		ModelUpdater updater = new ModelUpdater();
+		myTurtleTransitionMapping = updater.updateModel(myTurtles, mySLogoResult.getTransition());
+	}
+	
+	public Map<Turtle, List<TransitionState>> getTurtleTransitionMapping() {
+		return myTurtleTransitionMapping;
+	}
+	
 	/**
 	 * used to set the language in which the commands are written in
 	 * @param myLanguage
