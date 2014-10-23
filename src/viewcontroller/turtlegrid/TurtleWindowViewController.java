@@ -34,14 +34,6 @@ public class TurtleWindowViewController implements ViewController, MainModelObse
 		placeGridView();
 	}
 	
-	public void undoClicked() {
-		myGridView.undo();
-	}
-	
-	public void redoClicked() {
-		myGridView.redo();
-	}
-	
 	private void placeStatusView() {
 		myStatusView = new TurtleStatusViewController();
 		BorderPane.setAlignment(myStatusView.getNode(), Pos.CENTER);
@@ -54,6 +46,9 @@ public class TurtleWindowViewController implements ViewController, MainModelObse
 		myChildObservers.add(myGridView);
 	}
 	
+	public void toggleGridLines() {
+		myGridView.toggleGridLines();
+	}
 	
 	@Override
 	public Node getNode() {

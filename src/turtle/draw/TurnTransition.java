@@ -13,13 +13,8 @@ public class TurnTransition extends SLogoTransition {
 	public TurnTransition() {
 		super();
 		myFirst = true;
+		myRotate = 0;
 	}
-//
-//	@Override
-//	public void setTurtle(Turtle turtle) {
-//		super.setTurtle(turtle);
-//		myStartRotate = turtle.getTurtle().getRotate();
-//	}
 	
 	public void setTurn(double rotate) {
 		myRotate = rotate;

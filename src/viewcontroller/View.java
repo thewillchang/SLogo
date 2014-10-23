@@ -16,6 +16,12 @@ import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import application.Main;
 
+/**
+ * Overall main view that can has menu bar and tabbed view that can 
+ * hold multiple workspaces
+ * @author Jonathan Tseng
+ *
+ */
 public class View {
 	
 	private final static String HELP_URL = "http://www.cs.duke.edu/courses/compsci308/current/assign/03_slogo/";
@@ -66,15 +72,21 @@ public class View {
 		myStage.show();
 	}
 	
+	public void toggleGridLines() {
+		if (myCurrentWorkspace != null) {
+			myCurrentWorkspace.getViewController().toggleGridLines();
+		}
+	}
+	
 	public void undoClicked() {
 		if (myCurrentWorkspace != null) {
-			myCurrentWorkspace.getViewController().undoClicked();
+			myCurrentWorkspace.getMainModel().undoClicked();
 		}
 	}
 	
 	public void redoClicked() {
 		if (myCurrentWorkspace != null) {
-			myCurrentWorkspace.getViewController().redoClicked();
+			myCurrentWorkspace.getMainModel().redoClicked();
 		}
 	}
 	

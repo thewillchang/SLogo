@@ -6,7 +6,14 @@ import transitionstate.TransitionState;
 import exceptions.SLogoParsingException;
 
 public class SyntaxResult extends SLogoResult {
-
+    private String myString; 
+    
+    public SyntaxResult (String str) {
+        super();
+        myString = str;
+        myTransitionStates.add(new NullTransitionState());
+    }
+    
     public SyntaxResult (double value) {
         super(value);
         myTransitionStates.add(new NullTransitionState());
@@ -28,6 +35,11 @@ public class SyntaxResult extends SLogoResult {
     @Override
     public double getValue () {
         return myValue;
+    }
+    
+    @Override
+    public String toString () {
+        return myString;
     }
 
 }

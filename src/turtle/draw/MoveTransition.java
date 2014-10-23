@@ -38,7 +38,6 @@ public class MoveTransition extends LinearTransition {
 	protected void performWrappingChanges(double frac) {
 		Point2D start = checkWrapping();
 		if (!start.equals(new Point2D(myStartX, myStartY))) {
-			System.out.println("what");
 			setStartPoint(start.getX(), start.getY());
 			myX = myX * (1 - frac);
 			myY = myY * (1 - frac);

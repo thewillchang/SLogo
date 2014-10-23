@@ -17,6 +17,7 @@ public abstract class LinearTransition extends SLogoTransition {
 	protected LinearTransition() {
 		super();
 		myDoneFrac = 0;
+		myDistance = 0;
 	}
 
 	protected enum Wrapping {
