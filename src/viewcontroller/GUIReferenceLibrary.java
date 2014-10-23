@@ -35,7 +35,7 @@ public class GUIReferenceLibrary {
 	 *            to set to.
 	 */
 	private void setGUIReference() {
-		myCommandReference = ResourceBundle.getBundle("resources.languages.view" + myLanguage, Locale.US);
+		myCommandReference = ResourceBundle.getBundle("resources.languages.view." + myLanguage, Locale.US);
 		myKeySet = myCommandReference.keySet();
 		for(String keyString : myKeySet) {
 			myGUIMap.put(keyString, myCommandReference.getString(keyString));

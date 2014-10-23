@@ -1,9 +1,11 @@
 package viewcontroller.commands;
 
 import java.util.List;
+
 import javafx.scene.Node;
 import model.MainModel;
 import model.UserDefinedCommandsModel;
+import viewcontroller.GUIReferenceLibrary;
 import viewcontroller.MainModelObserver;
 import viewcontroller.SLogoFont;
 
@@ -16,10 +18,12 @@ import viewcontroller.SLogoFont;
 public class UserDefinedMethodsViewController extends
 		CommandClickableListWindowViewController implements MainModelObserver {
 
+	private final String User = "UserMethods";
+	
 	public UserDefinedMethodsViewController(CommandWindowContainerViewController commandWindowContainer) {
 		super();
 		myCommandWindowContainer = commandWindowContainer;
-		myTitleLabel.setText("User Defined Methods: ");
+		myTitleLabel.setText(GUIReferenceLibrary.getStringTranslation(User));
 		myTitleLabel.setFont(new SLogoFont().createTextFont());
 	}
 

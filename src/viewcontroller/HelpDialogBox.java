@@ -26,7 +26,6 @@ public class HelpDialogBox {
         root.setCenter(makePageDisplay());
         myStage.setScene(messageScene);
         myStage.show();
-        System.out.println("here");
 	}
 
 	private Node makePageDisplay() {

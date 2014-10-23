@@ -2,10 +2,10 @@ package viewcontroller.commands;
 
 import interpreter.SLogoResult;
 import model.MainModel;
-import model.UserDefinedVariablesModel;
 import javafx.geometry.Insets;
 import javafx.scene.Node;
 import javafx.scene.control.Label;
+import viewcontroller.GUIReferenceLibrary;
 import viewcontroller.MainModelObserver;
 import viewcontroller.SLogoFont;
 
@@ -17,9 +17,10 @@ import viewcontroller.SLogoFont;
 public class CommandStatusViewController extends CommandWindowViewController implements MainModelObserver {
 
 	private Label myStatusLabel;
+	private final String Status = "Status";
 	
 	public CommandStatusViewController(){
-		myTitleLabel.setText("Command Status");
+		myTitleLabel.setText(commandMapValue + GUIReferenceLibrary.getStringTranslation(Status));
 		myTitleLabel.setFont(new SLogoFont().createTextFont());
 		
 		myStatusLabel = new Label();

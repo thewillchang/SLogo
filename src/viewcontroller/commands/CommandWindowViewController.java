@@ -8,6 +8,7 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.CornerRadii;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
+import viewcontroller.GUIReferenceLibrary;
 import viewcontroller.ViewController;
 
 /**
@@ -20,6 +21,8 @@ public abstract class CommandWindowViewController implements ViewController {
 	protected BorderPane myPane;
 	protected VBox myCommandWindowVerticalBox;
 	protected Label myTitleLabel;
+	private final String Command = "Command";
+	protected String commandMapValue;
 	
 	public CommandWindowViewController() {
 		myPane = new BorderPane();
@@ -29,5 +32,6 @@ public abstract class CommandWindowViewController implements ViewController {
 		myTitleLabel = new Label();
 		myCommandWindowVerticalBox.getChildren().add(myTitleLabel);
 		myPane.setCenter(myCommandWindowVerticalBox);
+		commandMapValue = GUIReferenceLibrary.getStringTranslation(Command);
 	}
 }

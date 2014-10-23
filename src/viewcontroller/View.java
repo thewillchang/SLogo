@@ -30,15 +30,20 @@ public class View {
 	private Workspace myCurrentWorkspace;
 	
 	private SLogoMenuBar myMenuBar;
+	
+	private final String Title = "Title";
+	private final String Workspace = "Workspace";
+	private GUIReferenceLibrary myGUIReferenceLibrary;
 
 	public View(Stage stage) {
+		myGUIReferenceLibrary = new GUIReferenceLibrary();
 		myWorkspaces = new ArrayList<>();
 		myStage = stage;
 		myPane = new BorderPane();
 		myPane.setBackground(new Background(
 				new BackgroundFill(BACKGROUND_COLOR, new CornerRadii(0), new Insets(0))));
 		myScene = new Scene(myPane, Main.SIZE.width, Main.SIZE.height);
-		myStage.setTitle("SLogo - as re-envisioned by Tanaka, Will, Abhishek, and Jonathan");
+		myStage.setTitle(GUIReferenceLibrary.getStringTranslation(Title));
 		myStage.setScene(myScene);
 		initializeTabPane();
 		addNewWorkspace();
@@ -51,7 +56,7 @@ public class View {
 		myCurrentWorkspace = workspace;
 		Tab tab = new Tab();
 		tab.setId(Integer.toString(myWorkspaces.size() - 1));
-		tab.setText("Workspace " + myWorkspaces.size());
+		tab.setText(GUIReferenceLibrary.getStringTranslation(Workspace) + myWorkspaces.size());
 		tab.setContent(myCurrentWorkspace.getViewController().getNode());
 		myTabPane.getTabs().add(tab);
 		myTabPane.getSelectionModel().select(tab);

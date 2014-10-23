@@ -5,6 +5,7 @@ import java.util.List;
 import model.CommandHistoryModel;
 import model.MainModel;
 import javafx.scene.Node;
+import viewcontroller.GUIReferenceLibrary;
 import viewcontroller.MainModelObserver;
 import viewcontroller.SLogoFont;
 
@@ -16,11 +17,13 @@ import viewcontroller.SLogoFont;
  */
 
 public class CommandHistoryViewController extends CommandClickableListWindowViewController implements MainModelObserver {
-
+	
+	private final String History = "History";
+	
 	public CommandHistoryViewController(CommandWindowContainerViewController commandWindowContainer) {
 		super();
 		myCommandWindowContainer = commandWindowContainer;
-		myTitleLabel.setText("Command History Window: ");
+		myTitleLabel.setText(commandMapValue + GUIReferenceLibrary.getStringTranslation(History));
 		myTitleLabel.setFont(new SLogoFont().createTextFont());
 	}
 
