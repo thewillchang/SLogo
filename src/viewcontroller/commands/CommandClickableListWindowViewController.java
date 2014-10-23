@@ -1,8 +1,5 @@
 package viewcontroller.commands;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import javafx.event.EventHandler;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;

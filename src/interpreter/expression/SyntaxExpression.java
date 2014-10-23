@@ -1,11 +1,14 @@
 package interpreter.expression;
 
 import java.util.ArrayDeque;
+import java.util.ArrayList;
 import java.util.Deque;
+import java.util.List;
 import exceptions.SLogoParsingException;
 import model.MainModel;
 import interpreter.CommandReferenceLibrary;
 import interpreter.SLogoResult;
+import interpreter.SyntaxResult;
 
 /**
  * superclass for SLogoExpressions that are purely syntax
@@ -44,13 +47,13 @@ public abstract class SyntaxExpression implements SLogoExpression {
         }
     }
     
-   
+    @Override
+    public SLogoResult evaluate() {
+        return new SyntaxResult();
+    }
 
     public abstract void setValue(String value);
 
-    @Override
-    public SLogoResult evaluate() {
-        return null;
-    }
+
 
 }

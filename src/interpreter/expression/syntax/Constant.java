@@ -1,11 +1,8 @@
 package interpreter.expression.syntax;
 
-import java.util.Deque;
-import java.util.List;
-import interpreter.CommandReferenceLibrary;
+
 import interpreter.SLogoResult;
 import interpreter.SyntaxResult;
-import interpreter.expression.SLogoExpression;
 import interpreter.expression.SyntaxExpression;
 
 /**
@@ -15,20 +12,24 @@ import interpreter.expression.SyntaxExpression;
  */
 public class Constant extends SyntaxExpression {
     
-    private double myConstantValue;
+    private double myValue;
     
     public Constant () {
-        
+        this(0);
     }
 
+    public Constant (double value) {
+        myValue = value;
+    }
+    
     @Override
     public void setValue(String value) {
-        myConstantValue = Double.parseDouble(value);
+        myValue = Double.parseDouble(value);
     }
     
     @Override
     public SLogoResult evaluate() {
-            return new SyntaxResult(myConstantValue);
+            return new SyntaxResult(myValue);
     }
 
 
