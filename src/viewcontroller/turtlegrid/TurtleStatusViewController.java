@@ -1,8 +1,8 @@
 package viewcontroller.turtlegrid;
 
-import javafx.geometry.Insets;
 import javafx.scene.Node;
 import javafx.scene.control.Label;
+import viewcontroller.GUIReferenceLibrary;
 import viewcontroller.SLogoFont;
 import viewcontroller.commands.CommandWindowViewController;
 
@@ -16,20 +16,25 @@ import viewcontroller.commands.CommandWindowViewController;
 public class TurtleStatusViewController extends CommandWindowViewController {
 
 	private Label myLabel;
+	private final String Status = "Turtle";
+	private String myStatusTranslation;
 
 	public TurtleStatusViewController() {
 		super();
-		myTitleLabel.setText("Turtle Status");
+		myTitleLabel.setText(myStatusTranslation);
 		myTitleLabel.setFont(new SLogoFont().createTextFont());
-		myLabel = new Label("jdaklas");
-		myLabel.setPadding(new Insets(10));
 
-		myCommandWindowVerticalBox.getChildren().add(myLabel);
+		myCommandWindowVerticalBox.getChildren().addAll(myTitleLabel, myLabel);
 	}
-
+		
 	@Override
 	public Node getNode() {
 		return myPane;
+	}
+
+	@Override
+	protected void applyTranslations() {
+		myStatusTranslation = GUIReferenceLibrary.getStringTranslation(Status);
 	}
 	
 }
