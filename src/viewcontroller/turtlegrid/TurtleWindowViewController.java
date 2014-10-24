@@ -35,7 +35,7 @@ public class TurtleWindowViewController implements ViewController, MainModelObse
 	}
 	
 	private void placeStatusView() {
-		myStatusView = new TurtleStatusViewController();
+		myStatusView = new TurtleStatusViewController(SIZE.width * 9/10, SIZE.height * 1/10);
 		BorderPane.setAlignment(myStatusView.getNode(), Pos.CENTER);
 		myPane.setBottom(myStatusView.getNode());
 	}

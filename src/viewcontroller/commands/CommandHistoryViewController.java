@@ -7,7 +7,6 @@ import model.MainModel;
 import javafx.scene.Node;
 import viewcontroller.GUIReferenceLibrary;
 import viewcontroller.MainModelObserver;
-import viewcontroller.SLogoFont;
 
 /**
  * View controller for window of history of commands
@@ -19,12 +18,14 @@ import viewcontroller.SLogoFont;
 public class CommandHistoryViewController extends CommandClickableListWindowViewController implements MainModelObserver {
 	
 	private final String History = "History";
+	private String myHistoryTranslation;
 	
-	public CommandHistoryViewController(CommandWindowContainerViewController commandWindowContainer) {
-		super();
+	public CommandHistoryViewController(int width, int height, CommandWindowContainerViewController commandWindowContainer) {
+		super(width, height);
+		applyTranslations();
 		myCommandWindowContainer = commandWindowContainer;
-		myTitleLabel.setText(commandMapValue + GUIReferenceLibrary.getStringTranslation(History));
-		myTitleLabel.setFont(new SLogoFont().createTextFont());
+		myTitleLabel.setText(myHistoryTranslation);
+		addCommand("fd 50");
 	}
 
 	@Override
@@ -44,6 +45,6 @@ public class CommandHistoryViewController extends CommandClickableListWindowView
 
 	@Override
 	protected void applyTranslations() {
-		
+		myHistoryTranslation = GUIReferenceLibrary.getStringTranslation(History);
 	}
 }

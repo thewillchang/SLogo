@@ -21,12 +21,13 @@ public class UserDefinedMethodsViewController extends
 	private final String User = "UserMethods";
 	private String myUserTranslation;
 	
-	public UserDefinedMethodsViewController(CommandWindowContainerViewController commandWindowContainer) {
-		super();
+	public UserDefinedMethodsViewController(int width, int height, CommandWindowContainerViewController commandWindowContainer) {
+		super(width, height);
 		applyTranslations();
 		myCommandWindowContainer = commandWindowContainer;
 		myTitleLabel.setText(myUserTranslation);
 		myTitleLabel.setFont(new SLogoFont().createTextFont());
+		addCommand("cry 1 hr");
 	}
 
 	@Override

@@ -20,10 +20,10 @@ public class CommandStatusViewController extends CommandWindowViewController imp
 	private final String Status = "Status";
 	private String myStatusTranslation;
 	
-	public CommandStatusViewController(){
-		super();
+	public CommandStatusViewController(int width, int height){
+		super(width, height);
 		applyTranslations();
-		myTitleLabel.setText(commandMapValue + myStatusTranslation);
+		myTitleLabel.setText(myStatusTranslation);
 		myTitleLabel.setFont(new SLogoFont().createTextFont());
 		
 		myStatusLabel = new Label();

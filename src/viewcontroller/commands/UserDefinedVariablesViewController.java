@@ -23,20 +23,21 @@ import viewcontroller.SLogoFont;
  * @author Abhishek B
  *
  */
-public class UserDefinedVariablesViewController extends CommandWindowViewController implements MainModelObserver {
+public class UserDefinedVariablesViewController extends
+		CommandWindowViewController implements MainModelObserver {
 
 	private VBox myListVerticalBox;
 	private Map<String, Double> myVariableMap;
 	private final String UserVariables = "UserVariables";
 	private String myUserTranslation;
 
-	public UserDefinedVariablesViewController() {
-		super();
+	public UserDefinedVariablesViewController(int width, int height) {
+		super(width, height);
 		applyTranslations();
 		myTitleLabel.setText(myUserTranslation);
 		myTitleLabel.setFont(new SLogoFont().createTextFont());
-		myPane.setTop(myTitleLabel);
 		placeVariableTable();
+		myCommandWindowVerticalBox.getChildren().addAll(myListVerticalBox);
 	}
 
 	@Override
@@ -49,7 +50,6 @@ public class UserDefinedVariablesViewController extends CommandWindowViewControl
 		myListVerticalBox = new VBox();
 		addVariableToList("x", 5);
 		addVariableToList("y", 10);
-		myPane.setCenter(myListVerticalBox);
 	}
 
 	@Override
@@ -66,16 +66,17 @@ public class UserDefinedVariablesViewController extends CommandWindowViewControl
 	}
 
 	private void updateVariableList() {
-		myListVerticalBox.getChildren().clear();
+//		myListVerticalBox.getChildren().clear();
 		for (String variable : myVariableMap.keySet()) {
 			addVariableToList(variable, myVariableMap.get(variable));
 		}
 	}
 
 	private void addVariableToList(String variable, double value) {
+		HBox variableHorizontalBox = new HBox(10);
+		variableHorizontalBox.setPrefSize(SIZE.width, SIZE.height / 6);
 		Label variableLabel = new Label(variable);
 		Label valueLabel = new Label(Double.toString(value));
-		HBox variableHorizontalBox = new HBox(10);
 		variableHorizontalBox.getChildren().addAll(variableLabel, valueLabel);
 		valueLabel.setOnMouseClicked(new EventHandler<MouseEvent>() {
 			@Override
