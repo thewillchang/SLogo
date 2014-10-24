@@ -19,8 +19,8 @@ public class Main extends Application {
 	@Override
 	public void start(Stage primaryStage) {
 		try {
-			View view = new View(primaryStage);
-			view.init();
+			StartMenu menu = new StartMenu();
+			menu.show();
 		} catch(Exception e) {
 			e.printStackTrace();
 		}

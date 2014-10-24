@@ -23,8 +23,8 @@ public class TurtleStatusViewController extends CommandWindowViewController {
 		super();
 		myTitleLabel.setText(myStatusTranslation);
 		myTitleLabel.setFont(new SLogoFont().createTextFont());
-
-		myCommandWindowVerticalBox.getChildren().addAll(myTitleLabel, myLabel);
+		myLabel = new Label("asdfas");
+		myCommandWindowVerticalBox.getChildren().addAll(myLabel);
 	}
 		
 	@Override

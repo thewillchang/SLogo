@@ -37,11 +37,14 @@ public class View {
 	
 	private SLogoMenuBar myMenuBar;
 	
+	private String myLanguage;
+	
 	private final String Title = "Title";
 	private final String Workspace = "Workspace";
 
-	public View(Stage stage) {
-		GUIReferenceLibrary.setGUIReference("English");
+	public View(Stage stage, String language) {
+		myLanguage = language;
+		GUIReferenceLibrary.setGUIReference(myLanguage);
 		myWorkspaces = new ArrayList<>();
 		myStage = stage;
 		myPane = new BorderPane();
