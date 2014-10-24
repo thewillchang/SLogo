@@ -28,6 +28,7 @@ public class TurtleHistory {
 			return new NullTurtleHistoryState();
 		}
 		TurtleHistoryState state = myStates.get(myIndex);
+		state.getAnimation().setRate(Math.abs(state.getAnimation().getRate() * -1));
 		myIndex--;
 		return state;
 	}

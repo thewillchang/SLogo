@@ -113,7 +113,7 @@ public class MainModel {
 		myTurtleListHistory.updateList(map.keySet());
 	}
 	
-	public Animation getAnimation() {
+	public ParallelTransition getAnimation() {
 		return myAnimation;
 	}
 	

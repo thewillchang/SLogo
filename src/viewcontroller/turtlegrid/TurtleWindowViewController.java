@@ -25,13 +25,26 @@ public class TurtleWindowViewController implements ViewController, MainModelObse
 	private TurtleStatusViewController myStatusView;
 	private GridViewController myGridView;
 	private List<MainModelObserver> myChildObservers;
+	private GridButtonBar myGridButtonBar;
 	
 	public TurtleWindowViewController() {
 		myChildObservers = new ArrayList<>();
 		myPane = new BorderPane();
 		myPane.setPrefSize(SIZE.width, SIZE.height);
+
+		myGridButtonBar = new GridButtonBar(gridEvent->gridColorChanged(), penEvent->penColorChanged());
+		myPane.setTop(myGridButtonBar);
+		
 		placeStatusView();
 		placeGridView();
+	}
+	
+	private void gridColorChanged() {
+		System.out.println("grid" + myGridButtonBar.getGridColor());
+	}
+	
+	private void penColorChanged() {
+		System.out.println(myGridButtonBar.getPenColor());	
 	}
 	
 	private void placeStatusView() {
