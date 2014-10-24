@@ -17,13 +17,13 @@ import viewcontroller.SLogoFont;
 public class CommandStatusViewController extends CommandWindowViewController implements MainModelObserver {
 
 	private Label myStatusLabel;
-	private final String Status = "Status";
+	private static final String Status = "Status";
 	private String myStatusTranslation;
 	
-	public CommandStatusViewController(){
-		super();
+	public CommandStatusViewController(int width, int height){
+		super(width, height);
 		applyTranslations();
-		myTitleLabel.setText(commandMapValue + myStatusTranslation);
+		myTitleLabel.setText(myStatusTranslation);
 		myTitleLabel.setFont(new SLogoFont().createTextFont());
 		
 		myStatusLabel = new Label();
@@ -34,7 +34,7 @@ public class CommandStatusViewController extends CommandWindowViewController imp
 	}
 	
 	@Override
-	protected void applyTranslations() {
+	public void applyTranslations() {
 		myStatusTranslation = GUIReferenceLibrary.getStringTranslation(Status);
 	}
 	

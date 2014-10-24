@@ -15,8 +15,8 @@ public abstract class CommandClickableListWindowViewController extends CommandWi
 	protected CommandWindowContainerViewController myCommandWindowContainer;
 	protected VBox myListVerticalBox;
 
-	public CommandClickableListWindowViewController() {
-		super();
+	public CommandClickableListWindowViewController(int width, int height) {
+		super(width, height);
 		myListVerticalBox = new VBox();
 		myCommandWindowVerticalBox.getChildren().add(myListVerticalBox);
 	}
@@ -26,7 +26,7 @@ public abstract class CommandClickableListWindowViewController extends CommandWi
 		commandLabel.setOnMouseClicked(new EventHandler<MouseEvent>() {
 			@Override
 			public void handle(MouseEvent arg0) {
-				myCommandWindowContainer.updateCommandWindow(commandLabelString);
+				myCommandWindowContainer.moveCommandTextToPromptWindow(commandLabelString);
 			}
 		});
 		myListVerticalBox.getChildren().add(commandLabel);

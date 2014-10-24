@@ -2,21 +2,12 @@ package viewcontroller.commands;
 
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
-import javafx.geometry.Insets;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
-import javafx.scene.layout.Background;
-import javafx.scene.layout.BackgroundFill;
-import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.CornerRadii;
 import javafx.scene.layout.HBox;
-import javafx.scene.layout.Priority;
-import javafx.scene.paint.Color;
 import model.MainModel;
 import viewcontroller.GUIReferenceLibrary;
-import viewcontroller.SLogoFont;
 import viewcontroller.ViewController;
 
 /**
@@ -26,45 +17,49 @@ import viewcontroller.ViewController;
  *
  */
 
-public class CommandPromptViewController implements ViewController {
+public class CommandPromptViewController extends CommandWindowViewController
+		implements ViewController {
 
-	private BorderPane myPane;
-	private Label myTitleLabel;
 	private MainModel myMainModel;
+	private HBox myCommandPromptHorizontalBox;
 	private TextArea myCommandPromptTextArea;
 	private Button mySubmitButton;
-	private HBox myCommandPromptHorizontalBox;
 	private final String Prompt = "Prompt";
+	private String myPromptTranslation;
 
-	public CommandPromptViewController(MainModel mainModel) {
+	public CommandPromptViewController(int width, int height,
+			MainModel mainModel) {
+		super(width, height);
 		myMainModel = mainModel;
+		applyTranslations();
+		myTitleLabel.setText(myPromptTranslation);
 
-		myPane = new BorderPane();
-		myPane.setBackground(new Background(new BackgroundFill(Color.WHITE,
-				new CornerRadii(0), new Insets(0))));
-
-		myTitleLabel = new Label(GUIReferenceLibrary.getStringTranslation(Prompt));
-		myTitleLabel.setFont(new SLogoFont().createTextFont());
-		myTitleLabel.setPadding(new Insets(0));
-
-		setUpCommandPrompt();
-		myCommandPromptHorizontalBox = new HBox(10);
-		HBox.setHgrow(myCommandPromptTextArea, Priority.ALWAYS);
-		HBox.setHgrow(mySubmitButton, Priority.ALWAYS);
-		myCommandPromptHorizontalBox.getChildren().addAll(
-				myCommandPromptTextArea, mySubmitButton);
-
-		myPane.setTop(myTitleLabel);
-		myPane.setCenter(myCommandPromptHorizontalBox);
+		setUpCommandPromptHorizontalBox();
+		myCommandWindowVerticalBox.getChildren().add(
+				myCommandPromptHorizontalBox);
 	}
 
-	private void setUpCommandPrompt() {
+	private void setUpCommandPromptHorizontalBox() {
+		setUpCommandPrompt(SIZE.width * 9 /10 , SIZE.height * 9/10);
+		setUpSubmitButton(SIZE.width * 9/10, SIZE.height * 9/10);
+		myCommandPromptHorizontalBox = new HBox(10);
+		myCommandPromptHorizontalBox.setPrefSize(
+				SIZE.width * 9 / 10, SIZE.height * 9 / 10);
+		myCommandPromptHorizontalBox.getChildren().addAll(
+				myCommandPromptTextArea, mySubmitButton);
+	}
+
+	private void setUpCommandPrompt(int parentWidth, int parentHeight) {
 		myCommandPromptTextArea = new TextArea();
+		myCommandPromptTextArea.setPrefSize(parentWidth * 9 /10, parentHeight * 8 /10);
 		myCommandPromptTextArea.setPrefColumnCount(10);
 		myCommandPromptTextArea.setPrefRowCount(4);
 		myCommandPromptTextArea.setWrapText(true);
-
+	}
+	
+	private void setUpSubmitButton(int parentWidth, int parentHeight) {
 		mySubmitButton = new Button();
+		mySubmitButton.setPrefSize(parentWidth * 1/10, parentHeight * 1/5);
 		mySubmitButton.setOnAction(new EventHandler<ActionEvent>() {
 			@Override
 			public void handle(ActionEvent e) {
@@ -85,6 +80,11 @@ public class CommandPromptViewController implements ViewController {
 	@Override
 	public Node getNode() {
 		return myPane;
+	}
+
+	@Override
+	public void applyTranslations() {
+		myPromptTranslation = GUIReferenceLibrary.getStringTranslation(Prompt);
 	}
 
 }

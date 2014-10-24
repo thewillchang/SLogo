@@ -12,19 +12,21 @@ import viewcontroller.commands.CommandWindowContainerViewController;
 import viewcontroller.turtlegrid.TurtleWindowViewController;
 
 /**
- * view controller for main view--contains rest of views and places them accordingly
+ * view controller for main view--contains rest of views and places them
+ * accordingly
+ * 
  * @author Jonathan Tseng
  *
  */
 public class MainViewController implements ViewController, MainModelObserver {
 
 	private final static Insets GRID_MARGIN = new Insets(15);
-	
+
 	private BorderPane myPane;
 	private TurtleWindowViewController myTurtleWindow;
 	private CommandWindowContainerViewController myCommandWindow;
 	private List<MainModelObserver> myChildObservers;
-	
+
 	public MainViewController(MainModel mainModel) {
 		myChildObservers = new ArrayList<>();
 		mainModel.attachObserver(this);
@@ -32,11 +34,11 @@ public class MainViewController implements ViewController, MainModelObserver {
 		placeTurtleWindowView();
 		placeCommandWindowView(mainModel);
 	}
-	
+
 	public void toggleGridLines() {
 		myTurtleWindow.toggleGridLines();
 	}
-	
+
 	private void placeTurtleWindowView() {
 		myTurtleWindow = new TurtleWindowViewController();
 		BorderPane.setAlignment(myTurtleWindow.getNode(), Pos.CENTER);
@@ -44,7 +46,7 @@ public class MainViewController implements ViewController, MainModelObserver {
 		myPane.setLeft(myTurtleWindow.getNode());
 		myChildObservers.add(myTurtleWindow);
 	}
-	
+
 	private void placeCommandWindowView(MainModel mainModel) {
 		myCommandWindow = new CommandWindowContainerViewController(mainModel);
 		BorderPane.setAlignment(myTurtleWindow.getNode(), Pos.CENTER);
@@ -64,5 +66,9 @@ public class MainViewController implements ViewController, MainModelObserver {
 			child.update(model);
 		}
 	}
-	
+
+	@Override
+	public void applyTranslations() {
+	}
+
 }
