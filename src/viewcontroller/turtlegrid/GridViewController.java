@@ -4,13 +4,15 @@ import java.awt.Dimension;
 import java.util.ArrayList;
 import java.util.List;
 
-import javafx.animation.Animation;
+import javafx.animation.ParallelTransition;
 import javafx.scene.Group;
 import javafx.scene.Node;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import model.MainModel;
 import turtle.Turtle;
+import turtle.draw.MoveTransition;
+import turtle.draw.TurnTransition;
 import viewcontroller.MainModelObserver;
 import viewcontroller.View;
 import viewcontroller.ViewController;
@@ -86,8 +88,13 @@ public class GridViewController implements ViewController, MainModelObserver {
 		myGridLines.setTranslateY(padding);
 	}
 	
-	private void moveTurtles(Animation animation) {
+	private void moveTurtles(ParallelTransition animation) {
 		//TODO setOnFinish reenable view
+		ParallelTransition transition = new ParallelTransition();
+		TurnTransition turn = new TurnTransition();
+		turn.setTurtle(myTurtles.get(0));
+		turn.setTurn(45);
+		
 		for (Turtle turtle : myTurtles) {
 			myGrid.getChildren().remove(turtle.getTurtle());
 		}

@@ -76,5 +76,5 @@ public class SLogoMenuBar extends MenuBar {
 		gridMenu.getItems().addAll(myAddTurtleMenuItem, myGridLinesMenuItem);
 		getMenus().add(gridMenu);
 	}
-
+	
 }
