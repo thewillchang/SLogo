@@ -83,7 +83,7 @@ public class CommandPromptViewController extends CommandWindowViewController
 	}
 
 	@Override
-	protected void applyTranslations() {
+	public void applyTranslations() {
 		myPromptTranslation = GUIReferenceLibrary.getStringTranslation(Prompt);
 	}
 

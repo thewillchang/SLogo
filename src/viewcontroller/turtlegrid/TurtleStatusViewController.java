@@ -32,7 +32,7 @@ public class TurtleStatusViewController extends CommandWindowViewController impl
 	}
 
 	@Override
-	protected void applyTranslations() {
+	public void applyTranslations() {
 		myStatusTranslation = GUIReferenceLibrary.getStringTranslation(Status);
 	}
 

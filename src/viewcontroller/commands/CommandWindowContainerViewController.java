@@ -99,4 +99,8 @@ public class CommandWindowContainerViewController implements ViewController,
 		}
 	}
 
+	@Override
+	public void applyTranslations() {
+	}
+
 }

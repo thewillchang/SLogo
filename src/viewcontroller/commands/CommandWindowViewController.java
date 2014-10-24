@@ -37,6 +37,4 @@ public abstract class CommandWindowViewController implements ViewController {
 		myCommandWindowVerticalBox.getChildren().add(myTitleLabel);
 		myPane.setCenter(myCommandWindowVerticalBox);
 	}
-
-	protected abstract void applyTranslations();
 }

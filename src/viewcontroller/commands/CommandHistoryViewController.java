@@ -44,7 +44,7 @@ public class CommandHistoryViewController extends CommandClickableListWindowView
 	}
 
 	@Override
-	protected void applyTranslations() {
+	public void applyTranslations() {
 		myHistoryTranslation = GUIReferenceLibrary.getStringTranslation(History);
 	}
 }

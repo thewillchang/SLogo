@@ -31,7 +31,7 @@ public class UserDefinedMethodsViewController extends
 	}
 
 	@Override
-	protected void applyTranslations() {
+	public void applyTranslations() {
 		myUserTranslation = GUIReferenceLibrary.getStringTranslation(User);
 	}
 

@@ -103,5 +103,9 @@ public class GridViewController implements ViewController, MainModelObserver {
 		}
 		animation.play();
 	}
+
+	@Override
+	public void applyTranslations() {		
+	}
 	
 }

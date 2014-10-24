@@ -15,4 +15,9 @@ public interface ViewController {
 	 */
 	public Node getNode();
 	
+	/**
+	 * translate the string using the GUI Reference Library
+	 */
+	public void applyTranslations();
+	
 }

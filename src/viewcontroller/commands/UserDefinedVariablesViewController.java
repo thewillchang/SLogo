@@ -41,7 +41,7 @@ public class UserDefinedVariablesViewController extends
 	}
 
 	@Override
-	protected void applyTranslations() {
+	public void applyTranslations() {
 		myUserTranslation = GUIReferenceLibrary
 				.getStringTranslation(UserVariables);
 	}
