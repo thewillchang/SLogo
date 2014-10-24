@@ -19,12 +19,19 @@ public class UserDefinedMethodsViewController extends
 		CommandClickableListWindowViewController implements MainModelObserver {
 
 	private final String User = "UserMethods";
+	private String myUserTranslation;
 	
 	public UserDefinedMethodsViewController(CommandWindowContainerViewController commandWindowContainer) {
 		super();
+		applyTranslations();
 		myCommandWindowContainer = commandWindowContainer;
-		myTitleLabel.setText(GUIReferenceLibrary.getStringTranslation(User));
+		myTitleLabel.setText(myUserTranslation);
 		myTitleLabel.setFont(new SLogoFont().createTextFont());
+	}
+
+	@Override
+	protected void applyTranslations() {
+		myUserTranslation = GUIReferenceLibrary.getStringTranslation(User);
 	}
 
 	@Override

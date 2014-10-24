@@ -39,10 +39,9 @@ public class View {
 	
 	private final String Title = "Title";
 	private final String Workspace = "Workspace";
-	private GUIReferenceLibrary myGUIReferenceLibrary;
 
 	public View(Stage stage) {
-		myGUIReferenceLibrary = new GUIReferenceLibrary();
+		GUIReferenceLibrary.setGUIReference("English");
 		myWorkspaces = new ArrayList<>();
 		myStage = stage;
 		myPane = new BorderPane();

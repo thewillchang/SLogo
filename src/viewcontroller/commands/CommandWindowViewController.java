@@ -34,4 +34,6 @@ public abstract class CommandWindowViewController implements ViewController {
 		myPane.setCenter(myCommandWindowVerticalBox);
 		commandMapValue = GUIReferenceLibrary.getStringTranslation(Command);
 	}
+	
+	protected abstract void applyTranslations();
 }

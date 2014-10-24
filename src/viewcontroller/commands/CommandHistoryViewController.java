@@ -41,4 +41,9 @@ public class CommandHistoryViewController extends CommandClickableListWindowView
 			addCommand(command);
 		}	
 	}
+
+	@Override
+	protected void applyTranslations() {
+		
+	}
 }

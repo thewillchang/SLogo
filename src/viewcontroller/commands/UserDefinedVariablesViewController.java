@@ -23,19 +23,26 @@ import viewcontroller.SLogoFont;
  * @author Abhishek B
  *
  */
-public class UserDefinedVariablesViewController extends
-		CommandWindowViewController implements MainModelObserver {
+public class UserDefinedVariablesViewController extends CommandWindowViewController implements MainModelObserver {
 
 	private VBox myListVerticalBox;
 	private Map<String, Double> myVariableMap;
 	private final String UserVariables = "UserVariables";
-	
+	private String myUserTranslation;
+
 	public UserDefinedVariablesViewController() {
 		super();
-		myTitleLabel.setText(GUIReferenceLibrary.getStringTranslation(UserVariables));
+		applyTranslations();
+		myTitleLabel.setText(myUserTranslation);
 		myTitleLabel.setFont(new SLogoFont().createTextFont());
 		myPane.setTop(myTitleLabel);
 		placeVariableTable();
+	}
+
+	@Override
+	protected void applyTranslations() {
+		myUserTranslation = GUIReferenceLibrary
+				.getStringTranslation(UserVariables);
 	}
 
 	private void placeVariableTable() {
@@ -53,17 +60,18 @@ public class UserDefinedVariablesViewController extends
 	@Override
 	public void update(MainModel model) {
 		UserDefinedVariablesModel myModel = model.getUserDefinedVariables();
+		applyTranslations();
 		myVariableMap = myModel.getVariables();
 		updateVariableList();
 	}
 
 	private void updateVariableList() {
 		myListVerticalBox.getChildren().clear();
-		for(String variable : myVariableMap.keySet()) {
+		for (String variable : myVariableMap.keySet()) {
 			addVariableToList(variable, myVariableMap.get(variable));
 		}
 	}
-	
+
 	private void addVariableToList(String variable, double value) {
 		Label variableLabel = new Label(variable);
 		Label valueLabel = new Label(Double.toString(value));
@@ -72,20 +80,26 @@ public class UserDefinedVariablesViewController extends
 		valueLabel.setOnMouseClicked(new EventHandler<MouseEvent>() {
 			@Override
 			public void handle(MouseEvent arg0) {
-				TextField editableValueLabel = new TextField(valueLabel.getText());
+				TextField editableValueLabel = new TextField(valueLabel
+						.getText());
 				variableHorizontalBox.getChildren().remove(valueLabel);
 				variableHorizontalBox.getChildren().add(editableValueLabel);
-				editableValueLabel.setOnKeyPressed(new EventHandler<KeyEvent>() {
-					@Override
-					public void handle(KeyEvent arg0) {
-						if (arg0.getCode() == KeyCode.ENTER) {
-							valueLabel.setText(editableValueLabel.getText());
-							// TODO: Need to send this information back to the model
-							variableHorizontalBox.getChildren().remove(editableValueLabel);
-							variableHorizontalBox.getChildren().add(valueLabel);
-						}
-					}
-				});
+				editableValueLabel
+						.setOnKeyPressed(new EventHandler<KeyEvent>() {
+							@Override
+							public void handle(KeyEvent arg0) {
+								if (arg0.getCode() == KeyCode.ENTER) {
+									valueLabel.setText(editableValueLabel
+											.getText());
+									// TODO: Need to send this information back
+									// to the model
+									variableHorizontalBox.getChildren().remove(
+											editableValueLabel);
+									variableHorizontalBox.getChildren().add(
+											valueLabel);
+								}
+							}
+						});
 			}
 		});
 		myListVerticalBox.getChildren().add(variableHorizontalBox);

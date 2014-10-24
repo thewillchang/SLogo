@@ -6,36 +6,26 @@ import java.util.Map;
 import java.util.ResourceBundle;
 import java.util.Set;
 
+/**
+ * 
+ * @author Abhishek B
+ *
+ */
 public class GUIReferenceLibrary {
 
-	private String myLanguage;
 	private static Map<String, String> myGUIMap;
-	private ResourceBundle myCommandReference;
-	private Set<String> myKeySet;
-
-	public GUIReferenceLibrary() {
-		this("English");
-	}
-
-	public GUIReferenceLibrary(String language) {
-		myLanguage = language;
-		myGUIMap = new HashMap<>();
-		setGUIReference();
-	}
-	
-	public void setNewLanguage(String language) {
-		myLanguage = language;
-		setGUIReference();
-	}
+	private static ResourceBundle myCommandReference;
+	private static Set<String> myKeySet;
 
 	/**
-	 * Sets the Reference Language for SLogo Commands
+	 * Sets the Reference Language for GUI Elements of the SLogo Project
 	 * 
 	 * @param language
 	 *            to set to.
 	 */
-	private void setGUIReference() {
-		myCommandReference = ResourceBundle.getBundle("resources.languages.view." + myLanguage, Locale.US);
+	public static void setGUIReference(String language) {
+		myGUIMap = new HashMap<>();
+		myCommandReference = ResourceBundle.getBundle("resources.languages.view." + language, Locale.US);
 		myKeySet = myCommandReference.keySet();
 		for(String keyString : myKeySet) {
 			myGUIMap.put(keyString, myCommandReference.getString(keyString));

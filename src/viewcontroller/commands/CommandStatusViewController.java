@@ -18,9 +18,12 @@ public class CommandStatusViewController extends CommandWindowViewController imp
 
 	private Label myStatusLabel;
 	private final String Status = "Status";
+	private String myStatusTranslation;
 	
 	public CommandStatusViewController(){
-		myTitleLabel.setText(commandMapValue + GUIReferenceLibrary.getStringTranslation(Status));
+		super();
+		applyTranslations();
+		myTitleLabel.setText(commandMapValue + myStatusTranslation);
 		myTitleLabel.setFont(new SLogoFont().createTextFont());
 		
 		myStatusLabel = new Label();
@@ -28,6 +31,11 @@ public class CommandStatusViewController extends CommandWindowViewController imp
 		myStatusLabel.setPadding(new Insets(0));
 		
 		myCommandWindowVerticalBox.getChildren().add(myStatusLabel);
+	}
+	
+	@Override
+	protected void applyTranslations() {
+		myStatusTranslation = GUIReferenceLibrary.getStringTranslation(Status);
 	}
 	
 	public void updateCommandStatusText(String commandResult){
@@ -41,6 +49,7 @@ public class CommandStatusViewController extends CommandWindowViewController imp
 
 	@Override
 	public void update(MainModel model) {
+		applyTranslations();
 		SLogoResult latestResult = model.getResult();
 		if(latestResult != null && !latestResult.getHasError())
 		{
