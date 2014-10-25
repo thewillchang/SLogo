@@ -1,7 +1,10 @@
 package interpreter.expression;
 
+import java.util.ArrayDeque;
 import java.util.Deque;
+
 import model.MainModel;
+import model.UserDefinedVariablesModel;
 import interpreter.SLogoResult;
 
 /**
@@ -28,6 +31,8 @@ public abstract class TurtleQueryExpression implements SLogoExpression {
 
 	@Override
 	public SLogoResult evaluate() {
+		Deque<SLogoResult> results = new ArrayDeque<>();
+		
 		return null;
 	}
 	
@@ -35,5 +40,7 @@ public abstract class TurtleQueryExpression implements SLogoExpression {
 	public int getNumArgs() {
 		return 0;
 	}
+	
+	protected abstract double getValueFromModel(MainModel model) ;
 
 }
