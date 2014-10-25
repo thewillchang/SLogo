@@ -15,6 +15,7 @@ public class GUIReferenceLibrary {
 
 	private static Map<String, String> myGUIMap;
 	private static ResourceBundle myCommandReference;
+	private static ResourceBundle myHelpReference;
 	private static Set<String> myKeySet;
 
 	/**
@@ -34,5 +35,13 @@ public class GUIReferenceLibrary {
 	
 	public static String getStringTranslation(String GUIlabel) {
 		return myGUIMap.get(GUIlabel);
+	}
+	
+	public static void setHelpReference() {
+		myHelpReference = ResourceBundle.getBundle("resources.languages.help.Help", Locale.US);
+	}
+	
+	public static String getURL(String URLID) {
+		return myHelpReference.getString(URLID);
 	}
 }

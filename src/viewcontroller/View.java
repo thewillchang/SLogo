@@ -24,7 +24,6 @@ import application.Main;
  */
 public class View {
 	
-	private final static String HELP_URL = "http://www.cs.duke.edu/courses/compsci308/current/assign/03_slogo/";
 	public final static Color BACKGROUND_COLOR = Color.DARKSLATEGREY;
 	
 	private Stage myStage;
@@ -99,7 +98,7 @@ public class View {
 	}
 	
 	public void showHelp() {
-		HelpDialogBox helpBox = new HelpDialogBox(HELP_URL);
+		HelpDialogBox helpBox = new HelpDialogBox();
 		helpBox.show();
 	}
 	
