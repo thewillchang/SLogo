@@ -6,7 +6,6 @@ import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
 import javafx.scene.layout.HBox;
-import model.MainModel;
 import viewcontroller.GUIReferenceLibrary;
 import viewcontroller.ViewController;
 
@@ -19,8 +18,8 @@ import viewcontroller.ViewController;
 
 public class CommandPromptViewController extends CommandWindowViewController
 		implements ViewController {
-
-	private MainModel myMainModel;
+	
+	private CommandWindowContainerViewController myParent;
 	private HBox myCommandPromptHorizontalBox;
 	private TextArea myCommandPromptTextArea;
 	private Button mySubmitButton;
@@ -30,9 +29,9 @@ public class CommandPromptViewController extends CommandWindowViewController
 	private String mySubmitTranslation;
 
 	public CommandPromptViewController(int width, int height,
-			MainModel mainModel) {
+			CommandWindowContainerViewController parent) {
 		super(width, height);
-		myMainModel = mainModel;
+		myParent = parent;
 		applyTranslations();
 		myTitleLabel.setText(myPromptTranslation);
 
@@ -77,7 +76,7 @@ public class CommandPromptViewController extends CommandWindowViewController
 
 	private void passCommandToModel(String commandFromPromptTextArea) {
 		if(commandFromPromptTextArea.trim().length() > 0)
-			myMainModel.interpretSLogoCommand(commandFromPromptTextArea);
+			myParent.passSLogoCommand(commandFromPromptTextArea);
 	}
 
 	@Override

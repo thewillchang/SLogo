@@ -35,9 +35,17 @@ public class MainViewController implements ViewController, MainModelObserver {
 		mainModel.attachObserver(this);
 		myPane = new BorderPane();
 		placeTurtleWindowView();
-		placeCommandWindowView(mainModel);
+		placeCommandWindowView();
 	}
 
+	public void passSLogoCommand(String command) {
+		myMainModel.interpretSLogoCommand(command);
+	}
+	
+	public void passSLogoCommand(String commandKey, String operands) {
+		myMainModel.interpretSLogoCommand(commandKey, operands);
+	}
+	
 	public void toggleGridLines() {
 		myTurtleWindow.toggleGridLines();
 	}
@@ -62,8 +70,8 @@ public class MainViewController implements ViewController, MainModelObserver {
 		myChildObservers.add(myTurtleWindow);
 	}
 
-	private void placeCommandWindowView(MainModel mainModel) {
-		myCommandWindow = new CommandWindowContainerViewController(mainModel);
+	private void placeCommandWindowView() {
+		myCommandWindow = new CommandWindowContainerViewController(this);
 		BorderPane.setAlignment(myTurtleWindow.getNode(), Pos.CENTER);
 		BorderPane.setMargin(myTurtleWindow.getNode(), GRID_MARGIN);
 		myPane.setRight(myCommandWindow.getNode());

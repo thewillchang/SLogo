@@ -117,10 +117,6 @@ public class MainModel {
 		return mySLogoResult;
 	}
 	
-	public void updateUserDefinedVariable(String variable, double value) {
-		myUserDefinedVariablesModel.putVariable(variable, value);
-	}
-	
 	/**
 	 * interprets a String SLogoCommand by passing it to the Interpreter
 	 * @param sLogoCommand
@@ -134,6 +130,17 @@ public class MainModel {
 		}
 		notifyObservers();
 		myFailedParse = false;
+	}
+	
+	public void interpretSLogoCommand(String commandKey, String operands) {
+		Map<String, String> commandMap = myInterpreter.getCommandReferenceLibrary().getReferencesToCommands();
+		String command = commandKey.trim() + " " + operands.trim();
+		for (String key : commandMap.keySet()) {
+			if (commandMap.get(key).equals(commandKey)) {
+				command = key.trim() + " " + operands.trim();
+			}
+		}
+		interpretSLogoCommand(command);
 	}
 
 	public boolean failedParse() {
