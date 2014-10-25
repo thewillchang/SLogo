@@ -30,11 +30,6 @@ public class UserChosenTurtleImage extends TurtleImage {
 		myBorder = new Rectangle(ourSize.getHeight() + 2 * myBorderWidth, ourSize.getWidth() + 2 * myBorderWidth);
 		myBorder.setFill(Color.TRANSPARENT);
 	}
-	
-	@Override
-	public void colorTurtle(Color color) {
-		
-	}
 
 	@Override
 	protected void selectedChanged() {

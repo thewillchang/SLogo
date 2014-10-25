@@ -125,8 +125,7 @@ public class DefaultTurtleImage extends TurtleImage {
 		myAnimationFlip = !myAnimationFlip;
 	}
 
-	@Override
-	public void colorTurtle(Color color) {
+	private void colorTurtle(Color color) {
 		for (Node child : this.getChildren()) {
 			Shape bodyPart = (Shape) child;
 			bodyPart.setFill(color);
@@ -154,9 +153,7 @@ public class DefaultTurtleImage extends TurtleImage {
 
 	@Override
 	public double getRadius() {
-		return ourSize.getHeight() / 2 + myHead.getRadiusY();
+		return ourSize.getHeight() / 2 + myHead.getRadiusY() * 1.2;
 	}
-
-
 
 }

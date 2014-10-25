@@ -44,6 +44,7 @@ public class MainModel {
 	private UserDefinedCommandsModel myUserDefinedMethodsModel;
 	private UserDefinedVariablesModel myUserDefinedVariablesModel;
 	
+	private double myAnimationSpeed;
 	private ParallelTransition myAnimation;
 
 	final String PROPERTIES_FILENAME = "SLogoState";
@@ -71,6 +72,11 @@ public class MainModel {
 	
 	public Color getBackgroundColor() {
 		return myBackgroundColor;
+	}
+	
+	public void updateAnimationSpeed(double speed) {
+		myAnimation.setRate(speed);
+		myAnimationSpeed = speed;
 	}
 	
 	public void setBackgroundColor(Color color) {
@@ -143,6 +149,7 @@ public class MainModel {
 			Animation animation = turtle.createAnimation(map.get(turtle));
 			myAnimation.getChildren().add(animation);
 		}
+		myAnimation.setRate(myAnimationSpeed);
 		myTurtleListHistory.updateList(map.keySet());
 	}
 	

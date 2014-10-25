@@ -49,6 +49,10 @@ public class MainViewController implements ViewController, MainModelObserver {
 	public void penColorChanged(Color color) {
 		myMainModel.updatePenColor(color);
 	}
+	
+	public void animationSpeedChanged(double speed) {
+		myMainModel.updateAnimationSpeed(speed);
+	}
 
 	private void placeTurtleWindowView() {
 		myTurtleWindow = new TurtleWindowViewController(this);

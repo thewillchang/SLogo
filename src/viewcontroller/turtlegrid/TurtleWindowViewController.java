@@ -4,6 +4,8 @@ import java.awt.Dimension;
 import java.util.ArrayList;
 import java.util.List;
 
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.layout.BorderPane;
@@ -38,14 +40,28 @@ public class TurtleWindowViewController implements ViewController,
 		myPane = new BorderPane();
 		myPane.setPrefSize(SIZE.width, SIZE.height);
 
-		myGridButtonBar = new GridButtonBar(gridEvent -> gridColorChanged(),
-				penEvent -> penColorChanged());
+		myGridButtonBar = new GridButtonBar(
+				gridEvent -> gridColorChanged(),
+				penEvent -> penColorChanged(),
+				new ChangeListener<Number>() {
+					@Override
+					public void changed(
+							ObservableValue<? extends Number> observable,
+							Number oldValue, Number newValue) {
+						animationSpeedChanged(newValue.doubleValue());
+					}
+				});
 		myPane.setTop(myGridButtonBar);
+		animationSpeedChanged(myGridButtonBar.getAnimationSpeed());
 
 		placeStatusView();
 		placeGridView();
 	}
 
+	private void animationSpeedChanged(double newSpeed) {
+		myParent.animationSpeedChanged(newSpeed);
+	}
+	
 	private void gridColorChanged() {
 		myParent.gridColorChanged(myGridButtonBar.getGridColor());
 	}

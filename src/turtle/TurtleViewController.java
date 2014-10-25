@@ -8,7 +8,6 @@ import java.io.FileNotFoundException;
 import javafx.scene.Group;
 import javafx.scene.Node;
 import javafx.scene.image.Image;
-import javafx.scene.paint.Color;
 import transitionstate.TransitionState.VisibleChange;
 import viewcontroller.ViewController;
 import application.Main;
@@ -29,6 +28,7 @@ public class TurtleViewController implements ViewController {
 	public TurtleViewController() {
 		TurtleImage.setSize(mySize);
 		myTurtleImage = new DefaultTurtleImage();
+		myTurtleImage.setSelection(true);
 		myGroup = new Group();
 		myGroup.getChildren().add(myTurtleImage);
 	}
@@ -42,24 +42,21 @@ public class TurtleViewController implements ViewController {
 	}
 	
 	public void setImage(File file) {
+		TurtleImage newTurtleImage;
 		try {
 			Image image = new Image(new FileInputStream(file), mySize.getHeight(), mySize.getWidth(), false, false);
-			TurtleImage newTurtleImage = new UserChosenTurtleImage(image);
+			newTurtleImage = new UserChosenTurtleImage(image);
+			newTurtleImage.setSelection(myTurtleImage.isSelected());
 			myGroup.getChildren().remove(myTurtleImage);
 			myGroup.getChildren().add(newTurtleImage);
 			myTurtleImage = newTurtleImage;
 		} catch (FileNotFoundException e) {
 			System.out.println("failed: " + e.toString());
+			newTurtleImage = new DefaultTurtleImage();
+			myGroup.getChildren().remove(myTurtleImage);
+			myGroup.getChildren().add(newTurtleImage);
+			myTurtleImage = newTurtleImage;
 		}
-	}
-
-	/**
-	 * colors the entire turtle
-	 * 
-	 * @param color
-	 */
-	public void colorTurtle(Color color) {
-		myTurtleImage.colorTurtle(color);
 	}
 
 	/**
