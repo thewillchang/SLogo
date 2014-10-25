@@ -1,17 +1,11 @@
 package interpreter.expression.syntax;
 
-import java.util.ArrayList;
 import java.util.Deque;
 import java.util.List;
 import transitionstate.TransitionState;
-import model.MainModel;
 import model.UserDefinedCommandsModel;
-import model.UserDefinedVariablesModel;
-import exceptions.SLogoParsingException;
-import interpreter.CommandReferenceLibrary;
 import interpreter.SLogoResult;
 import interpreter.SyntaxResult;
-import interpreter.UserDefinedResult;
 import interpreter.expression.SLogoExpression;
 import interpreter.expression.SyntaxExpression;
 
