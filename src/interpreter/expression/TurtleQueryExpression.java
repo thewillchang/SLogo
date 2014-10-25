@@ -30,5 +30,10 @@ public abstract class TurtleQueryExpression implements SLogoExpression {
 	public SLogoResult evaluate() {
 		return null;
 	}
+	
+	@Override
+	public int getNumArgs() {
+		return 0;
+	}
 
 }

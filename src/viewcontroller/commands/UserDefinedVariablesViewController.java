@@ -50,6 +50,7 @@ public class UserDefinedVariablesViewController extends
 
 	private void placeVariableTable() {
 		myListVerticalBox = new VBox();
+		myCommandWindowVerticalBox.getChildren().add(myListVerticalBox);
 	}
 
 	@Override

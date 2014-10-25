@@ -10,4 +10,9 @@ import transitionstate.TransitionState;
 
 public class SetPosition extends TurtleCommandExpression {
 
+	@Override
+	protected void setNextTransition(SLogoResult myResult, double value) {
+		
+	}
+
 }
