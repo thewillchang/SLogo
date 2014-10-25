@@ -40,7 +40,6 @@ public class UserDefinedVariablesViewController extends
 		myTitleLabel.setFont(new SLogoFont().createTextFont());
 		myMainModel = mainModel;
 		placeVariableTable();
-		myCommandWindowVerticalBox.getChildren().addAll(myListVerticalBox);
 	}
 
 	@Override
@@ -51,8 +50,6 @@ public class UserDefinedVariablesViewController extends
 
 	private void placeVariableTable() {
 		myListVerticalBox = new VBox();
-//		addVariableToList("x", 5);
-//		addVariableToList("y", 10);
 	}
 
 	@Override

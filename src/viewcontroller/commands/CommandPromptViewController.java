@@ -25,7 +25,9 @@ public class CommandPromptViewController extends CommandWindowViewController
 	private TextArea myCommandPromptTextArea;
 	private Button mySubmitButton;
 	private final String Prompt = "Prompt";
+	private final String Submit = "Submit";
 	private String myPromptTranslation;
+	private String mySubmitTranslation;
 
 	public CommandPromptViewController(int width, int height,
 			MainModel mainModel) {
@@ -58,7 +60,7 @@ public class CommandPromptViewController extends CommandWindowViewController
 	}
 	
 	private void setUpSubmitButton(int parentWidth, int parentHeight) {
-		mySubmitButton = new Button();
+		mySubmitButton = new Button(mySubmitTranslation);
 		mySubmitButton.setPrefSize(parentWidth * 1/10, parentHeight * 1/5);
 		mySubmitButton.setOnAction(new EventHandler<ActionEvent>() {
 			@Override
@@ -70,11 +72,12 @@ public class CommandPromptViewController extends CommandWindowViewController
 	}
 
 	public void appendCommandToPromptTextArea(String commandFromLists) {
-		myCommandPromptTextArea.appendText(commandFromLists);
+		myCommandPromptTextArea.setText(commandFromLists);
 	}
 
 	private void passCommandToModel(String commandFromPromptTextArea) {
-		myMainModel.interpretSLogoCommand(commandFromPromptTextArea);
+		if(commandFromPromptTextArea.trim().length() > 0)
+			myMainModel.interpretSLogoCommand(commandFromPromptTextArea);
 	}
 
 	@Override
@@ -85,6 +88,7 @@ public class CommandPromptViewController extends CommandWindowViewController
 	@Override
 	public void applyTranslations() {
 		myPromptTranslation = GUIReferenceLibrary.getStringTranslation(Prompt);
+		mySubmitTranslation = GUIReferenceLibrary.getStringTranslation(Submit);
 	}
 
 }

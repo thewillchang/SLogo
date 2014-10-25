@@ -19,7 +19,7 @@ import viewcontroller.commands.CommandWindowViewController;
  */
 public class TurtleStatusViewController extends CommandWindowViewController implements MainModelObserver {
 
-	private final String Status = "Turtle";
+	private final String Status = "Status";
 	private final String TurtleID = "TurtleID";
 	private final String XPosition = "XPosition";
 	private final String YPosition = "YPosition";
@@ -37,17 +37,18 @@ public class TurtleStatusViewController extends CommandWindowViewController impl
 		myTitleLabel.setText(myStatusTranslation);
 		myTitleLabel.setFont(new SLogoFont().createTextFont());
 		placeVariableTable();
+		myCommandWindowVerticalBox.getChildren().addAll(myListVerticalBox);
 	}
 	
 	private void placeVariableTable() {
 		myListVerticalBox = new VBox();
 		myColumnTitles = populateHBox(myTurtleID, myXPosition, myYPosition);
-		myTurtleData = new HBox(10);
+		myTurtleData = populateHBox(" ", " ", " ");
 		myListVerticalBox.getChildren().addAll(myColumnTitles, myTurtleData);
 	}
 	
 	private HBox populateHBox(String turtleID, String xPosition, String yPosition) {
-		HBox statusRow = new HBox(10);
+		HBox statusRow = new HBox(50);
 		statusRow.setPrefSize(SIZE.width, SIZE.height/3);
 		statusRow.getChildren().addAll(new Label(turtleID), new Label(xPosition), new Label(yPosition));
 		return statusRow;

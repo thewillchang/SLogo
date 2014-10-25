@@ -13,7 +13,6 @@ import turtle.draw.TransitionFactory;
 /**
  * Turtle Object. Contains its own Turtle Model and Turtle View Controllers
  * @author Jonathan Tseng
- * @author Tanaka Jimha
  *
  */
 public class Turtle {
@@ -33,9 +32,12 @@ public class Turtle {
 	}
 	
 	public Transition createAnimation(List<TransitionState> states) {
-		ParallelTransition animation = new TransitionFactory().createAnimation(this, states);
-		myTurtleHistory.addHistory(new TurtleHistoryState(animation, myPen.getDrawnLines()));
-		myPen.clearDrawnLines();
+		ParallelTransition transition = new TransitionFactory().createAnimation(this, states);
+		ParallelTransition animation = new ParallelTransition();
+		animation.getChildren().add(transition);
+		// nesting transiton in animation so that when transition is undone (using native transition.setRate(-1))
+		// the on finished function won't be called
+		animation.setOnFinished(event -> myTurtleHistory.addHistory(new TurtleHistoryState(transition, myPen.getDrawnLines())));
 		return animation;
 	}
 	
