@@ -184,7 +184,6 @@ public class MainModel {
 	private void setProperty(String propertyName, String value){
 		Properties prop = new Properties();
 		OutputStream output = null;
-
 		try {
 			output = new FileOutputStream(PROPERTIES_FILENAME);
 			// set the properties value
@@ -201,7 +200,6 @@ public class MainModel {
 					e.printStackTrace();
 				}
 			}
-
 		}
 	}
 	

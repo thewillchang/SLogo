@@ -70,11 +70,9 @@ public class Pen {
 	}
 	
 	public List<Line> getDrawnLines() {
-		return myDrawnLines;
-	}
-	
-	public void clearDrawnLines() {
+		List<Line> lines = new ArrayList<>(myDrawnLines);
 		myDrawnLines.clear();
+		return lines;
 	}
 	
 	public void update(PenChange penChange) {
