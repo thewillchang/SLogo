@@ -6,27 +6,29 @@ import interpreter.SLogoResult;
 
 /**
  * superclass for SLogoExpressions that are Turtle Queries
- * @author Jonathan Tseng
+ * 
+ * @author Abhishek B
  *
  */
 public abstract class TurtleQueryExpression implements SLogoExpression {
-    
-    protected MainModel myModel;
-    @Override
-    public void loadArguments(Deque<SLogoExpression> args) {
-        // TODO Auto-generated method stub
 
-    }
+	protected MainModel myModel;
 
-    @Override
-    public void loadModel(MainModel model) {
-        myModel = model;
-    }
+	/**
+	 * Querying expressions do not take arguments, so this is not defined
+	 */
+	@Override
+	public void loadArguments(Deque<SLogoExpression> args) {
+	}
 
-    @Override
-    public SLogoResult evaluate() {
-        // TODO Auto-generated method stub
-        return null;
-    }
+	@Override
+	public void loadModel(MainModel model) {
+		myModel = model;
+	}
+
+	@Override
+	public SLogoResult evaluate() {
+		return null;
+	}
 
 }

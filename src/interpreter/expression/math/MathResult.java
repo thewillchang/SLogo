@@ -24,7 +24,6 @@ public class MathResult extends SLogoResult {
 
     @Override
     public SLogoParsingException getException() {
-        // TODO Auto-generated method stub
         return null;
     }
 
