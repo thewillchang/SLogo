@@ -54,30 +54,30 @@ public class SLogoMenuBar extends MenuBar {
 	}
 
 	private void initializeEditMenu() {
-		Menu editMenu = new Menu(EDIT_KEY);
-		myUndoMenuItem = createMenuItem(UNDO_KEY,
+		Menu editMenu = new Menu(GUIReferenceLibrary.getStringTranslation(EDIT_KEY));
+		myUndoMenuItem = createMenuItem(GUIReferenceLibrary.getStringTranslation(UNDO_KEY),
 				event -> myParentView.undoClicked());
-		myRedoMenuItem = createMenuItem(REDO_KEY,
+		myRedoMenuItem = createMenuItem(GUIReferenceLibrary.getStringTranslation(REDO_KEY),
 				event -> myParentView.redoClicked());
 		editMenu.getItems().addAll(myUndoMenuItem, myRedoMenuItem);
 		getMenus().add(editMenu);
 	}
 
 	private void initializeFileMenu() {
-		Menu fileMenu = new Menu(FILE_KEY);
-		myHelpMenuItem = createMenuItem(HELP_KEY,
+		Menu fileMenu = new Menu(GUIReferenceLibrary.getStringTranslation(FILE_KEY));
+		myHelpMenuItem = createMenuItem(GUIReferenceLibrary.getStringTranslation(HELP_KEY),
 				event -> myParentView.showHelp());
-		myNewWorkspaceMenuItem = createMenuItem(NEW_WORKSPACE_KEY,
+		myNewWorkspaceMenuItem = createMenuItem(GUIReferenceLibrary.getStringTranslation(NEW_WORKSPACE_KEY),
 				event -> myParentView.addNewWorkspace());
 		fileMenu.getItems().addAll(myNewWorkspaceMenuItem, myHelpMenuItem);
 		getMenus().add(fileMenu);
 	}
 
 	private void initializeGridMenu() {
-		Menu gridMenu = new Menu(GRID_KEY);
-		myAddTurtleMenuItem = createMenuItem(ADD_TURTLE_KEY,
+		Menu gridMenu = new Menu(GUIReferenceLibrary.getStringTranslation(GRID_KEY));
+		myAddTurtleMenuItem = createMenuItem(GUIReferenceLibrary.getStringTranslation(ADD_TURTLE_KEY),
 				event -> myParentView.addTurtleClicked());
-		myGridLinesMenuItem = createMenuItem(GRID_LINES_KEY,
+		myGridLinesMenuItem = createMenuItem(GUIReferenceLibrary.getStringTranslation(GRID_LINES_KEY),
 				event -> myParentView.toggleGridLines());
 		gridMenu.getItems().addAll(myAddTurtleMenuItem, myGridLinesMenuItem);
 		getMenus().add(gridMenu);

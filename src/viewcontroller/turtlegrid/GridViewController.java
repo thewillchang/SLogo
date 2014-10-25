@@ -11,8 +11,6 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import model.MainModel;
 import turtle.Turtle;
-import turtle.draw.MoveTransition;
-import turtle.draw.TurnTransition;
 import viewcontroller.MainModelObserver;
 import viewcontroller.View;
 import viewcontroller.ViewController;
@@ -20,13 +18,13 @@ import viewcontroller.ViewController;
 /**
  * View Controller for Grid view that has the turtles
  * @author Jonathan Tseng
- *
  */
 public class GridViewController implements ViewController, MainModelObserver {
 
+	private final static Color DEFAULT_BACKGROUND_COLOR = Color.DARKBLUE;
 	public final static Dimension SIZE = new Dimension(
 			TurtleWindowViewController.SIZE.width * 12 / 10, 
-			TurtleWindowViewController.SIZE.height * 9 / 10);
+			TurtleWindowViewController.SIZE.height * 8 / 10);
 	private GridLines myGridLines;
 	private Group myGrid;
 	private Rectangle myGridBackground;
@@ -35,12 +33,12 @@ public class GridViewController implements ViewController, MainModelObserver {
 	public GridViewController() {
 		myTurtles = new ArrayList<>();
 		myGrid = new Group();
-		setBackground();
+		setBackground(DEFAULT_BACKGROUND_COLOR);
 	}
 	
-	private void setBackground() {
+	private void setBackground(Color color) {
 		Rectangle background = new Rectangle(SIZE.width, SIZE.height, View.BACKGROUND_COLOR);
-		myGridBackground = new Rectangle(SIZE.width, SIZE.height, Color.web("#000099"));
+		myGridBackground = new Rectangle(SIZE.width, SIZE.height, color);
 		myGridLines = new GridLines(myGridBackground.getHeight(), myGridBackground.getWidth());
 		myGrid.getChildren().addAll(background, myGridBackground, myGridLines);
 	}
@@ -90,11 +88,6 @@ public class GridViewController implements ViewController, MainModelObserver {
 	
 	private void moveTurtles(ParallelTransition animation) {
 		//TODO setOnFinish reenable view
-		ParallelTransition transition = new ParallelTransition();
-		TurnTransition turn = new TurnTransition();
-		turn.setTurtle(myTurtles.get(0));
-		turn.setTurn(45);
-		
 		for (Turtle turtle : myTurtles) {
 			myGrid.getChildren().remove(turtle.getTurtle());
 		}

@@ -4,7 +4,6 @@ import java.awt.Dimension;
 
 import javafx.application.Application;
 import javafx.stage.Stage;
-import viewcontroller.View;
 
 /**
  * Main class that initializes the Application
@@ -13,7 +12,7 @@ import viewcontroller.View;
  */
 public class Main extends Application {
 	
-	public static final Dimension SIZE = new Dimension(1200, 700);
+	public static final Dimension SIZE = new Dimension(1200, 800);
 	
 	
 	@Override

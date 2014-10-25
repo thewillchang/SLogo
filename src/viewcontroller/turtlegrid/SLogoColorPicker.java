@@ -18,9 +18,9 @@ public class SLogoColorPicker extends HBox {
 	private ColorPicker myColorPicker;
 	private Label myLabel;
 	
-	public SLogoColorPicker(String label, EventHandler<ActionEvent> handler) {
+	public SLogoColorPicker(String label, Color color, EventHandler<ActionEvent> handler) {
 		createLabel(label);
-		createColorPicker(handler);
+		createColorPicker(color, handler);
 		this.setSpacing(5);
 		this.setBackground(new Background(new BackgroundFill(Color.GREY, new CornerRadii(5), Insets.EMPTY)));
 		this.setPadding(new Insets(5));
@@ -33,8 +33,9 @@ public class SLogoColorPicker extends HBox {
 		this.getChildren().add(myLabel);
 	}
 	
-	private void createColorPicker(EventHandler<ActionEvent> handler) {
-		myColorPicker = new ColorPicker();
+	private void createColorPicker(Color color, EventHandler<ActionEvent> handler) {
+		myColorPicker = new ColorPicker(color);
+		myColorPicker.getStyleClass().add("button");
 		this.getChildren().add(myColorPicker);
 		myColorPicker.setOnAction(handler);
 	}	
