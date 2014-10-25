@@ -50,17 +50,17 @@ public class MainModel {
 	final String LANGUAGE_PROPERTY = "Language";
 
 	public MainModel(String language){
+	        myLanguage = language;
 		this.myObservers = new ArrayList<>();
-		this.myInterpreter = new Interpreter(this);
 		this.myTurtles = new ArrayList<>();
 		this.myCommandHistoryModel = new CommandHistoryModel();
 		this.myUserDefinedMethodsModel = new UserDefinedCommandsModel();
 		this.myUserDefinedVariablesModel = new UserDefinedVariablesModel();
+		this.myInterpreter = new Interpreter(this);
 		myTurtleAdded = false;
 		myAnimation = new ParallelTransition();
 		myTurtleListHistory = new TurtleListHistory();
 		myBackgroundColor = DEFAULT_BACKGROUND_COLOR;
-		myLanguage = language;
 	}
 	
 	public void changeTurtleImages(File file) {
@@ -108,7 +108,7 @@ public class MainModel {
 	}
 	
 	public void updateUserDefinedVariable(String variable, double value) {
-		myUserDefinedVariablesModel.put(variable, value);
+		myUserDefinedVariablesModel.putVariable(variable, value);
 	}
 	
 	/**
@@ -203,6 +203,10 @@ public class MainModel {
 			}
 
 		}
+	}
+	
+	public String getLanguage () {
+	    return myLanguage;
 	}
 	
 	public void undoClicked() {
