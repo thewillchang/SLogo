@@ -74,7 +74,7 @@ public class CommandWindowContainerViewController implements ViewController,
 		myUserDefinedMethodsView = new UserDefinedMethodsViewController(
 				SIZE.width / 2, SIZE.height / 4, this);
 		myUserDefinedVariablesView = new UserDefinedVariablesViewController(
-				SIZE.width / 2, SIZE.height / 4);
+				SIZE.width / 2, SIZE.height / 4, myMainModel);
 		userDefinedHorizontalBox.getChildren().addAll(
 				myUserDefinedMethodsView.getNode(),
 				myUserDefinedVariablesView.getNode());

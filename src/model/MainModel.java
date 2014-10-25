@@ -78,6 +78,10 @@ public class MainModel {
 		return mySLogoResult;
 	}
 	
+	public void updateUserDefinedVariable(String variable, double value) {
+		myUserDefinedVariablesModel.putVariable(variable, value);
+	}
+	
 	/**
 	 * interprets a String SLogoCommand by passing it to the Interpreter
 	 * @param sLogoCommand
