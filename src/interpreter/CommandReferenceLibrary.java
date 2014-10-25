@@ -58,7 +58,7 @@ public class CommandReferenceLibrary {
         myDefinedCommands = commandsModel;
         myDefinedVariables = variablesModel;
         
-        myLanguage = language;
+        
 
         myCommandSet = new HashSet<>();
         //commandMap = new HashMap<>();
@@ -69,7 +69,7 @@ public class CommandReferenceLibrary {
         myCommandToNumArgsMap = new HashMap<>();
 
         initializeSyntaxMap(); 
-        setCommandReference(language);
+        setLanguageAndReferences(language);
         initializeDirectoryReferences();
         initializeNumArgsMap();
         
@@ -98,6 +98,11 @@ public class CommandReferenceLibrary {
             mySyntaxMap.put(command, reference);
             myReverseSyntaxMap.put(reference,command);
         }
+    }
+    
+    public void setLanguageAndReferences(String language) {
+        myLanguage = language;
+        setCommandReference(language);
     }
 
     /**

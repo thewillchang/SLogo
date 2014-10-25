@@ -26,7 +26,7 @@ public class MakeUserInstruction extends UserDefinedExpression {
         SLogoExpression commands = myArguments.pop();
         
         UserDefinedCommandsModel definedCommandsModel = myLibrary.getUserDefinedCommands();
-        definedCommandsModel.put(name, new Command(name, commands));
+        definedCommandsModel.putCommand(name, new Command(name, commands));
         definedCommandsModel.setVariablesforCommand(name, variables);
         if(definedCommandsModel.containsCommand(name)) {
         return new UserDefinedResult(1);

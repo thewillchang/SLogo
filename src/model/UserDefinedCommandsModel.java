@@ -51,7 +51,7 @@ public class UserDefinedCommandsModel {
      * if method already exists with same name, then it is replaced
      * @param expression
      */
-    public void put (String command, SLogoExpression expression) {
+    public void putCommand (String command, SLogoExpression expression) {
         myCommands.add(command);
         myDefinedCommands.put(command, expression);
     }

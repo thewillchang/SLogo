@@ -24,7 +24,7 @@ public class Interpreter {
      */
     public Interpreter(MainModel model) {
         myModel = model;
-        myLibrary = new CommandReferenceLibrary("asdf", 
+        myLibrary = new CommandReferenceLibrary(model.getLanguage(), 
                                                 model.getUserDefinedMethods(), 
                                                 model.getUserDefinedVariables());
         myParser = new Parser(myLibrary, model);
@@ -49,11 +49,8 @@ public class Interpreter {
     }
 
     
-    private void setLanguageAndInitialize(String language) {
-        myLibrary = new CommandReferenceLibrary(language, 
-                                                myModel.getUserDefinedMethods(), 
-                                                myModel.getUserDefinedVariables());
-        myParser = new Parser(myLibrary, myModel);
+    public void setLanguage(String language) {
+        myLibrary.setLanguageAndReferences(language);
     }
     
     public CommandReferenceLibrary getCommandReferenceLibrary () {
@@ -61,7 +58,7 @@ public class Interpreter {
     }
 
     public static void main(String[] args) throws SLogoParsingException {
-        Interpreter interpreter = new Interpreter(new MainModel());
+        Interpreter interpreter = new Interpreter(new MainModel("English"));
         String input = "forward forward 50";
         CommandReferenceLibrary lib = interpreter.getCommandReferenceLibrary();
         System.out.println(interpreter.interpret(input).getTransition().size());
