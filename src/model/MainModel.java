@@ -66,7 +66,9 @@ public class MainModel {
 	
 	public void changeTurtleImages(File file) {
 		for (Turtle turtle : myTurtles) {
-			turtle.setImage(file);
+			if (turtle.isSelected()) {
+				turtle.setImage(file);
+			}
 		}
 	}
 	
@@ -87,7 +89,9 @@ public class MainModel {
 	
 	public void updatePenColor(Color color) {
 		for (Turtle turtle : myTurtles) {
-			turtle.getPen().setColor(color);
+			if (turtle.isSelected()) {
+				turtle.getPen().setColor(color);
+			}
 		}
 	}
 	

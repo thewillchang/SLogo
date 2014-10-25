@@ -42,7 +42,7 @@ public class UserChosenTurtleImage extends TurtleImage {
 
 	@Override
 	public double getRadius() {
-		return ourSize.getHeight() / 2;
+		return (ourSize.getHeight() / 2 + myBorderWidth) * Math.sqrt(2) * 1.2;
 	}
 
 }
