@@ -27,8 +27,9 @@ public class Command extends SyntaxExpression {
 
     @Override
     public void loadArguments(Deque<SLogoExpression> args) {
-        if(myLibrary.getUserDefinedCommands().containsCommand(myName)) {
-            for(int i = 0; i < myNumArgs; i++) {
+        UserDefinedCommandsModel allDefinedCommands = myLibrary.getUserDefinedCommands();
+        if(allDefinedCommands.containsCommand(myName)) {
+            for(int i = 0; i < allDefinedCommands.getVariablesForCommand(myName).size() ; i++) {
                 myArguments.add(args.pop());
             }
         }
@@ -36,8 +37,6 @@ public class Command extends SyntaxExpression {
 
     @Override
     public SLogoResult evaluate () {
-
-
         UserDefinedCommandsModel myUserDefinedCommands = myLibrary.getUserDefinedCommands();
         SLogoResult myResult = new SyntaxResult(myValue);
         if(myUserDefinedCommands.containsCommand(myValue)) {

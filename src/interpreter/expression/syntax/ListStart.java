@@ -44,19 +44,21 @@ public class ListStart extends SyntaxExpression {
     public SLogoResult evaluate () {
         Deque<SLogoResult> results = new ArrayDeque<>();
         for(SLogoExpression expression : myArguments) {
-            if(!(expression instanceof ListEnd))
-            results.add(expression.evaluate());
+            if(!(expression instanceof ListEnd)) {
+                results.add(expression.evaluate());
+            }
         }
         return merge(results);
     }
     
     private SLogoResult merge (Deque<SLogoResult> results) {
-        SLogoResult myResult = new SyntaxResult(results.getLast().getValue());
+        SLogoResult myResult = new SyntaxResult();
         List<TransitionState> transitionStates = myResult.getTransition();
         String commandLabels = myValue;
         for(SLogoResult result : results) {
             commandLabels.concat("|" + result.toString());
             transitionStates.addAll(result.getTransition());
+            myResult.setValue(result.getValue());
         }
         myResult.setLabel(commandLabels);
         return myResult;
