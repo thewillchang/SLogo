@@ -2,7 +2,9 @@ package interpreter;
 
 import interpreter.expression.*;
 import interpreter.expression.syntax.*;
+import java.util.Locale;
 import java.util.Map;
+import java.util.ResourceBundle;
 import java.util.Set;
 import model.MainModel;
 import exceptions.SLogoParsingException;
@@ -123,9 +125,8 @@ public class SLogoExpressionFactory {
 
     public static void main(String[] args) throws SLogoParsingException {     
         SLogoExpressionFactory factory = new SLogoExpressionFactory(new CommandReferenceLibrary(), new MainModel());
-        for(String s :"asdf|asdf".split("\\|") )
-        {       System.out.println(s);
-            System.out.println(s.length());
-        }
+        ResourceBundle mySyntaxReference = ResourceBundle.getBundle("resources.languages.Syntax", Locale.US);
+        mySyntaxReference.getString("ListStart");
+        System.out.println("[".matches(mySyntaxReference.getString("ListStart")));
     }
 }
