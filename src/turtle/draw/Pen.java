@@ -61,10 +61,12 @@ public class Pen {
 	}
 	
 	public void drawLine(Line line) {
-		myGrid.getChildren().remove(myTurtleNode);
-		myGrid.getChildren().add(line);
-		myGrid.getChildren().add(myTurtleNode);
-		myDrawnLines.add(line);
+		if (myPenDown) {
+			myGrid.getChildren().remove(myTurtleNode);
+			myGrid.getChildren().add(line);
+			myGrid.getChildren().add(myTurtleNode);
+			myDrawnLines.add(line);
+		}
 	}
 	
 	public List<Line> getDrawnLines() {
