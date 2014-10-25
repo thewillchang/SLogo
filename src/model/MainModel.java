@@ -3,6 +3,7 @@ package model;
 import interpreter.Interpreter;
 import interpreter.SLogoResult;
 
+import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
@@ -59,6 +60,12 @@ public class MainModel {
 		myAnimation = new ParallelTransition();
 		myTurtleListHistory = new TurtleListHistory();
 		myBackgroundColor = DEFAULT_BACKGROUND_COLOR;
+	}
+	
+	public void changeTurtleImages(File file) {
+		for (Turtle turtle : myTurtles) {
+			turtle.setImage(file);
+		}
 	}
 	
 	public Color getBackgroundColor() {

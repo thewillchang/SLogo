@@ -17,6 +17,7 @@ public class SLogoMenuBar extends MenuBar {
 	private final static String GRID_KEY = "Grid";
 	private final static String ADD_TURTLE_KEY = "Add";
 	private final static String GRID_LINES_KEY = "Toggle";
+	private final static String TURTLE_IMAGE_KEY = "TurtleImage";
 
 	private final static String FILE_KEY = "File";
 	private final static String HELP_KEY = "Help";
@@ -25,6 +26,7 @@ public class SLogoMenuBar extends MenuBar {
 	private final static String EDIT_KEY = "Edit";
 	private final static String REDO_KEY = "Redo";
 	private final static String UNDO_KEY = "Undo";
+	
 
 	private View myParentView;
 
@@ -36,6 +38,7 @@ public class SLogoMenuBar extends MenuBar {
 
 	private MenuItem myGridLinesMenuItem;
 	private MenuItem myAddTurtleMenuItem;
+	private MenuItem myTurtleImageMenuItem;
 
 	public SLogoMenuBar(View parentView) {
 		super();
@@ -79,7 +82,8 @@ public class SLogoMenuBar extends MenuBar {
 				event -> myParentView.addTurtleClicked());
 		myGridLinesMenuItem = createMenuItem(GUIReferenceLibrary.getStringTranslation(GRID_LINES_KEY),
 				event -> myParentView.toggleGridLines());
-		gridMenu.getItems().addAll(myAddTurtleMenuItem, myGridLinesMenuItem);
+		myTurtleImageMenuItem = createMenuItem(TURTLE_IMAGE_KEY, event -> myParentView.changeTurtleImages());
+		gridMenu.getItems().addAll(myAddTurtleMenuItem, myTurtleImageMenuItem, myGridLinesMenuItem);
 		getMenus().add(gridMenu);
 	}
 

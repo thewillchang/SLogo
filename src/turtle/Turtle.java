@@ -1,5 +1,6 @@
 package turtle;
 
+import java.io.File;
 import java.util.List;
 
 import javafx.animation.Animation;
@@ -104,6 +105,10 @@ public class Turtle {
 	
 	public Pen getPen() {
 		return myPen;
+	}
+	
+	public void setImage(File file) {
+		myTurtleViewController.setImage(file);
 	}
 	
 	public Node getTurtle() {

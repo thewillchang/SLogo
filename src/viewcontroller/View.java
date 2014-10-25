@@ -1,5 +1,6 @@
 package viewcontroller;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,6 +14,8 @@ import javafx.scene.layout.BackgroundFill;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.CornerRadii;
 import javafx.scene.paint.Color;
+import javafx.stage.FileChooser;
+import javafx.stage.FileChooser.ExtensionFilter;
 import javafx.stage.Stage;
 import application.Main;
 
@@ -95,6 +98,21 @@ public class View {
 		if (myCurrentWorkspace != null) {
 			myCurrentWorkspace.getMainModel().addTurtle();
 		}
+	}
+	
+	public void changeTurtleImages() {
+        if (myCurrentWorkspace != null) {
+			FileChooser turtleImageChooser = new FileChooser();
+	        turtleImageChooser.setTitle("Choose Image File for Turtles");
+	        turtleImageChooser.getExtensionFilters().addAll(
+	        		new ExtensionFilter("All Images", "*.*"),
+	        		new ExtensionFilter("JPG Images", "*.jpg"),
+	        		new ExtensionFilter("PNG Images", "*.png"));
+	        File selectedFile = turtleImageChooser.showOpenDialog(myStage);
+	        if (selectedFile != null) {
+	            myCurrentWorkspace.getMainModel().changeTurtleImages(selectedFile);
+	        }
+        }
 	}
 	
 	public void showHelp() {
