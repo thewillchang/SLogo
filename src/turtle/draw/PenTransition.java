@@ -8,12 +8,6 @@ import turtle.Turtle;
 public class PenTransition extends LinearTransition {
 
 	private Line myLine;
-	private boolean myFirst;
-	
-	public PenTransition() {
-		super();
-		myFirst = true;
-	}
 
 	@Override
 	public void setTurtle(Turtle turtle) {
@@ -46,7 +40,8 @@ public class PenTransition extends LinearTransition {
 		}
 	}
 	
-	private void setStartPoint() {
+	@Override
+	protected void setStartPoint() {
 		double x = myTurtle.getTurtle().getLayoutX() + myTurtle.getTurtle().getTranslateX();
 		double y = myTurtle.getTurtle().getLayoutY() + myTurtle.getTurtle().getTranslateY();
 		setStartPoint(x, y);
@@ -65,27 +60,18 @@ public class PenTransition extends LinearTransition {
 	}
 	
 	@Override
-	protected void interpolate(double frac) {
-		super.interpolate(frac);
-		if (myFirst) {
-			setStartPoint();
-			myFirst = false;
-		}
-		performWrappingChanges(frac);
+	protected void interpolateChanges(double frac) {
 		setEndPoint(myLine.getStartX() + myX * (frac - myDoneFrac), myLine.getStartY() + myY * (frac - myDoneFrac));
 	}
 
 	@Override
-	protected void performWrappingChanges(double frac) {
-		Point2D start = checkWrapping();
-		if (!start.equals(new Point2D(myStartX, myStartY))) {
-			createLine();
-			setStartPoint(start.getX(), start.getY());
-			setEndPoint(start.getX(), start.getY());
-			myX = myX * (1 - frac);
-			myY = myY * (1 - frac);
-			myDoneFrac = frac;
-		}
+	protected void performWrappingChanges(Point2D newStartPoint, double frac) {
+		createLine();
+		setStartPoint(newStartPoint.getX(), newStartPoint.getY());
+		setEndPoint(newStartPoint.getX(), newStartPoint.getY());
+		myX = myX * (1 - frac);
+		myY = myY * (1 - frac);
+		myDoneFrac = frac;
 	}
 
 }

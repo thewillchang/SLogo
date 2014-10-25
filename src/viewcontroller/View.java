@@ -61,7 +61,7 @@ public class View {
 	}
 	
 	public void addNewWorkspace() {
-		Workspace workspace = new Workspace();
+		Workspace workspace = new Workspace(myLanguage);
 		myWorkspaces.add(workspace);
 		myCurrentWorkspace = workspace;
 		Tab tab = new Tab();

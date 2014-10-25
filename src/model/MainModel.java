@@ -49,7 +49,7 @@ public class MainModel {
 	final String PROPERTIES_FILENAME = "SLogoState";
 	final String LANGUAGE_PROPERTY = "Language";
 
-	public MainModel(){
+	public MainModel(String language){
 		this.myObservers = new ArrayList<>();
 		this.myInterpreter = new Interpreter(this);
 		this.myTurtles = new ArrayList<>();
@@ -60,6 +60,7 @@ public class MainModel {
 		myAnimation = new ParallelTransition();
 		myTurtleListHistory = new TurtleListHistory();
 		myBackgroundColor = DEFAULT_BACKGROUND_COLOR;
+		myLanguage = language;
 	}
 	
 	public void changeTurtleImages(File file) {

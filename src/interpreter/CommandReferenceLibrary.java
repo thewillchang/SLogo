@@ -1,6 +1,5 @@
 package interpreter;
 
-import interpreter.expression.SLogoExpression;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -35,9 +34,6 @@ public class CommandReferenceLibrary {
     private Map<String,String> myCommandToDirectoryMap;
     private Map<String, Integer> myCommandToNumArgsMap;
 
-    private Map<String, SLogoExpression> myUserDefinedCommandsMap; 
-    private Map<String, SLogoExpression> myUserDefinedVariablesMap;
-
     private String myLanguage;
 
     private ResourceBundle myCommandReference; 
@@ -51,16 +47,17 @@ public class CommandReferenceLibrary {
     //private final String DEFAULT_LANGUAGE = "English";
 
 
-    public CommandReferenceLibrary () {
-        this("English");
-    }
-
-    public CommandReferenceLibrary(String language) {
-
+    
+    public CommandReferenceLibrary(String language, UserDefinedCommandsModel commandsModel,
+                                   UserDefinedVariablesModel variablesModel) {
         myDirectoryListing = ResourceBundle.getBundle("resources.languages.DirectoryListing", Locale.US);
         myNumberArguments  = ResourceBundle.getBundle("resources.languages.NumberArguments", Locale.US);
         mySyntaxReference = ResourceBundle.getBundle("resources.languages.Syntax", Locale.US);
 
+        
+        myDefinedCommands = commandsModel;
+        myDefinedVariables = variablesModel;
+        
         myLanguage = language;
 
         myCommandSet = new HashSet<>();
@@ -71,17 +68,11 @@ public class CommandReferenceLibrary {
         myCommandToDirectoryMap = new HashMap<>();
         myCommandToNumArgsMap = new HashMap<>();
 
-        myDefinedCommands = new UserDefinedCommandsModel();
-        myDefinedVariables = new UserDefinedVariablesModel();
-
-        myUserDefinedCommandsMap = new HashMap<>();
-        myUserDefinedVariablesMap = new HashMap<>();
-
         initializeSyntaxMap(); 
         setCommandReference(language);
         initializeDirectoryReferences();
         initializeNumArgsMap();
-
+        
     }
 
     private void initializeDirectoryReferences () {

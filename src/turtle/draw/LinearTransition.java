@@ -1,23 +1,26 @@
 package turtle.draw;
 
-import viewcontroller.turtlegrid.GridViewController;
 import javafx.geometry.Point2D;
 import javafx.scene.Node;
 import javafx.util.Duration;
+import viewcontroller.turtlegrid.GridViewController;
 
 public abstract class LinearTransition extends SLogoTransition {
 
+	private boolean myFirst;
 	protected double myStartX;
 	protected double myStartY;
 	protected double myX;
 	protected double myY;
 	protected double myDistance;
 	protected double myDoneFrac;
+	protected boolean myWrappingOccurred;
 	
 	protected LinearTransition() {
 		super();
 		myDoneFrac = 0;
 		myDistance = 0;
+		myFirst = true;
 	}
 
 	protected enum Wrapping {
@@ -32,15 +35,29 @@ public abstract class LinearTransition extends SLogoTransition {
 	
 	@Override
 	protected void interpolate(double frac) {
+		if (myFirst) {
+			setStartPoint();
+			myFirst = false;
+		}
 		setChanges();
+		Point2D newStartPoint = checkWrapping();
+		if (myWrappingOccurred) {
+			performWrappingChanges(newStartPoint, frac);
+		}
+		interpolateChanges(frac);
+		myWrappingOccurred = false;
 	}
 	
-	protected abstract void performWrappingChanges(double frac);
+	protected abstract void interpolateChanges(double frac);
+	
+	protected abstract void performWrappingChanges(Point2D newStartPoint, double frac);
 	
 	protected void setStartPoint(double x, double y) {
 		myStartX = x;
 		myStartY = y;
 	}
+	
+	protected abstract void setStartPoint();
 	
 	protected Point2D checkWrapping() {
 		Node turtleNode = myTurtle.getTurtle();
@@ -57,6 +74,7 @@ public abstract class LinearTransition extends SLogoTransition {
 		} else {
 			return new Point2D(myStartX, myStartY);
 		}
+		myWrappingOccurred = true;
 		return new Point2D(x, y);
 	}
 	

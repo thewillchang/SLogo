@@ -1,15 +1,11 @@
 package interpreter.expression.syntax;
 
-import java.util.ArrayList;
 import java.util.Deque;
 import java.util.List;
-import model.MainModel;
-import model.UserDefinedVariablesModel;
-import exceptions.SLogoParsingException;
-import interpreter.CommandReferenceLibrary;
+import transitionstate.TransitionState;
+import model.UserDefinedCommandsModel;
 import interpreter.SLogoResult;
 import interpreter.SyntaxResult;
-import interpreter.UserDefinedResult;
 import interpreter.expression.SLogoExpression;
 import interpreter.expression.SyntaxExpression;
 
@@ -42,11 +38,15 @@ public class Command extends SyntaxExpression {
     public SLogoResult evaluate () {
 
 
-        UserDefinedVariablesModel myUserDefinedVariables = myLibrary.getUserDefinedVariables();
-        if(myUserDefinedVariables.containsVariable(myValue)) {
-            return new UserDefinedResult(myUserDefinedVariables.getVariable(myValue));
+        UserDefinedCommandsModel myUserDefinedCommands = myLibrary.getUserDefinedCommands();
+        SLogoResult myResult = new SyntaxResult(myValue);
+        if(myUserDefinedCommands.containsCommand(myValue)) {
+            List<TransitionState> transitionStates = myResult.getTransition(); 
+            SLogoResult result = myCommands.evaluate();
+            transitionStates.addAll(result.getTransition());
+            myResult.setValue(result.getValue());
         }
-        return new SyntaxResult(myValue);
+        return myResult;
     }
 
     @Override

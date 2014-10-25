@@ -37,7 +37,7 @@ public class UserDefinedVariablesModel {
 	 * if variable already exists with same name, then it is replaced
 	 * @param expression
 	 */
-	public void put (String variable, double value) {
+	public void putVariable (String variable, double value) {
 		myDefinedVariables.put(variable, value);
 	}
 
