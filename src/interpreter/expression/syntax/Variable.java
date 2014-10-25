@@ -1,8 +1,10 @@
 package interpreter.expression.syntax;
 
 import java.util.Map;
+import model.UserDefinedVariablesModel;
 import interpreter.SLogoResult;
 import interpreter.SyntaxResult;
+import interpreter.UserDefinedResult;
 import interpreter.expression.SLogoExpression;
 import interpreter.expression.SyntaxExpression;
 
@@ -21,11 +23,12 @@ public class Variable extends SyntaxExpression {
         
         //TODO maybe have a set of all defined variables, then check if its in the set,
         //if its in the set, check if it's in the map... then do more logic...
-        Map<String, SLogoExpression> myUserDefinedVariables = myLibrary.getUserDefinedVariables();
-        if(myUserDefinedVariables.containsKey(myValue)) {
-            return myUserDefinedVariables.get(myValue).evaluate();
+        UserDefinedVariablesModel myUserDefinedVariables = myLibrary.getUserDefinedVariables();
+        SLogoResult myResult = new SyntaxResult(myValue);
+        if(myUserDefinedVariables.containsVariable(myValue)) {
+            myResult.setValue(myUserDefinedVariables.getVariable(myValue));
         }
-        return new SyntaxResult(myValue);
+        return myResult;
     }
     
     @Override

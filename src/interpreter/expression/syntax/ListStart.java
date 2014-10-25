@@ -19,12 +19,18 @@ import exceptions.SLogoParsingException;
 //TODO refactor, move logic for loading arguments into the parser...
 //refactor from destroying the list...
 public class ListStart extends SyntaxExpression {
-
+    private int mySize;
+    
+    public ListStart () {
+        super();
+        mySize = 0;
+    }
     @Override
     public void loadArguments (Deque<SLogoExpression> args) throws SLogoParsingException, NullPointerException{
         while(!args.isEmpty()) {
             SLogoExpression argument = args.pop();
             myArguments.add(argument);
+            mySize++;
             if(argument instanceof ListEnd) {
                 break;
             }
@@ -47,19 +53,20 @@ public class ListStart extends SyntaxExpression {
     private SLogoResult merge (Deque<SLogoResult> results) {
         SLogoResult myResult = new SyntaxResult(results.getLast().getValue());
         List<TransitionState> transitionStates = myResult.getTransition();
+        String commandLabels = myValue;
         for(SLogoResult result : results) {
+            commandLabels.concat("|" + result.toString());
             transitionStates.addAll(result.getTransition());
-            myResult.setValue(result.getValue());
         }
+        myResult.setLabel(commandLabels);
         return myResult;
     }
 
+    
+    //TODO Refactor method name SetValue... 
     @Override
     public void setValue (String value) {
-        // TODO Auto-generated method stub
-
+        myValue = value;
     }
-
-
 
 }

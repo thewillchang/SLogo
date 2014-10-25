@@ -6,6 +6,7 @@ import model.MainModel;
 import exceptions.SLogoParsingException;
 import interpreter.CommandReferenceLibrary;
 import interpreter.SLogoResult;
+import interpreter.UserDefinedResult;
 
 /**
  * class of SLogoExpressions for User Defined Expressions
@@ -43,10 +44,15 @@ public abstract class UserDefinedExpression implements SLogoExpression{
         }
     }
     
+    @Override
+    public int getNumArgs () {
+        return myNumArgs;
+    }
+    
     public abstract void setValue(String value);
 
     @Override
     public SLogoResult evaluate() {
-        return null;
+        return new UserDefinedResult();
     }
 }

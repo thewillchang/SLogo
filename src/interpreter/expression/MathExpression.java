@@ -1,8 +1,8 @@
-package interpreter.expression.math;
+package interpreter.expression;
 
 import interpreter.CommandReferenceLibrary;
 import interpreter.SLogoResult;
-import interpreter.expression.SLogoExpression;
+import interpreter.expression.math.MathResult;
 import java.util.ArrayDeque;
 import java.util.Deque;
 import java.util.List;
@@ -76,5 +76,10 @@ public abstract class MathExpression implements SLogoExpression {
         }
         //Add a nulltransition? at the end...?
         transitionStates.add(new NullTransitionState());
+    }
+    
+    @Override
+    public int getNumArgs () {
+        return myNumArgs;
     }
 }

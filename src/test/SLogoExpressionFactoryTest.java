@@ -4,12 +4,12 @@ import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 import interpreter.CommandReferenceLibrary;
 import interpreter.SLogoExpressionFactory;
+import interpreter.expression.ConditionalExpression;
+import interpreter.expression.MathExpression;
 import interpreter.expression.SLogoExpression;
 import interpreter.expression.SyntaxExpression;
 //import interpreter.expression.TurtleCommandExpression;
-import interpreter.expression.conditional.ConditionalExpression;
-import interpreter.expression.math.MathExpression;
-import interpreter.expression.query.TurtleQueryExpression;
+import interpreter.expression.TurtleQueryExpression;
 import model.MainModel;
 import org.junit.Test;
 

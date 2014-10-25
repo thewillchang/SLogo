@@ -1,7 +1,7 @@
 package viewcontroller.commands;
 
 import java.util.List;
-
+import java.util.Set;
 import javafx.scene.Node;
 import model.MainModel;
 import model.UserDefinedCommandsModel;
@@ -44,7 +44,7 @@ public class UserDefinedMethodsViewController extends
 	public void update(MainModel model) {
 		myListVerticalBox.getChildren().clear();
 		UserDefinedCommandsModel userModel = model.getUserDefinedMethods();
-		List<String> userDefinedMethods = userModel.getDefinedCommands();
+		Set<String> userDefinedMethods = userModel.getAllDefinedCommands().keySet();
 		for (String userDefinedMethod : userDefinedMethods) {
 			addCommand(userDefinedMethod);
 		}

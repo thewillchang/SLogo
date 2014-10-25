@@ -1,19 +1,20 @@
 package interpreter.expression.userdefined;
 
-import java.util.Map;
+import model.UserDefinedVariablesModel;
 import interpreter.SLogoResult;
 import interpreter.expression.SLogoExpression;
 import interpreter.expression.UserDefinedExpression;
 
 public class MakeVariable extends UserDefinedExpression {
     
+    //TODO add to set as well as map?...
     @Override
     public SLogoResult evaluate () {
-        Map<String, SLogoExpression> myVariables = myLibrary.getUserDefinedVariables();
+        UserDefinedVariablesModel myVariables = myLibrary.getUserDefinedVariables();
         SLogoExpression myVarName = myArguments.pop();
-        SLogoExpression myAssignment = myArguments.pop();
-        myVariables.put(myVarName.evaluate().toString(), myAssignment);
-        return myAssignment.evaluate();
+        SLogoResult myAssignment = myArguments.pop().evaluate();
+        myVariables.put(myVarName.evaluate().toString(), myAssignment.getValue());
+        return myAssignment;
     }
     
     @Override

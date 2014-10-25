@@ -33,6 +33,7 @@ public interface SLogoExpression {
 	public abstract void loadModel(MainModel model);
 	
 	
+	public abstract int getNumArgs();
 	
 	/**
 	 * evaluates the expression and returns an SLogoResult

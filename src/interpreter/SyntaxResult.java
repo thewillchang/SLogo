@@ -6,11 +6,11 @@ import transitionstate.TransitionState;
 import exceptions.SLogoParsingException;
 
 public class SyntaxResult extends SLogoResult {
-    private String myString; 
+    private String myLabel; 
     
     public SyntaxResult (String str) {
         super();
-        myString = str;
+        myLabel = str;
         myTransitionStates.add(new NullTransitionState());
     }
     
@@ -39,7 +39,7 @@ public class SyntaxResult extends SLogoResult {
     
     @Override
     public String toString () {
-        return myString;
+        return myLabel;
     }
 
 }

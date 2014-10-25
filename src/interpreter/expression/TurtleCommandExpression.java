@@ -1,4 +1,4 @@
-package interpreter.expression.singleturtle;
+package interpreter.expression;
 
 import java.util.ArrayDeque;
 import java.util.ArrayList;
@@ -9,7 +9,6 @@ import exceptions.SLogoParsingException;
 import interpreter.CommandReferenceLibrary;
 import interpreter.SLogoResult;
 import interpreter.TurtleCommandResult;
-import interpreter.expression.SLogoExpression;
 
 
 /**
@@ -69,6 +68,11 @@ public abstract class TurtleCommandExpression implements SLogoExpression {
         myResult.setValue(value); }
         setNextTransition(myResult, value);
         return myResult;
+    }
+    
+    @Override
+    public int getNumArgs () {
+        return myNumArgs;
     }
     
     protected abstract void setNextTransition(SLogoResult myResult, double value); 

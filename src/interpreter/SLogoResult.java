@@ -17,6 +17,7 @@ public abstract class SLogoResult {
 	protected List<TransitionState> myTransitionStates;
 	protected ResourceBundle myProperties;
 	protected double myValue;
+	protected String myLabel;
 	private boolean myHasError;
 
 	public SLogoResult() {
@@ -58,4 +59,11 @@ public abstract class SLogoResult {
 		myValue = value;
 	}
 
+	public void setLabel(String str) {
+	    myLabel = str;
+	}
+	
+	public String toString() {
+	    return myLabel;
+	}
 }

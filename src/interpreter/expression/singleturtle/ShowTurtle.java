@@ -1,5 +1,6 @@
 package interpreter.expression.singleturtle;
 import interpreter.SLogoResult;
+import interpreter.expression.TurtleCommandExpression;
 import transitionstate.TransitionState;
 import transitionstate.TransitionState.PenChange;
 import transitionstate.TransitionState.VisibleChange;

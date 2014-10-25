@@ -1,8 +1,8 @@
-package interpreter.expression.conditional;
+package interpreter.expression;
 
 import interpreter.CommandReferenceLibrary;
 import interpreter.SLogoResult;
-import interpreter.expression.SLogoExpression;
+import interpreter.expression.conditional.ConditionalResult;
 import java.util.ArrayDeque;
 import java.util.Deque;
 import model.MainModel;
@@ -85,6 +85,11 @@ public abstract class ConditionalExpression implements SLogoExpression {
         myResult.setValue(condition? 1 : 0);
         //myResult.getTransition().add(new NullTransitionState());
         return myResult;
+    }
+    
+    @Override
+    public int getNumArgs () {
+        return myNumArgs;
     }
     
     protected abstract boolean hasSatisfiedCondition(SLogoResult argument);
