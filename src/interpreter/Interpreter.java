@@ -24,8 +24,10 @@ public class Interpreter {
      */
     public Interpreter(MainModel model) {
         myModel = model;
-        myLibrary = new CommandReferenceLibrary();
-        myParser = new Parser(myLibrary, myModel);
+        myLibrary = new CommandReferenceLibrary("asdf", 
+                                                model.getUserDefinedMethods(), 
+                                                model.getUserDefinedVariables());
+        myParser = new Parser(myLibrary, model);
         myEvaluator = new ExpressionEvaluator();
     }
 
@@ -46,8 +48,11 @@ public class Interpreter {
         return null;
     }
 
-    public void setLogoLanguage(String language) {
-        myLibrary = new CommandReferenceLibrary(language);
+    
+    private void setLanguageAndInitialize(String language) {
+        myLibrary = new CommandReferenceLibrary(language, 
+                                                myModel.getUserDefinedMethods(), 
+                                                myModel.getUserDefinedVariables());
         myParser = new Parser(myLibrary, myModel);
     }
     

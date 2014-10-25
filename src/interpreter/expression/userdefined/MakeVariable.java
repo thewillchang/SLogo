@@ -13,7 +13,7 @@ public class MakeVariable extends UserDefinedExpression {
         UserDefinedVariablesModel myVariables = myLibrary.getUserDefinedVariables();
         SLogoExpression myVarName = myArguments.pop();
         SLogoResult myAssignment = myArguments.pop().evaluate();
-        myVariables.put(myVarName.evaluate().toString(), myAssignment.getValue());
+        myVariables.putVariable(myVarName.evaluate().toString(), myAssignment.getValue());
         return myAssignment;
     }
     
