@@ -5,12 +5,13 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 
-import application.Main;
+import javafx.scene.Group;
 import javafx.scene.Node;
 import javafx.scene.image.Image;
 import javafx.scene.paint.Color;
 import transitionstate.TransitionState.VisibleChange;
 import viewcontroller.ViewController;
+import application.Main;
 
 /**
  * view controller for an individual turtle object
@@ -20,6 +21,7 @@ import viewcontroller.ViewController;
  */
 public class TurtleViewController implements ViewController {
 
+	private Group myGroup;
 	private final static Dimension mySize = new Dimension(Main.SIZE.width / 40,
 			Main.SIZE.width / 40);
 	private TurtleImage myTurtleImage;
@@ -27,6 +29,8 @@ public class TurtleViewController implements ViewController {
 	public TurtleViewController() {
 		TurtleImage.setSize(mySize);
 		myTurtleImage = new DefaultTurtleImage();
+		myGroup = new Group();
+		myGroup.getChildren().add(myTurtleImage);
 	}
 
 	public boolean isSelected() {
@@ -38,10 +42,12 @@ public class TurtleViewController implements ViewController {
 	}
 	
 	public void setImage(File file) {
-		System.out.println("reached");
 		try {
 			Image image = new Image(new FileInputStream(file), mySize.getHeight(), mySize.getWidth(), false, false);
-			myTurtleImage = new UserChosenTurtleImage(image);
+			TurtleImage newTurtleImage = new UserChosenTurtleImage(image);
+			myGroup.getChildren().remove(myTurtleImage);
+			myGroup.getChildren().add(newTurtleImage);
+			myTurtleImage = newTurtleImage;
 		} catch (FileNotFoundException e) {
 			System.out.println("failed: " + e.toString());
 		}
@@ -67,7 +73,7 @@ public class TurtleViewController implements ViewController {
 
 	@Override
 	public Node getNode() {
-		return myTurtleImage;
+		return myGroup;
 	}
 
 	@Override

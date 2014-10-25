@@ -105,7 +105,6 @@ public class View {
 			FileChooser turtleImageChooser = new FileChooser();
 	        turtleImageChooser.setTitle("Choose Image File for Turtles");
 	        turtleImageChooser.getExtensionFilters().addAll(
-	        		new ExtensionFilter("All Images", "*.*"),
 	        		new ExtensionFilter("JPG Images", "*.jpg"),
 	        		new ExtensionFilter("PNG Images", "*.png"));
 	        File selectedFile = turtleImageChooser.showOpenDialog(myStage);

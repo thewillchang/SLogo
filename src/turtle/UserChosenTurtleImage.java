@@ -15,6 +15,8 @@ public class UserChosenTurtleImage extends TurtleImage {
 		super();
 		createImageView(image);
 		getChildren().addAll(myBorder, myImageView);
+		this.setTranslateX(-1 * (ourSize.getWidth() / 2 + myBorderWidth));
+		this.setTranslateY(-1 * (ourSize.getHeight() / 2 + myBorderWidth));
 	}
 	
 	private void createImageView(Image image) {
@@ -25,7 +27,8 @@ public class UserChosenTurtleImage extends TurtleImage {
 	}
 
 	private void createBorder() {
-		myBorder = new Rectangle(myImageView.getFitHeight() + 2 * myBorderWidth, myImageView.getFitWidth() + 2 * myBorderWidth);
+		myBorder = new Rectangle(ourSize.getHeight() + 2 * myBorderWidth, ourSize.getWidth() + 2 * myBorderWidth);
+		myBorder.setFill(Color.TRANSPARENT);
 	}
 	
 	@Override
