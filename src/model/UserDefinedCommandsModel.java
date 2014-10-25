@@ -38,11 +38,11 @@ public class UserDefinedCommandsModel {
         return myDefinedCommands.get(command);
     }
 
-    public List<String> getVariablesforCommand (String command) {
+    public List<String> getVariablesForCommand (String command) {
         return myDefinedCommandVariables.get(command);
     }
     
-    public List<String> setVariablesforCommand (String command, List<String> variables) {
+    public List<String> setVariablesForCommand (String command, List<String> variables) {
         return myDefinedCommandVariables.put(command, variables);
     }
     
