@@ -30,12 +30,15 @@ public class UserDefinedVariablesViewController extends
 	private Map<String, Double> myVariableMap;
 	private final String UserVariables = "UserVariables";
 	private String myUserTranslation;
+	private MainModel myMainModel;
 
-	public UserDefinedVariablesViewController(int width, int height) {
+	public UserDefinedVariablesViewController(int width, int height,
+			MainModel mainModel) {
 		super(width, height);
 		applyTranslations();
 		myTitleLabel.setText(myUserTranslation);
 		myTitleLabel.setFont(new SLogoFont().createTextFont());
+		myMainModel = mainModel;
 		placeVariableTable();
 		myCommandWindowVerticalBox.getChildren().addAll(myListVerticalBox);
 	}
@@ -66,7 +69,7 @@ public class UserDefinedVariablesViewController extends
 	}
 
 	private void updateVariableList() {
-//		myListVerticalBox.getChildren().clear();
+		// myListVerticalBox.getChildren().clear();
 		for (String variable : myVariableMap.keySet()) {
 			addVariableToList(variable, myVariableMap.get(variable));
 		}
@@ -92,8 +95,10 @@ public class UserDefinedVariablesViewController extends
 								if (arg0.getCode() == KeyCode.ENTER) {
 									valueLabel.setText(editableValueLabel
 											.getText());
-									// TODO: Need to send this information back
-									// to the model
+									myMainModel.updateUserDefinedVariable(
+											variableLabel.getText(), Double
+													.parseDouble(valueLabel
+															.getText()));
 									variableHorizontalBox.getChildren().remove(
 											editableValueLabel);
 									variableHorizontalBox.getChildren().add(
