@@ -21,7 +21,6 @@ import viewcontroller.ViewController;
  */
 public class GridViewController implements ViewController, MainModelObserver {
 
-	private final static Color DEFAULT_BACKGROUND_COLOR = Color.DARKBLUE;
 	public final static Dimension SIZE = new Dimension(
 			TurtleWindowViewController.SIZE.width * 12 / 10, 
 			TurtleWindowViewController.SIZE.height * 8 / 10);
@@ -33,14 +32,18 @@ public class GridViewController implements ViewController, MainModelObserver {
 	public GridViewController() {
 		myTurtles = new ArrayList<>();
 		myGrid = new Group();
-		setBackground(DEFAULT_BACKGROUND_COLOR);
+		createBackground();
 	}
 	
-	private void setBackground(Color color) {
+	private void createBackground() {
 		Rectangle background = new Rectangle(SIZE.width, SIZE.height, View.BACKGROUND_COLOR);
-		myGridBackground = new Rectangle(SIZE.width, SIZE.height, color);
+		myGridBackground = new Rectangle(SIZE.width, SIZE.height);
 		myGridLines = new GridLines(myGridBackground.getHeight(), myGridBackground.getWidth());
 		myGrid.getChildren().addAll(background, myGridBackground, myGridLines);
+	}
+	
+	private void setBackgroundColor(Color color) {
+		myGridBackground.setFill(color);
 	}
 	
 	@Override
@@ -50,6 +53,7 @@ public class GridViewController implements ViewController, MainModelObserver {
 
 	@Override
 	public void update(MainModel model) {
+		setBackgroundColor(model.getBackgroundColor());
 		if (model.isTurtleAdded()) {
 			updateTurtles(model.getTurtles());
 		} else if (!model.failedParse()) {
@@ -80,7 +84,7 @@ public class GridViewController implements ViewController, MainModelObserver {
 		myGridBackground.setHeight(SIZE.height - padding * 2);
 		myGridBackground.setTranslateX(padding);
 		myGridBackground.setTranslateY(padding);
-
+	
 		myGridLines.changeSize(myGridBackground.getHeight(), myGridBackground.getWidth());
 		myGridLines.setTranslateX(padding);
 		myGridLines.setTranslateY(padding);

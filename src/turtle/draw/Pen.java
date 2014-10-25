@@ -17,7 +17,7 @@ import transitionstate.TransitionState.PenChange;
 public class Pen {
 
 	// default pen values
-	private static double ourDefaultWidth = 3;
+	private static double ourDefaultWidth = 5;
 	private static Color ourDefaultColor = Color.BLACK;
 	
 	private Color myColor;
@@ -38,6 +38,10 @@ public class Pen {
 		myWidth = ourDefaultWidth;
 		myPenDown = true;
 		myDrawnLines = new ArrayList<>();
+	}
+	
+	public void setColor(Color color) {
+		myColor = color;
 	}
 	
 	public Color getColor() {

@@ -7,6 +7,7 @@ import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.paint.Color;
 import model.MainModel;
 import viewcontroller.commands.CommandWindowContainerViewController;
 import viewcontroller.turtlegrid.TurtleWindowViewController;
@@ -22,12 +23,14 @@ public class MainViewController implements ViewController, MainModelObserver {
 
 	private final static Insets GRID_MARGIN = new Insets(15);
 
+	private MainModel myMainModel;
 	private BorderPane myPane;
 	private TurtleWindowViewController myTurtleWindow;
 	private CommandWindowContainerViewController myCommandWindow;
 	private List<MainModelObserver> myChildObservers;
 
 	public MainViewController(MainModel mainModel) {
+		myMainModel = mainModel;
 		myChildObservers = new ArrayList<>();
 		mainModel.attachObserver(this);
 		myPane = new BorderPane();
@@ -38,9 +41,17 @@ public class MainViewController implements ViewController, MainModelObserver {
 	public void toggleGridLines() {
 		myTurtleWindow.toggleGridLines();
 	}
+	
+	public void gridColorChanged(Color color) {
+		myMainModel.setBackgroundColor(color);
+	}
+	
+	public void penColorChanged(Color color) {
+		myMainModel.updatePenColor(color);
+	}
 
 	private void placeTurtleWindowView() {
-		myTurtleWindow = new TurtleWindowViewController();
+		myTurtleWindow = new TurtleWindowViewController(this);
 		BorderPane.setAlignment(myTurtleWindow.getNode(), Pos.CENTER);
 		BorderPane.setMargin(myTurtleWindow.getNode(), GRID_MARGIN);
 		myPane.setLeft(myTurtleWindow.getNode());

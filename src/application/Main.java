@@ -12,7 +12,7 @@ import javafx.stage.Stage;
  */
 public class Main extends Application {
 	
-	public static final Dimension SIZE = new Dimension(1200, 800);
+	public static final Dimension SIZE = new Dimension(1300, 800);
 	
 	
 	@Override

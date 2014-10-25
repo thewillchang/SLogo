@@ -9,6 +9,7 @@ import javafx.scene.Node;
 import javafx.scene.layout.BorderPane;
 import model.MainModel;
 import viewcontroller.MainModelObserver;
+import viewcontroller.MainViewController;
 import viewcontroller.ViewController;
 import application.Main;
 
@@ -24,13 +25,15 @@ public class TurtleWindowViewController implements ViewController,
 	public static final Dimension SIZE = new Dimension(
 			Main.SIZE.width / 2 * 9 / 10, Main.SIZE.height * 9 / 10);
 
+	private MainViewController myParent;
 	private BorderPane myPane;
 	private TurtleStatusViewController myStatusView;
 	private GridViewController myGridView;
 	private List<MainModelObserver> myChildObservers;
 	private GridButtonBar myGridButtonBar;
 
-	public TurtleWindowViewController() {
+	public TurtleWindowViewController(MainViewController parent) {
+		myParent = parent;
 		myChildObservers = new ArrayList<>();
 		myPane = new BorderPane();
 		myPane.setPrefSize(SIZE.width, SIZE.height);
@@ -44,11 +47,11 @@ public class TurtleWindowViewController implements ViewController,
 	}
 
 	private void gridColorChanged() {
-		System.out.println("grid" + myGridButtonBar.getGridColor());
+		myParent.gridColorChanged(myGridButtonBar.getGridColor());
 	}
 
 	private void penColorChanged() {
-		System.out.println(myGridButtonBar.getPenColor());
+		myParent.penColorChanged(myGridButtonBar.getPenColor());
 	}
 
 	private void placeStatusView() {

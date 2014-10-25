@@ -13,6 +13,7 @@ import java.util.Properties;
 
 import javafx.animation.Animation;
 import javafx.animation.ParallelTransition;
+import javafx.scene.paint.Color;
 import javafx.scene.shape.Line;
 import transitionstate.TransitionState;
 import turtle.Turtle;
@@ -27,6 +28,9 @@ import viewcontroller.MainModelObserver;
  */
 public class MainModel {
 
+	private final static Color DEFAULT_BACKGROUND_COLOR = Color.DARKBLUE;
+		
+	private Color myBackgroundColor;
 	private boolean myTurtleAdded;
 	private boolean myFailedParse;
 	private List<MainModelObserver> myObservers;
@@ -54,6 +58,23 @@ public class MainModel {
 		myTurtleAdded = false;
 		myAnimation = new ParallelTransition();
 		myTurtleListHistory = new TurtleListHistory();
+		myBackgroundColor = DEFAULT_BACKGROUND_COLOR;
+	}
+	
+	public Color getBackgroundColor() {
+		return myBackgroundColor;
+	}
+	
+	public void setBackgroundColor(Color color) {
+		myBackgroundColor = color;
+		myAnimation = new ParallelTransition();
+		notifyObservers();
+	}
+	
+	public void updatePenColor(Color color) {
+		for (Turtle turtle : myTurtles) {
+			turtle.getPen().setColor(color);
+		}
 	}
 	
 	/**
