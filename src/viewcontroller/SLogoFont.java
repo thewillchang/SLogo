@@ -17,7 +17,10 @@ public class SLogoFont {
 	
 	public Font createColorPickerFont() {
 		return Font.font("Garamond", FontWeight.NORMAL, rootEm * 1.4);
-
+	}
+	
+	public String createButtonFontStyle() {
+		return String.format("-fx-font: %f \"Garamond\";", rootEm * 1.2);
 	}
 	
 }
