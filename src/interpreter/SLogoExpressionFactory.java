@@ -123,11 +123,11 @@ public class SLogoExpressionFactory {
         //TODO define user defined commands, also refactor for lists etc.
         return null;
     }
-
+/*
     public static void main(String[] args) throws SLogoParsingException {     
         SLogoExpressionFactory factory = new SLogoExpressionFactory(new CommandReferenceLibrary(), new MainModel());
         ResourceBundle mySyntaxReference = ResourceBundle.getBundle("resources.languages.Syntax", Locale.US);
         mySyntaxReference.getString("ListStart");
         System.out.println("[".matches(mySyntaxReference.getString("ListStart")));
-    }
+    }*/
 }

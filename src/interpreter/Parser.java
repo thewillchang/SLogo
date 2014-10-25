@@ -93,11 +93,11 @@ public class Parser {
 
     }
 
-    public static void main(String[] args) throws SLogoParsingException {
+/*    public static void main(String[] args) throws SLogoParsingException {
         Parser p = new Parser(new CommandReferenceLibrary(), new MainModel());
         String input = "fd 50";
 
        Deque<SLogoExpression> list = p.parseSLogoExpression(input);
         System.out.println( list.pop().evaluate().getValue());   
-    }
+    }*/
 }
