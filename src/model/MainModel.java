@@ -28,7 +28,7 @@ import viewcontroller.MainModelObserver;
  * @author Tanaka Jimha
  *
  */
-public class MainModel implements Serializable{
+public class MainModel {
 
 	private final static Color DEFAULT_BACKGROUND_COLOR = Color.DARKBLUE;
 
@@ -36,9 +36,9 @@ public class MainModel implements Serializable{
 	private boolean myTurtleAdded;
 	private boolean myFailedParse;
 	private List<MainModelObserver> myObservers;
-	private Interpreter myInterpreter;
-	private List<Turtle> myTurtles;
-	private TurtleListHistory myTurtleListHistory;
+	private transient Interpreter myInterpreter;
+	private transient List<Turtle> myTurtles;
+	private transient TurtleListHistory myTurtleListHistory;
 	private SLogoResult mySLogoResult;
 	private String myLanguage;
 	private CommandHistoryModel myCommandHistoryModel;
@@ -46,7 +46,7 @@ public class MainModel implements Serializable{
 	private UserDefinedVariablesModel myUserDefinedVariablesModel;
 
 	private double myAnimationSpeed;
-	private ParallelTransition myAnimation;
+	private transient ParallelTransition myAnimation;
 
 	final String PROPERTIES_FILENAME = "SLogoState";
 	final String LANGUAGE_PROPERTY = "Language";
@@ -59,10 +59,25 @@ public class MainModel implements Serializable{
 		this.myUserDefinedMethodsModel = new UserDefinedCommandsModel();
 		this.myUserDefinedVariablesModel = new UserDefinedVariablesModel();
 		this.myInterpreter = new Interpreter(this);
-		myTurtleAdded = false;
-		myAnimation = new ParallelTransition();
-		myTurtleListHistory = new TurtleListHistory();
-		myBackgroundColor = DEFAULT_BACKGROUND_COLOR;
+		this.myTurtleAdded = false;
+		this.myAnimation = new ParallelTransition();
+		this.myTurtleListHistory = new TurtleListHistory();
+		this.myBackgroundColor = DEFAULT_BACKGROUND_COLOR;
+
+	}
+
+	public MainModel(String language, CommandHistoryModel cHM, UserDefinedCommandsModel uDCM, UserDefinedVariablesModel uDVM, String backGroundColor){
+		this.myLanguage = language;
+		this.myObservers = new ArrayList<>();
+		this.myTurtles = new ArrayList<>();
+		this.myCommandHistoryModel = cHM;
+		this.myUserDefinedMethodsModel = uDCM;
+		this.myUserDefinedVariablesModel = uDVM;
+		this.myInterpreter = new Interpreter(this);
+		this.myTurtleAdded = false;
+		this.myAnimation = new ParallelTransition();
+		this.myTurtleListHistory = new TurtleListHistory();
+		this.myBackgroundColor = myBackgroundColor.valueOf(backGroundColor);
 	}
 
 	public void changeTurtleImages(File file) {
@@ -75,6 +90,10 @@ public class MainModel implements Serializable{
 
 	public Color getBackgroundColor() {
 		return myBackgroundColor;
+	}
+
+	public String getBackgroundColorName() {
+		return myBackgroundColor.toString();
 	}
 
 	public void updateAnimationSpeed(double speed) {

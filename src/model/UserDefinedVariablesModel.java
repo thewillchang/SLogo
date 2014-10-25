@@ -1,5 +1,6 @@
 package model;
 
+import java.io.Serializable;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
@@ -10,7 +11,7 @@ import java.util.Set;
  * @author Tanaka Jimha and Will Chang
  *
  */
-public class UserDefinedVariablesModel {
+public class UserDefinedVariablesModel implements Serializable {
 	
 	private Map<String, Double> myDefinedVariables;
 	private Set<String> myVariables;

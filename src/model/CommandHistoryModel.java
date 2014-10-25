@@ -1,5 +1,6 @@
 package model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -8,7 +9,7 @@ import java.util.List;
  * @author Tanaka Jimha
  *
  */
-public class CommandHistoryModel {
+public class CommandHistoryModel implements Serializable {
 	
 	private List<String> commandHistory;
 	
