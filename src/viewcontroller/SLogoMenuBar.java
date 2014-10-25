@@ -82,7 +82,8 @@ public class SLogoMenuBar extends MenuBar {
 				event -> myParentView.addTurtleClicked());
 		myGridLinesMenuItem = createMenuItem(GUIReferenceLibrary.getStringTranslation(GRID_LINES_KEY),
 				event -> myParentView.toggleGridLines());
-		myTurtleImageMenuItem = createMenuItem(TURTLE_IMAGE_KEY, event -> myParentView.changeTurtleImages());
+		myTurtleImageMenuItem = createMenuItem(GUIReferenceLibrary.getStringTranslation(TURTLE_IMAGE_KEY), 
+				event -> myParentView.changeTurtleImages());
 		gridMenu.getItems().addAll(myAddTurtleMenuItem, myTurtleImageMenuItem, myGridLinesMenuItem);
 		getMenus().add(gridMenu);
 	}
