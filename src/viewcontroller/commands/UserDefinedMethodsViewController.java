@@ -26,7 +26,6 @@ public class UserDefinedMethodsViewController extends
 		myCommandWindowContainer = commandWindowContainer;
 		myTitleLabel.setText(myUserTranslation);
 		myTitleLabel.setFont(new SLogoFont().createTextFont());
-		addCommand("cry 1 hr");
 	}
 
 	@Override
