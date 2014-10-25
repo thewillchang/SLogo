@@ -1,31 +1,31 @@
 package interpreter.expression.userdefined;
 
 import interpreter.SLogoResult;
-import interpreter.TurtleCommandResult;
 import interpreter.expression.SLogoExpression;
-import interpreter.expression.singleturtle.TurtleCommandExpression;
-import java.util.ArrayDeque;
-import java.util.Deque;
-import transitionstate.TransitionState;
+import interpreter.expression.UserDefinedExpression;
+import java.util.Map;
 
-public class MakeUserInstruction extends TurtleCommandExpression{
-    private Deque<SLogoExpression> myParameters;
+/**
+ * 
+ * @author Will Chang
+ *
+ */
 
-    public MakeUserInstruction () {
-        myParameters = new ArrayDeque<>();
-    }
-    @Override
-    public void loadArguments(Deque<SLogoExpression> args) {
-    }
+public class MakeUserInstruction extends UserDefinedExpression{
+    
 
     @Override
-    public SLogoResult evaluate() {
-        return null;
+    public SLogoResult evaluate () {
+        Map<String, SLogoExpression> myCommands = myLibrary.getUserDefinedCommands();
+        SLogoExpression myVarName = myArguments.pop();
+        SLogoExpression myAssignment = myArguments.pop();
+        myCommands.put(myVarName.evaluate().toString(), myAssignment);
+        return myAssignment.evaluate();
     }
+    
     @Override
-    protected void setNextTransition (SLogoResult myResult, double value) {
-        // TODO Auto-generated method stub
-        
+    public void setValue (String value) {
     }
+
 
 }

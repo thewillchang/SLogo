@@ -61,10 +61,12 @@ public abstract class TurtleCommandExpression implements SLogoExpression {
     protected SLogoResult applyOperatorAndMerge (Deque<SLogoResult> results) {
         SLogoResult argument;
         SLogoResult myResult = new TurtleCommandResult();
+        double value = 0;
+        if(myNumArgs > 0) { 
         argument = results.pop();
         myResult.getTransition().addAll(argument.getTransition());
-        double value = argument.getValue();
-        myResult.setValue(value);
+        value = argument.getValue();
+        myResult.setValue(value); }
         setNextTransition(myResult, value);
         return myResult;
     }
