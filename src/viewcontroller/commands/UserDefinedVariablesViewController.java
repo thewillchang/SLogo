@@ -51,8 +51,8 @@ public class UserDefinedVariablesViewController extends
 
 	private void placeVariableTable() {
 		myListVerticalBox = new VBox();
-		addVariableToList("x", 5);
-		addVariableToList("y", 10);
+//		addVariableToList("x", 5);
+//		addVariableToList("y", 10);
 	}
 
 	@Override
@@ -62,21 +62,21 @@ public class UserDefinedVariablesViewController extends
 
 	@Override
 	public void update(MainModel model) {
-		UserDefinedVariablesModel myModel = model.getUserDefinedVariables();
+		UserDefinedVariablesModel myUserDefinedVariablesModel = model.getUserDefinedVariables();
 		applyTranslations();
-		myVariableMap = myModel.getAllVariables();
+		myVariableMap = myUserDefinedVariablesModel.getAllVariables();
 		updateVariableList();
 	}
 
 	private void updateVariableList() {
-		// myListVerticalBox.getChildren().clear();
+		myListVerticalBox.getChildren().clear();
 		for (String variable : myVariableMap.keySet()) {
 			addVariableToList(variable, myVariableMap.get(variable));
 		}
 	}
 
 	private void addVariableToList(String variable, double value) {
-		HBox variableHorizontalBox = new HBox(10);
+		HBox variableHorizontalBox = new HBox(100);
 		variableHorizontalBox.setPrefSize(SIZE.width, SIZE.height / 6);
 		Label variableLabel = new Label(variable);
 		Label valueLabel = new Label(Double.toString(value));

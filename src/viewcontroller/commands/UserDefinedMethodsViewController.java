@@ -1,6 +1,5 @@
 package viewcontroller.commands;
 
-import java.util.List;
 import java.util.Set;
 import javafx.scene.Node;
 import model.MainModel;

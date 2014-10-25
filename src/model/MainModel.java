@@ -107,7 +107,7 @@ public class MainModel {
 	}
 	
 	public void updateUserDefinedVariable(String variable, double value) {
-		myUserDefinedVariablesModel.putVariable(variable, value);
+		myUserDefinedVariablesModel.put(variable, value);
 	}
 	
 	/**
