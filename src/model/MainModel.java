@@ -44,6 +44,7 @@ public class MainModel {
 	private UserDefinedCommandsModel myUserDefinedMethodsModel;
 	private UserDefinedVariablesModel myUserDefinedVariablesModel;
 	
+	private double myAnimationSpeed;
 	private ParallelTransition myAnimation;
 
 	final String PROPERTIES_FILENAME = "SLogoState";
@@ -65,12 +66,19 @@ public class MainModel {
 	
 	public void changeTurtleImages(File file) {
 		for (Turtle turtle : myTurtles) {
-			turtle.setImage(file);
+			if (turtle.isSelected()) {
+				turtle.setImage(file);
+			}
 		}
 	}
 	
 	public Color getBackgroundColor() {
 		return myBackgroundColor;
+	}
+	
+	public void updateAnimationSpeed(double speed) {
+		myAnimation.setRate(speed);
+		myAnimationSpeed = speed;
 	}
 	
 	public void setBackgroundColor(Color color) {
@@ -81,7 +89,9 @@ public class MainModel {
 	
 	public void updatePenColor(Color color) {
 		for (Turtle turtle : myTurtles) {
-			turtle.getPen().setColor(color);
+			if (turtle.isSelected()) {
+				turtle.getPen().setColor(color);
+			}
 		}
 	}
 	
@@ -143,6 +153,7 @@ public class MainModel {
 			Animation animation = turtle.createAnimation(map.get(turtle));
 			myAnimation.getChildren().add(animation);
 		}
+		myAnimation.setRate(myAnimationSpeed);
 		myTurtleListHistory.updateList(map.keySet());
 	}
 	

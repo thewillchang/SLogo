@@ -25,11 +25,14 @@ public abstract class TurtleImage extends Group {
 		ourSize = size;
 	}
 	
-	public abstract void colorTurtle(Color color);
-
 	public void toggleSelection() {
 		myIsSelected = !myIsSelected;
 		selectedChanged();
+	}
+	
+	public void setSelection(boolean isSelected) {
+		myIsSelected = !isSelected;
+		toggleSelection();
 	}
 	
 	protected abstract void selectedChanged();

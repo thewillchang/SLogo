@@ -15,7 +15,7 @@ public class SLogoFont {
 		return Font.font("Garamond", FontWeight.BOLD, rootEm * 1.2);
 	}
 	
-	public Font createColorPickerFont() {
+	public Font createLabeledContainerFont() {
 		return Font.font("Garamond", FontWeight.NORMAL, rootEm * 1.4);
 	}
 	
