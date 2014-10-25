@@ -1,9 +1,8 @@
-package interpreter.expression.query;
+package interpreter.expression;
 
 import java.util.Deque;
 import model.MainModel;
 import interpreter.SLogoResult;
-import interpreter.expression.SLogoExpression;
 
 /**
  * superclass for SLogoExpressions that are Turtle Queries

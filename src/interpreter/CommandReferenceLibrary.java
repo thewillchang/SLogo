@@ -45,7 +45,7 @@ public class CommandReferenceLibrary {
     private ResourceBundle myNumberArguments;
     private ResourceBundle mySyntaxReference; 
     //TODO Refactor or delete... the functionality is the same as hashmap.....
-    private UserDefinedCommandsModel myDefinedMethods;
+    private UserDefinedCommandsModel myDefinedCommands;
     private UserDefinedVariablesModel myDefinedVariables;
 
     //private final String DEFAULT_LANGUAGE = "English";
@@ -71,7 +71,7 @@ public class CommandReferenceLibrary {
         myCommandToDirectoryMap = new HashMap<>();
         myCommandToNumArgsMap = new HashMap<>();
 
-        myDefinedMethods = new UserDefinedCommandsModel();
+        myDefinedCommands = new UserDefinedCommandsModel();
         myDefinedVariables = new UserDefinedVariablesModel();
 
         myUserDefinedCommandsMap = new HashMap<>();
@@ -128,16 +128,18 @@ public class CommandReferenceLibrary {
         }
     }
 
+    //TODO
     public void addUserDefinedCommand (String command) {
         return;
     }
 
-    public Map<String, SLogoExpression> getUserDefinedCommands () {
-        return myUserDefinedCommandsMap;
+    public UserDefinedCommandsModel getUserDefinedCommands () {
+        return  myDefinedCommands;
+        
     }
 
-    public Map<String, SLogoExpression> getUserDefinedVariables () {
-        return myUserDefinedVariablesMap;
+    public UserDefinedVariablesModel getUserDefinedVariables () {
+        return myDefinedVariables;
     }
 
     public Map<String,Integer> getCommandsToNumArgs () {

@@ -21,6 +21,7 @@ public abstract class SyntaxExpression implements SLogoExpression {
     protected MainModel myModel;
     protected int myNumArgs;
     protected Deque<SLogoExpression> myArguments;
+    protected String myValue;
     
     public SyntaxExpression() {
         myArguments = new ArrayDeque<>();
@@ -48,12 +49,16 @@ public abstract class SyntaxExpression implements SLogoExpression {
     }
     
     @Override
+    public int getNumArgs () {
+        return myNumArgs;
+    }
+    
+    @Override
     public SLogoResult evaluate() {
         return new SyntaxResult();
     }
 
     public abstract void setValue(String value);
-
 
 
 }

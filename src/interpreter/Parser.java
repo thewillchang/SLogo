@@ -61,19 +61,8 @@ public class Parser {
     private Deque<SLogoExpression> createExpressionsFromProcessedInput (Deque<String> processedInputStack) 
             throws SLogoParsingException {
         while(!processedInputStack.isEmpty()) {
-            //feeds inorder into Factory, gets reverse ordered stack?...        
             String input = processedInputStack.pop();
             parameterStack.push(myFactory.createExpression(input));
-            /*if(input.equals("to")&&!processedInputStack.isEmpty()) {
-                try {
-                    String undefinedCommand = processedInputStack.pop();
-                    parameterStack.push(myFactory.defineUserCommand(undefinedCommand));
-                }
-                catch (NullPointerException e) {
-                    System.out.println("Failed to specify sufficient parameters.");
-                    parameterStack.clear();
-                }
-            }*/
         }
         return parameterStack;
     }
@@ -104,20 +93,11 @@ public class Parser {
 
     }
 
-
-
-
-
     public static void main(String[] args) throws SLogoParsingException {
         Parser p = new Parser(new CommandReferenceLibrary(), new MainModel());
         String input = "fd 50";
 
        Deque<SLogoExpression> list = p.parseSLogoExpression(input);
-        System.out.println( list.pop().evaluate().getValue());
-
-        
+        System.out.println( list.pop().evaluate().getValue());   
     }
-
-
-
 }

@@ -64,7 +64,7 @@ public class UserDefinedVariablesViewController extends
 	public void update(MainModel model) {
 		UserDefinedVariablesModel myModel = model.getUserDefinedVariables();
 		applyTranslations();
-		myVariableMap = myModel.getVariables();
+		myVariableMap = myModel.getAllVariables();
 		updateVariableList();
 	}
 
