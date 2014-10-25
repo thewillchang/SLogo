@@ -39,6 +39,10 @@ public class CommandPromptViewController extends CommandWindowViewController
 		myCommandWindowVerticalBox.getChildren().add(
 				myCommandPromptHorizontalBox);
 	}
+	
+	public void setText(String text) {
+		myCommandPromptTextArea.setText(text);
+	}
 
 	private void setUpCommandPromptHorizontalBox() {
 		setUpCommandPrompt(SIZE.width * 9 /10 , SIZE.height * 9/10);

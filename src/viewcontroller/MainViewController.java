@@ -46,6 +46,10 @@ public class MainViewController implements ViewController, MainModelObserver {
 		myMainModel.interpretSLogoCommand(commandKey, operands);
 	}
 	
+	public void loadScript(String script) {
+		myCommandWindow.loadScript(script);
+	}
+	
 	public void toggleGridLines() {
 		myTurtleWindow.toggleGridLines();
 	}

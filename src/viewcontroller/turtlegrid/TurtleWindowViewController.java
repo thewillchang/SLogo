@@ -58,6 +58,10 @@ public class TurtleWindowViewController implements ViewController,
 		placeGridView();
 	}
 
+	public void passSLogoCommand(String commandKey, String operands) {
+		myParent.passSLogoCommand(commandKey, operands);
+	}
+	
 	private void animationSpeedChanged(double newSpeed) {
 		myParent.animationSpeedChanged(newSpeed);
 	}
@@ -78,7 +82,7 @@ public class TurtleWindowViewController implements ViewController,
 	}
 
 	private void placeGridView() {
-		myGridView = new GridViewController();
+		myGridView = new GridViewController(this);
 		myPane.setCenter(myGridView.getNode());
 		myChildObservers.add(myGridView);
 	}
