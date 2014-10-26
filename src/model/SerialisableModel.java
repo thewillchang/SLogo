@@ -5,6 +5,7 @@ import interpreter.SLogoResult;
 import java.io.Serializable;
 
 public class SerialisableModel implements Serializable {
+	
 	private SLogoResult mySLogoResult;
 	private String myLanguage;
 	private CommandHistoryModel myCommandHistoryModel;
