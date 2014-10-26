@@ -1,5 +1,7 @@
 package interpreter.expression.display;
 
-public class Stamp {
+import interpreter.expression.DisplayExpression;
+
+public class Stamp extends DisplayExpression {
 
 }

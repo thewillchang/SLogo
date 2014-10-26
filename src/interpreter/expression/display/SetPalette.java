@@ -1,5 +1,7 @@
 package interpreter.expression.display;
 
-public class SetPalette {
+import interpreter.expression.DisplayExpression;
+
+public class SetPalette extends DisplayExpression {
 
 }

@@ -52,6 +52,10 @@ public class Pen {
 		return myWidth;
 	}
 	
+	public void setWidth(double width) {
+		myWidth = width;
+	}
+	
 	/**
 	 * attaches the grid on which the pen is drawing
 	 * @param grid
