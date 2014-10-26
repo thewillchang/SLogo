@@ -14,6 +14,6 @@ public class Tangent extends MathExpression {
 
     @Override
     protected double applyMath (Deque<SLogoResult> results) {
-        return Math.tan(results.pop().getValue());
+        return Math.tan(Math.toRadians(results.pop().getValue()));
     }
 }

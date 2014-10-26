@@ -1,10 +1,15 @@
 package interpreter;
 
 
+import interpreter.expression.SLogoExpression;
+
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Deque;
+import java.util.List;
+
 import model.MainModel;
 import exceptions.SLogoParsingException;
-import interpreter.expression.SLogoExpression;
 
 
 /**
@@ -39,7 +44,8 @@ public class Interpreter {
      */
     public SLogoResult interpret (String input) {
         try {
-            Deque<SLogoExpression> parsedExpressions = myParser.parseSLogoExpression(input);
+        	String filteredInput = parseOutComments(input);
+            Deque<SLogoExpression> parsedExpressions = myParser.parseSLogoExpression(filteredInput);
             return myEvaluator.evaluateExpressionsAndMergeResults(parsedExpressions);
         }
         catch (SLogoParsingException e) {
@@ -48,6 +54,16 @@ public class Interpreter {
         return null;
     }
 
+    private String parseOutComments(String input) {
+    	List<String> lines = new ArrayList<>(Arrays.asList(input.split("\n")));
+    	List<String> filteredLines = new ArrayList<>();
+    	for (String line : lines) {
+    		if (!line.trim().startsWith("#")) {
+    			filteredLines.add(line.trim());
+    		}
+    	}
+    	return String.join(" ", filteredLines);
+    }
     
     public void setLanguage(String language) {
         myLibrary.setLanguageAndReferences(language);
