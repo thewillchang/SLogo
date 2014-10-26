@@ -8,7 +8,7 @@ public class Sine extends MathExpression {
 
     @Override
     protected double applyMath (Deque<SLogoResult> results) {
-        return Math.sin(results.pop().getValue());
+        return Math.sin(Math.toRadians(results.pop().getValue()));
     }
 
 }
