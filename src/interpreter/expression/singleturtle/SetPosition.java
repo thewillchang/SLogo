@@ -30,7 +30,7 @@ public class SetPosition extends TurtleCommandExpression {
             distance = Math.sqrt(Math.pow(deltaX, 2) + Math.pow(deltaY, 2));
         }
         myResult.getTransition().add(new TransitionState(PenChange.NO_CHANGE, 
-                                                         VisibleChange.NO_CHANGE, 0,    , 0));
+                                                         VisibleChange.NO_CHANGE, 0, 0   , 0));
         myResult.setValue(distance);
     }
 

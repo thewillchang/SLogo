@@ -71,7 +71,14 @@ public class SLogoExpressionFactory {
         SLogoExpression expression = checkTypeAndInitialize(command, myReferenceToCommandMap, StringType.NORMAL);
         return (expression == null) ? checkTypeAndInitialize(command, myReverseSyntaxMap, StringType.REGEX) : expression;
     }
-
+    
+    /**
+     * Checks whether the type of input is a predefined command or a regex and initializes the 
+     * @param command
+     * @param referenceMap
+     * @param type
+     * @return
+     */
     private SLogoExpression checkTypeAndInitialize(String command, 
                                                Map<String, String> referenceMap, StringType type) {
         for(String reference : referenceMap.keySet()) {
@@ -113,22 +120,5 @@ public class SLogoExpressionFactory {
         expression.setNumArgs(myCommandToNumArgsMap.get(name));
         expression.loadLibrary(myLibrary);
         expression.loadModel(myModel);
-    }
-
-    public SLogoExpression defineUserCommand(String command) throws SLogoParsingException {
-        //TODO define user defined commands, also refactor for lists etc.
-        return null;
-    }
-
-    public static void main(String[] args) throws SLogoParsingException {   
-        HashMap<String,String> asdf = new HashMap<>();
-        asdf.put("asdf","asdf");
-        System.out.println(asdf.containsKey("asdf"));
-        System.out.println(asdf.containsKey("a"));
-       /* SLogoExpressionFactory factory = new SLogoExpressionFactory(new CommandReferenceLibrary(), new MainModel());
-        ResourceBundle mySyntaxReference = ResourceBundle.getBundle("resources.languages.Syntax", Locale.US);
-        mySyntaxReference.getString("ListStart");
-        System.out.println("[".matches(mySyntaxReference.getString("ListStart")));*/
-        
     }
 }
