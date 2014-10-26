@@ -27,6 +27,7 @@ import model.MainModel;
 import model.Serialiser;
 import application.Main;
 import application.MessageBox;
+import application.PenForm;
 
 /**
  * Overall main view that can has menu bar and tabbed view that can 
@@ -73,6 +74,17 @@ public class View {
 		Workspace workspace = new Workspace(myLanguage);
 		addWorkspace(workspace);
 	}	
+	
+	public void editPenSettings() {
+		PenForm penForm = new PenForm();
+		penForm.show();
+		penForm.setOnSubmit(event -> shit(penForm));
+	}
+	
+	private void shit(PenForm penForm) {
+		penForm.close();
+		myCurrentWorkspace.getMainModel().updatePen(penForm);
+	}
 	
 	private void showMessage(String message) {
 		MessageBox messageBox = new MessageBox(message);
