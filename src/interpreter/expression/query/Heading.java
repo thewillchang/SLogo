@@ -1,6 +1,6 @@
 package interpreter.expression.query;
 
-import interpreter.CommandReferenceLibrary;
+import model.MainModel;
 import interpreter.expression.TurtleQueryExpression;
 
 /**
@@ -11,17 +11,8 @@ import interpreter.expression.TurtleQueryExpression;
 public class Heading extends TurtleQueryExpression {
 
 	@Override
-	public void setNumArgs(int value) {	
-	}
-
-	@Override
-	public void loadLibrary(CommandReferenceLibrary library) {
-		
-	}
-
-	@Override
-	public int getNumArgs() {
-		return 0;
+	protected double getValueFromModel(MainModel model) {
+		return model.getTurtles().get(0).getTurtle().getTranslateX();
 	}
 
 }

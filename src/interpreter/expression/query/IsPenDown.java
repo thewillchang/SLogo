@@ -1,21 +1,13 @@
 package interpreter.expression.query;
 
-import interpreter.CommandReferenceLibrary;
+import model.MainModel;
 import interpreter.expression.TurtleQueryExpression;
 
 public class IsPenDown extends TurtleQueryExpression {
 
 	@Override
-	public void setNumArgs(int value) {
+	protected double getValueFromModel(MainModel model) {
+		return (model.getTurtles().get(0).getPen().getPenDown()) ? 1 : 0;
 	}
 
-	@Override
-	public void loadLibrary(CommandReferenceLibrary library) {
-		
-	}
-	
-	@Override
-	public int getNumArgs(){
-		return 0;
-	}
 }

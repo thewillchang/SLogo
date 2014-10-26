@@ -26,21 +26,23 @@ public class GUIReferenceLibrary {
 	 */
 	public static void setGUIReference(String language) {
 		myGUIMap = new HashMap<>();
-		myCommandReference = ResourceBundle.getBundle("resources.languages.view." + language, Locale.US);
+		myCommandReference = ResourceBundle.getBundle(
+				"resources.languages.view." + language, Locale.US);
 		myKeySet = myCommandReference.keySet();
-		for(String keyString : myKeySet) {
+		for (String keyString : myKeySet) {
 			myGUIMap.put(keyString, myCommandReference.getString(keyString));
 		}
 	}
-	
+
 	public static String getStringTranslation(String GUIlabel) {
 		return myGUIMap.get(GUIlabel);
 	}
-	
+
 	public static void setHelpReference() {
-		myHelpReference = ResourceBundle.getBundle("resources.help.Help", Locale.US);
+		myHelpReference = ResourceBundle.getBundle("resources.help.Help",
+				Locale.US);
 	}
-	
+
 	public static String getURL(String URLID) {
 		return myHelpReference.getString(URLID);
 	}

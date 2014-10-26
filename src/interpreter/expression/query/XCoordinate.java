@@ -12,8 +12,7 @@ public class XCoordinate extends TurtleQueryExpression {
 	
 	@Override
 	protected double getValueFromModel(MainModel model) {
-		
-		return 0;
+		return model.getTurtles().get(0).getTurtle().getTranslateX();
 	}
 
 }

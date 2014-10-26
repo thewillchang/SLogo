@@ -1,5 +1,18 @@
 package interpreter.expression.query;
 
-public class IsShowing {
+import model.MainModel;
+import interpreter.expression.TurtleQueryExpression;
+
+/**
+ * 
+ * @author Abhishek B
+ *
+ */
+public class IsShowing extends TurtleQueryExpression {
+
+	@Override
+	protected double getValueFromModel(MainModel model) {
+		return model.getTurtles().get(0).getTurtle().getTranslateX();
+	}
 
 }
