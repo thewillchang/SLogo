@@ -38,7 +38,7 @@ public class GUIReferenceLibrary {
 	}
 	
 	public static void setHelpReference() {
-		myHelpReference = ResourceBundle.getBundle("resources.languages.help.Help", Locale.US);
+		myHelpReference = ResourceBundle.getBundle("resources.help.Help", Locale.US);
 	}
 	
 	public static String getURL(String URLID) {
