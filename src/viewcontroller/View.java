@@ -26,6 +26,7 @@ import model.Deserialiser;
 import model.MainModel;
 import model.Serialiser;
 import application.Main;
+import application.MessageBox;
 
 /**
  * Overall main view that can has menu bar and tabbed view that can 
@@ -73,6 +74,15 @@ public class View {
 		addWorkspace(workspace);
 	}	
 	
+	private void showMessage(String message) {
+		MessageBox messageBox = new MessageBox(message);
+		messageBox.show();
+	}
+	
+	private void noCurrentWorkspace() {
+		showMessage("No current workspace");
+	}
+	
 	private void addWorkspace(Workspace workspace) {
 		myWorkspaces.add(workspace);
 		myCurrentWorkspace = workspace;
@@ -91,7 +101,7 @@ public class View {
 			Workspace workspace = new Workspace(model);
 			addWorkspace(workspace);
 		} catch (FileNotFoundException e) {
-			System.out.println("failed deserialise");
+			showMessage("Failed to load workspace.");
 		}	
 	}
 	
@@ -105,6 +115,8 @@ public class View {
 				Serialiser serialiser = new Serialiser();
 				serialiser.serialise(myCurrentWorkspace.getMainModel(), file);
 			}
+		} else {
+			noCurrentWorkspace();
 		}
 	}
 	
@@ -126,24 +138,32 @@ public class View {
 	public void toggleGridLines() {
 		if (myCurrentWorkspace != null) {
 			myCurrentWorkspace.getViewController().toggleGridLines();
+		} else {
+			noCurrentWorkspace();
 		}
 	}
 	
 	public void undoClicked() {
 		if (myCurrentWorkspace != null) {
 			myCurrentWorkspace.getMainModel().undoClicked();
+		} else {
+			noCurrentWorkspace();
 		}
 	}
 	
 	public void redoClicked() {
 		if (myCurrentWorkspace != null) {
 			myCurrentWorkspace.getMainModel().redoClicked();
+		} else {
+			noCurrentWorkspace();
 		}
 	}
 	
 	public void addTurtleClicked() {
 		if (myCurrentWorkspace != null) {
 			myCurrentWorkspace.getMainModel().addTurtle();
+		} else {
+			noCurrentWorkspace();
 		}
 	}
 	
@@ -158,6 +178,8 @@ public class View {
 	        if (selectedFile != null) {
 	            myCurrentWorkspace.getMainModel().changeTurtleImages(selectedFile);
 	        }
+        } else {
+        	noCurrentWorkspace();
         }
 	}
 	
@@ -171,8 +193,10 @@ public class View {
 	        try {
 				myCurrentWorkspace.getViewController().loadScript(readFile(selectedFile));
 			} catch (IOException e) {
-				
+				showMessage("Failed to load file");
 			}
+		} else {
+			noCurrentWorkspace();
 		}
 	}
 	
@@ -201,7 +225,7 @@ public class View {
 		try {
 			myCurrentWorkspace = myWorkspaces.get(Integer.parseInt(newTab.idProperty().getValue()));
 		} catch (Exception e) {
-			//do nothing
+			myCurrentWorkspace = null;
 		}
 	}
 	
