@@ -8,7 +8,7 @@ import java.util.Set;
 
 /**
  * Model for User Defined Variables
- * @author Tanaka Jimha and Will Chang
+ * @author Tanaka Jimha and Jonathan Tseng
  *
  */
 public class UserDefinedVariablesModel implements Serializable {
@@ -32,7 +32,7 @@ public class UserDefinedVariablesModel implements Serializable {
 	public Double getVariable(String variable) {
 	    return myDefinedVariables.get(variable);
 	}
-	//TODO Add exception and check that the string being added is actually a variable regex.
+	
 	/**
 	 * adds an SLogo expression to the list of user defined variables
 	 * if variable already exists with same name, then it is replaced

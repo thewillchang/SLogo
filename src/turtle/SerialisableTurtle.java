@@ -6,8 +6,13 @@ import java.util.List;
 
 import javafx.scene.shape.Line;
 
+/**
+ * Serialisable Version of the Turtle class which doesn't hold the non serialisable javafx components
+ *  @author Tanaka Jimha
+ *
+ */
 public class SerialisableTurtle implements Serializable{
-	
+
 	private static int ourTurtleCount;
 	private int myId;
 	private double translateX;
@@ -18,24 +23,18 @@ public class SerialisableTurtle implements Serializable{
 	private String penColour;
 	private boolean isPenDown;
 	private List<Line> lines; 
-	//private TurtleViewController myTurtleViewController;
-	//private Pen myPen;
-	//private TurtleHistory myTurtleHistory;
+
 
 	public SerialisableTurtle(Turtle turtle) {
-		//myTurtleViewController = new TurtleViewController();
-		//myPen = new Pen(getTurtle());
+
 		myId = turtle.getId();
-		//myTurtleHistory = new TurtleHistory();
 		translateX = turtle.getTurtle().getTranslateX();
 		translateY = turtle.getTurtle().getTranslateY();
 		rotate = turtle.getTurtle().getRotate();
-		//isSelected = turtle.getMyTurtleViewController().isSelected();
-		//imageFile = turtle.getMyTurtleViewController().getImageFile();
 		penColour = turtle.getPen().getColor().toString();
 		isPenDown = turtle.getPen().getPenDown();
 		lines = turtle.getPen().getDrawnLines();
-		
+
 	}
 
 	public static int getOurTurtleCount() {
@@ -69,11 +68,11 @@ public class SerialisableTurtle implements Serializable{
 	public String getPenColour() {
 		return penColour;
 	}
-	
+
 	public boolean getIsPenDown() {
 		return isPenDown;
 	}
-	
+
 	public List<Line> getLines() {
 		return lines;
 	}

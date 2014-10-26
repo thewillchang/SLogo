@@ -1,6 +1,12 @@
 package model;
 import interpreter.result.SLogoResult;
 import java.io.Serializable;
+
+/**
+ * Serialisable Version of the MainModel which doesn't hold the non serialisable javafx components
+ *  @author Tanaka Jimha
+ *
+ */
 public class SerialisableModel implements Serializable {
         
         private SLogoResult mySLogoResult;

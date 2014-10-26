@@ -16,9 +16,7 @@ public class ModelUpdater {
 	public Map<Turtle, List<TransitionState>> updateModel(Collection<Turtle> turtles, List<TransitionState> states) {
 		Map<Turtle, List<TransitionState>> mapping = createTurtleTransitionMapping(turtles, states);
 		return mapping;
-		//		for (Turtle turtle : mapping.keySet()) {
-//			Animation animation = turtle.update(mapping.get(turtle));
-//		}
+	
 	}
 	
 	private Map<Turtle, List<TransitionState>> createTurtleTransitionMapping(Collection<Turtle> turtles, List<TransitionState> states) {
