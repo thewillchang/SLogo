@@ -1,8 +1,19 @@
 package model;
 
 import interpreter.SLogoResult;
+/**
+ *A serialisable version of model which does not hold non serialisable
+ *Javafx compnents and allows saving of some state in the model
+ * 
+ * @author Tanaka Jimha
+ *
+ */
+
 
 import java.io.Serializable;
+import java.util.List;
+
+import turtle.SerialisableTurtle;
 
 public class SerialisableModel implements Serializable {
 	
@@ -12,10 +23,10 @@ public class SerialisableModel implements Serializable {
 	private UserDefinedCommandsModel myUserDefinedMethodsModel;
 	private UserDefinedVariablesModel myUserDefinedVariablesModel;
 	private String backGroundColorName;
+	private List<SerialisableTurtle> mySerialisableTurtles;
 	
 	public SerialisableModel(MainModel model) {
 		this.myLanguage = model.getLanguage();
-		//this.myObservers= ;
 		//this.myTurtles = new ArrayList<>();
 		this.myCommandHistoryModel = model.getCommandHistory();
 		this.myUserDefinedMethodsModel = model.getUserDefinedMethods();
@@ -47,6 +58,17 @@ public class SerialisableModel implements Serializable {
 	public String getBackGroundColorName(){
 		return backGroundColorName;
 	}
+
+	public List<SerialisableTurtle> getMySerialisableTurtles() {
+		return mySerialisableTurtles;
+	}
+
+	public void setMySerialisableTurtles(
+			List<SerialisableTurtle> mySerialisableTurtles) {
+		this.mySerialisableTurtles = mySerialisableTurtles;
+	}
+	
+
 	
 	
 }

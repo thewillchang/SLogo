@@ -32,6 +32,14 @@ public class Pen {
 		this(turtle, ourDefaultColor, ourDefaultWidth);
 	}
 	
+	public Pen(Node turtle, String colour, boolean isPenDown) {
+		myTurtleNode = turtle;
+		myColor = Color.valueOf(colour);
+		myWidth = ourDefaultWidth;
+		myPenDown = isPenDown;
+		myDrawnLines = new ArrayList<>();
+	}
+	
 	public Pen(Node turtle, Color color, double width) {
 		myTurtleNode = turtle;
 		myColor = ourDefaultColor;
@@ -75,6 +83,15 @@ public class Pen {
 		return lines;
 	}
 	
+	public void setDrawnLines(List<Line> lines) {
+		myDrawnLines = lines;
+		for(Line line: myDrawnLines){
+			//myGrid.getChildren().remove(myTurtleNode);
+			myGrid.getChildren().add(line);
+			//myGrid.getChildren().add(myTurtleNode);
+		}
+
+	}
 	public void update(PenChange penChange) {
 		if (penChange.equals(PenChange.CHANGE_DOWN)) {
 			myPenDown = true;
@@ -85,6 +102,10 @@ public class Pen {
 	
 	public boolean getPenDown() {
 		return myPenDown;
+	}
+	
+	public void setPenDown(boolean bool) {
+		myPenDown = bool;
 	}
 	
 }

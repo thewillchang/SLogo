@@ -105,8 +105,10 @@ public class GridViewController implements ViewController, MainModelObserver {
 				myTurtles.add(turtle);
 				turtle.getPen().attachGrid(myGrid);
 				myGrid.getChildren().add(turtle.getTurtle());
-				turtle.getTurtle().setTranslateX(turtle.getTurtle().getTranslateX() + SIZE.width / 2);
-				turtle.getTurtle().setTranslateY(turtle.getTurtle().getTranslateY() + SIZE.height / 2);
+				turtle.getTurtle().setTranslateX(SIZE.width / 2);
+				turtle.getTurtle().setTranslateY(SIZE.height / 2);
+				//turtle.getTurtle().setTranslateX(turtle.getTurtle().getTranslateX() + SIZE.width / 2);
+				//turtle.getTurtle().setTranslateY(turtle.getTurtle().getTranslateY() + SIZE.height / 2);
 			}
 			fixGridBackground(turtle.getTurtleRadius());
 		}

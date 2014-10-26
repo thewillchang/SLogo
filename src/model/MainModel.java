@@ -23,7 +23,7 @@ import turtle.TurtleListHistory;
 import viewcontroller.MainModelObserver;
 
 /**
- * main model of program--contains and updates other models
+ * Main model of the program. Holds the state of the program, contains and updates other models
  * @author Tanaka Jimha
  *
  */
@@ -35,9 +35,9 @@ public class MainModel {
 	private boolean myTurtleAdded;
 	private boolean myFailedParse;
 	private List<MainModelObserver> myObservers;
-	private transient Interpreter myInterpreter;
-	private transient List<Turtle> myTurtles;
-	private transient TurtleListHistory myTurtleListHistory;
+	private Interpreter myInterpreter;
+	private List<Turtle> myTurtles;
+	private TurtleListHistory myTurtleListHistory;
 	private SLogoResult mySLogoResult;
 	private String myLanguage;
 	private CommandHistoryModel myCommandHistoryModel;
@@ -65,10 +65,12 @@ public class MainModel {
 
 	}
 
-	public MainModel(String language, CommandHistoryModel cHM, UserDefinedCommandsModel uDCM, UserDefinedVariablesModel uDVM, String backGroundColor){
+	public MainModel(String language, CommandHistoryModel cHM, UserDefinedCommandsModel uDCM, UserDefinedVariablesModel uDVM, 
+			String backGroundColor, List<Turtle> turtles){
+		
 		this.myLanguage = language;
 		this.myObservers = new ArrayList<>();
-		this.myTurtles = new ArrayList<>();
+		this.myTurtles = turtles;
 		this.myCommandHistoryModel = cHM;
 		this.myUserDefinedMethodsModel = uDCM;
 		this.myUserDefinedVariablesModel = uDVM;
@@ -150,7 +152,7 @@ public class MainModel {
 		notifyObservers();
 		myFailedParse = false;
 	}
-	
+
 	public void interpretSLogoCommand(String commandKey, String operands) {
 		Map<String, String> commandMap = myInterpreter.getCommandReferenceLibrary().getReferencesToCommands();
 		String command = commandKey.trim() + " " + operands.trim();

@@ -24,6 +24,7 @@ public class TurtleViewController implements ViewController {
 	private final static Dimension mySize = new Dimension(Main.SIZE.width / 40,
 			Main.SIZE.width / 40);
 	private TurtleImage myTurtleImage;
+	private File imageFile = null;
 
 	public TurtleViewController() {
 		TurtleImage.setSize(mySize);
@@ -50,6 +51,7 @@ public class TurtleViewController implements ViewController {
 			myGroup.getChildren().remove(myTurtleImage);
 			myGroup.getChildren().add(newTurtleImage);
 			myTurtleImage = newTurtleImage;
+			imageFile = file;
 		} catch (FileNotFoundException e) {
 			System.out.println("failed: " + e.toString());
 			newTurtleImage = new DefaultTurtleImage();
@@ -66,6 +68,10 @@ public class TurtleViewController implements ViewController {
 	 */
 	public double getRadius() {
 		return myTurtleImage.getRadius();
+	}
+	
+	public File getImageFile(){
+		return imageFile;
 	}
 
 	@Override
