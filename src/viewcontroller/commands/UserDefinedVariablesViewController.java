@@ -95,5 +95,4 @@ public class UserDefinedVariablesViewController extends
 			variableHBox.getChildren().add(valueLabel);
 		}
 	}
-
 }

@@ -49,16 +49,16 @@ public class SetPosition extends TurtleCommandExpression {
 
 	private double getThetaValue(double deltaX, double deltaY) {
 		if (deltaY < 0 && deltaX < 0) {
-			return 90 - Math.atan(deltaY / deltaX);
+			return 90 - Math.toDegrees(Math.atan(deltaY / deltaX));
 		}
 		if (deltaY < 0 && deltaX > 0) {
-			return 360 - Math.atan(deltaX / deltaY);
+			return 360 - Math.toDegrees(Math.atan(-deltaX / deltaY));
 		}
 		if (deltaY > 0 && deltaX < 0) {
-			return 180 - Math.atan(deltaX / deltaY);
+			return 180 - Math.toDegrees(Math.atan(-deltaX / deltaY));
 		}
 		if (deltaY > 0 && deltaX > 0) {
-			return 270 - Math.atan(deltaY / deltaX);
+			return 270 - Math.toDegrees(Math.atan(deltaY / deltaX));
 		}
 		
 		return 0;

@@ -117,6 +117,15 @@ public class MainModel {
 		}
 	}
 
+	public Turtle getActiveTurtle() {
+		for (Turtle turtle : myTurtles) {
+			if (turtle.isSelected()) {
+				return turtle;
+			}
+		}
+		return null;
+	}
+	
 	/**
 	 * adds a turtle
 	 */
