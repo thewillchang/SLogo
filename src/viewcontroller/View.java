@@ -97,8 +97,14 @@ public class View {
 	
 	public void saveWorkspace() {
 		if (myCurrentWorkspace != null) {
-			Serialiser serialiser = new Serialiser();
-			serialiser.serialise(myCurrentWorkspace.getMainModel());
+			FileChooser saveChooser = new FileChooser();
+			saveChooser.getExtensionFilters().add(new ExtensionFilter("Serializable", "*.ser"));
+			saveChooser.setTitle("Save workspace");
+			File file = saveChooser.showSaveDialog(myStage);
+			if (file != null) {
+				Serialiser serialiser = new Serialiser();
+				serialiser.serialise(myCurrentWorkspace.getMainModel(), file);
+			}
 		}
 	}
 	
