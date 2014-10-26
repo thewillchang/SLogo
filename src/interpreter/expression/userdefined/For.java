@@ -22,10 +22,10 @@ public class For extends UserDefinedExpression {
         List<TransitionState> transitionStates = myResult.getTransition();
         Deque<SLogoResult> results = new ArrayDeque<>();
         UserDefinedVariablesModel myVariables = myLibrary.getUserDefinedVariables();
-        //TODO fix this 
+
         List<SLogoExpression> argumentCopy = new ArrayList<>(myArguments);
         Deque<SLogoExpression> myParams = ((SyntaxResult) argumentCopy.get(0).evaluate()).getGroupedExpressions();
-        //TODO Add checks/exception handling
+
         String myVariable = myParams.pop().getValue();
         Integer start =  (int) myParams.pop().evaluate().getValue();
         Integer end = (int) myParams.pop().evaluate().getValue() ;

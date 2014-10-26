@@ -40,6 +40,12 @@ public class CommandReferenceLibrary {
     private UserDefinedCommandsModel myDefinedCommands;
     private UserDefinedVariablesModel myDefinedVariables;
     
+    /**
+     * Constructor
+     * @param language of the References
+     * @param commandsModel the commands model
+     * @param variablesModel the variables model
+     */
     public CommandReferenceLibrary(String language, UserDefinedCommandsModel commandsModel,
                                    UserDefinedVariablesModel variablesModel) {
         myDirectoryListing = ResourceBundle.getBundle("resources.languages.DirectoryListing", Locale.US);
@@ -50,10 +56,7 @@ public class CommandReferenceLibrary {
         myDefinedCommands = commandsModel;
         myDefinedVariables = variablesModel;
         
-        
-
         myCommandSet = new HashSet<>();
-        //commandMap = new HashMap<>();
         myReferenceToCommandMap = new HashMap<>();
 
         myDirectorySet = new HashSet<>();
@@ -67,6 +70,9 @@ public class CommandReferenceLibrary {
         
     }
 
+    /**
+     * Initialize the Directory References
+     */
     private void initializeDirectoryReferences () {
         for(String directory : myDirectorySet) {
             List<String> directoryReferences = Arrays.asList(myDirectoryListing.getString(directory).split("\\|"));
@@ -76,12 +82,18 @@ public class CommandReferenceLibrary {
         }
     }
 
+    /**
+     * Initializes the NumArgsMap
+     */
     private void initializeNumArgsMap () {
         for(String command : myCommandSet) {
             myCommandToNumArgsMap.put(command, Integer.valueOf(myNumberArguments.getString(command).split("\\s+")[0]));
         }
     }
 
+    /**
+     * Initializes the SyntaxMap
+     */
     private void initializeSyntaxMap () {
         mySyntaxMap = new HashMap<>();
         myReverseSyntaxMap = new LinkedHashMap<>();
@@ -92,6 +104,10 @@ public class CommandReferenceLibrary {
         }
     }
     
+    /**
+     * Sets the language for the Command References
+     * @param language
+     */
     public void setLanguageAndReferences(String language) {
         myLanguage = language;
         setCommandReference(language);
@@ -116,11 +132,10 @@ public class CommandReferenceLibrary {
         }
     }
 
-    //TODO
-    public void addUserDefinedCommand (String command) {
-        return;
-    }
-
+    /**
+     * Getters for all References
+     * @return
+     */
     public UserDefinedCommandsModel getUserDefinedCommands () {
         return  myDefinedCommands;
         

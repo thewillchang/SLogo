@@ -13,8 +13,7 @@ import exceptions.SLogoParsingException;
  * @author Will Chang
  *
  */
-//TODO refactor, move logic for loading arguments into the parser...
-//refactor from destroying the list...
+
 public class ListStart extends SyntaxExpression {
     private int mySize;
     

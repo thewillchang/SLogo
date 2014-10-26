@@ -25,7 +25,6 @@ public class UserDefinedResult extends SLogoResult {
 
     @Override
     public SLogoParsingException getException () {
-        // TODO Auto-generated method stub
         return null;
     }
 

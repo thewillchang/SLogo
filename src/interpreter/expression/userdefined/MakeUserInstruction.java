@@ -15,7 +15,7 @@ import model.UserDefinedCommandsModel;
  *
  */
 public class MakeUserInstruction extends UserDefinedExpression {
-    //TODO Error check improperly definedmethod names... check for preexisting methods
+    
     @Override
     public SLogoResult evaluate () {
         String name = myArguments.pop().evaluate().toString();

@@ -4,6 +4,12 @@ import java.util.List;
 import transitionstate.TransitionState;
 import exceptions.SLogoParsingException;
 
+/**
+ * 
+ * @author Will
+ *
+ */
+
 public class ControlStructureResult extends SLogoResult{
 
 
@@ -16,7 +22,6 @@ public class ControlStructureResult extends SLogoResult{
 
     @Override
     public SLogoParsingException getException () {
-        // TODO Auto-generated method stub
         return null;
     }
 

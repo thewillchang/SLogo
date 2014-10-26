@@ -17,18 +17,17 @@ import transitionstate.TransitionState;
  */
 public class DoTimes extends UserDefinedExpression {
     
-    //TODO Refactor for duplicated code with REPEAT!!!
     @Override
     public SLogoResult evaluate () {
         SLogoResult myResult = new ControlStructureResult();
         List<TransitionState> transitionStates = myResult.getTransition();
         Deque<SLogoResult> results = new ArrayDeque<>();
         UserDefinedVariablesModel myVariables = myLibrary.getUserDefinedVariables();
-        //TODO fix this 
+
         List<SLogoExpression> argumentCopy = new ArrayList<>(myArguments);
         Deque<SLogoExpression> myParams = ((SyntaxResult) argumentCopy.get(0).evaluate()).getGroupedExpressions();
         String myLimitVariable = myParams.pop().getValue();
-        //TODO Add checks/exception handling
+
         Integer limit = (int) myParams.pop().evaluate().getValue();
         
         

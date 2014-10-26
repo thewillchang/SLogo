@@ -1,13 +1,8 @@
 package interpreter;
 
 import interpreter.expression.*;
-import java.util.Locale;
 import java.util.Map;
-import java.util.ResourceBundle;
-import java.util.Set;
 import model.MainModel;
-import model.UserDefinedCommandsModel;
-import model.UserDefinedVariablesModel;
 import exceptions.SLogoParsingException;
 
 /**
@@ -24,10 +19,7 @@ public class SLogoExpressionFactory {
     private Map<String,String> myReverseSyntaxMap;
     private Map<String,String> myCommandToDirectoryMap;
     private Map<String,Integer> myCommandToNumArgsMap;
-    
-    private UserDefinedCommandsModel myUserDefinedCommands;
-    private UserDefinedVariablesModel myUserDefinedVariables;
-    private Set<String> mySyntaxSet;
+   
 
     private CommandReferenceLibrary myLibrary;
     private MainModel myModel;
@@ -54,9 +46,7 @@ public class SLogoExpressionFactory {
         myReverseSyntaxMap = myLibrary.getReverseSyntaxes();
         myCommandToDirectoryMap = myLibrary.getCommandsToDirectories();
         myCommandToNumArgsMap = myLibrary.getCommandsToNumArgs();
-        myUserDefinedCommands = myLibrary.getUserDefinedCommands();
-        myUserDefinedVariables = myLibrary.getUserDefinedVariables();
-        mySyntaxSet = myLibrary.getSyntaxSet();
+        
     }
     
     /**

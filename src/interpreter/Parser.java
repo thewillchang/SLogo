@@ -19,16 +19,14 @@ public class Parser {
     private Deque<SLogoExpression> loadedExpressions;
 
     private SLogoExpressionFactory myFactory;
-    private CommandReferenceLibrary myLibrary;
-    private MainModel myModel;
+    
 
     /**
      * Constructor
      * @param library
      */
     public Parser(CommandReferenceLibrary library, MainModel model) {
-        myModel = model;
-        myLibrary = library;
+        
         myFactory = new SLogoExpressionFactory(library, model);
         
         parameterStack =  new ArrayDeque<>();

@@ -2,8 +2,7 @@ package interpreter.expression.conditional;
 
 import interpreter.expression.ConditionalExpression;
 import interpreter.result.SLogoResult;
-import java.util.ArrayDeque;
-import java.util.Deque;
+
 
 /**
  * 

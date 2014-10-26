@@ -4,6 +4,11 @@ import java.util.Deque;
 import interpreter.expression.MathExpression;
 import interpreter.result.SLogoResult;
 
+/**
+ * 
+ * @author Will
+ *
+ */
 public class Quotient extends MathExpression {
 
     @Override

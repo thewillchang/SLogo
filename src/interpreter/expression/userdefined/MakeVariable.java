@@ -5,9 +5,15 @@ import interpreter.result.SLogoResult;
 import java.util.ArrayList;
 import java.util.List;
 import model.UserDefinedVariablesModel;
+/**
+ * 
+ * @author Will
+ *
+ */
+
 public class MakeVariable extends UserDefinedExpression {
     
-    //TODO add to set as well as map?...
+
     @Override
     public SLogoResult evaluate () {
         UserDefinedVariablesModel myVariables = myLibrary.getUserDefinedVariables();
