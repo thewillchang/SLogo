@@ -3,8 +3,8 @@ package interpreter.expression.syntax;
 import java.util.Deque;
 import model.MainModel;
 import interpreter.CommandReferenceLibrary;
-import interpreter.SLogoResult;
 import interpreter.expression.SLogoExpression;
+import interpreter.result.SLogoResult;
 
 public class GroupStart implements SLogoExpression {
 

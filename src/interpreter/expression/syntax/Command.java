@@ -8,10 +8,10 @@ import exceptions.SLogoParsingException;
 import transitionstate.TransitionState;
 import model.UserDefinedCommandsModel;
 import model.UserDefinedVariablesModel;
-import interpreter.SLogoResult;
-import interpreter.SyntaxResult;
 import interpreter.expression.SLogoExpression;
 import interpreter.expression.SyntaxExpression;
+import interpreter.result.SLogoResult;
+import interpreter.result.SyntaxResult;
 
 /**
  * 

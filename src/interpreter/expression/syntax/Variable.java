@@ -2,11 +2,11 @@ package interpreter.expression.syntax;
 
 import java.util.Map;
 import model.UserDefinedVariablesModel;
-import interpreter.SLogoResult;
-import interpreter.SyntaxResult;
-import interpreter.UserDefinedResult;
 import interpreter.expression.SLogoExpression;
 import interpreter.expression.SyntaxExpression;
+import interpreter.result.SLogoResult;
+import interpreter.result.SyntaxResult;
+import interpreter.result.UserDefinedResult;
 
 public class Variable extends SyntaxExpression {
     

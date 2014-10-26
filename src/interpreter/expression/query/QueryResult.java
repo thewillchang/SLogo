@@ -1,10 +1,9 @@
 package interpreter.expression.query;
 
 import java.util.List;
-
 import transitionstate.TransitionState;
 import exceptions.SLogoParsingException;
-import interpreter.SLogoResult;
+import interpreter.result.SLogoResult;
 
 public class QueryResult extends SLogoResult {
 

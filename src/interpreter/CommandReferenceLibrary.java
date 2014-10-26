@@ -13,7 +13,8 @@ import model.UserDefinedCommandsModel;
 import model.UserDefinedVariablesModel;
 
 /**
- * Holds references to Syntax etc.
+ * Holds references to Syntax, Commands, and UserDefinedCommands
+ * and Variables
  * 
  * @author Will Chang
  *
@@ -21,11 +22,8 @@ import model.UserDefinedVariablesModel;
 
 public class CommandReferenceLibrary {
 
-    //private Map<Pattern, String> patternsToCommandMap;
     private Map<String, String> myReferenceToCommandMap;
 
-    //Deprecated
-    //private Map<String, List<String>> commandMap;
     private Set<String> myCommandSet;
     private Set<String> myDirectorySet;
 
@@ -35,18 +33,12 @@ public class CommandReferenceLibrary {
     private Map<String, Integer> myCommandToNumArgsMap;
 
     private String myLanguage;
-
     private ResourceBundle myCommandReference; 
     private ResourceBundle myDirectoryListing;
     private ResourceBundle myNumberArguments;
     private ResourceBundle mySyntaxReference; 
-    //TODO Refactor or delete... the functionality is the same as hashmap.....
     private UserDefinedCommandsModel myDefinedCommands;
     private UserDefinedVariablesModel myDefinedVariables;
-
-    //private final String DEFAULT_LANGUAGE = "English";
-
-
     
     public CommandReferenceLibrary(String language, UserDefinedCommandsModel commandsModel,
                                    UserDefinedVariablesModel variablesModel) {

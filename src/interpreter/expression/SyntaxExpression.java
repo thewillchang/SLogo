@@ -7,8 +7,8 @@ import java.util.List;
 import exceptions.SLogoParsingException;
 import model.MainModel;
 import interpreter.CommandReferenceLibrary;
-import interpreter.SLogoResult;
-import interpreter.SyntaxResult;
+import interpreter.result.SLogoResult;
+import interpreter.result.SyntaxResult;
 
 /**
  * superclass for SLogoExpressions that are purely syntax

@@ -6,8 +6,8 @@ import java.util.List;
 import model.MainModel;
 import exceptions.SLogoParsingException;
 import interpreter.CommandReferenceLibrary;
-import interpreter.SLogoResult;
-import interpreter.TurtleCommandResult;
+import interpreter.result.SLogoResult;
+import interpreter.result.TurtleCommandResult;
 
 
 /**

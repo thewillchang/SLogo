@@ -1,8 +1,8 @@
 package interpreter.expression.math;
 
 import java.util.Deque;
-import interpreter.SLogoResult;
 import interpreter.expression.MathExpression;
+import interpreter.result.SLogoResult;
 
 public class Quotient extends MathExpression {
 

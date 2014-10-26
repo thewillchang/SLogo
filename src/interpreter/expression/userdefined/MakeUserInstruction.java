@@ -1,11 +1,11 @@
 package interpreter.expression.userdefined;
 
-import interpreter.SLogoResult;
-import interpreter.SyntaxResult;
-import interpreter.UserDefinedResult;
 import interpreter.expression.SLogoExpression;
 import interpreter.expression.UserDefinedExpression;
 import interpreter.expression.syntax.ListEnd;
+import interpreter.result.SLogoResult;
+import interpreter.result.SyntaxResult;
+import interpreter.result.UserDefinedResult;
 import java.util.ArrayList;
 import java.util.Deque;
 import java.util.List;

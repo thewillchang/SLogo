@@ -4,7 +4,7 @@ import java.util.Deque;
 import model.MainModel;
 import exceptions.SLogoParsingException;
 import interpreter.CommandReferenceLibrary;
-import interpreter.SLogoResult;
+import interpreter.result.SLogoResult;
 
 /**
  * Interface that SLogo Expressions must implement

@@ -16,16 +16,16 @@ public class Main extends Application {
 	
 	
 	@Override
-	public void start(Stage primaryStage) {
+	public void start (Stage primaryStage) {
 		try {
 			StartMenu menu = new StartMenu();
 			menu.show();
-		} catch(Exception e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
 	
-	public static void main(String[] args) {
+	public static void main (String[] args) {
 		launch(args);
 	}
 }

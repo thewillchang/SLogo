@@ -1,6 +1,6 @@
 package viewcontroller.commands;
 
-import interpreter.SLogoResult;
+import interpreter.result.SLogoResult;
 import model.MainModel;
 import javafx.geometry.Insets;
 import javafx.scene.Node;

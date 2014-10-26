@@ -1,7 +1,7 @@
 package interpreter.expression.singleturtle;
 
-import interpreter.SLogoResult;
 import interpreter.expression.TurtleCommandExpression;
+import interpreter.result.SLogoResult;
 
 
 public class SetTowards extends TurtleCommandExpression {

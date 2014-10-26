@@ -2,8 +2,8 @@ package interpreter.expression.singleturtle;
 
 import java.util.Deque;
 import java.util.List;
-import interpreter.SLogoResult;
 import interpreter.expression.TurtleCommandExpression;
+import interpreter.result.SLogoResult;
 import transitionstate.TransitionState;
 import transitionstate.TransitionState.PenChange;
 import transitionstate.TransitionState.VisibleChange;

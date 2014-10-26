@@ -1,9 +1,9 @@
 package interpreter.expression.syntax;
 
-import interpreter.SLogoResult;
-import interpreter.SyntaxResult;
 import interpreter.expression.SLogoExpression;
 import interpreter.expression.SyntaxExpression;
+import interpreter.result.SLogoResult;
+import interpreter.result.SyntaxResult;
 import java.util.ArrayDeque;
 import java.util.Deque;
 import java.util.List;

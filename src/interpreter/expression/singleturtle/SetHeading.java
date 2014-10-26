@@ -1,7 +1,7 @@
 package interpreter.expression.singleturtle;
 
-import interpreter.SLogoResult	;
 import interpreter.expression.TurtleCommandExpression;
+import interpreter.result.SLogoResult;
 import java.util.Deque;
 import java.util.List;
 import transitionstate.TransitionState;

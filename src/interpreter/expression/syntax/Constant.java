@@ -1,9 +1,9 @@
 package interpreter.expression.syntax;
 
 
-import interpreter.SLogoResult;
-import interpreter.SyntaxResult;
 import interpreter.expression.SyntaxExpression;
+import interpreter.result.SLogoResult;
+import interpreter.result.SyntaxResult;
 
 /**
  * 

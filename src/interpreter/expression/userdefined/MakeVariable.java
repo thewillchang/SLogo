@@ -3,9 +3,9 @@ package interpreter.expression.userdefined;
 import java.util.ArrayList;
 import java.util.List;
 import model.UserDefinedVariablesModel;
-import interpreter.SLogoResult;
 import interpreter.expression.SLogoExpression;
 import interpreter.expression.UserDefinedExpression;
+import interpreter.result.SLogoResult;
 
 public class MakeVariable extends UserDefinedExpression {
 

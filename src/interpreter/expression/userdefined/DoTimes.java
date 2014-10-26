@@ -6,11 +6,11 @@ import java.util.Deque;
 import java.util.List;
 import model.UserDefinedVariablesModel;
 import transitionstate.TransitionState;
-import interpreter.ControlStructureResult;
-import interpreter.SLogoResult;
-import interpreter.SyntaxResult;
 import interpreter.expression.SLogoExpression;
 import interpreter.expression.UserDefinedExpression;
+import interpreter.result.ControlStructureResult;
+import interpreter.result.SLogoResult;
+import interpreter.result.SyntaxResult;
 
 /**
  * 

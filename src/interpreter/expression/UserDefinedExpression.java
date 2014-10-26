@@ -5,8 +5,8 @@ import java.util.Deque;
 import model.MainModel;
 import exceptions.SLogoParsingException;
 import interpreter.CommandReferenceLibrary;
-import interpreter.SLogoResult;
-import interpreter.UserDefinedResult;
+import interpreter.result.SLogoResult;
+import interpreter.result.UserDefinedResult;
 
 /**
  * class of SLogoExpressions for User Defined Expressions

@@ -1,8 +1,7 @@
 package model;
 
 import interpreter.Interpreter;
-import interpreter.SLogoResult;
-
+import interpreter.result.SLogoResult;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -11,7 +10,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.Properties;
-
 import javafx.animation.Animation;
 import javafx.animation.ParallelTransition;
 import javafx.scene.paint.Color;

@@ -5,6 +5,7 @@ import java.util.Deque;
 import model.MainModel;
 import exceptions.SLogoParsingException;
 import interpreter.expression.SLogoExpression;
+import interpreter.result.SLogoResult;
 
 
 /**
@@ -31,7 +32,6 @@ public class Interpreter {
         myEvaluator = new ExpressionEvaluator();
     }
 
-
     /**
      * Interprets user input, parses into SLogoExpressions, and returns an SLogo result
      * @param command 
@@ -48,21 +48,19 @@ public class Interpreter {
         return null;
     }
 
-    
+    /**
+     * Sets the language of the Interpreter/Library
+     * @param language to be set
+     */
     public void setLanguage(String language) {
         myLibrary.setLanguageAndReferences(language);
     }
     
+    /**
+     * Gets the Library
+     * @return myCommandReferenceLibrary
+     */
     public CommandReferenceLibrary getCommandReferenceLibrary () {
         return myLibrary;
     }
-
-    public static void main(String[] args) throws SLogoParsingException {
-        Interpreter interpreter = new Interpreter(new MainModel("English"));
-        String input = "forward forward 50";
-        CommandReferenceLibrary lib = interpreter.getCommandReferenceLibrary();
-        System.out.println(interpreter.interpret(input).getTransition().size());
-    }
-
-
 }

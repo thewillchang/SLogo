@@ -73,7 +73,8 @@ public class SLogoExpressionFactory {
     }
     
     /**
-     * Checks whether the type of input is a predefined command or a regex and initializes the expression.
+     * Checks whether the type of input is a predefined command or a regex and initializes the expression
+     * using reflection
      * @param command the command's name the user inputted
      * @param referenceMap the map which holds the type of references to check
      * @param type the type of input it is
@@ -120,6 +121,11 @@ public class SLogoExpressionFactory {
         return (StringType.NORMAL == type) ? command.equals(reference) : command.matches(reference);
     }
     
+    /**
+     * Initializes the parameters of the Expression.
+     * @param expression to initialize
+     * @param name of the expression
+     */
     private void initializeExpression(SLogoExpression expression, String name) {
         expression.setNumArgs(myCommandToNumArgsMap.get(name));
         expression.loadLibrary(myLibrary);

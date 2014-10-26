@@ -1,4 +1,4 @@
-package interpreter;
+package interpreter.result;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,7 +1,6 @@
 package model;
 
-import interpreter.SLogoResult;
-
+import interpreter.result.SLogoResult;
 import java.io.Serializable;
 
 public class SerialisableModel implements Serializable {

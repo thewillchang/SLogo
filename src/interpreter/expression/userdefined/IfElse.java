@@ -1,27 +1,29 @@
 package interpreter.expression.userdefined;
 
 import java.util.ArrayDeque;
+import java.util.ArrayList;
 import java.util.Deque;
 import java.util.List;
 import transitionstate.TransitionState;
-import interpreter.ControlStructureResult;
-import interpreter.SLogoResult;
 import interpreter.expression.SLogoExpression;
 import interpreter.expression.UserDefinedExpression;
+import interpreter.result.ControlStructureResult;
+import interpreter.result.SLogoResult;
 
 public class IfElse extends UserDefinedExpression {
 
     @Override
     public SLogoResult evaluate () {
         Deque<SLogoResult> myResults = new ArrayDeque<>();
-        SLogoResult condition = myArguments.pop().evaluate();
+        List<SLogoExpression> copyArguments = new ArrayList<>(myArguments);
+        SLogoResult condition = copyArguments.get(0).evaluate();
         myResults.add(condition);
-        SLogoExpression commands =  myArguments.pop();
+        SLogoExpression commands =  copyArguments.get(1);
         if (condition.getValue() > 0) {
            myResults.add(commands.evaluate());
         }
         else {
-            commands = myArguments.pop();
+            commands = copyArguments.get(2);
             myResults.add(commands.evaluate());
         }
         return merge(myResults);

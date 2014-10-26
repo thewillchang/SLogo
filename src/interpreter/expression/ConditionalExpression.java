@@ -1,8 +1,8 @@
 package interpreter.expression;
 
 import interpreter.CommandReferenceLibrary;
-import interpreter.SLogoResult;
 import interpreter.expression.conditional.ConditionalResult;
+import interpreter.result.SLogoResult;
 import java.util.ArrayDeque;
 import java.util.Deque;
 import model.MainModel;

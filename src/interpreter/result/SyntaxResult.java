@@ -1,4 +1,4 @@
-package interpreter;
+package interpreter.result;
 
 import interpreter.expression.SLogoExpression;
 import java.util.ArrayDeque;
