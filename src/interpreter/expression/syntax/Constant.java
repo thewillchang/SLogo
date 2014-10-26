@@ -12,7 +12,7 @@ import interpreter.expression.SyntaxExpression;
  */
 public class Constant extends SyntaxExpression {
     
-    private double myValue;
+    private Double myValue;
     
     public Constant () {
         this(0);
@@ -25,6 +25,11 @@ public class Constant extends SyntaxExpression {
     @Override
     public void setValue(String value) {
         myValue = Double.parseDouble(value);
+    }
+    
+    @Override
+    public String getValue() {
+        return myValue.toString();
     }
     
     @Override

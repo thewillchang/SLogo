@@ -27,6 +27,7 @@ public abstract class ConditionalExpression implements SLogoExpression {
     
     protected CommandReferenceLibrary myLibrary;
     protected MainModel myModel;
+    protected String myValue;
     
     public ConditionalExpression () {
         myArguments = new ArrayDeque<>();
@@ -90,6 +91,16 @@ public abstract class ConditionalExpression implements SLogoExpression {
     @Override
     public int getNumArgs () {
         return myNumArgs;
+    }
+    
+    @Override
+    public void setValue(String value) {
+        myValue = value;
+    }
+    
+    @Override
+    public String getValue () {
+        return myValue;
     }
     
     protected abstract boolean hasSatisfiedCondition(SLogoResult argument);

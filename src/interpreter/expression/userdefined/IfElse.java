@@ -40,9 +40,5 @@ public class IfElse extends UserDefinedExpression {
     }
 
 
-    @Override
-    public void setValue (String value) {
-        // TODO Auto-generated method stub
-        
-    }
+    
 }

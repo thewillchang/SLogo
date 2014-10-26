@@ -21,8 +21,5 @@ public class MakeVariable extends UserDefinedExpression {
         return myAssignment;
     }
     
-    @Override
-    public void setValue (String value) {
-    }
 
 }

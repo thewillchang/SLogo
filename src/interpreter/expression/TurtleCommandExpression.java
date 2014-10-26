@@ -21,6 +21,7 @@ public abstract class TurtleCommandExpression implements SLogoExpression {
     protected int myNumArgs;
     protected CommandReferenceLibrary myLibrary;
     protected MainModel myModel;
+    protected String myValue;
 
     public TurtleCommandExpression() {
         myArguments = new ArrayDeque<>();
@@ -73,6 +74,16 @@ public abstract class TurtleCommandExpression implements SLogoExpression {
     @Override
     public int getNumArgs () {
         return myNumArgs;
+    }
+    
+    @Override
+    public void setValue(String value) {
+        myValue = value;
+    }
+    
+    @Override
+    public String getValue () {
+        return myValue;
     }
     
     protected abstract void setNextTransition(SLogoResult myResult, double value); 

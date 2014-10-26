@@ -13,6 +13,7 @@ import interpreter.SLogoResult;
 public abstract class TurtleQueryExpression implements SLogoExpression {
 
 	protected MainModel myModel;
+	protected String myValue;
 
 	/**
 	 * Querying expressions do not take arguments, so this is not defined
@@ -30,5 +31,15 @@ public abstract class TurtleQueryExpression implements SLogoExpression {
 	public SLogoResult evaluate() {
 		return null;
 	}
+	
+	@Override
+	    public void setValue(String value) {
+	        myValue = value;
+	    }
+	
+	@Override
+	    public String getValue () {
+	        return myValue;
+	    }
 
 }

@@ -48,10 +48,6 @@ public class Repeat extends UserDefinedExpression {
         return myResult;
     }
     
-    //This doesnt use it.
-    @Override
-    public void setValue(String value) {
-        
-    }
+    
 
 }

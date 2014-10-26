@@ -18,6 +18,7 @@ public abstract class UserDefinedExpression implements SLogoExpression{
     protected MainModel myModel;
     protected int myNumArgs;
     protected Deque<SLogoExpression> myArguments;
+    protected String myValue;
     
     public UserDefinedExpression () {
         myArguments = new ArrayDeque<>();
@@ -49,8 +50,16 @@ public abstract class UserDefinedExpression implements SLogoExpression{
         return myNumArgs;
     }
     
-    public abstract void setValue(String value);
+    @Override
+    public void setValue (String value) {
+        myValue = value;
+    }
 
+    @Override
+    public String getValue () {
+        return myValue;
+    }
+    
     @Override
     public SLogoResult evaluate() {
         return new UserDefinedResult();
