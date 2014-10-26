@@ -19,6 +19,7 @@ import exceptions.SLogoParsingException;
  */
 public class SLogoExpressionFactory {
 
+    private final String CLASS_PATH = "interpreter.expression.";
     
     private Map<String,String> myReferenceToCommandMap;
     private Map<String,String> myReverseSyntaxMap;
@@ -31,8 +32,6 @@ public class SLogoExpressionFactory {
 
     private CommandReferenceLibrary myLibrary;
     private MainModel myModel;
-
-    private final String CLASS_PATH = "interpreter.expression.";
     
     private enum StringType {
         REGEX, NORMAL
@@ -73,7 +72,6 @@ public class SLogoExpressionFactory {
         return (expression == null) ? checkTypeAndInitialize(command, myReverseSyntaxMap, StringType.REGEX) : expression;
     }
 
-    //Need a special case for checking variables/user defined methods, would be getting from the maps...
     private SLogoExpression checkTypeAndInitialize(String command, 
                                                Map<String, String> referenceMap, StringType type) {
         for(String reference : referenceMap.keySet()) {
@@ -88,8 +86,6 @@ public class SLogoExpressionFactory {
                     SLogoExpression expression = (SLogoExpression) commandClass.newInstance();
                     initializeExpression(expression, name);
                     expression.setValue(command);
-                    System.out.println("command value" + command);
-                    System.out.println(expression.getValue());
                     return expression;
                 }
                 catch (ClassNotFoundException e) {
@@ -103,7 +99,6 @@ public class SLogoExpressionFactory {
                 }
             }
         }
-        //TODO Create an EmptyExpression as a null object holder.
         return null;
     }
 

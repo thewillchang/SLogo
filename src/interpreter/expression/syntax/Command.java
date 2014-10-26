@@ -23,44 +23,39 @@ public class Command extends SyntaxExpression {
     
     private SLogoExpression myCommands;
     private List<String> myVariableReferences;
+    private UserDefinedCommandsModel allDefinedCommands; 
 
     public Command() {
         super();
         myVariableReferences = new ArrayList<>();
+        
     }
 
-    public Command (String name, SLogoExpression commands) {
-        super();
-        setValue(name);
-        myCommands = commands;
 
-    }
 
     @Override
     public void loadArguments(Deque<SLogoExpression> args) throws SLogoParsingException, NullPointerException {
         
-        UserDefinedCommandsModel allDefinedCommands = myLibrary.getUserDefinedCommands();
+        allDefinedCommands = myModel.getUserDefinedMethods();
         if(allDefinedCommands.containsCommand(myValue)) {
             myVariableReferences = allDefinedCommands.getVariablesForCommand(myValue);
             myNumArgs = myVariableReferences.size();
             for(int i = 0; i < myNumArgs; i++) {
                 myArguments.add(args.pop());
             }
-            myCommands = allDefinedCommands.getCommand(myValue);
         }
     }
 
     @Override
     public SLogoResult evaluate () {
-        UserDefinedCommandsModel myUserDefinedCommands = myLibrary.getUserDefinedCommands();
         UserDefinedVariablesModel myUserDefinedVariables = myLibrary.getUserDefinedVariables();
         SLogoResult myResult = new SyntaxResult(myValue);
 
         Deque<SLogoExpression> copyArguments = new ArrayDeque<>(myArguments);
 
-        if(myUserDefinedCommands.containsCommand(myValue)) {
+        if(allDefinedCommands.containsCommand(myValue)) {
             List<TransitionState> transitionStates = myResult.getTransition();
-            
+            myCommands = allDefinedCommands.getCommand(myValue);
             if(myNumArgs > 0) {
                 for(String variableName : myVariableReferences) {
                     SLogoResult result = copyArguments.pop().evaluate();
