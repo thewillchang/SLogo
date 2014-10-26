@@ -11,6 +11,7 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import model.MainModel;
 import viewcontroller.MainModelObserver;
+import viewcontroller.MainViewController;
 import viewcontroller.ViewController;
 import application.Main;
 
@@ -28,7 +29,7 @@ public class CommandWindowContainerViewController implements ViewController,
 	private static Dimension SIZE = new Dimension(
 			Main.SIZE.width / 2 * 9 / 10, Main.SIZE.height * 9 / 10);
 
-	private MainModel myMainModel;
+	private MainViewController myParent;
 	private BorderPane myPane;
 	private VBox myCommandWindowVerticalBox;
 	private UserDefinedMethodsViewController myUserDefinedMethodsView;
@@ -38,12 +39,24 @@ public class CommandWindowContainerViewController implements ViewController,
 	private CommandStatusViewController myCommandStatusView;
 	private List<MainModelObserver> myChildObservers;
 
-	public CommandWindowContainerViewController(MainModel mainModel) {
+	public CommandWindowContainerViewController(MainViewController parent) {
+		myParent = parent;
 		myChildObservers = new ArrayList<>();
-		myMainModel = mainModel;
 		myPane = new BorderPane();
 		myPane.setPrefSize(SIZE.width, SIZE.height);
 		placeCommandWindows();
+	}
+	
+	public void loadScript(String script) {
+		myCommandPromptView.setText(script);
+	}
+	
+	public void passSLogoCommand(String command) {
+		myParent.passSLogoCommand(command);
+	}
+	
+	public void passSLogoCommand(String commandKey, String operands) {
+		myParent.passSLogoCommand(commandKey, operands);
 	}
 
 	private void placeCommandWindows() {
@@ -54,7 +67,7 @@ public class CommandWindowContainerViewController implements ViewController,
 		myCommandHistoryView = new CommandHistoryViewController(
 				SIZE.width, SIZE.height / 4, this);
 		myCommandPromptView = new CommandPromptViewController(
-				SIZE.width, SIZE.height / 4, myMainModel);
+				SIZE.width, SIZE.height / 4, this);
 		myCommandStatusView = new CommandStatusViewController(
 				SIZE.width, SIZE.height / 8);
 
@@ -74,7 +87,7 @@ public class CommandWindowContainerViewController implements ViewController,
 		myUserDefinedMethodsView = new UserDefinedMethodsViewController(
 				SIZE.width / 2, SIZE.height / 4, this);
 		myUserDefinedVariablesView = new UserDefinedVariablesViewController(
-				SIZE.width / 2, SIZE.height / 4, myMainModel);
+				SIZE.width / 2, SIZE.height / 4, this);
 		userDefinedHorizontalBox.getChildren().addAll(
 				myUserDefinedMethodsView.getNode(),
 				myUserDefinedVariablesView.getNode());

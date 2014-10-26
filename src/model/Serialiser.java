@@ -13,6 +13,7 @@ public class Serialiser {
 	   {
 		MainModel myModel = new MainModel("English");
 		myModel.addTurtle();
+		SerialisableModel sModel = new SerialisableModel(myModel);
 	
 	
 	//private void serialise(MainModel model){
@@ -20,7 +21,7 @@ public class Serialiser {
 	      {
 	         FileOutputStream fileOut = new FileOutputStream("src/resources/savedstates/savedmodel.ser");
 	         ObjectOutputStream out = new ObjectOutputStream(fileOut);
-	         out.writeObject(myModel);
+	         out.writeObject(sModel);
 	         out.close();
 	         fileOut.close();
 	         System.out.printf("Serialized data is saved in ");

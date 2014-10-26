@@ -1,6 +1,8 @@
 package model;
 
 import interpreter.expression.SLogoExpression;
+
+import java.io.Serializable;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -11,7 +13,7 @@ import java.util.Set;
  * Model for User Defined Methods
  * @author Tanaka Jimha and Will Chang
  */
-public class UserDefinedCommandsModel {
+public class UserDefinedCommandsModel implements Serializable {
 
     private Map<String,SLogoExpression> myDefinedCommands;
     private Map<String, List<String>> myDefinedCommandVariables;
