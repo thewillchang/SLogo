@@ -32,14 +32,11 @@ public class Command extends SyntaxExpression {
 
     @Override
     public void loadArguments(Deque<SLogoExpression> args) throws SLogoParsingException, NullPointerException {
-        System.out.println("Created COMMAND VALUE++++" + myValue);
+        
         UserDefinedCommandsModel allDefinedCommands = myLibrary.getUserDefinedCommands();
         if(allDefinedCommands.containsCommand(myValue)) {
             myVariableReferences = allDefinedCommands.getVariablesForCommand(myValue);
-            System.out.println(myVariableReferences.get(0).toString());
             myNumArgs = myVariableReferences.size();
-            //System.out.println(args.size());
-            //System.out.println(myNumArgs);
             for(int i = 0; i < myNumArgs; i++) {
                 myArguments.add(args.pop());
             }
@@ -59,9 +56,7 @@ public class Command extends SyntaxExpression {
             List<TransitionState> transitionStates = myResult.getTransition();
             
             if(myNumArgs > 0) {
-                
                 for(String variableName : myVariableReferences) {
-                    //System.out.println(variableName);
                     SLogoResult result = copyArguments.pop().evaluate();
                     myUserDefinedVariables.putVariable(variableName, result.getValue());
                     transitionStates.addAll(result.getTransition());
