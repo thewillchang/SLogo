@@ -1,22 +1,16 @@
-package interpreter;
+package interpreter.result;
 
 import java.util.List;
-import java.util.Locale;
-import java.util.ResourceBundle;
 import transitionstate.TransitionState;
 import exceptions.SLogoParsingException;
-/**
- * @author Will Chang 
- */
+
+public class ControlStructureResult extends SLogoResult{
 
 
-public class TurtleCommandResult extends SLogoResult {
-
-    public TurtleCommandResult () {
-        super(0);
+    public ControlStructureResult() {
+        super();
     }
-
-    public TurtleCommandResult(double myValue) {
+    public ControlStructureResult(double myValue) {
         super(myValue);
     }
 
@@ -26,14 +20,14 @@ public class TurtleCommandResult extends SLogoResult {
         return null;
     }
 
-    @Override 
-    public void setValue(double value) {
-        myValue = value;
-    }
-    
     @Override
     public List<TransitionState> getTransition () {
         return myTransitionStates;
+    }
+
+    @Override
+    public void setValue(double value) {
+        myValue = value;
     }
 
     @Override
@@ -42,3 +36,9 @@ public class TurtleCommandResult extends SLogoResult {
     }
 
 }
+
+
+
+
+
+

@@ -18,6 +18,7 @@ import exceptions.SLogoParsingException;
  */
 public class SLogoExpressionFactory {
 
+    private final String CLASS_PATH = "interpreter.expression.";
     
     private Map<String,String> myReferenceToCommandMap;
     private Map<String,String> myReverseSyntaxMap;
@@ -30,8 +31,6 @@ public class SLogoExpressionFactory {
 
     private CommandReferenceLibrary myLibrary;
     private MainModel myModel;
-
-    private final String CLASS_PATH = "interpreter.expression.";
     
     private enum StringType {
         REGEX, NORMAL
@@ -71,8 +70,15 @@ public class SLogoExpressionFactory {
         SLogoExpression expression = checkTypeAndInitialize(command, myReferenceToCommandMap, StringType.NORMAL);
         return (expression == null) ? checkTypeAndInitialize(command, myReverseSyntaxMap, StringType.REGEX) : expression;
     }
-
-    //Need a special case for checking variables/user defined methods, would be getting from the maps...
+    
+    /**
+     * Checks whether the type of input is a predefined command or a regex and initializes the expression
+     * using reflection
+     * @param command the command's name the user inputted
+     * @param referenceMap the map which holds the type of references to check
+     * @param type the type of input it is
+     * @return the desired SLogoExpression
+     */
     private SLogoExpression checkTypeAndInitialize(String command, 
                                                Map<String, String> referenceMap, StringType type) {
         for(String reference : referenceMap.keySet()) {
@@ -86,9 +92,7 @@ public class SLogoExpressionFactory {
                     Class<?> commandClass = Class.forName(classPathAndName);
                     SLogoExpression expression = (SLogoExpression) commandClass.newInstance();
                     initializeExpression(expression, name);
-                    if(mySyntaxSet.contains(name)) {
-                        ((SyntaxExpression) expression).setValue(command);
-                    }
+                    expression.setValue(command);
                     return expression;
                 }
                 catch (ClassNotFoundException e) {
@@ -102,32 +106,28 @@ public class SLogoExpressionFactory {
                 }
             }
         }
-        //TODO Create an EmptyExpression as a null object holder.
         return null;
     }
 
+    /**
+     * Checks the type of the Command and returns the proper 
+     * @param command
+     * @param reference
+     * @param type
+     * @return
+     */
     private boolean isMatch(String command, String reference, StringType type) {
-        if(StringType.NORMAL == type) {
-            return command.equals(reference);
-        }
-        return command.matches(reference);
+        return (StringType.NORMAL == type) ? command.equals(reference) : command.matches(reference);
     }
     
+    /**
+     * Initializes the parameters of the Expression.
+     * @param expression to initialize
+     * @param name of the expression
+     */
     private void initializeExpression(SLogoExpression expression, String name) {
         expression.setNumArgs(myCommandToNumArgsMap.get(name));
         expression.loadLibrary(myLibrary);
         expression.loadModel(myModel);
     }
-
-    public SLogoExpression defineUserCommand(String command) throws SLogoParsingException {
-        //TODO define user defined commands, also refactor for lists etc.
-        return null;
-    }
-/*
-    public static void main(String[] args) throws SLogoParsingException {     
-        SLogoExpressionFactory factory = new SLogoExpressionFactory(new CommandReferenceLibrary(), new MainModel());
-        ResourceBundle mySyntaxReference = ResourceBundle.getBundle("resources.languages.Syntax", Locale.US);
-        mySyntaxReference.getString("ListStart");
-        System.out.println("[".matches(mySyntaxReference.getString("ListStart")));
-    }*/
 }

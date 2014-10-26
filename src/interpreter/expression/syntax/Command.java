@@ -1,63 +1,71 @@
 package interpreter.expression.syntax;
-
-import java.util.Deque;
-import java.util.List;
-import transitionstate.TransitionState;
-import model.UserDefinedCommandsModel;
-import interpreter.SLogoResult;
-import interpreter.SyntaxResult;
 import interpreter.expression.SLogoExpression;
 import interpreter.expression.SyntaxExpression;
-
+import interpreter.result.SLogoResult;
+import interpreter.result.SyntaxResult;
+import java.util.ArrayDeque;
+import java.util.ArrayList;
+import java.util.Deque;
+import java.util.List;
+import model.UserDefinedCommandsModel;
+import model.UserDefinedVariablesModel;
+import transitionstate.TransitionState;
+import exceptions.SLogoParsingException;
+/**
+ * 
+ * @author Will
+ *
+ */
 public class Command extends SyntaxExpression {
-    private int myNumArgs;
-    private String myName;
+    
     private SLogoExpression myCommands;
-
+    private List<String> myVariableReferences;
+    private UserDefinedCommandsModel allDefinedCommands; 
     public Command() {
         super();
-    }
-    
-    public Command (String name, SLogoExpression commands) {
-        super();
-        setValue(name);
-        myCommands = commands;
+        myVariableReferences = new ArrayList<>();
         
     }
-
     @Override
-    public void loadArguments(Deque<SLogoExpression> args) {
-        UserDefinedCommandsModel allDefinedCommands = myLibrary.getUserDefinedCommands();
-        if(allDefinedCommands.containsCommand(myName)) {
-            for(int i = 0; i < allDefinedCommands.getVariablesForCommand(myName).size() ; i++) {
+    public void loadArguments(Deque<SLogoExpression> args) throws SLogoParsingException, NullPointerException {
+        
+        allDefinedCommands = myModel.getUserDefinedMethods();
+        if(allDefinedCommands.containsCommand(myValue)) {
+            myVariableReferences = allDefinedCommands.getVariablesForCommand(myValue);
+            myNumArgs = myVariableReferences.size();
+            for(int i = 0; i < myNumArgs; i++) {
                 myArguments.add(args.pop());
             }
         }
     }
-
     @Override
     public SLogoResult evaluate () {
-        UserDefinedCommandsModel myUserDefinedCommands = myLibrary.getUserDefinedCommands();
+        UserDefinedVariablesModel myUserDefinedVariables = myLibrary.getUserDefinedVariables();
         SLogoResult myResult = new SyntaxResult(myValue);
-        if(myUserDefinedCommands.containsCommand(myValue)) {
-            List<TransitionState> transitionStates = myResult.getTransition(); 
+        Deque<SLogoExpression> copyArguments = new ArrayDeque<>(myArguments);
+        if(allDefinedCommands.containsCommand(myValue)) {
+            List<TransitionState> transitionStates = myResult.getTransition();
+            myCommands = allDefinedCommands.getCommand(myValue);
+            if(myNumArgs > 0) {
+                for(String variableName : myVariableReferences) {
+                    SLogoResult result = copyArguments.pop().evaluate();
+                    myUserDefinedVariables.putVariable(variableName, result.getValue());
+                    transitionStates.addAll(result.getTransition());
+                }
+                
+            }
+            
             SLogoResult result = myCommands.evaluate();
             transitionStates.addAll(result.getTransition());
             myResult.setValue(result.getValue());
+            for(String variableName : myVariableReferences) {
+                myUserDefinedVariables.remove(variableName);
+            }
         }
         return myResult;
     }
-
-    @Override
-    public void setValue (String value) {
-        myName = value;
-
-    }
-    
     @Override
     public String toString() {
-        return myName;
+        return myValue;
     }
-
-
 }

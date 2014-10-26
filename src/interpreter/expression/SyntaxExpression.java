@@ -1,15 +1,11 @@
 package interpreter.expression;
-
-import java.util.ArrayDeque;
-import java.util.ArrayList;
-import java.util.Deque;
-import java.util.List;
-import exceptions.SLogoParsingException;
-import model.MainModel;
 import interpreter.CommandReferenceLibrary;
-import interpreter.SLogoResult;
-import interpreter.SyntaxResult;
-
+import interpreter.result.SLogoResult;
+import interpreter.result.SyntaxResult;
+import java.util.ArrayDeque;
+import java.util.Deque;
+import model.MainModel;
+import exceptions.SLogoParsingException;
 /**
  * superclass for SLogoExpressions that are purely syntax
  * examples include variables, constant numbers, and brackets
@@ -57,8 +53,15 @@ public abstract class SyntaxExpression implements SLogoExpression {
     public SLogoResult evaluate() {
         return new SyntaxResult();
     }
-
-    public abstract void setValue(String value);
-
-
+    @Override
+    public void setValue (String value) {
+        myValue = value;
+    }
+    
+    @Override
+    public String getValue () {
+        return myValue;
+    }
+    
+    
 }

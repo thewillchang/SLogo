@@ -1,13 +1,11 @@
 package interpreter.expression;
-
+import interpreter.CommandReferenceLibrary;
+import interpreter.result.SLogoResult;
+import interpreter.result.UserDefinedResult;
 import java.util.ArrayDeque;
 import java.util.Deque;
 import model.MainModel;
 import exceptions.SLogoParsingException;
-import interpreter.CommandReferenceLibrary;
-import interpreter.SLogoResult;
-import interpreter.UserDefinedResult;
-
 /**
  * class of SLogoExpressions for User Defined Expressions
  * @author Will Chang and Jonathan Tseng
@@ -18,6 +16,7 @@ public abstract class UserDefinedExpression implements SLogoExpression{
     protected MainModel myModel;
     protected int myNumArgs;
     protected Deque<SLogoExpression> myArguments;
+    protected String myValue;
     
     public UserDefinedExpression () {
         myArguments = new ArrayDeque<>();
@@ -49,8 +48,15 @@ public abstract class UserDefinedExpression implements SLogoExpression{
         return myNumArgs;
     }
     
-    public abstract void setValue(String value);
-
+    @Override
+    public void setValue (String value) {
+        myValue = value;
+    }
+    @Override
+    public String getValue () {
+        return myValue;
+    }
+    
     @Override
     public SLogoResult evaluate() {
         return new UserDefinedResult();

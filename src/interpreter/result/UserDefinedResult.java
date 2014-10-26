@@ -1,16 +1,25 @@
-package interpreter;
+package interpreter.result;
 
 import java.util.List;
 import transitionstate.TransitionState;
 import exceptions.SLogoParsingException;
 
-public class ControlStructureResult extends SLogoResult{
+/**
+ * Results for User Defined Expression
+ * @author Will Chang
+ *
+ */
 
+public class UserDefinedResult extends SLogoResult {
 
-    public ControlStructureResult() {
+    /**
+     * Constructor
+     */
+    public UserDefinedResult() {
         super();
     }
-    public ControlStructureResult(double myValue) {
+    
+    public UserDefinedResult(double myValue) {
         super(myValue);
     }
 
@@ -34,11 +43,4 @@ public class ControlStructureResult extends SLogoResult{
     public double getValue () {
         return myValue;
     }
-
 }
-
-
-
-
-
-

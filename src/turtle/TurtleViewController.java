@@ -1,17 +1,13 @@
 package turtle;
-
 import java.awt.Dimension;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
-
 import javafx.scene.Group;
 import javafx.scene.Node;
 import javafx.scene.image.Image;
-import transitionstate.TransitionState.VisibleChange;
 import viewcontroller.ViewController;
 import application.Main;
-
 /**
  * view controller for an individual turtle object
  * 
@@ -19,13 +15,10 @@ import application.Main;
  *
  */
 public class TurtleViewController implements ViewController {
-
 	private Group myGroup;
 	private final static Dimension mySize = new Dimension(Main.SIZE.width / 40,
 			Main.SIZE.width / 40);
 	private TurtleImage myTurtleImage;
-	private File imageFile = null;
-
 	public TurtleViewController() {
 		TurtleImage.setSize(mySize);
 		myTurtleImage = new DefaultTurtleImage();
@@ -33,13 +26,11 @@ public class TurtleViewController implements ViewController {
 		myGroup = new Group();
 		myGroup.getChildren().add(myTurtleImage);
 	}
-
 	public boolean isSelected() {
 		return myTurtleImage.isSelected();
 	}
-
-	public void updateVisible(VisibleChange visibleChange) {
-		myTurtleImage.updateVisible(visibleChange);
+	public void updateVisible(boolean visible) {
+		myTurtleImage.updateVisible(visible);
 	}
 	
 	public void setImage(File file) {
@@ -51,7 +42,6 @@ public class TurtleViewController implements ViewController {
 			myGroup.getChildren().remove(myTurtleImage);
 			myGroup.getChildren().add(newTurtleImage);
 			myTurtleImage = newTurtleImage;
-			imageFile = file;
 		} catch (FileNotFoundException e) {
 			System.out.println("failed: " + e.toString());
 			newTurtleImage = new DefaultTurtleImage();
@@ -60,7 +50,6 @@ public class TurtleViewController implements ViewController {
 			myTurtleImage = newTurtleImage;
 		}
 	}
-
 	/**
 	 * gets the radius of the turtle
 	 * 
@@ -69,18 +58,11 @@ public class TurtleViewController implements ViewController {
 	public double getRadius() {
 		return myTurtleImage.getRadius();
 	}
-	
-	public File getImageFile(){
-		return imageFile;
-	}
-
 	@Override
 	public Node getNode() {
 		return myGroup;
 	}
-
 	@Override
 	public void applyTranslations() {
 	}
-
 }

@@ -1,8 +1,6 @@
 package model;
-
 import interpreter.Interpreter;
-import interpreter.SLogoResult;
-
+import interpreter.result.SLogoResult;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -11,7 +9,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.Properties;
-
 import javafx.animation.Animation;
 import javafx.animation.ParallelTransition;
 import javafx.scene.paint.Color;
@@ -23,35 +20,29 @@ import turtle.TurtleListHistory;
 import viewcontroller.MainModelObserver;
 import application.PenForm;
 import application.PenFormResult;
-
 /**
- * Main model of the program. Holds the state of the program, contains and updates other models
+ * main model of program--contains and updates other models
  * @author Tanaka Jimha
  *
  */
 public class MainModel {
-
 	private final static Color DEFAULT_BACKGROUND_COLOR = Color.DARKBLUE;
-
 	private Color myBackgroundColor;
 	private boolean myTurtleAdded;
 	private boolean myFailedParse;
 	private List<MainModelObserver> myObservers;
-	private Interpreter myInterpreter;
-	private List<Turtle> myTurtles;
-	private TurtleListHistory myTurtleListHistory;
+	private transient Interpreter myInterpreter;
+	private transient List<Turtle> myTurtles;
+	private transient TurtleListHistory myTurtleListHistory;
 	private SLogoResult mySLogoResult;
 	private String myLanguage;
 	private CommandHistoryModel myCommandHistoryModel;
 	private UserDefinedCommandsModel myUserDefinedMethodsModel;
 	private UserDefinedVariablesModel myUserDefinedVariablesModel;
-
 	private double myAnimationSpeed;
 	private transient ParallelTransition myAnimation;
-
 	final String PROPERTIES_FILENAME = "SLogoState";
 	final String LANGUAGE_PROPERTY = "Language";
-
 	public MainModel(String language){
 		this.myLanguage = language;
 		this.myObservers = new ArrayList<>();
@@ -64,15 +55,11 @@ public class MainModel {
 		this.myAnimation = new ParallelTransition();
 		this.myTurtleListHistory = new TurtleListHistory();
 		this.myBackgroundColor = DEFAULT_BACKGROUND_COLOR;
-
 	}
-
-	public MainModel(String language, CommandHistoryModel cHM, UserDefinedCommandsModel uDCM, UserDefinedVariablesModel uDVM, 
-			String backGroundColor, List<Turtle> turtles){
-		
+	public MainModel(String language, CommandHistoryModel cHM, UserDefinedCommandsModel uDCM, UserDefinedVariablesModel uDVM, String backGroundColor){
 		this.myLanguage = language;
 		this.myObservers = new ArrayList<>();
-		this.myTurtles = turtles;
+		this.myTurtles = new ArrayList<>();
 		this.myCommandHistoryModel = cHM;
 		this.myUserDefinedMethodsModel = uDCM;
 		this.myUserDefinedVariablesModel = uDVM;
@@ -82,7 +69,6 @@ public class MainModel {
 		this.myTurtleListHistory = new TurtleListHistory();
 		this.myBackgroundColor = myBackgroundColor.valueOf(backGroundColor);
 	}
-
 	public void changeTurtleImages(File file) {
 		for (Turtle turtle : myTurtles) {
 			if (turtle.isSelected()) {
@@ -90,20 +76,16 @@ public class MainModel {
 			}
 		}
 	}
-
 	public Color getBackgroundColor() {
 		return myBackgroundColor;
 	}
-
 	public String getBackgroundColorName() {
 		return myBackgroundColor.toString();
 	}
-
 	public void updateAnimationSpeed(double speed) {
 		myAnimation.setRate(speed);
 		myAnimationSpeed = speed;
 	}
-
 	public void setBackgroundColor(Color color) {
 		myBackgroundColor = color;
 		myAnimation = new ParallelTransition();
@@ -120,7 +102,6 @@ public class MainModel {
 			}
 		}
 	}
-
 	public void updatePenColor(Color color) {
 		for (Turtle turtle : myTurtles) {
 			if (turtle.isSelected()) {
@@ -128,7 +109,6 @@ public class MainModel {
 			}
 		}
 	}
-
 	/**
 	 * adds a turtle
 	 */
@@ -138,19 +118,15 @@ public class MainModel {
 		notifyObservers();
 		myTurtleAdded = false;
 	}	
-
 	public List<Turtle> getTurtles() {
 		return myTurtles;
 	}
-
 	public boolean isTurtleAdded() {
 		return myTurtleAdded;
 	}
-
 	public SLogoResult getResult() {
 		return mySLogoResult;
 	}
-
 	/**
 	 * interprets a String SLogoCommand by passing it to the Interpreter
 	 * @param sLogoCommand
@@ -165,7 +141,7 @@ public class MainModel {
 		notifyObservers();
 		myFailedParse = false;
 	}
-
+	
 	public void interpretSLogoCommand(String commandKey, String operands) {
 		Map<String, String> commandMap = myInterpreter.getCommandReferenceLibrary().getReferencesToCommands();
 		String command = commandKey.trim() + " " + operands.trim();
@@ -176,18 +152,15 @@ public class MainModel {
 		}
 		interpretSLogoCommand(command);
 	}
-
 	public boolean failedParse() {
 		return myFailedParse;
 	}
-
 	private void updateModel() {
 		ModelUpdater updater = new ModelUpdater();
 		Map<Turtle, List<TransitionState>>  turtleTransitionMap = 
 				updater.updateModel(myTurtles, mySLogoResult.getTransition());
 		setMyAnimation(turtleTransitionMap);
 	}
-
 	private void setMyAnimation(Map<Turtle, List<TransitionState>> map) {
 		myAnimation = new ParallelTransition();
 		for (Turtle turtle : map.keySet()) {
@@ -197,11 +170,9 @@ public class MainModel {
 		myAnimation.setRate(myAnimationSpeed);
 		myTurtleListHistory.updateList(map.keySet());
 	}
-
 	public ParallelTransition getAnimation() {
 		return myAnimation;
 	}
-
 	/**
 	 * used to set the language in which the commands are written in
 	 * @param myLanguage
@@ -210,29 +181,23 @@ public class MainModel {
 		setProperty(LANGUAGE_PROPERTY, languageName);
 		this.myLanguage = languageName;
 	}
-
 	public void attachObserver(MainModelObserver observer) {
 		myObservers.add(observer);
 	}
-
 	private void notifyObservers() {
 		for (MainModelObserver observer : myObservers) {
 			observer.update(this);
 		}
 	}
-
 	public CommandHistoryModel getCommandHistory() {
 		return this.myCommandHistoryModel;
 	}
-
 	public UserDefinedCommandsModel getUserDefinedMethods() {
 		return this.myUserDefinedMethodsModel;
 	}
-
 	public UserDefinedVariablesModel getUserDefinedVariables() {
 		return this.myUserDefinedVariablesModel;
 	}
-
 	private void setProperty(String propertyName, String value){
 		Properties prop = new Properties();
 		OutputStream output = null;
@@ -254,11 +219,9 @@ public class MainModel {
 			}
 		}
 	}
-
 	public String getLanguage () {
 		return myLanguage;
 	}
-
 	public void undoClicked() {
 		TurtleHistoryState state = myTurtleListHistory.undo();
 		myAnimation = state.getAnimation();
@@ -268,7 +231,6 @@ public class MainModel {
 		}
 		notifyObservers();
 	}
-
 	public void redoClicked() {
 		TurtleHistoryState state = myTurtleListHistory.redo();
 		myAnimation = state.getAnimation();
@@ -281,7 +243,4 @@ public class MainModel {
 	public void setmyInterpreter() {
 		this.myInterpreter = new Interpreter(this);
 	}
-
-
 }
-

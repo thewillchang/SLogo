@@ -1,21 +1,17 @@
 package interpreter.expression;
-
 import interpreter.CommandReferenceLibrary;
-import interpreter.SLogoResult;
 import interpreter.expression.conditional.ConditionalResult;
+import interpreter.result.SLogoResult;
 import java.util.ArrayDeque;
 import java.util.Deque;
 import model.MainModel;
-import transitionstate.NullTransitionState;
 import exceptions.SLogoParsingException;
-
 /**
  * superclass of SLogoExpressions for conditionals
  * @author Will Chang
  *
  */
 public abstract class ConditionalExpression implements SLogoExpression {
-
     //TODO Maybe have all expressions extend/implement ExpressionEvaluator...???
     //TODO Add resource bundle to ConditionalExpression??? Or CommandReferenceLibrary
     //That can specify numArgs through a getter....
@@ -27,6 +23,7 @@ public abstract class ConditionalExpression implements SLogoExpression {
     
     protected CommandReferenceLibrary myLibrary;
     protected MainModel myModel;
+    protected String myValue;
     
     public ConditionalExpression () {
         myArguments = new ArrayDeque<>();
@@ -45,7 +42,6 @@ public abstract class ConditionalExpression implements SLogoExpression {
             myArguments.add(args.pop());                    
         }
     }
-
     @Override
     public void loadLibrary(CommandReferenceLibrary library) {
         myLibrary = library;
@@ -56,14 +52,12 @@ public abstract class ConditionalExpression implements SLogoExpression {
         myModel = model;
     }
     
-
     /*public void specifyNumberAndLoad (Deque<SLogoExpression> args, int numArgs) 
             throws SLogoParsingException, NullPointerException {
         for(int i = 0 ; i < numArgs ; i++) {
-            myArguments.add(args.pop());	            
+            myArguments.add(args.pop());                    
         }   
     }*/
-
     @Override
     public SLogoResult evaluate() {
         Deque<SLogoResult> results = new ArrayDeque<>();
@@ -90,6 +84,16 @@ public abstract class ConditionalExpression implements SLogoExpression {
     @Override
     public int getNumArgs () {
         return myNumArgs;
+    }
+    
+    @Override
+    public void setValue(String value) {
+        myValue = value;
+    }
+    
+    @Override
+    public String getValue () {
+        return myValue;
     }
     
     protected abstract boolean hasSatisfiedCondition(SLogoResult argument);

@@ -1,10 +1,9 @@
 package interpreter.expression.math;
 
 import java.util.List;
-
 import transitionstate.TransitionState;
 import exceptions.SLogoParsingException;
-import interpreter.SLogoResult;
+import interpreter.result.SLogoResult;
 
 /**
  * Wrapper for Results of Math operations

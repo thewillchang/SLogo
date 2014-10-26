@@ -1,7 +1,8 @@
 package interpreter.expression.singleturtle;
 
-import interpreter.SLogoResult;
+import java.util.Deque;
 import interpreter.expression.TurtleCommandExpression;
+import interpreter.result.SLogoResult;
 import transitionstate.TransitionState;
 import transitionstate.TransitionState.PenChange;
 import transitionstate.TransitionState.VisibleChange;
@@ -15,8 +16,9 @@ import transitionstate.TransitionState.VisibleChange;
 public class PenDown extends TurtleCommandExpression {
     
     @Override
-    protected void setNextTransition (SLogoResult myResult, double value) {
+    protected void setNextTransition (SLogoResult myResult, Deque<Double> values) {
+        myResult.getTransition().add(new TransitionState(PenChange.CHANGE_DOWN, 
+                                                         VisibleChange.NO_CHANGE, 0, 0, 0));
         myResult.setValue(1);
-        myResult.getTransition().add(new TransitionState(PenChange.CHANGE_DOWN, VisibleChange.NO_CHANGE, 0, 0, 0));
     }
 }

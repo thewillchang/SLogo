@@ -10,6 +10,8 @@ import java.util.List;
 
 import model.MainModel;
 import exceptions.SLogoParsingException;
+import interpreter.expression.SLogoExpression;
+import interpreter.result.SLogoResult;
 
 
 /**
@@ -35,7 +37,6 @@ public class Interpreter {
         myParser = new Parser(myLibrary, model);
         myEvaluator = new ExpressionEvaluator();
     }
-
 
     /**
      * Interprets user input, parses into SLogoExpressions, and returns an SLogo result
@@ -69,16 +70,11 @@ public class Interpreter {
         myLibrary.setLanguageAndReferences(language);
     }
     
+    /**
+     * Gets the Library
+     * @return myCommandReferenceLibrary
+     */
     public CommandReferenceLibrary getCommandReferenceLibrary () {
         return myLibrary;
     }
-
-    public static void main(String[] args) throws SLogoParsingException {
-        Interpreter interpreter = new Interpreter(new MainModel("English"));
-        String input = "forward forward 50";
-        CommandReferenceLibrary lib = interpreter.getCommandReferenceLibrary();
-        System.out.println(interpreter.interpret(input).getTransition().size());
-    }
-
-
 }

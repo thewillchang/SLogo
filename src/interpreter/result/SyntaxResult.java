@@ -1,29 +1,50 @@
-package interpreter;
+package interpreter.result;
 
+import interpreter.expression.SLogoExpression;
+import java.util.ArrayDeque;
+import java.util.Deque;
 import java.util.List;
 import transitionstate.NullTransitionState;
 import transitionstate.TransitionState;
 import exceptions.SLogoParsingException;
 
+/**
+ * 
+ * @author Will
+ *
+ */
+
 public class SyntaxResult extends SLogoResult {
     private String myLabel; 
-    
-    public SyntaxResult (String str) {
-        super();
-        myLabel = str;
-        myTransitionStates.add(new NullTransitionState());
+    private Deque<SLogoExpression> myGroupedExpressions;
+
+    public SyntaxResult () {
+        this(0);
     }
-    
+
+    public SyntaxResult (String str) {
+        this(0);
+        myLabel = str;
+
+    }
+
     public SyntaxResult (double value) {
         super(value);
         myTransitionStates.add(new NullTransitionState());
+        myGroupedExpressions = new ArrayDeque<>(); 
     }
-    public SyntaxResult () {
-        // TODO Auto-generated constructor stub
-    }
+
     @Override
     public SLogoParsingException getException () {
         return null;
+    }
+
+    public Deque<SLogoExpression> getGroupedExpressions () {
+        return myGroupedExpressions;
+    }
+
+    public void setGroupedExpressions (Deque<SLogoExpression> groupedExpressions) {
+        myGroupedExpressions = groupedExpressions;   
     }
 
     @Override
@@ -36,7 +57,7 @@ public class SyntaxResult extends SLogoResult {
     public double getValue () {
         return myValue;
     }
-    
+
     @Override
     public String toString () {
         return myLabel;

@@ -30,8 +30,8 @@ public class SerialisableTurtle implements Serializable{
 		translateX = turtle.getTurtle().getTranslateX();
 		translateY = turtle.getTurtle().getTranslateY();
 		rotate = turtle.getTurtle().getRotate();
-		isSelected = turtle.getMyTurtleViewController().isSelected();
-		imageFile = turtle.getMyTurtleViewController().getImageFile();
+		//isSelected = turtle.getMyTurtleViewController().isSelected();
+		//imageFile = turtle.getMyTurtleViewController().getImageFile();
 		penColour = turtle.getPen().getColor().toString();
 		isPenDown = turtle.getPen().getPenDown();
 		lines = turtle.getPen().getDrawnLines();

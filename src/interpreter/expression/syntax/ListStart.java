@@ -1,21 +1,18 @@
 package interpreter.expression.syntax;
-
-import interpreter.SLogoResult;
-import interpreter.SyntaxResult;
 import interpreter.expression.SLogoExpression;
 import interpreter.expression.SyntaxExpression;
+import interpreter.result.SLogoResult;
+import interpreter.result.SyntaxResult;
 import java.util.ArrayDeque;
 import java.util.Deque;
 import java.util.List;
 import transitionstate.TransitionState;
 import exceptions.SLogoParsingException;
-
 /**
  * 
- * @author Will
+ * @author Will Chang
  *
  */
-
 //TODO refactor, move logic for loading arguments into the parser...
 //refactor from destroying the list...
 public class ListStart extends SyntaxExpression {
@@ -35,11 +32,11 @@ public class ListStart extends SyntaxExpression {
                 break;
             }
         }
+        
         if(myArguments.size() == 0 || !(myArguments.peekLast() instanceof ListEnd)) {
             throw new SLogoParsingException();
         }
     }
-
     @Override
     public SLogoResult evaluate () {
         Deque<SLogoResult> results = new ArrayDeque<>();
@@ -52,7 +49,7 @@ public class ListStart extends SyntaxExpression {
     }
     
     private SLogoResult merge (Deque<SLogoResult> results) {
-        SLogoResult myResult = new SyntaxResult();
+        SyntaxResult myResult = new SyntaxResult();
         List<TransitionState> transitionStates = myResult.getTransition();
         String commandLabels = myValue;
         for(SLogoResult result : results) {
@@ -60,15 +57,9 @@ public class ListStart extends SyntaxExpression {
             transitionStates.addAll(result.getTransition());
             myResult.setValue(result.getValue());
         }
+        myResult.setGroupedExpressions(myArguments);
         myResult.setLabel(commandLabels);
         return myResult;
     }
-
     
-    //TODO Refactor method name SetValue... 
-    @Override
-    public void setValue (String value) {
-        myValue = value;
-    }
-
 }

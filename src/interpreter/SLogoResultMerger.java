@@ -1,10 +1,11 @@
 package interpreter;
 
+import interpreter.result.SLogoResult;
 import java.util.ArrayDeque;
 import java.util.Deque;
 
 /**
- * 
+ * Merges Expressions from a High Level in the Interpreter
  * @author Will
  *
  */
@@ -12,7 +13,9 @@ import java.util.Deque;
 public class SLogoResultMerger {
 
     private Deque<SLogoResult> resultsToMerge;
-    
+    /**
+     * Constructors
+     */
     public SLogoResultMerger () {
         this(new ArrayDeque<>());
     }

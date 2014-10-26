@@ -1,7 +1,8 @@
 package interpreter.expression.singleturtle;
 
-import interpreter.SLogoResult;
+import java.util.Deque;
 import interpreter.expression.TurtleCommandExpression;
+import interpreter.result.SLogoResult;
 import transitionstate.TransitionState;
 import transitionstate.TransitionState.PenChange;
 import transitionstate.TransitionState.VisibleChange;
@@ -14,8 +15,11 @@ import transitionstate.TransitionState.VisibleChange;
 public class Right extends TurtleCommandExpression {
     
     @Override
-    protected void setNextTransition (SLogoResult myResult, double value) {
-        myResult.getTransition().add(new TransitionState(PenChange.NO_CHANGE, VisibleChange.NO_CHANGE, 0, value, 0));
-        
+    protected void setNextTransition (SLogoResult myResult, Deque<Double> values) {
+        Double value = values.peek();
+        myResult.getTransition().add(new TransitionState(PenChange.NO_CHANGE, 
+                                                         VisibleChange.NO_CHANGE, 
+                                                         0, value, 0));
+        myResult.setValue(value);
     }
 }

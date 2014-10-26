@@ -1,11 +1,10 @@
 package interpreter.expression;
 
 import java.util.Deque;
-
 import model.MainModel;
 import interpreter.CommandReferenceLibrary;
-import interpreter.SLogoResult;
 import interpreter.expression.query.QueryResult;
+import interpreter.result.SLogoResult;
 
 /**
  * superclass for SLogoExpressions that are Turtle Queries

@@ -1,10 +1,7 @@
 package interpreter.expression.syntax;
-
-
-import interpreter.SLogoResult;
-import interpreter.SyntaxResult;
 import interpreter.expression.SyntaxExpression;
-
+import interpreter.result.SLogoResult;
+import interpreter.result.SyntaxResult;
 /**
  * 
  * @author Will Chang
@@ -12,12 +9,11 @@ import interpreter.expression.SyntaxExpression;
  */
 public class Constant extends SyntaxExpression {
     
-    private double myValue;
+    private Double myValue;
     
     public Constant () {
         this(0);
     }
-
     public Constant (double value) {
         myValue = value;
     }
@@ -28,10 +24,12 @@ public class Constant extends SyntaxExpression {
     }
     
     @Override
+    public String getValue() {
+        return myValue.toString();
+    }
+    
+    @Override
     public SLogoResult evaluate() {
             return new SyntaxResult(myValue);
     }
-
-
-
 }

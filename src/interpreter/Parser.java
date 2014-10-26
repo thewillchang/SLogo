@@ -74,7 +74,6 @@ public class Parser {
      */
     private Deque<String> processInput(String input) {
         List<String> processedInputs = Arrays.asList(input.toLowerCase().split("\\s+"));
-        //Collections.reverse(processedInputs);
         return new ArrayDeque<>(processedInputs);
     }
 
@@ -92,12 +91,4 @@ public class Parser {
         }
 
     }
-
-/*    public static void main(String[] args) throws SLogoParsingException {
-        Parser p = new Parser(new CommandReferenceLibrary(), new MainModel());
-        String input = "fd 50";
-
-       Deque<SLogoExpression> list = p.parseSLogoExpression(input);
-        System.out.println( list.pop().evaluate().getValue());   
-    }*/
 }

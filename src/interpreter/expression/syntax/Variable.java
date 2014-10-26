@@ -1,15 +1,9 @@
 package interpreter.expression.syntax;
-
-import java.util.Map;
-import model.UserDefinedVariablesModel;
-import interpreter.SLogoResult;
-import interpreter.SyntaxResult;
-import interpreter.UserDefinedResult;
-import interpreter.expression.SLogoExpression;
 import interpreter.expression.SyntaxExpression;
-
+import interpreter.result.SLogoResult;
+import interpreter.result.SyntaxResult;
+import model.UserDefinedVariablesModel;
 public class Variable extends SyntaxExpression {
-    private String myValue;
     
     @Override
     public SLogoResult evaluate () {
@@ -31,9 +25,4 @@ public class Variable extends SyntaxExpression {
         return myResult;
     }
     
-    @Override
-    public void setValue (String value) {
-        myValue = value;
-    }
-
 }

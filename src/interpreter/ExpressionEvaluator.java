@@ -1,6 +1,7 @@
 package interpreter;
 
 import interpreter.expression.SLogoExpression;
+import interpreter.result.SLogoResult;
 import java.util.Deque;
 import exceptions.SLogoParsingException;
 
