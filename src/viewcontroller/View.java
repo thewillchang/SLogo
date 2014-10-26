@@ -1,6 +1,9 @@
 package viewcontroller;
 
 import java.io.File;
+import java.io.IOException;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -112,6 +115,26 @@ public class View {
 	            myCurrentWorkspace.getMainModel().changeTurtleImages(selectedFile);
 	        }
         }
+	}
+	
+	public void loadFile() {
+		if (myCurrentWorkspace != null) {
+			FileChooser scriptChooser = new FileChooser();
+	        scriptChooser.setTitle("Load SLogo script");
+	        scriptChooser.getExtensionFilters().addAll(
+	        		new ExtensionFilter("SLogo files", "*.logo"));
+	        File selectedFile = scriptChooser.showOpenDialog(myStage);
+	        try {
+				myCurrentWorkspace.getViewController().loadScript(readFile(selectedFile));
+			} catch (IOException e) {
+				
+			}
+		}
+	}
+	
+	public String readFile(File file) throws IOException {
+		byte[] encoded = Files.readAllBytes(file.toPath());
+		return new String(encoded, StandardCharsets.UTF_8);
 	}
 	
 	public void showHelp() {

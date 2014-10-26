@@ -5,6 +5,7 @@ import java.util.List;
 import model.CommandHistoryModel;
 import model.MainModel;
 import javafx.scene.Node;
+import javafx.scene.control.ScrollPane;
 import viewcontroller.GUIReferenceLibrary;
 import viewcontroller.MainModelObserver;
 
@@ -19,7 +20,7 @@ public class CommandHistoryViewController extends CommandClickableListWindowView
 	
 	private final String History = "History";
 	private String myHistoryTranslation;
-	
+
 	public CommandHistoryViewController(int width, int height, CommandWindowContainerViewController commandWindowContainer) {
 		super(width, height);
 		applyTranslations();

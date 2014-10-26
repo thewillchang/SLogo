@@ -22,6 +22,7 @@ public class SLogoMenuBar extends MenuBar {
 	private final static String FILE_KEY = "File";
 	private final static String HELP_KEY = "Help";
 	private final static String NEW_WORKSPACE_KEY = "New";
+	private final static String LOAD_FILE_KEY ="LoadFile";
 
 	private final static String EDIT_KEY = "Edit";
 	private final static String REDO_KEY = "Redo";
@@ -30,12 +31,16 @@ public class SLogoMenuBar extends MenuBar {
 
 	private View myParentView;
 
+	//Edit Menu
 	private MenuItem myRedoMenuItem;
 	private MenuItem myUndoMenuItem;
 
+	//File Menu
 	private MenuItem myNewWorkspaceMenuItem;
 	private MenuItem myHelpMenuItem;
+	private MenuItem myLoadFileMenuItem;
 
+	// Grid Menu
 	private MenuItem myGridLinesMenuItem;
 	private MenuItem myAddTurtleMenuItem;
 	private MenuItem myTurtleImageMenuItem;
@@ -72,7 +77,9 @@ public class SLogoMenuBar extends MenuBar {
 				event -> myParentView.showHelp());
 		myNewWorkspaceMenuItem = createMenuItem(GUIReferenceLibrary.getStringTranslation(NEW_WORKSPACE_KEY),
 				event -> myParentView.addNewWorkspace());
-		fileMenu.getItems().addAll(myNewWorkspaceMenuItem, myHelpMenuItem);
+		myLoadFileMenuItem = createMenuItem(GUIReferenceLibrary.getStringTranslation(LOAD_FILE_KEY), 
+				event -> myParentView.loadFile());
+		fileMenu.getItems().addAll(myNewWorkspaceMenuItem, myHelpMenuItem, myLoadFileMenuItem);
 		getMenus().add(fileMenu);
 	}
 

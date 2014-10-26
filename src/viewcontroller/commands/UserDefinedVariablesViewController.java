@@ -80,34 +80,6 @@ public class UserDefinedVariablesViewController extends
 		Label valueLabel = new Label(Double.toString(value));
 		variableHBox.getChildren().addAll(variableLabel, valueLabel);
 		valueLabel.setOnMouseClicked(event->variableClicked(variableHBox, variableLabel, valueLabel));
-				
-//				new EventHandler<MouseEvent>() {
-//			@Override
-//			public void handle(MouseEvent arg0) {
-//				TextField editableValueLabel = new TextField(valueLabel
-//						.getText());
-//				variableHorizontalBox.getChildren().remove(valueLabel);
-//				variableHorizontalBox.getChildren().add(editableValueLabel);
-//				editableValueLabel
-//						.setOnKeyPressed(new EventHandler<KeyEvent>() {
-//							@Override
-//							public void handle(KeyEvent arg0) {
-//								if (arg0.getCode() == KeyCode.ENTER) {
-//									valueLabel.setText(editableValueLabel
-//											.getText());
-//									myMainModel.updateUserDefinedVariable(
-//											variableLabel.getText(), Double
-//													.parseDouble(valueLabel
-//															.getText()));
-//									variableHorizontalBox.getChildren().remove(
-//											editableValueLabel);
-//									variableHorizontalBox.getChildren().add(
-//											valueLabel);
-//								}
-//							}
-//						});
-//			}
-//		});
 		myListVerticalBox.getChildren().add(variableHBox);
 	}
 	
