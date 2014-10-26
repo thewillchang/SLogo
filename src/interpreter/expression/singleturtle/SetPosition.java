@@ -17,26 +17,6 @@ import turtle.Turtle;
 
 public class SetPosition extends TurtleCommandExpression {
 
-<<<<<<< HEAD
-    @Override
-    protected void setNextTransition (SLogoResult myResult, Deque<Double> values) {
-        List<Turtle> allTurtles = myModel.getTurtles();
-        Double distance = 0.0;
-        Double rotate = 0.0;
-        if(!allTurtles.isEmpty()) {
-            Turtle turtle = allTurtles.get(allTurtles.size()-1);
-            Double deltaX = values.pop() - turtle.getX();
-            Double deltaY = values.pop() - turtle.getY();
-           // if(x)        
-            distance = Math.sqrt(Math.pow(deltaX, 2) + Math.pow(deltaY, 2));
-        }
-        myResult.getTransition().add(new TransitionState(PenChange.NO_CHANGE, 
-                                                         VisibleChange.NO_CHANGE, 0, 0   , 0));
-        myResult.setValue(distance);
-    }
-
-}
-=======
 	@Override
 	protected void setNextTransition(SLogoResult myResult, Deque<Double> values) {
 		List<Turtle> allTurtles = myModel.getTurtles();
@@ -84,4 +64,3 @@ public class SetPosition extends TurtleCommandExpression {
 		return 0;
 	}
 }
->>>>>>> origin/abhishekBranch

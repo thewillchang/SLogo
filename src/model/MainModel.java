@@ -45,12 +45,8 @@ public class MainModel {
 	private transient ParallelTransition myAnimation;
 	final String PROPERTIES_FILENAME = "SLogoState";
 	final String LANGUAGE_PROPERTY = "Language";
-<<<<<<< HEAD
-	public MainModel(String language){
-=======
 
 	public MainModel(String language) {
->>>>>>> origin/abhishekBranch
 		this.myLanguage = language;
 		this.myObservers = new ArrayList<>();
 		this.myTurtles = new ArrayList<>();
@@ -63,14 +59,10 @@ public class MainModel {
 		this.myTurtleListHistory = new TurtleListHistory();
 		this.myBackgroundColor = DEFAULT_BACKGROUND_COLOR;
 	}
-<<<<<<< HEAD
-	public MainModel(String language, CommandHistoryModel cHM, UserDefinedCommandsModel uDCM, UserDefinedVariablesModel uDVM, String backGroundColor){
-=======
-
+	
 	public MainModel(String language, CommandHistoryModel cHM,
 			UserDefinedCommandsModel uDCM, UserDefinedVariablesModel uDVM,
 			String backGroundColor) {
->>>>>>> origin/abhishekBranch
 		this.myLanguage = language;
 		this.myObservers = new ArrayList<>();
 		this.myTurtles = new ArrayList<>();
@@ -123,8 +115,6 @@ public class MainModel {
 			}
 		}
 	}
-<<<<<<< HEAD
-=======
 
 	public Turtle getActiveTurtle() {
 		for (Turtle turtle : myTurtles) {
@@ -135,7 +125,6 @@ public class MainModel {
 		return null;
 	}
 	
->>>>>>> origin/abhishekBranch
 	/**
 	 * adds a turtle
 	 */
@@ -144,12 +133,8 @@ public class MainModel {
 		myTurtleAdded = true;
 		notifyObservers();
 		myTurtleAdded = false;
-<<<<<<< HEAD
 	}	
-=======
-	}
 
->>>>>>> origin/abhishekBranch
 	public List<Turtle> getTurtles() {
 		return myTurtles;
 	}
@@ -186,11 +171,6 @@ public class MainModel {
 		}
 		interpretSLogoCommand(command);
 	}
-<<<<<<< HEAD
-	public boolean failedParse() {
-		return myFailedParse;
-	}
-=======
 
 	public boolean getFailedParse() {
 		return myFailedParse;
@@ -204,7 +184,6 @@ public class MainModel {
 		myErrorMessage = errorMessage;
 	}
 
->>>>>>> origin/abhishekBranch
 	private void updateModel() {
 		ModelUpdater updater = new ModelUpdater();
 		Map<Turtle, List<TransitionState>> turtleTransitionMap = updater
@@ -249,12 +228,8 @@ public class MainModel {
 	public UserDefinedVariablesModel getUserDefinedVariables() {
 		return this.myUserDefinedVariablesModel;
 	}
-<<<<<<< HEAD
-	private void setProperty(String propertyName, String value){
-=======
 
 	private void setProperty(String propertyName, String value) {
->>>>>>> origin/abhishekBranch
 		Properties prop = new Properties();
 		OutputStream output = null;
 		try {
@@ -275,12 +250,8 @@ public class MainModel {
 			}
 		}
 	}
-<<<<<<< HEAD
+	
 	public String getLanguage () {
-=======
-
-	public String getLanguage() {
->>>>>>> origin/abhishekBranch
 		return myLanguage;
 	}
 	public void undoClicked() {
@@ -305,9 +276,5 @@ public class MainModel {
 	public void setmyInterpreter() {
 		this.myInterpreter = new Interpreter(this);
 	}
-<<<<<<< HEAD
 }
-=======
 
-}
->>>>>>> origin/abhishekBranch

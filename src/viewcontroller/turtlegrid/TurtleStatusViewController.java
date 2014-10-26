@@ -52,14 +52,9 @@ public class TurtleStatusViewController extends CommandWindowViewController
 	private HBox populateHBox(String turtleID, String xPosition,
 			String yPosition) {
 		HBox statusRow = new HBox(50);
-<<<<<<< HEAD
-		statusRow.setPrefSize(SIZE.width, SIZE.height/3);
-		statusRow.getChildren().addAll(new Label(turtleID), new Label(xPosition), new Label(yPosition));
-=======
 		statusRow.setPrefSize(SIZE.width, SIZE.height / 2);
 		statusRow.getChildren().addAll(new Label(turtleID),
 				new Label(xPosition), new Label(yPosition));
->>>>>>> origin/abhishekBranch
 		return statusRow;
 	}
 

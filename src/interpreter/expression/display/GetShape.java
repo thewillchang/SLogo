@@ -1,8 +1,5 @@
 package interpreter.expression.display;
 
-<<<<<<< HEAD
-public class GetShape {
-=======
 import interpreter.expression.DisplayExpression;
 
 /**
@@ -11,6 +8,5 @@ import interpreter.expression.DisplayExpression;
  *
  */
 public class GetShape extends DisplayExpression {
->>>>>>> origin/abhishekBranch
 
 }

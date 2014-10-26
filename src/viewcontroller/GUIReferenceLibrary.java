@@ -34,14 +34,7 @@ public class GUIReferenceLibrary {
 			myGUIMap.put(keyString, myCommandReference.getString(keyString));
 		}
 	}
-<<<<<<< HEAD
 	
-	public static String getStringTranslation(String GUIlabel) {
-		return myGUIMap.get(GUIlabel);
-	}
-	
-=======
-
 	/**
 	 * Reads the GUI map to get the string translation for any text that appears in GUI.
 	 * @param GUIlabel
@@ -54,20 +47,15 @@ public class GUIReferenceLibrary {
 	/**
 	 * Sets the Reference for GUI Help Elements of the SLogo Project
 	 */
->>>>>>> origin/abhishekBranch
 	public static void setHelpReference() {
 		myHelpReference = ResourceBundle.getBundle("resources.languages.help.Help", Locale.US);
 	}
-<<<<<<< HEAD
 	
-=======
-
 	/**
 	 * Gets the URL from the Help Reference Resource Bundle
 	 * @param URLID
 	 * @return URL String
 	 */
->>>>>>> origin/abhishekBranch
 	public static String getURL(String URLID) {
 		return myHelpReference.getString(URLID);
 	}

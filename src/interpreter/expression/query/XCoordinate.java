@@ -1,8 +1,6 @@
 package interpreter.expression.query;
-
 import model.MainModel;
 import interpreter.expression.TurtleQueryExpression;
-
 /**
  * Expression to query for the turtle's X coordinate
  * @author Abhishek B
@@ -15,8 +13,6 @@ public class XCoordinate extends TurtleQueryExpression {
 	 */
 	@Override
 	protected double getValueFromModel(MainModel model) {
-		
-		return 0;
+		return model.getTurtles().get(0).getX();
 	}
-
 }

@@ -1,8 +1,5 @@
 package interpreter.expression.display;
 
-<<<<<<< HEAD
-public class SetPalette {
-=======
 import interpreter.expression.DisplayExpression;
 
 /**
@@ -14,6 +11,5 @@ import interpreter.expression.DisplayExpression;
  *
  */
 public class SetPalette extends DisplayExpression {
->>>>>>> origin/abhishekBranch
 
 }

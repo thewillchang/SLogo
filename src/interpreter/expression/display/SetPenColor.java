@@ -1,8 +1,5 @@
 package interpreter.expression.display;
 
-<<<<<<< HEAD
-public class SetPenColor {
-=======
 import interpreter.expression.DisplayExpression;
 
 /**
@@ -12,6 +9,5 @@ import interpreter.expression.DisplayExpression;
  *
  */
 public class SetPenColor extends DisplayExpression {
->>>>>>> origin/abhishekBranch
 
 }

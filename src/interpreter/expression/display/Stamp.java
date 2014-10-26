@@ -1,8 +1,5 @@
 package interpreter.expression.display;
 
-<<<<<<< HEAD
-public class Stamp {
-=======
 import interpreter.expression.DisplayExpression;
 
 /**
@@ -13,6 +10,5 @@ import interpreter.expression.DisplayExpression;
  *
  */
 public class Stamp extends DisplayExpression {
->>>>>>> origin/abhishekBranch
 
 }

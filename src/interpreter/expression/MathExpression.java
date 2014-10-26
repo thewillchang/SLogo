@@ -2,19 +2,16 @@ package interpreter.expression;
 
 import interpreter.CommandReferenceLibrary;
 import interpreter.expression.math.MathResult;
-<<<<<<< HEAD
 import interpreter.result.SLogoResult;
-=======
 
->>>>>>> origin/abhishekBranch
 import java.util.ArrayDeque;
 import java.util.Deque;
 import java.util.List;
 
-import exceptions.SLogoParsingException;
 import model.MainModel;
 import transitionstate.NullTransitionState;
 import transitionstate.TransitionState;
+import exceptions.SLogoParsingException;
 
 /**
  * superclass of SLogoExpressions for Math expressions
