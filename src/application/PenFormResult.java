@@ -25,14 +25,14 @@ public class PenFormResult {
 		}
 		myPenUp = (penUp.equals(GUIReferenceLibrary.getStringTranslation(PenForm.PEN_UP_KEY)));
 		myPenDash = new ArrayList<>();
-		if (penStroke.equals(GUIReferenceLibrary.getStringTranslation(PenForm.PEN_SOLID_KEY))) {
-			myPenDash.add(0d);
+		if (penStroke.equals(GUIReferenceLibrary.getStringTranslation(PenForm.PEN_DASH_KEY))) {
+			myPenDash.add(25d);
+			myPenDash.add(15d);	
 		} else if (penStroke.equals(GUIReferenceLibrary.getStringTranslation(PenForm.PEN_DOT_KEY))) {
 			myPenDash.add(7d);
 			myPenDash.add(7d);
 		} else {
-			myPenDash.add(25d);
-			myPenDash.add(15d);
+			//do nothing--no pen dash array for solid line
 		}
 		
 	}

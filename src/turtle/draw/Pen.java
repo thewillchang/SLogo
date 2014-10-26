@@ -40,7 +40,6 @@ public class Pen {
 		myPenDown = true;
 		myDrawnLines = new ArrayList<>();
 		myDash = new ArrayList<>();
-		myDash.add(0d);
 	}
 	
 	public void setColor(Color color) {
