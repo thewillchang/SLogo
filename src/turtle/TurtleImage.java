@@ -2,6 +2,12 @@ package turtle;
 import java.awt.Dimension;
 import javafx.scene.Group;
 import javafx.scene.paint.Color;
+
+/**
+ * turtle image abstract superclass for the Group representing the turtle
+ * @author Jonathan Tseng
+ *
+ */
 public abstract class TurtleImage extends Group {
 	protected final static Color ourSelectedColor = Color.GOLD;
 	

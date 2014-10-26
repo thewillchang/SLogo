@@ -11,6 +11,11 @@ import javafx.scene.layout.CornerRadii;
 import javafx.scene.layout.HBox;
 import javafx.scene.paint.Color;
 
+/**
+ * container holding a label and a node
+ * @author Jonathan Tseng
+ *
+ */
 public class SLogoLabeledContainer extends HBox {
 
 	protected SLogoLabeledContainer(String text) {

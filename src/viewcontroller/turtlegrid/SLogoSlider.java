@@ -3,6 +3,11 @@ package viewcontroller.turtlegrid;
 import javafx.beans.value.ChangeListener;
 import javafx.scene.control.Slider;
 
+/**
+ * slider element for SLogo
+ * @author Jonathan Tseng
+ *
+ */
 public class SLogoSlider extends SLogoLabeledContainer {
 
 	private Slider mySlider;

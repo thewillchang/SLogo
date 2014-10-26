@@ -7,6 +7,11 @@ import java.util.Set;
 import javafx.animation.ParallelTransition;
 import javafx.scene.shape.Line;
 
+/**
+ * history state wrapper class for storing turtle history
+ * @author Jonathan Tseng
+ *
+ */
 public class TurtleHistoryState {
 
 	private ParallelTransition myAnimation;

@@ -17,6 +17,11 @@ import javafx.stage.Stage;
 import viewcontroller.GUIReferenceLibrary;
 import viewcontroller.SLogoFont;
 
+/**
+ * abstract class for a form
+ * @author Jonathan Tseng
+ *
+ */
 public class Form {
 
 	private final static String SUBMIT_KEY = "SubmitForm";

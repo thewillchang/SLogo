@@ -8,6 +8,7 @@ import javafx.scene.Node;
 import javafx.scene.image.Image;
 import viewcontroller.ViewController;
 import application.Main;
+
 /**
  * view controller for an individual turtle object
  * 

@@ -5,6 +5,11 @@ import javafx.scene.shape.Line;
 import javafx.scene.shape.StrokeLineCap;
 import turtle.Turtle;
 
+/**
+ * animation for drawing with the pen of a turtle
+ * @author Jonathan Tseng
+ *
+ */
 public class PenTransition extends LinearTransition {
 
 	private Line myLine;

@@ -3,6 +3,11 @@ package turtle;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * history model for an individual turtle used for undo/redo
+ * @author Jonathan Tseng
+ *
+ */
 public class TurtleHistory {
 
 	private List<TurtleHistoryState> myStates;

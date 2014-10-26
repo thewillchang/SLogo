@@ -7,6 +7,7 @@ import javafx.scene.text.FontWeight;
  * Sets up preferences for styling different Font objects
  * specific to SLogo
  * @author Abhishek B
+ * @author Jonathan Tseng
  *
  */
 public class SLogoFont {

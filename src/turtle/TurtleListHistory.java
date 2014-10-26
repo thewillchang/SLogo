@@ -9,6 +9,11 @@ import java.util.Set;
 import javafx.animation.ParallelTransition;
 import javafx.scene.shape.Line;
 
+/**
+ * history for the list of turtles used for undo/redo
+ * @author Jonathan Tseng
+ *
+ */
 public class TurtleListHistory {
 	
 	private List<Set<Turtle>> myMovedTurtlesHistory;

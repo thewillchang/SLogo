@@ -8,6 +8,11 @@ import javafx.animation.Transition;
 import transitionstate.TransitionState;
 import turtle.Turtle;
 
+/**
+ * factory for creating animations given a turtle and transition states
+ * @author Jonathan Tseng
+ *
+ */
 public class TransitionFactory {
 	
 	public TransitionFactory() {

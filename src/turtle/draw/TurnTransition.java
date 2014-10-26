@@ -2,8 +2,11 @@ package turtle.draw;
 
 import javafx.util.Duration;
 
-
-
+/**
+ * animation for a turtle turning
+ * @author Jonathan Tseng
+ *
+ */
 public class TurnTransition extends SLogoTransition {
 	
 	private boolean myFirst;

@@ -7,6 +7,11 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
 import viewcontroller.SLogoFont;
 
+/**
+ * form element for number input text field
+ * @author Jonathan Tseng
+ *
+ */
 public class NumberInputFormElement extends HBox implements FormElement {
 
 	private TextField myNumberField;

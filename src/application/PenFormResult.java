@@ -5,6 +5,11 @@ import java.util.List;
 
 import viewcontroller.GUIReferenceLibrary;
 
+/**
+ * result from submitting a pen form
+ * @author Jonathan Tseng
+ *
+ */
 public class PenFormResult {
 	
 	private double myPenWidth;

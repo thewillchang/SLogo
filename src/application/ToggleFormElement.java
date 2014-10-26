@@ -6,6 +6,11 @@ import javafx.beans.value.ObservableValue;
 import javafx.scene.Node;
 import javafx.scene.control.ToggleButton;
 
+/**
+ * Form element for a toggle form element
+ * @author Jonathan Tseng
+ *
+ */
 public class ToggleFormElement extends ToggleButton implements FormElement {
 
 	public boolean mySelected;
