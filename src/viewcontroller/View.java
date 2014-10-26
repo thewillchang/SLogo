@@ -7,6 +7,7 @@ import java.nio.file.Files;
 import java.util.ArrayList;
 import java.util.List;
 
+import model.Deserialiser;
 import javafx.beans.value.ObservableValue;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
@@ -74,6 +75,27 @@ public class View {
 		myTabPane.getTabs().add(tab);
 		myTabPane.getSelectionModel().select(tab);
 	}	
+	
+	public void saveWorkspace() {
+		if (myCurrentWorkspace != null) {
+			
+		}
+	}
+	
+	public void loadWorkspace() {
+		FileChooser serializableWorkspaceChooser = new FileChooser();
+        serializableWorkspaceChooser.setTitle("Choose workspace to load");
+        serializableWorkspaceChooser.getExtensionFilters().addAll(
+        		new ExtensionFilter("Serializable", "*.ser"));
+        File selectedFile = serializableWorkspaceChooser.showOpenDialog(myStage);
+        if (selectedFile != null) {
+        	createWorkspace(selectedFile);
+        }
+	}
+	
+	private void createWorkspace(File file) {
+		Deserialiser deserialiser = new Deserialiser();
+	}
 
 	public void init() {
 		myStage.show();
