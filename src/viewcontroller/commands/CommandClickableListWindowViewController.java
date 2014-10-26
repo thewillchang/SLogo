@@ -2,10 +2,7 @@ package viewcontroller.commands;
 
 import javafx.event.EventHandler;
 import javafx.scene.control.Label;
-import javafx.scene.control.ScrollPane;
-import javafx.scene.control.ScrollPane.ScrollBarPolicy;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.VBox;
 
 /**
  * Abstract
@@ -14,19 +11,12 @@ import javafx.scene.layout.VBox;
  *
  */
 public abstract class CommandClickableListWindowViewController extends
-		CommandWindowViewController {
+		CommandListWindowViewController {
 
 	protected CommandWindowContainerViewController myCommandWindowContainer;
-	protected VBox myListVerticalBox;
-	protected ScrollPane myScrollPane;
 
 	public CommandClickableListWindowViewController(int width, int height) {
 		super(width, height);
-		myListVerticalBox = new VBox();
-		myCommandWindowVerticalBox.getChildren().add(myListVerticalBox);
-		myScrollPane = new ScrollPane(myCommandWindowVerticalBox);
-		myScrollPane.setVbarPolicy(ScrollBarPolicy.AS_NEEDED);
-		myPane.setCenter(myScrollPane);
 	}
 
 	protected void addCommand(String commandLabelString) {
@@ -39,7 +29,7 @@ public abstract class CommandClickableListWindowViewController extends
 			}
 		});
 		myListVerticalBox.getChildren().add(commandLabel);
-		myScrollPane.setVvalue(myScrollPane.getVmax());
+		updateScroller();
 	}
 
 }
