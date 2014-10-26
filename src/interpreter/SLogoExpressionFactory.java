@@ -73,11 +73,11 @@ public class SLogoExpressionFactory {
     }
     
     /**
-     * Checks whether the type of input is a predefined command or a regex and initializes the 
-     * @param command
-     * @param referenceMap
-     * @param type
-     * @return
+     * Checks whether the type of input is a predefined command or a regex and initializes the expression.
+     * @param command the command's name the user inputted
+     * @param referenceMap the map which holds the type of references to check
+     * @param type the type of input it is
+     * @return the desired SLogoExpression
      */
     private SLogoExpression checkTypeAndInitialize(String command, 
                                                Map<String, String> referenceMap, StringType type) {
@@ -109,11 +109,15 @@ public class SLogoExpressionFactory {
         return null;
     }
 
+    /**
+     * Checks the type of the Command and returns the proper 
+     * @param command
+     * @param reference
+     * @param type
+     * @return
+     */
     private boolean isMatch(String command, String reference, StringType type) {
-        if(StringType.NORMAL == type) {
-            return command.equals(reference);
-        }
-        return command.matches(reference);
+        return (StringType.NORMAL == type) ? command.equals(reference) : command.matches(reference);
     }
     
     private void initializeExpression(SLogoExpression expression, String name) {
