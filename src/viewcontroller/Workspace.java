@@ -13,7 +13,11 @@ public class Workspace {
 	private MainModel myMainModel;
 	
 	public Workspace(String language) {
-		myMainModel = new MainModel(language);
+		this(new MainModel(language));
+	}
+	
+	public Workspace(MainModel model) {
+		myMainModel = model;
 		myMainViewController = new MainViewController(myMainModel);
 		myMainModel.addTurtle();
 	}

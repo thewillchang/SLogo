@@ -11,7 +11,4 @@ public class ListEnd extends SyntaxExpression {
         return new SyntaxResult();
     }
 
-    @Override
-    public void setValue (String value) {        
-    }
 }

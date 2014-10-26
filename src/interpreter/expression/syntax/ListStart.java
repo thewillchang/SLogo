@@ -12,7 +12,7 @@ import exceptions.SLogoParsingException;
 
 /**
  * 
- * @author Will
+ * @author Will Chang
  *
  */
 
@@ -35,6 +35,7 @@ public class ListStart extends SyntaxExpression {
                 break;
             }
         }
+        
         if(myArguments.size() == 0 || !(myArguments.peekLast() instanceof ListEnd)) {
             throw new SLogoParsingException();
         }
@@ -52,7 +53,7 @@ public class ListStart extends SyntaxExpression {
     }
     
     private SLogoResult merge (Deque<SLogoResult> results) {
-        SLogoResult myResult = new SyntaxResult();
+        SyntaxResult myResult = new SyntaxResult();
         List<TransitionState> transitionStates = myResult.getTransition();
         String commandLabels = myValue;
         for(SLogoResult result : results) {
@@ -60,6 +61,7 @@ public class ListStart extends SyntaxExpression {
             transitionStates.addAll(result.getTransition());
             myResult.setValue(result.getValue());
         }
+        myResult.setGroupedExpressions(myArguments);
         myResult.setLabel(commandLabels);
         return myResult;
     }

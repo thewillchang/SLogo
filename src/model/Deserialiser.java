@@ -15,10 +15,9 @@ public class Deserialiser
 			myModel = null;
 		}
 		
-		private MainModel deserialise(){
+		public MainModel deserialise(FileInputStream fileIn){
 			try
 			{
-				FileInputStream fileIn = new FileInputStream("src/resources/savedstates/savedmodel.ser");
 				ObjectInputStream in = new ObjectInputStream(fileIn);
 				sModel = (SerialisableModel) in.readObject();
 				in.close();

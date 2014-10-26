@@ -16,6 +16,7 @@ import interpreter.expression.query.QueryResult;
 public abstract class TurtleQueryExpression implements SLogoExpression {
 
 	protected MainModel myModel;
+	protected String myValue;
 
 	@Override
 	public void setNumArgs(int value) {
@@ -49,6 +50,16 @@ public abstract class TurtleQueryExpression implements SLogoExpression {
 	public int getNumArgs() {
 		return 0;
 	}
+	
+	@Override
+	    public void setValue(String value) {
+	        myValue = value;
+	    }
+	
+	@Override
+	    public String getValue () {
+	        return myValue;
+	    }
 
 	protected abstract double getValueFromModel(MainModel model);
 

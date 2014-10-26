@@ -1,24 +1,21 @@
 package model;
 
+import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
 
 
+
 public class Serialiser {
 
-	private MainModel myModel;
 	private SerialisableModel sModel;
 
-	public Serialiser(MainModel model){
-		myModel = model;
-		sModel = new SerialisableModel(myModel);
-	}
-
-	private void serialise(MainModel myModel){
+	public void serialise(MainModel myModel, File file){
 		try
 		{
-			FileOutputStream fileOut = new FileOutputStream("src/resources/savedstates/savedmodel.ser");
+			sModel = new SerialisableModel(myModel);
+			FileOutputStream fileOut = new FileOutputStream(file);
 			ObjectOutputStream out = new ObjectOutputStream(fileOut);
 			out.writeObject(sModel);
 			out.close();

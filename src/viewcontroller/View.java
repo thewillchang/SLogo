@@ -1,6 +1,8 @@
 package viewcontroller;
 
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
@@ -20,6 +22,9 @@ import javafx.scene.paint.Color;
 import javafx.stage.FileChooser;
 import javafx.stage.FileChooser.ExtensionFilter;
 import javafx.stage.Stage;
+import model.Deserialiser;
+import model.MainModel;
+import model.Serialiser;
 import application.Main;
 
 /**
@@ -65,6 +70,10 @@ public class View {
 	
 	public void addNewWorkspace() {
 		Workspace workspace = new Workspace(myLanguage);
+		addWorkspace(workspace);
+	}	
+	
+	private void addWorkspace(Workspace workspace) {
 		myWorkspaces.add(workspace);
 		myCurrentWorkspace = workspace;
 		Tab tab = new Tab();
@@ -73,7 +82,42 @@ public class View {
 		tab.setContent(myCurrentWorkspace.getViewController().getNode());
 		myTabPane.getTabs().add(tab);
 		myTabPane.getSelectionModel().select(tab);
-	}	
+	}
+	
+	private void loadSerialisedWorkspace(File file) {
+		Deserialiser deserialiser = new Deserialiser();
+		try {
+			MainModel model = deserialiser.deserialise(new FileInputStream(file));
+			Workspace workspace = new Workspace(model);
+			addWorkspace(workspace);
+		} catch (FileNotFoundException e) {
+			System.out.println("failed deserialise");
+		}	
+	}
+	
+	public void saveWorkspace() {
+		if (myCurrentWorkspace != null) {
+			FileChooser saveChooser = new FileChooser();
+			saveChooser.getExtensionFilters().add(new ExtensionFilter("Serializable", "*.ser"));
+			saveChooser.setTitle("Save workspace");
+			File file = saveChooser.showSaveDialog(myStage);
+			if (file != null) {
+				Serialiser serialiser = new Serialiser();
+				serialiser.serialise(myCurrentWorkspace.getMainModel(), file);
+			}
+		}
+	}
+	
+	public void loadWorkspace() {
+		FileChooser serializableWorkspaceChooser = new FileChooser();
+        serializableWorkspaceChooser.setTitle("Choose workspace to load");
+        serializableWorkspaceChooser.getExtensionFilters().addAll(
+        		new ExtensionFilter("Serializable", "*.ser"));
+        File selectedFile = serializableWorkspaceChooser.showOpenDialog(myStage);
+        if (selectedFile != null) {
+        	loadSerialisedWorkspace(selectedFile);
+        }
+	}
 
 	public void init() {
 		myStage.show();

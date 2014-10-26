@@ -86,6 +86,7 @@ public class Parser {
             throws SLogoParsingException, NullPointerException {
         loadedExpressions = new ArrayDeque<>(); 
         while (!expressionStack.isEmpty()) {
+            
             SLogoExpression expression = expressionStack.pop();
             expression.loadArguments(loadedExpressions);
             loadedExpressions.push(expression);
@@ -93,11 +94,17 @@ public class Parser {
 
     }
 
-/*    public static void main(String[] args) throws SLogoParsingException {
-        Parser p = new Parser(new CommandReferenceLibrary(), new MainModel());
-        String input = "fd 50";
+   public static void main(String[] args) throws SLogoParsingException {
+       MainModel model = new MainModel("English");
+        Parser p = new Parser(new CommandReferenceLibrary(model.getLanguage(), 
+                                                          model.getUserDefinedMethods(), 
+                                                          model.getUserDefinedVariables()),model);
+        String input = "asdf 50";
 
        Deque<SLogoExpression> list = p.parseSLogoExpression(input);
-        System.out.println( list.pop().evaluate().getValue());   
-    }*/
+       System.out.println("listsize : " + list.size());
+       for(SLogoExpression e : list ) { 
+       System.out.println( list.pop().evaluate().getValue());   
+       }
+    }
 }

@@ -21,11 +21,13 @@ public abstract class MathExpression implements SLogoExpression {
     protected int myNumArgs;
     protected CommandReferenceLibrary myLibrary;
     protected MainModel myModel;
+    protected String myValue;
     
     public MathExpression() {
         myArguments = new ArrayDeque<>();
     }
 
+    @Override
     public void setNumArgs(int value) {
         myNumArgs = value;
     }
@@ -53,8 +55,8 @@ public abstract class MathExpression implements SLogoExpression {
     @Override
     public SLogoResult evaluate() {
         Deque<SLogoResult> results = new ArrayDeque<>();
-        while(!myArguments.isEmpty()) {
-            results.add(myArguments.pop().evaluate());
+        for(SLogoExpression argument : myArguments) {
+            results.add(argument.evaluate());
         }
         return applyOperatorAndMerge(results);
     }
@@ -81,5 +83,15 @@ public abstract class MathExpression implements SLogoExpression {
     @Override
     public int getNumArgs () {
         return myNumArgs;
+    }
+    
+    @Override
+    public void setValue(String value) {
+        myValue = value;
+    }
+    
+    @Override
+    public String getValue () {
+        return myValue;
     }
 }
