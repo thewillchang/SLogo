@@ -27,6 +27,7 @@ public class Pen {
 	private Node myTurtleNode;
 	
 	private List<Line> myDrawnLines;
+	private List<Double> myDash;
 	
 	public Pen(Node turtle) {
 		this(turtle, ourDefaultColor, ourDefaultWidth);
@@ -38,10 +39,16 @@ public class Pen {
 		myWidth = ourDefaultWidth;
 		myPenDown = true;
 		myDrawnLines = new ArrayList<>();
+		myDash = new ArrayList<>();
+		myDash.add(0d);
 	}
 	
 	public void setColor(Color color) {
 		myColor = color;
+	}
+	
+	public void setWidth(double width) {
+		myWidth = width;
 	}
 	
 	public Color getColor() {
@@ -50,6 +57,14 @@ public class Pen {
 	
 	public double getWidth() {
 		return myWidth;
+	}
+	
+	public List<Double> getDash() {
+		return myDash;
+	}
+	
+	public void setDash(List<Double> dash) {
+		myDash = dash;
 	}
 	
 	/**
@@ -73,6 +88,10 @@ public class Pen {
 		List<Line> lines = new ArrayList<>(myDrawnLines);
 		myDrawnLines.clear();
 		return lines;
+	}
+	
+	public void update(boolean penDown) {
+		myPenDown = penDown;
 	}
 	
 	public void update(PenChange penChange) {
