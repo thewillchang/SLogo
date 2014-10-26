@@ -1,5 +1,7 @@
 package interpreter.expression.userdefined;
 
+import java.util.ArrayList;
+import java.util.List;
 import model.UserDefinedVariablesModel;
 import interpreter.SLogoResult;
 import interpreter.expression.SLogoExpression;
@@ -12,8 +14,9 @@ public class MakeVariable extends UserDefinedExpression {
     @Override
     public SLogoResult evaluate () {
         UserDefinedVariablesModel myVariables = myLibrary.getUserDefinedVariables();
-        SLogoExpression myVarName = myArguments.pop();
-        SLogoResult myAssignment = myArguments.pop().evaluate();
+        List<SLogoExpression> copyArguments = new ArrayList<>(myArguments);
+        SLogoExpression myVarName = copyArguments.get(0);
+        SLogoResult myAssignment = copyArguments.get(1).evaluate();
         myVariables.putVariable(myVarName.evaluate().toString(), myAssignment.getValue());
         return myAssignment;
     }

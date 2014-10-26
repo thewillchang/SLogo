@@ -25,7 +25,7 @@ public class MakeUserInstruction extends UserDefinedExpression {
         String name = myArguments.pop().evaluate().toString();
         String variableResults = myArguments.pop().evaluate().toString();
         List<String> variables = new ArrayList<>();
-        //TODO Refactor for strings...
+        
         if(variableResults != null ) {
             variables = Arrays.asList(variableResults.split("\\|"));
         }
