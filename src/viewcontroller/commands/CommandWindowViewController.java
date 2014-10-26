@@ -14,6 +14,8 @@ import viewcontroller.ViewController;
 
 /**
  * Abstract class for command window units
+ * Sets up the BorderPane, overall VBox for ViewController elements,
+ * TitleLabel, and the preferred size for this node.
  * 
  * @author Abhishek B
  *

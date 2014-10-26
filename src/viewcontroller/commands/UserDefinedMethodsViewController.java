@@ -9,7 +9,7 @@ import viewcontroller.MainModelObserver;
 import viewcontroller.SLogoFont;
 
 /**
- * view controller for window for user defined methods
+ * ViewController contained User-Defined Method string names
  * 
  * @author Abhishek B
  *
@@ -17,7 +17,7 @@ import viewcontroller.SLogoFont;
 public class UserDefinedMethodsViewController extends
 		CommandClickableListWindowViewController implements MainModelObserver {
 
-	private final String User = "UserMethods";
+	private final static String User_KEY = "UserMethods";
 	private String myUserTranslation;
 	
 	public UserDefinedMethodsViewController(int width, int height, CommandWindowContainerViewController commandWindowContainer) {
@@ -30,7 +30,7 @@ public class UserDefinedMethodsViewController extends
 
 	@Override
 	public void applyTranslations() {
-		myUserTranslation = GUIReferenceLibrary.getStringTranslation(User);
+		myUserTranslation = GUIReferenceLibrary.getStringTranslation(User_KEY);
 	}
 
 	@Override
@@ -38,6 +38,9 @@ public class UserDefinedMethodsViewController extends
 		return myPane;
 	}
 
+	/**
+	 * Update this view by replacing the entire list from the model
+	 */
 	@Override
 	public void update(MainModel model) {
 		myListVerticalBox.getChildren().clear();

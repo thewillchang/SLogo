@@ -15,7 +15,7 @@ import viewcontroller.MainModelObserver;
 import viewcontroller.SLogoFont;
 
 /**
- * View controller for window for user defined variables
+ * ViewController contained User-Defined Variable string names and values
  * 
  * @author Abhishek B
  *
@@ -97,5 +97,8 @@ public class UserDefinedVariablesViewController extends
 			variableHBox.getChildren().add(valueLabel);
 		}
 	}
+<<<<<<< HEAD
 	
+=======
+>>>>>>> origin/abhishekBranch
 }

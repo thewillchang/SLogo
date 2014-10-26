@@ -9,9 +9,9 @@ import javafx.stage.Stage;
 
 public class HelpDialogBox {
 
-	private static final String HTTP = "http";
-	private static final String PREFIX = "urlPrefix";
-	private static final String COMMANDS = "commands1";
+	private static final String HTTP_KEY = "http";
+	private static final String PREFIX_KEY = "urlPrefix";
+	private static final String COMMANDS_KEY = "commands1";
 	private String myHTTPString;
 	private String myPrefixString;
 	private String myCommandURLString;
@@ -19,18 +19,28 @@ public class HelpDialogBox {
 	private Stage myStage;
 	private String myURL;
 
+	/**
+	 * Sets up GUI Reference Mapping
+	 * Constructs the URL from the prefixes and the specific command page ending
+	 */
 	public HelpDialogBox() {
 		setUpGUIStrings();
 		myURL = myHTTPString + myPrefixString + myCommandURLString;
 	}
 
+	/**
+	 * Sets up the GUI Library for help reference
+	 */
 	private void setUpGUIStrings() {
 		GUIReferenceLibrary.setHelpReference();
-		myHTTPString = GUIReferenceLibrary.getURL(HTTP);
-		myPrefixString = GUIReferenceLibrary.getURL(PREFIX);
-		myCommandURLString = GUIReferenceLibrary.getURL(COMMANDS);
+		myHTTPString = GUIReferenceLibrary.getURL(HTTP_KEY);
+		myPrefixString = GUIReferenceLibrary.getURL(PREFIX_KEY);
+		myCommandURLString = GUIReferenceLibrary.getURL(COMMANDS_KEY);
 	}
 
+	/**
+	 * Display the Help Dialog Window
+	 */
 	public void show() {
 		myStage = new Stage();
 		myStage.initModality(Modality.APPLICATION_MODAL);
@@ -41,6 +51,10 @@ public class HelpDialogBox {
 		myStage.show();
 	}
 
+	/**
+	 * Open up the browser and load this URL to open the page
+	 * @return
+	 */
 	private Node makePageDisplay() {
 		WebView page = new WebView();
 		page.getEngine().load(myURL.toString());

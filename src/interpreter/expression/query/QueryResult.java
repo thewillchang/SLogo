@@ -5,6 +5,11 @@ import transitionstate.TransitionState;
 import exceptions.SLogoParsingException;
 import interpreter.result.SLogoResult;
 
+/**
+ * Wrapper for Results of Query Expressions
+ * @author Abhishek B
+ *
+ */
 public class QueryResult extends SLogoResult {
 
 	public QueryResult() {

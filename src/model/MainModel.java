@@ -22,6 +22,7 @@ import application.PenForm;
 import application.PenFormResult;
 /**
  * main model of program--contains and updates other models
+ * 
  * @author Tanaka Jimha
  *
  */
@@ -30,6 +31,7 @@ public class MainModel {
 	private Color myBackgroundColor;
 	private boolean myTurtleAdded;
 	private boolean myFailedParse;
+	private String myErrorMessage;
 	private List<MainModelObserver> myObservers;
 	private transient Interpreter myInterpreter;
 	private transient List<Turtle> myTurtles;
@@ -43,7 +45,12 @@ public class MainModel {
 	private transient ParallelTransition myAnimation;
 	final String PROPERTIES_FILENAME = "SLogoState";
 	final String LANGUAGE_PROPERTY = "Language";
+<<<<<<< HEAD
 	public MainModel(String language){
+=======
+
+	public MainModel(String language) {
+>>>>>>> origin/abhishekBranch
 		this.myLanguage = language;
 		this.myObservers = new ArrayList<>();
 		this.myTurtles = new ArrayList<>();
@@ -56,7 +63,14 @@ public class MainModel {
 		this.myTurtleListHistory = new TurtleListHistory();
 		this.myBackgroundColor = DEFAULT_BACKGROUND_COLOR;
 	}
+<<<<<<< HEAD
 	public MainModel(String language, CommandHistoryModel cHM, UserDefinedCommandsModel uDCM, UserDefinedVariablesModel uDVM, String backGroundColor){
+=======
+
+	public MainModel(String language, CommandHistoryModel cHM,
+			UserDefinedCommandsModel uDCM, UserDefinedVariablesModel uDVM,
+			String backGroundColor) {
+>>>>>>> origin/abhishekBranch
 		this.myLanguage = language;
 		this.myObservers = new ArrayList<>();
 		this.myTurtles = new ArrayList<>();
@@ -109,6 +123,19 @@ public class MainModel {
 			}
 		}
 	}
+<<<<<<< HEAD
+=======
+
+	public Turtle getActiveTurtle() {
+		for (Turtle turtle : myTurtles) {
+			if (turtle.isSelected()) {
+				return turtle;
+			}
+		}
+		return null;
+	}
+	
+>>>>>>> origin/abhishekBranch
 	/**
 	 * adds a turtle
 	 */
@@ -117,7 +144,12 @@ public class MainModel {
 		myTurtleAdded = true;
 		notifyObservers();
 		myTurtleAdded = false;
+<<<<<<< HEAD
 	}	
+=======
+	}
+
+>>>>>>> origin/abhishekBranch
 	public List<Turtle> getTurtles() {
 		return myTurtles;
 	}
@@ -129,21 +161,23 @@ public class MainModel {
 	}
 	/**
 	 * interprets a String SLogoCommand by passing it to the Interpreter
+	 * 
 	 * @param sLogoCommand
 	 */
 	public void interpretSLogoCommand(String sLogoCommand) {
 		mySLogoResult = myInterpreter.interpret(sLogoCommand);
 		myFailedParse = mySLogoResult.getHasError();
-		if(!mySLogoResult.getHasError()){
+		if (!myFailedParse) {
 			myCommandHistoryModel.addCommand(sLogoCommand);
 			updateModel();
 		}
 		notifyObservers();
 		myFailedParse = false;
 	}
-	
+
 	public void interpretSLogoCommand(String commandKey, String operands) {
-		Map<String, String> commandMap = myInterpreter.getCommandReferenceLibrary().getReferencesToCommands();
+		Map<String, String> commandMap = myInterpreter
+				.getCommandReferenceLibrary().getReferencesToCommands();
 		String command = commandKey.trim() + " " + operands.trim();
 		for (String key : commandMap.keySet()) {
 			if (commandMap.get(key).equals(commandKey)) {
@@ -152,13 +186,29 @@ public class MainModel {
 		}
 		interpretSLogoCommand(command);
 	}
+<<<<<<< HEAD
 	public boolean failedParse() {
 		return myFailedParse;
 	}
+=======
+
+	public boolean getFailedParse() {
+		return myFailedParse;
+	}
+
+	public String getErrorMessage() {
+		return myErrorMessage;
+	}
+
+	public void setErrorMessage(String errorMessage) {
+		myErrorMessage = errorMessage;
+	}
+
+>>>>>>> origin/abhishekBranch
 	private void updateModel() {
 		ModelUpdater updater = new ModelUpdater();
-		Map<Turtle, List<TransitionState>>  turtleTransitionMap = 
-				updater.updateModel(myTurtles, mySLogoResult.getTransition());
+		Map<Turtle, List<TransitionState>> turtleTransitionMap = updater
+				.updateModel(myTurtles, mySLogoResult.getTransition());
 		setMyAnimation(turtleTransitionMap);
 	}
 	private void setMyAnimation(Map<Turtle, List<TransitionState>> map) {
@@ -175,6 +225,7 @@ public class MainModel {
 	}
 	/**
 	 * used to set the language in which the commands are written in
+	 * 
 	 * @param myLanguage
 	 */
 	public void setLanguage(String languageName) {
@@ -198,7 +249,12 @@ public class MainModel {
 	public UserDefinedVariablesModel getUserDefinedVariables() {
 		return this.myUserDefinedVariablesModel;
 	}
+<<<<<<< HEAD
 	private void setProperty(String propertyName, String value){
+=======
+
+	private void setProperty(String propertyName, String value) {
+>>>>>>> origin/abhishekBranch
 		Properties prop = new Properties();
 		OutputStream output = null;
 		try {
@@ -208,7 +264,7 @@ public class MainModel {
 			// save properties to project root folder
 			prop.store(output, null);
 		} catch (IOException io) {
-			io.printStackTrace();
+			//
 		} finally {
 			if (output != null) {
 				try {
@@ -219,7 +275,12 @@ public class MainModel {
 			}
 		}
 	}
+<<<<<<< HEAD
 	public String getLanguage () {
+=======
+
+	public String getLanguage() {
+>>>>>>> origin/abhishekBranch
 		return myLanguage;
 	}
 	public void undoClicked() {
@@ -240,7 +301,13 @@ public class MainModel {
 		}
 		notifyObservers();
 	}
+
 	public void setmyInterpreter() {
 		this.myInterpreter = new Interpreter(this);
 	}
+<<<<<<< HEAD
 }
+=======
+
+}
+>>>>>>> origin/abhishekBranch

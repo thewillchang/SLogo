@@ -10,7 +10,8 @@ import viewcontroller.MainModelObserver;
 import viewcontroller.SLogoFont;
 
 /**
- * View Controller for status text for SLogo commands
+ * Display status/return message of evaluated SLogo commands into this
+ * ViewController
  * 
  * @author Abhishek B
  *
@@ -19,7 +20,7 @@ public class CommandStatusViewController extends CommandWindowViewController
 		implements MainModelObserver {
 
 	private Label myStatusLabel;
-	private static final String Status = "Status";
+	private static final String STATUS_KEY = "Status";
 	private String myStatusTranslation;
 
 	public CommandStatusViewController(int width, int height) {
@@ -28,6 +29,13 @@ public class CommandStatusViewController extends CommandWindowViewController
 		myTitleLabel.setText(myStatusTranslation);
 		myTitleLabel.setFont(new SLogoFont().createTextFont());
 
+<<<<<<< HEAD
+=======
+	/**
+	 * Set the status Label object with formatting details
+	 */
+	private void setStatusLabel() {
+>>>>>>> origin/abhishekBranch
 		myStatusLabel = new Label();
 		myStatusLabel.setFont(new SLogoFont().createTextFont());
 		myStatusLabel.setPadding(new Insets(0));
@@ -35,6 +43,7 @@ public class CommandStatusViewController extends CommandWindowViewController
 		myCommandWindowVerticalBox.getChildren().add(myStatusLabel);
 	}
 
+<<<<<<< HEAD
 	@Override
 	public void applyTranslations() {
 		myStatusTranslation = GUIReferenceLibrary.getStringTranslation(Status);
@@ -49,13 +58,41 @@ public class CommandStatusViewController extends CommandWindowViewController
 		return myPane;
 	}
 
+=======
+	/**
+	 * Display the return messages from the model
+	 * If the parsing did not function properly (i.e. invalid inputs), then
+	 * the error message will be displayed.
+	 */
+>>>>>>> origin/abhishekBranch
 	@Override
 	public void update(MainModel model) {
-		applyTranslations();
 		SLogoResult latestResult = model.getResult();
 		if (latestResult != null && !latestResult.getHasError()) {
 			updateCommandStatusText(Double.toString(latestResult.getValue()));
+		} else {
+			updateCommandStatusText(model.getErrorMessage());
 		}
 	}
 
+<<<<<<< HEAD
+=======
+	/**
+	 * Update the label for the text.
+	 * @param commandResult
+	 */
+	public void updateCommandStatusText(String commandResult) {
+		myStatusLabel.setText(commandResult);
+	}
+
+	@Override
+	public void applyTranslations() {
+		myStatusTranslation = GUIReferenceLibrary.getStringTranslation(STATUS_KEY);
+	}
+
+	@Override
+	public Node getNode() {
+		return myPane;
+	}
+>>>>>>> origin/abhishekBranch
 }

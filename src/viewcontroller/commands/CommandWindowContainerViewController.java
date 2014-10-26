@@ -47,18 +47,36 @@ public class CommandWindowContainerViewController implements ViewController,
 		placeCommandWindows();
 	}
 	
+	/**
+	 * Dump the text from the loaded script (file system)
+	 * into the Command Prompt TextArea.
+	 * @param script
+	 */
 	public void loadScript(String script) {
 		myCommandPromptView.setText(script);
 	}
 	
+	/**
+	 * Pass the SLogo Command to the parent to go to the model
+	 * @param command
+	 */
 	public void passSLogoCommand(String command) {
 		myParent.passSLogoCommand(command);
 	}
 	
+	/**
+	 * Pass the key to be mapped to a command. For example,
+	 * UP arrow key maps to the Forward expression.
+	 * @param commandKey
+	 * @param operands
+	 */
 	public void passSLogoCommand(String commandKey, String operands) {
 		myParent.passSLogoCommand(commandKey, operands);
 	}
 
+	/**
+	 * Place all child ViewController nodes into this overall container.
+	 */
 	private void placeCommandWindows() {
 		myCommandWindowVerticalBox = new VBox(10);
 		myCommandWindowVerticalBox.setPadding(new Insets(20));
@@ -81,6 +99,10 @@ public class CommandWindowContainerViewController implements ViewController,
 		myPane.setCenter(myCommandWindowVerticalBox);
 	}
 
+	/**
+	 * Set up the HBox to contain the User-Defined models
+	 * @return HBox containing User-Defined Models
+	 */
 	private HBox placeUserDefinedBoxes() {
 		HBox userDefinedHorizontalBox = new HBox();
 		
@@ -96,8 +118,12 @@ public class CommandWindowContainerViewController implements ViewController,
 		return userDefinedHorizontalBox;
 	}
 
+	/**
+	 * 
+	 * @param commandFromPrelists
+	 */
 	public void moveCommandTextToPromptWindow(String commandFromPrelists) {
-		myCommandPromptView.appendCommandToPromptTextArea(commandFromPrelists);
+		myCommandPromptView.setCommandPromptText(commandFromPrelists);
 	}
 
 	@Override
@@ -105,6 +131,10 @@ public class CommandWindowContainerViewController implements ViewController,
 		return myPane;
 	}
 
+	/**
+	 * Run update on every child view controller (in the container),
+	 * these being contained in myChildObservers
+	 */
 	@Override
 	public void update(MainModel model) {
 		for (MainModelObserver child : myChildObservers) {

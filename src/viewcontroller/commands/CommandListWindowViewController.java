@@ -4,6 +4,12 @@ import javafx.scene.control.ScrollPane;
 import javafx.scene.control.ScrollPane.ScrollBarPolicy;
 import javafx.scene.layout.VBox;
 
+/**
+ * Abstract class for command windows that have lists of any objects - 
+ * this means ClickableLists, or lists of HBoxes.
+ * @author Abhishek B
+ *
+ */
 public abstract class CommandListWindowViewController extends CommandWindowViewController {
 
 	protected ScrollPane myScrollPane;
@@ -18,6 +24,10 @@ public abstract class CommandListWindowViewController extends CommandWindowViewC
 		myPane.setCenter(myScrollPane);
 	}
 
+	/**
+	 * Move the scroll bar to the bottom of the pane
+	 * such that it reflects the latest content in the scroll pane.
+	 */
 	protected void updateScroller() {
 		myScrollPane.setVvalue(myScrollPane.getVmax());
 	}

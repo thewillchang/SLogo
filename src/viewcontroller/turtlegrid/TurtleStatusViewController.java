@@ -5,6 +5,7 @@ import javafx.scene.Node;
 import javafx.scene.control.Label;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import turtle.Turtle;
 import viewcontroller.GUIReferenceLibrary;
 import viewcontroller.MainModelObserver;
 import viewcontroller.SLogoFont;
@@ -17,7 +18,8 @@ import viewcontroller.commands.CommandWindowViewController;
  * @author Jonathan Tseng, Abhishek Balakrishnan
  *
  */
-public class TurtleStatusViewController extends CommandWindowViewController implements MainModelObserver {
+public class TurtleStatusViewController extends CommandWindowViewController
+		implements MainModelObserver {
 
 	private final String Status = "Status";
 	private final String TurtleID = "TurtleID";
@@ -39,21 +41,28 @@ public class TurtleStatusViewController extends CommandWindowViewController impl
 		placeVariableTable();
 		myCommandWindowVerticalBox.getChildren().addAll(myListVerticalBox);
 	}
-	
+
 	private void placeVariableTable() {
 		myListVerticalBox = new VBox();
 		myColumnTitles = populateHBox(myTurtleID, myXPosition, myYPosition);
 		myTurtleData = populateHBox(" ", " ", " ");
 		myListVerticalBox.getChildren().addAll(myColumnTitles, myTurtleData);
 	}
-	
-	private HBox populateHBox(String turtleID, String xPosition, String yPosition) {
+
+	private HBox populateHBox(String turtleID, String xPosition,
+			String yPosition) {
 		HBox statusRow = new HBox(50);
+<<<<<<< HEAD
 		statusRow.setPrefSize(SIZE.width, SIZE.height/3);
 		statusRow.getChildren().addAll(new Label(turtleID), new Label(xPosition), new Label(yPosition));
+=======
+		statusRow.setPrefSize(SIZE.width, SIZE.height / 2);
+		statusRow.getChildren().addAll(new Label(turtleID),
+				new Label(xPosition), new Label(yPosition));
+>>>>>>> origin/abhishekBranch
 		return statusRow;
 	}
-	
+
 	@Override
 	public Node getNode() {
 		return myPane;
@@ -69,14 +78,20 @@ public class TurtleStatusViewController extends CommandWindowViewController impl
 
 	@Override
 	public void update(MainModel model) {
-		int turtleID = 0;
-		double xPosition = 0;
-		double yPosition = 0;
-		String turtleIDString = Integer.toString(turtleID);
-		String xPositionString = Double.toString(xPosition);
-		String yPositionString = Double.toString(yPosition);
-		
-		myTurtleData = populateHBox(turtleIDString, xPositionString, yPositionString);
+		try {
+			Turtle turtle = model.getActiveTurtle();
+			if (turtle == null) {
+				throw new NullPointerException();
+			}
+			String turtleIDString = Integer.toString(turtle.getId());
+			String xPositionString = Double.toString(turtle.getX());
+			String yPositionString = Double.toString(turtle.getY());
+
+			myTurtleData = populateHBox(turtleIDString, xPositionString,
+					yPositionString);
+		} catch (NullPointerException npe) {
+			myTurtleData = populateHBox("No Turtle Selected", "0", "0");
+		}
 	}
-	
+
 }
