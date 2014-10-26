@@ -25,23 +25,20 @@ public class CommandStatusViewController extends CommandWindowViewController
 	public CommandStatusViewController(int width, int height) {
 		super(width, height);
 		applyTranslations();
-		myTitleLabel.setText(myStatusTranslation);
-		myTitleLabel.setFont(new SLogoFont().createTextFont());
+		setTitle(myStatusTranslation);
+		setStatusLabel();
+	}
 
+	private void setStatusLabel() {
 		myStatusLabel = new Label();
 		myStatusLabel.setFont(new SLogoFont().createTextFont());
 		myStatusLabel.setPadding(new Insets(0));
-
 		myCommandWindowVerticalBox.getChildren().add(myStatusLabel);
 	}
 
 	@Override
 	public void applyTranslations() {
 		myStatusTranslation = GUIReferenceLibrary.getStringTranslation(Status);
-	}
-
-	public void updateCommandStatusText(String commandResult) {
-		myStatusLabel.setText(commandResult);
 	}
 
 	@Override
@@ -56,6 +53,10 @@ public class CommandStatusViewController extends CommandWindowViewController
 		if (latestResult != null && !latestResult.getHasError()) {
 			updateCommandStatusText(Double.toString(latestResult.getValue()));
 		}
+	}
+
+	public void updateCommandStatusText(String commandResult) {
+		myStatusLabel.setText(commandResult);
 	}
 
 }

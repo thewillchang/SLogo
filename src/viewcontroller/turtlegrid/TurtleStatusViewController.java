@@ -7,7 +7,6 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import viewcontroller.GUIReferenceLibrary;
 import viewcontroller.MainModelObserver;
-import viewcontroller.SLogoFont;
 import viewcontroller.commands.CommandWindowViewController;
 
 /**
@@ -19,11 +18,9 @@ import viewcontroller.commands.CommandWindowViewController;
  */
 public class TurtleStatusViewController extends CommandWindowViewController implements MainModelObserver {
 
-	private final String Status = "Status";
 	private final String TurtleID = "TurtleID";
 	private final String XPosition = "XPosition";
 	private final String YPosition = "YPosition";
-	private String myStatusTranslation;
 	private String myTurtleID;
 	private String myXPosition;
 	private String myYPosition;
@@ -34,8 +31,6 @@ public class TurtleStatusViewController extends CommandWindowViewController impl
 	public TurtleStatusViewController(int width, int height) {
 		super(width, height);
 		applyTranslations();
-		myTitleLabel.setText(myStatusTranslation);
-		myTitleLabel.setFont(new SLogoFont().createTextFont());
 		placeVariableTable();
 		myCommandWindowVerticalBox.getChildren().addAll(myListVerticalBox);
 	}
@@ -49,7 +44,7 @@ public class TurtleStatusViewController extends CommandWindowViewController impl
 	
 	private HBox populateHBox(String turtleID, String xPosition, String yPosition) {
 		HBox statusRow = new HBox(50);
-		statusRow.setPrefSize(SIZE.width, SIZE.height/3);
+		statusRow.setPrefSize(SIZE.width, SIZE.height/2);
 		statusRow.getChildren().addAll(new Label(turtleID), new Label(xPosition), new Label(yPosition));
 		return statusRow;
 	}
@@ -61,7 +56,6 @@ public class TurtleStatusViewController extends CommandWindowViewController impl
 
 	@Override
 	public void applyTranslations() {
-		myStatusTranslation = GUIReferenceLibrary.getStringTranslation(Status);
 		myTurtleID = GUIReferenceLibrary.getStringTranslation(TurtleID);
 		myXPosition = GUIReferenceLibrary.getStringTranslation(XPosition);
 		myYPosition = GUIReferenceLibrary.getStringTranslation(YPosition);

@@ -12,7 +12,6 @@ import model.MainModel;
 import model.UserDefinedVariablesModel;
 import viewcontroller.GUIReferenceLibrary;
 import viewcontroller.MainModelObserver;
-import viewcontroller.SLogoFont;
 
 /**
  * View controller for window for user defined variables
@@ -24,7 +23,7 @@ public class UserDefinedVariablesViewController extends
 		CommandListWindowViewController implements MainModelObserver {
 
 	private final static String MAKE_KEY = "MakeVariable";
-	
+
 	private CommandWindowContainerViewController myParent;
 	private Map<String, Double> myVariableMap;
 	private final String UserVariables = "UserVariables";
@@ -35,8 +34,7 @@ public class UserDefinedVariablesViewController extends
 		super(width, height);
 		myParent = parent;
 		applyTranslations();
-		myTitleLabel.setText(myUserTranslation);
-		myTitleLabel.setFont(new SLogoFont().createTextFont());
+		setTitle(myUserTranslation);
 	}
 
 	@Override
@@ -44,7 +42,7 @@ public class UserDefinedVariablesViewController extends
 		myUserTranslation = GUIReferenceLibrary
 				.getStringTranslation(UserVariables);
 	}
-	
+
 	@Override
 	public Node getNode() {
 		return myPane;
@@ -52,7 +50,8 @@ public class UserDefinedVariablesViewController extends
 
 	@Override
 	public void update(MainModel model) {
-		UserDefinedVariablesModel myUserDefinedVariablesModel = model.getUserDefinedVariables();
+		UserDefinedVariablesModel myUserDefinedVariablesModel = model
+				.getUserDefinedVariables();
 		applyTranslations();
 		myVariableMap = myUserDefinedVariablesModel.getAllVariables();
 		updateVariableList();
@@ -72,30 +71,29 @@ public class UserDefinedVariablesViewController extends
 		Label variableLabel = new Label(variable);
 		Label valueLabel = new Label(Double.toString(value));
 		variableHBox.getChildren().addAll(variableLabel, valueLabel);
-		valueLabel.setOnMouseClicked(event->variableClicked(variableHBox, variableLabel, valueLabel));
+		valueLabel.setOnMouseClicked(event -> variableClicked(variableHBox,
+				variableLabel, valueLabel));
 		myListVerticalBox.getChildren().add(variableHBox);
 	}
-	
-	private void variableClicked(HBox variableHBox, Label variableLabel, Label valueLabel) {
-		TextField editableValueLabel = new TextField(valueLabel
-				.getText());
+
+	private void variableClicked(HBox variableHBox, Label variableLabel,
+			Label valueLabel) {
+		TextField editableValueLabel = new TextField(valueLabel.getText());
 		variableHBox.getChildren().remove(valueLabel);
 		variableHBox.getChildren().add(editableValueLabel);
-		editableValueLabel.setOnKeyPressed(event->keyPressed(
-				event, 
-				editableValueLabel, 
-				variableHBox, 
-				variableLabel, 
-				valueLabel));
+		editableValueLabel.setOnKeyPressed(event -> keyPressed(event,
+				editableValueLabel, variableHBox, variableLabel, valueLabel));
 	}
-	
-	private void keyPressed(KeyEvent event, TextField editableValueLabel, HBox variableHBox, Label variableLabel, Label valueLabel) {
+
+	private void keyPressed(KeyEvent event, TextField editableValueLabel,
+			HBox variableHBox, Label variableLabel, Label valueLabel) {
 		if (event.getCode() == KeyCode.ENTER) {
 			valueLabel.setText(editableValueLabel.getText());
-			myParent.passSLogoCommand(MAKE_KEY, variableLabel.getText().trim() + " " + valueLabel.getText().trim());
+			myParent.passSLogoCommand(MAKE_KEY, variableLabel.getText().trim()
+					+ " " + valueLabel.getText().trim());
 			variableHBox.getChildren().remove(editableValueLabel);
 			variableHBox.getChildren().add(valueLabel);
 		}
 	}
-	
+
 }

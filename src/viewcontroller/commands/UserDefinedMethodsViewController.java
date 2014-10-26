@@ -6,7 +6,6 @@ import model.MainModel;
 import model.UserDefinedCommandsModel;
 import viewcontroller.GUIReferenceLibrary;
 import viewcontroller.MainModelObserver;
-import viewcontroller.SLogoFont;
 
 /**
  * view controller for window for user defined methods
@@ -24,15 +23,14 @@ public class UserDefinedMethodsViewController extends
 		super(width, height);
 		applyTranslations();
 		myCommandWindowContainer = commandWindowContainer;
-		myTitleLabel.setText(myUserTranslation);
-		myTitleLabel.setFont(new SLogoFont().createTextFont());
+		setTitle(myUserTranslation);
 	}
 
 	@Override
 	public void applyTranslations() {
 		myUserTranslation = GUIReferenceLibrary.getStringTranslation(User);
 	}
-
+	
 	@Override
 	public Node getNode() {
 		return myPane;

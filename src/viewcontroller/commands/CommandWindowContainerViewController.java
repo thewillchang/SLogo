@@ -48,7 +48,7 @@ public class CommandWindowContainerViewController implements ViewController,
 	}
 	
 	public void loadScript(String script) {
-		myCommandPromptView.setText(script);
+		myCommandPromptView.setCommandPromptText(script);
 	}
 	
 	public void passSLogoCommand(String command) {

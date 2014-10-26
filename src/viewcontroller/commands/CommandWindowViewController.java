@@ -10,6 +10,7 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.CornerRadii;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
+import viewcontroller.SLogoFont;
 import viewcontroller.ViewController;
 
 /**
@@ -32,9 +33,14 @@ public abstract class CommandWindowViewController implements ViewController {
 		SIZE.height = height;
 		myPane.setBackground(new Background(new BackgroundFill(Color.WHITE,
 				new CornerRadii(0), new Insets(0))));
-		myCommandWindowVerticalBox = new VBox();
 		myTitleLabel = new Label();
-		myCommandWindowVerticalBox.getChildren().add(myTitleLabel);
+		myCommandWindowVerticalBox = new VBox();
+		myPane.setTop(myTitleLabel);
 		myPane.setCenter(myCommandWindowVerticalBox);
+	}
+	
+	protected void setTitle(String titleText){
+		myTitleLabel.setText(titleText);
+		myTitleLabel.setFont(new SLogoFont().createSubWindowTitleFont());
 	}
 }

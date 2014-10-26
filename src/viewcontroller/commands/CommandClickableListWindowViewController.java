@@ -31,5 +31,4 @@ public abstract class CommandClickableListWindowViewController extends
 		myListVerticalBox.getChildren().add(commandLabel);
 		updateScroller();
 	}
-
 }

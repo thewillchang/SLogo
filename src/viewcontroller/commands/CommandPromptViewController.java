@@ -18,7 +18,7 @@ import viewcontroller.ViewController;
 
 public class CommandPromptViewController extends CommandWindowViewController
 		implements ViewController {
-	
+
 	private CommandWindowContainerViewController myParent;
 	private HBox myCommandPromptHorizontalBox;
 	private TextArea myCommandPromptTextArea;
@@ -33,38 +33,38 @@ public class CommandPromptViewController extends CommandWindowViewController
 		super(width, height);
 		myParent = parent;
 		applyTranslations();
-		myTitleLabel.setText(myPromptTranslation);
-
+		setTitle(myPromptTranslation);
 		setUpCommandPromptHorizontalBox();
 		myCommandWindowVerticalBox.getChildren().add(
 				myCommandPromptHorizontalBox);
 	}
-	
-	public void setText(String text) {
+
+	public void setCommandPromptText(String text) {
 		myCommandPromptTextArea.setText(text);
 	}
 
 	private void setUpCommandPromptHorizontalBox() {
-		setUpCommandPrompt(SIZE.width * 9 /10 , SIZE.height * 9/10);
-		setUpSubmitButton(SIZE.width * 9/10, SIZE.height * 9/10);
+		setUpCommandPrompt(SIZE.width * 9 / 10, SIZE.height * 9 / 10);
+		setUpSubmitButton(SIZE.width * 9 / 10, SIZE.height * 9 / 10);
 		myCommandPromptHorizontalBox = new HBox(10);
-		myCommandPromptHorizontalBox.setPrefSize(
-				SIZE.width * 9 / 10, SIZE.height * 9 / 10);
+		myCommandPromptHorizontalBox.setPrefSize(SIZE.width * 9 / 10,
+				SIZE.height * 9 / 10);
 		myCommandPromptHorizontalBox.getChildren().addAll(
 				myCommandPromptTextArea, mySubmitButton);
 	}
 
 	private void setUpCommandPrompt(int parentWidth, int parentHeight) {
 		myCommandPromptTextArea = new TextArea();
-		myCommandPromptTextArea.setPrefSize(parentWidth * 9 /10, parentHeight * 8 /10);
+		myCommandPromptTextArea.setPrefSize(parentWidth * 9 / 10,
+				parentHeight * 8 / 10);
 		myCommandPromptTextArea.setPrefColumnCount(10);
 		myCommandPromptTextArea.setPrefRowCount(4);
 		myCommandPromptTextArea.setWrapText(true);
 	}
-	
+
 	private void setUpSubmitButton(int parentWidth, int parentHeight) {
 		mySubmitButton = new Button(mySubmitTranslation);
-		mySubmitButton.setPrefSize(parentWidth * 1/10, parentHeight * 1/5);
+		mySubmitButton.setPrefSize(parentWidth * 1 / 10, parentHeight * 1 / 5);
 		mySubmitButton.setOnAction(new EventHandler<ActionEvent>() {
 			@Override
 			public void handle(ActionEvent e) {
@@ -79,7 +79,7 @@ public class CommandPromptViewController extends CommandWindowViewController
 	}
 
 	private void passCommandToModel(String commandFromPromptTextArea) {
-		if(commandFromPromptTextArea.trim().length() > 0)
+		if (commandFromPromptTextArea.trim().length() > 0)
 			myParent.passSLogoCommand(commandFromPromptTextArea);
 	}
 

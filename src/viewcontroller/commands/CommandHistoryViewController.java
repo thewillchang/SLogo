@@ -22,9 +22,9 @@ public class CommandHistoryViewController extends CommandClickableListWindowView
 
 	public CommandHistoryViewController(int width, int height, CommandWindowContainerViewController commandWindowContainer) {
 		super(width, height);
-		applyTranslations();
 		myCommandWindowContainer = commandWindowContainer;
-		myTitleLabel.setText(myHistoryTranslation);
+		applyTranslations();
+		setTitle(myHistoryTranslation);
 	}
 
 	@Override
