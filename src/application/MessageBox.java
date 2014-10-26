@@ -8,11 +8,10 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
-import javafx.scene.text.Font;
-import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import viewcontroller.SLogoFont;
 
 
 /**
@@ -22,10 +21,6 @@ import javafx.stage.Stage;
  *
  */
 public class MessageBox {
-    // em for sizing the font
-    private static final double rootEm = javafx.scene.text.Font.getDefault().getSize();
-
-    private static final Font FONT = Font.font("Garamond", FontWeight.NORMAL, rootEm * 1.2);
     private static final int MESSAGE_SPACING = 10;
     private static final int MESSAGE_PADDING = 20;
 
@@ -76,7 +71,7 @@ public class MessageBox {
      */
     private void createMessageText () {
         myMessageText = new Text(myMessage);
-        myMessageText.setFont(FONT);
+        myMessageText.setFont(new SLogoFont().createTextFont());
     }
 
     /**
