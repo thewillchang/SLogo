@@ -78,7 +78,6 @@ public class TurtleWindowViewController implements ViewController,
 		myStatusView = new TurtleStatusViewController(SIZE.width * 9 / 10,
 				SIZE.height * 1 / 10);
 		BorderPane.setAlignment(myStatusView.getNode(), Pos.CENTER);
-		myPane.setBottom(myStatusView.getNode());
 	}
 
 	private void placeGridView() {

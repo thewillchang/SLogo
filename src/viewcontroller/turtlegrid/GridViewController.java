@@ -30,7 +30,7 @@ public class GridViewController implements ViewController, MainModelObserver {
 	
 	public final static Dimension SIZE = new Dimension(
 			TurtleWindowViewController.SIZE.width * 12 / 10, 
-			TurtleWindowViewController.SIZE.height * 8 / 10);
+			TurtleWindowViewController.SIZE.height * 9 / 10);
 	
 	private TurtleWindowViewController myParent;
 	private GridLines myGridLines;
