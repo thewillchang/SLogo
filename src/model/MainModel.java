@@ -21,6 +21,8 @@ import turtle.Turtle;
 import turtle.TurtleHistoryState;
 import turtle.TurtleListHistory;
 import viewcontroller.MainModelObserver;
+import application.PenForm;
+import application.PenFormResult;
 
 /**
  * Main model of the program. Holds the state of the program, contains and updates other models
@@ -106,6 +108,17 @@ public class MainModel {
 		myBackgroundColor = color;
 		myAnimation = new ParallelTransition();
 		notifyObservers();
+	}
+	
+	public void updatePen(PenForm penForm) {
+		PenFormResult penFormResult = penForm.getResult();
+		for (Turtle turtle : myTurtles) {
+			if (turtle.isSelected()) {
+				turtle.getPen().setWidth(penFormResult.getPenWidth());
+				turtle.getPen().update(!penFormResult.getPenUp());
+				turtle.getPen().setDash(penFormResult.getPenDash());
+			}
+		}
 	}
 
 	public void updatePenColor(Color color) {

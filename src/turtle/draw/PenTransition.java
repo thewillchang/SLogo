@@ -31,7 +31,8 @@ public class PenTransition extends LinearTransition {
 	private void formatLine() {
 		myLine.setStroke(myTurtle.getPen().getColor());
 		myLine.setStrokeWidth(myTurtle.getPen().getWidth());
-		myLine.setStrokeLineCap(StrokeLineCap.ROUND);
+		myLine.setStrokeLineCap(StrokeLineCap.BUTT);
+		myLine.getStrokeDashArray().addAll(myTurtle.getPen().getDash());
 	}
 	
 	private void drawLine() {

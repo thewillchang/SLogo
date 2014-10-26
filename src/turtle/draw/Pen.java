@@ -27,17 +27,10 @@ public class Pen {
 	private Node myTurtleNode;
 	
 	private List<Line> myDrawnLines;
+	private List<Double> myDash;
 	
 	public Pen(Node turtle) {
 		this(turtle, ourDefaultColor, ourDefaultWidth);
-	}
-	
-	public Pen(Node turtle, String colour, boolean isPenDown) {
-		myTurtleNode = turtle;
-		myColor = Color.valueOf(colour);
-		myWidth = ourDefaultWidth;
-		myPenDown = isPenDown;
-		myDrawnLines = new ArrayList<>();
 	}
 	
 	public Pen(Node turtle, Color color, double width) {
@@ -46,10 +39,15 @@ public class Pen {
 		myWidth = ourDefaultWidth;
 		myPenDown = true;
 		myDrawnLines = new ArrayList<>();
+		myDash = new ArrayList<>();
 	}
 	
 	public void setColor(Color color) {
 		myColor = color;
+	}
+	
+	public void setWidth(double width) {
+		myWidth = width;
 	}
 	
 	public Color getColor() {
@@ -58,6 +56,14 @@ public class Pen {
 	
 	public double getWidth() {
 		return myWidth;
+	}
+	
+	public List<Double> getDash() {
+		return myDash;
+	}
+	
+	public void setDash(List<Double> dash) {
+		myDash = dash;
 	}
 	
 	/**
@@ -83,15 +89,10 @@ public class Pen {
 		return lines;
 	}
 	
-	public void setDrawnLines(List<Line> lines) {
-		myDrawnLines = lines;
-		for(Line line: myDrawnLines){
-			//myGrid.getChildren().remove(myTurtleNode);
-			myGrid.getChildren().add(line);
-			//myGrid.getChildren().add(myTurtleNode);
-		}
-
+	public void update(boolean penDown) {
+		myPenDown = penDown;
 	}
+	
 	public void update(PenChange penChange) {
 		if (penChange.equals(PenChange.CHANGE_DOWN)) {
 			myPenDown = true;
@@ -102,10 +103,6 @@ public class Pen {
 	
 	public boolean getPenDown() {
 		return myPenDown;
-	}
-	
-	public void setPenDown(boolean bool) {
-		myPenDown = bool;
 	}
 	
 }

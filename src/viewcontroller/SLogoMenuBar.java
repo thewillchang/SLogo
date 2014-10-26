@@ -18,6 +18,7 @@ public class SLogoMenuBar extends MenuBar {
 	private final static String ADD_TURTLE_KEY = "Add";
 	private final static String GRID_LINES_KEY = "Toggle";
 	private final static String TURTLE_IMAGE_KEY = "TurtleImage";
+	private final static String PEN_SETTINGS_KEY = "PenSettings";
 
 	private final static String FILE_KEY = "File";
 	private final static String HELP_KEY = "Help";
@@ -48,6 +49,7 @@ public class SLogoMenuBar extends MenuBar {
 	private MenuItem myGridLinesMenuItem;
 	private MenuItem myAddTurtleMenuItem;
 	private MenuItem myTurtleImageMenuItem;
+	private MenuItem myPenSettingsMenuItem;
 
 	public SLogoMenuBar(View parentView) {
 		super();
@@ -104,7 +106,13 @@ public class SLogoMenuBar extends MenuBar {
 				event -> myParentView.toggleGridLines());
 		myTurtleImageMenuItem = createMenuItem(GUIReferenceLibrary.getStringTranslation(TURTLE_IMAGE_KEY), 
 				event -> myParentView.changeTurtleImages());
-		gridMenu.getItems().addAll(myAddTurtleMenuItem, myTurtleImageMenuItem, myGridLinesMenuItem);
+		myPenSettingsMenuItem = createMenuItem(GUIReferenceLibrary.getStringTranslation(PEN_SETTINGS_KEY), 
+				event -> myParentView.editPenSettings());
+		gridMenu.getItems().addAll(
+				myAddTurtleMenuItem, 
+				myTurtleImageMenuItem, 
+				myGridLinesMenuItem,
+				myPenSettingsMenuItem);
 		getMenus().add(gridMenu);
 	}
 
