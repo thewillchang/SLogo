@@ -9,7 +9,6 @@ import interpreter.expression.SLogoExpression;
 import interpreter.expression.SyntaxExpression;
 
 public class Variable extends SyntaxExpression {
-    private String myValue;
     
     @Override
     public SLogoResult evaluate () {
@@ -31,9 +30,5 @@ public class Variable extends SyntaxExpression {
         return myResult;
     }
     
-    @Override
-    public void setValue (String value) {
-        myValue = value;
-    }
 
 }

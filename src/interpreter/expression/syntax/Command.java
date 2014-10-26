@@ -14,8 +14,7 @@ import interpreter.expression.SLogoExpression;
 import interpreter.expression.SyntaxExpression;
 
 public class Command extends SyntaxExpression {
-    private int myNumArgs;
-    private String myValue;
+    
     private SLogoExpression myCommands;
     private List<String> myVariableReferences;
 
@@ -33,11 +32,11 @@ public class Command extends SyntaxExpression {
 
     @Override
     public void loadArguments(Deque<SLogoExpression> args) throws SLogoParsingException, NullPointerException {
-        
+        System.out.println("Created COMMAND VALUE++++" + myValue);
         UserDefinedCommandsModel allDefinedCommands = myLibrary.getUserDefinedCommands();
         if(allDefinedCommands.containsCommand(myValue)) {
             myVariableReferences = allDefinedCommands.getVariablesForCommand(myValue);
-            //System.out.println(myVariableReferences.toString());
+            System.out.println(myVariableReferences.get(0).toString());
             myNumArgs = myVariableReferences.size();
             //System.out.println(args.size());
             //System.out.println(myNumArgs);
@@ -62,7 +61,7 @@ public class Command extends SyntaxExpression {
             if(myNumArgs > 0) {
                 
                 for(String variableName : myVariableReferences) {
-                    System.out.println(variableName);
+                    //System.out.println(variableName);
                     SLogoResult result = copyArguments.pop().evaluate();
                     myUserDefinedVariables.putVariable(variableName, result.getValue());
                     transitionStates.addAll(result.getTransition());
@@ -79,9 +78,6 @@ public class Command extends SyntaxExpression {
         }
         return myResult;
     }
-
-
-
     @Override
     public String toString() {
         return myValue;

@@ -38,4 +38,22 @@ public class GroupStart implements SLogoExpression {
         // TODO Auto-generated method stub
         
     }
+
+    @Override
+    public int getNumArgs () {
+        // TODO Auto-generated method stub
+        return 0;
+    }
+
+    @Override
+    public void setValue (String value) {
+        // TODO Auto-generated method stub
+        
+    }
+
+    @Override
+    public String getValue () {
+        // TODO Auto-generated method stub
+        return null;
+    }
 }

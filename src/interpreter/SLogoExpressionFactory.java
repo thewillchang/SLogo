@@ -1,6 +1,7 @@
 package interpreter;
 
 import interpreter.expression.*;
+import java.util.HashMap;
 import java.util.Locale;
 import java.util.Map;
 import java.util.ResourceBundle;
@@ -87,7 +88,8 @@ public class SLogoExpressionFactory {
                     SLogoExpression expression = (SLogoExpression) commandClass.newInstance();
                     initializeExpression(expression, name);
                     expression.setValue(command);
-                    //System.out.println(expression.getValue());
+                    System.out.println("command value" + command);
+                    System.out.println(expression.getValue());
                     return expression;
                 }
                 catch (ClassNotFoundException e) {
@@ -123,7 +125,11 @@ public class SLogoExpressionFactory {
         return null;
     }
 
-    public static void main(String[] args) throws SLogoParsingException {     
+    public static void main(String[] args) throws SLogoParsingException {   
+        HashMap<String,String> asdf = new HashMap<>();
+        asdf.put("asdf","asdf");
+        System.out.println(asdf.containsKey("asdf"));
+        System.out.println(asdf.containsKey("a"));
        /* SLogoExpressionFactory factory = new SLogoExpressionFactory(new CommandReferenceLibrary(), new MainModel());
         ResourceBundle mySyntaxReference = ResourceBundle.getBundle("resources.languages.Syntax", Locale.US);
         mySyntaxReference.getString("ListStart");
