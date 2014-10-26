@@ -26,6 +26,7 @@ public class MakeUserInstruction extends UserDefinedExpression {
     @Override
     public SLogoResult evaluate () {
         String name = myArguments.pop().evaluate().toString();
+        System.out.println("NAME" + name);
         Deque<SLogoExpression> variableExpressions = ((SyntaxResult) myArguments.pop().evaluate()).getGroupedExpressions();
 
         List<String> variables = new ArrayList<>();
@@ -33,8 +34,8 @@ public class MakeUserInstruction extends UserDefinedExpression {
         for(SLogoExpression expression : variableExpressions) {
             if(!(expression instanceof ListEnd)) {
                 variables.add(expression.getValue());
+                System.out.println("!!!! "  +expression.getValue());
             }
-
         }
 
         SLogoExpression commands = myArguments.pop();

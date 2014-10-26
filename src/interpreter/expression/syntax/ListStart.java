@@ -67,10 +67,5 @@ public class ListStart extends SyntaxExpression {
     }
 
     
-    //TODO Refactor method name SetValue... 
-    @Override
-    public void setValue (String value) {
-        myValue = value;
-    }
 
 }
