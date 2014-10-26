@@ -43,7 +43,8 @@ public class Turtle {
 		myId = id;
 		myTurtleHistory = new TurtleHistory();
 		myTurtleViewController = new TurtleViewController();
-		myPen = new Pen(getTurtle(), penColour, isPenDown);
+		myPen = new Pen(getTurtle());
+		myPen.setColor(Color.valueOf(penColour));
 		//myTurtleViewController.isSelected() = isSelected;
 		if(imageFile != null){
 			myTurtleViewController.setImage(imageFile);
@@ -52,7 +53,7 @@ public class Turtle {
 		getTurtle().setTranslateX(translateX);
 		getTurtle().setTranslateY(translateY);
 		getTurtle().setRotate(rotate);
-		//myPen.setColor(Color.valueOf(penColour));
+		
 		System.out.println(penColour);
 		//myPen.setPenDown(isPenDown);
 

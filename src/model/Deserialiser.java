@@ -41,7 +41,7 @@ public class Deserialiser
 				Turtle turtle = new Turtle(sTurtle.getMyId(), sTurtle.getTranslateX(), sTurtle.getTranslateY(), sTurtle.getRotate(), sTurtle.isSelected(),
 						sTurtle.getImageFile(), sTurtle.getPenColour(), sTurtle.getIsPenDown() );
 				
-				turtle.getPen().setDrawnLines(sTurtle.getLines());
+				//turtle.getPen().setDrawnLines(sTurtle.getLines());
 				myTurtles.add(turtle);
 				
 			}
