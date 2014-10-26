@@ -58,7 +58,16 @@ public abstract class SyntaxExpression implements SLogoExpression {
         return new SyntaxResult();
     }
 
-    public abstract void setValue(String value);
-
+    @Override
+    public void setValue (String value) {
+        myValue = value;
+    }
+    
+    @Override
+    public String getValue () {
+        return myValue;
+    }
+    
+    
 
 }

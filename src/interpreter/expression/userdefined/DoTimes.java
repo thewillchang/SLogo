@@ -23,9 +23,5 @@ public class DoTimes extends UserDefinedExpression {
         return null;
     }
 
-    @Override
-    public void setValue (String value) {
-        // TODO Auto-generated method stub
-        
-    }
+    
 }

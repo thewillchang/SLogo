@@ -47,9 +47,5 @@ public class If extends UserDefinedExpression {
     }
 
 
-    @Override
-    public void setValue (String value) {
-        // TODO Auto-generated method stub
-        
-    }
+    
 }

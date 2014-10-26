@@ -42,6 +42,9 @@ public interface SLogoExpression {
 	 */
 	public abstract SLogoResult evaluate();
 	
+	public abstract void setValue(String value);
+	
+	public abstract String getValue ();
 	
 	
 }

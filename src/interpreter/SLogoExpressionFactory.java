@@ -86,9 +86,8 @@ public class SLogoExpressionFactory {
                     Class<?> commandClass = Class.forName(classPathAndName);
                     SLogoExpression expression = (SLogoExpression) commandClass.newInstance();
                     initializeExpression(expression, name);
-                    if(mySyntaxSet.contains(name)) {
-                        ((SyntaxExpression) expression).setValue(command);
-                    }
+                    expression.setValue(command);
+                    //System.out.println(expression.getValue());
                     return expression;
                 }
                 catch (ClassNotFoundException e) {
@@ -123,11 +122,12 @@ public class SLogoExpressionFactory {
         //TODO define user defined commands, also refactor for lists etc.
         return null;
     }
-/*
+
     public static void main(String[] args) throws SLogoParsingException {     
-        SLogoExpressionFactory factory = new SLogoExpressionFactory(new CommandReferenceLibrary(), new MainModel());
+       /* SLogoExpressionFactory factory = new SLogoExpressionFactory(new CommandReferenceLibrary(), new MainModel());
         ResourceBundle mySyntaxReference = ResourceBundle.getBundle("resources.languages.Syntax", Locale.US);
         mySyntaxReference.getString("ListStart");
-        System.out.println("[".matches(mySyntaxReference.getString("ListStart")));
-    }*/
+        System.out.println("[".matches(mySyntaxReference.getString("ListStart")));*/
+        
+    }
 }
