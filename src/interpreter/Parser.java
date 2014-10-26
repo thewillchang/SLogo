@@ -74,7 +74,6 @@ public class Parser {
      */
     private Deque<String> processInput(String input) {
         List<String> processedInputs = Arrays.asList(input.toLowerCase().split("\\s+"));
-        //Collections.reverse(processedInputs);
         return new ArrayDeque<>(processedInputs);
     }
 
@@ -94,17 +93,4 @@ public class Parser {
 
     }
 
-   public static void main(String[] args) throws SLogoParsingException {
-       MainModel model = new MainModel("English");
-        Parser p = new Parser(new CommandReferenceLibrary(model.getLanguage(), 
-                                                          model.getUserDefinedMethods(), 
-                                                          model.getUserDefinedVariables()),model);
-        String input = "asdf 50";
-
-       Deque<SLogoExpression> list = p.parseSLogoExpression(input);
-       System.out.println("listsize : " + list.size());
-       for(SLogoExpression e : list ) { 
-       System.out.println( list.pop().evaluate().getValue());   
-       }
-    }
 }

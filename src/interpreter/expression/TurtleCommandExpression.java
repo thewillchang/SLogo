@@ -1,7 +1,6 @@
 package interpreter.expression;
 
 import java.util.ArrayDeque;
-import java.util.ArrayList;
 import java.util.Deque;
 import java.util.List;
 import model.MainModel;
@@ -13,7 +12,7 @@ import interpreter.TurtleCommandResult;
 
 /**
  * superclass for SLogoExpressions that are commands
- * @author Will Chang and Jonathan Tseng
+ * @author Will Chang
  *
  */
 public abstract class TurtleCommandExpression implements SLogoExpression {
@@ -24,13 +23,14 @@ public abstract class TurtleCommandExpression implements SLogoExpression {
     protected String myValue;
 
     public TurtleCommandExpression() {
+        super();
         myArguments = new ArrayDeque<>();
     }
 
     public void setNumArgs(int value) {
         myNumArgs = value;
     }
-    
+
     @Override
     public void loadArguments(Deque<SLogoExpression> args)  
             throws SLogoParsingException, NullPointerException {
@@ -43,12 +43,12 @@ public abstract class TurtleCommandExpression implements SLogoExpression {
     public void loadLibrary(CommandReferenceLibrary library) {
         myLibrary = library;
     }
-    
+
     @Override
     public void loadModel(MainModel model) {
         myModel = model;
     }
-    
+
     @Override
     public SLogoResult evaluate() {
         Deque<SLogoResult> results = new ArrayDeque<>();
@@ -61,30 +61,31 @@ public abstract class TurtleCommandExpression implements SLogoExpression {
     protected SLogoResult applyOperatorAndMerge (Deque<SLogoResult> results) {
         SLogoResult argument;
         SLogoResult myResult = new TurtleCommandResult();
-        double value = 0;
-        if(myNumArgs > 0) { 
-        argument = results.pop();
-        myResult.getTransition().addAll(argument.getTransition());
-        value = argument.getValue();
-        myResult.setValue(value); }
-        setNextTransition(myResult, value);
+        Deque<Double> values = new ArrayDeque<>();
+
+        for(SLogoResult result : results) {
+            argument = result;
+            myResult.getTransition().addAll(argument.getTransition());
+            values.add( argument.getValue());
+        }
+        setNextTransition(myResult, values);
         return myResult;
     }
-    
+
     @Override
     public int getNumArgs () {
         return myNumArgs;
     }
-    
+
     @Override
     public void setValue(String value) {
         myValue = value;
     }
-    
+
     @Override
     public String getValue () {
         return myValue;
     }
-    
-    protected abstract void setNextTransition(SLogoResult myResult, double value); 
+
+    protected abstract void setNextTransition(SLogoResult myResult, Deque<Double> value); 
 }
