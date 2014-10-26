@@ -1,5 +1,7 @@
 package interpreter.expression.display;
 
-public class GetShape {
+import interpreter.expression.DisplayExpression;
+
+public class GetShape extends DisplayExpression {
 
 }

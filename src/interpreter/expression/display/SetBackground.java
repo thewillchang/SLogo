@@ -1,5 +1,7 @@
 package interpreter.expression.display;
 
-public class SetBackground {
+import interpreter.expression.DisplayExpression;
+
+public class SetBackground extends DisplayExpression {
 
 }

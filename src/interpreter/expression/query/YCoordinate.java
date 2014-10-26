@@ -7,7 +7,7 @@ public class YCoordinate extends TurtleQueryExpression {
 
 	@Override
 	protected double getValueFromModel(MainModel model) {
-		return model.getTurtles().get(0).getTurtle().getTranslateY();
+		return model.getTurtles().get(0).getY();
 	}
 
 }

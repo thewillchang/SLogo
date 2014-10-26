@@ -1,5 +1,7 @@
 package interpreter.expression.display;
 
-public class ClearStamps {
+import interpreter.expression.DisplayExpression;
+
+public class ClearStamps extends DisplayExpression {
 
 }

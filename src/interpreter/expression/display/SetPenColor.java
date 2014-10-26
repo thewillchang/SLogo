@@ -1,5 +1,7 @@
 package interpreter.expression.display;
 
-public class SetPenColor {
+import interpreter.expression.DisplayExpression;
+
+public class SetPenColor extends DisplayExpression {
 
 }
