@@ -5,6 +5,11 @@ import java.util.List;
 
 import viewcontroller.GUIReferenceLibrary;
 
+/**
+ * form for setting pen properties
+ * @author Jonathan Tseng
+ *
+ */
 public class PenForm extends Form {
 
 	public final static String PEN_SETTINGS_KEY = "PenSettings";

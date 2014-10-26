@@ -6,6 +6,7 @@ import model.MainModel;
  * Interface for every ViewController that is observing the MainModel
  * in order to update with some data
  * @author Abhishek B
+ * @author Jonathan Tseng
  *
  */
 public interface MainModelObserver {

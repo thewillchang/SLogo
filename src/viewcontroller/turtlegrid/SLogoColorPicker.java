@@ -5,6 +5,11 @@ import javafx.event.EventHandler;
 import javafx.scene.control.ColorPicker;
 import javafx.scene.paint.Color;
 
+/**
+ * color picker element
+ * @author Jonathan Tseng
+ *
+ */
 public class SLogoColorPicker extends SLogoLabeledContainer {
 
 	private ColorPicker myColorPicker;

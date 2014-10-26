@@ -11,7 +11,7 @@ import java.util.Set;
 
 /**
  * Model for User Defined Methods
- * @author Tanaka Jimha and Will Chang
+ * @author Tanaka Jimha and Jonathan Tseng
  */
 public class UserDefinedCommandsModel implements Serializable {
 

@@ -7,6 +7,11 @@ import javafx.scene.web.WebView;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
+/**
+ * webview for help dialog box opened by file->help
+ * @author Jonathan Tseng
+ *
+ */
 public class HelpDialogBox {
 
 	private static final String HTTP_KEY = "http";

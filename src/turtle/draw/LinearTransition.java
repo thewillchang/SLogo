@@ -5,6 +5,12 @@ import javafx.scene.Node;
 import javafx.util.Duration;
 import viewcontroller.turtlegrid.GridViewController;
 
+/**
+ * abstract superclass for lineear animations
+ * checks/handles wrapping
+ * @author Jonathan Tseng
+ *
+ */
 public abstract class LinearTransition extends SLogoTransition {
 
 	private boolean myFirst;

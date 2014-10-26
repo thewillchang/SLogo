@@ -21,12 +21,13 @@ import viewcontroller.MainModelObserver;
 import application.PenForm;
 import application.PenFormResult;
 /**
- * main model of program--contains and updates other models
+ * Main model of program--Holds the state of the program, also holds and updates other models
  * 
  * @author Tanaka Jimha
  *
  */
 public class MainModel {
+	
 	private final static Color DEFAULT_BACKGROUND_COLOR = Color.DARKBLUE;
 	private Color myBackgroundColor;
 	private boolean myTurtleAdded;
@@ -47,6 +48,7 @@ public class MainModel {
 	final String LANGUAGE_PROPERTY = "Language";
 
 	public MainModel(String language) {
+		
 		this.myLanguage = language;
 		this.myObservers = new ArrayList<>();
 		this.myTurtles = new ArrayList<>();
@@ -59,10 +61,11 @@ public class MainModel {
 		this.myTurtleListHistory = new TurtleListHistory();
 		this.myBackgroundColor = DEFAULT_BACKGROUND_COLOR;
 	}
-	
+
 	public MainModel(String language, CommandHistoryModel cHM,
 			UserDefinedCommandsModel uDCM, UserDefinedVariablesModel uDVM,
 			String backGroundColor) {
+		
 		this.myLanguage = language;
 		this.myObservers = new ArrayList<>();
 		this.myTurtles = new ArrayList<>();
@@ -75,6 +78,7 @@ public class MainModel {
 		this.myTurtleListHistory = new TurtleListHistory();
 		this.myBackgroundColor = myBackgroundColor.valueOf(backGroundColor);
 	}
+	
 	public void changeTurtleImages(File file) {
 		for (Turtle turtle : myTurtles) {
 			if (turtle.isSelected()) {
@@ -82,22 +86,26 @@ public class MainModel {
 			}
 		}
 	}
+	
 	public Color getBackgroundColor() {
 		return myBackgroundColor;
 	}
+	
 	public String getBackgroundColorName() {
 		return myBackgroundColor.toString();
 	}
+	
 	public void updateAnimationSpeed(double speed) {
 		myAnimation.setRate(speed);
 		myAnimationSpeed = speed;
 	}
+	
 	public void setBackgroundColor(Color color) {
 		myBackgroundColor = color;
 		myAnimation = new ParallelTransition();
 		notifyObservers();
 	}
-	
+
 	public void updatePen(PenForm penForm) {
 		PenFormResult penFormResult = penForm.getResult();
 		for (Turtle turtle : myTurtles) {
@@ -108,6 +116,7 @@ public class MainModel {
 			}
 		}
 	}
+	
 	public void updatePenColor(Color color) {
 		for (Turtle turtle : myTurtles) {
 			if (turtle.isSelected()) {
@@ -124,7 +133,7 @@ public class MainModel {
 		}
 		return null;
 	}
-	
+
 	/**
 	 * adds a turtle
 	 */
@@ -138,17 +147,21 @@ public class MainModel {
 	public List<Turtle> getTurtles() {
 		return myTurtles;
 	}
+	
 	public boolean isTurtleAdded() {
 		return myTurtleAdded;
 	}
+	
 	public SLogoResult getResult() {
 		return mySLogoResult;
 	}
+	
 	/**
 	 * interprets a String SLogoCommand by passing it to the Interpreter
 	 * 
 	 * @param sLogoCommand
 	 */
+	
 	public void interpretSLogoCommand(String sLogoCommand) {
 		mySLogoResult = myInterpreter.interpret(sLogoCommand);
 		myFailedParse = mySLogoResult.getHasError();
@@ -199,6 +212,7 @@ public class MainModel {
 		myAnimation.setRate(myAnimationSpeed);
 		myTurtleListHistory.updateList(map.keySet());
 	}
+	
 	public ParallelTransition getAnimation() {
 		return myAnimation;
 	}
@@ -211,20 +225,25 @@ public class MainModel {
 		setProperty(LANGUAGE_PROPERTY, languageName);
 		this.myLanguage = languageName;
 	}
+	
 	public void attachObserver(MainModelObserver observer) {
 		myObservers.add(observer);
 	}
+	
 	private void notifyObservers() {
 		for (MainModelObserver observer : myObservers) {
 			observer.update(this);
 		}
 	}
+	
 	public CommandHistoryModel getCommandHistory() {
 		return this.myCommandHistoryModel;
 	}
+	
 	public UserDefinedCommandsModel getUserDefinedMethods() {
 		return this.myUserDefinedMethodsModel;
 	}
+	
 	public UserDefinedVariablesModel getUserDefinedVariables() {
 		return this.myUserDefinedVariablesModel;
 	}
@@ -239,18 +258,18 @@ public class MainModel {
 			// save properties to project root folder
 			prop.store(output, null);
 		} catch (IOException io) {
-			//
+			System.out.println("File Output Stream Exception");
 		} finally {
 			if (output != null) {
 				try {
 					output.close();
 				} catch (IOException e) {
-					e.printStackTrace();
+					System.out.println("File Output Stream Exception");
 				}
 			}
 		}
 	}
-	
+
 	public String getLanguage () {
 		return myLanguage;
 	}

@@ -5,6 +5,11 @@ import javafx.scene.image.ImageView;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 
+/**
+ * turtle image to represent imageview for image loaded by user
+ * @author Jonathan Tseng
+ *
+ */
 public class UserChosenTurtleImage extends TurtleImage {
 
 	private ImageView myImageView;

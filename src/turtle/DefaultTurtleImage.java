@@ -12,6 +12,11 @@ import javafx.scene.shape.Ellipse;
 import javafx.scene.shape.Shape;
 import javafx.util.Duration;
 
+/**
+ * default turtle image (animated turtle friend)
+ * @author Jonathan Tseng
+ *
+ */
 public class DefaultTurtleImage extends TurtleImage {
 
 	private final static int FRAMES_PER_SECOND = 7;

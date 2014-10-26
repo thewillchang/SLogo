@@ -8,6 +8,11 @@ import javafx.scene.layout.HBox;
 import javafx.scene.paint.Color;
 import viewcontroller.GUIReferenceLibrary;
 
+/**
+ * button bar shown above grid with turtles
+ * @author Jonathan Tseng
+ *
+ */
 public class GridButtonBar extends HBox {
 
 	private final static double SPEED_MIN = 0.5;

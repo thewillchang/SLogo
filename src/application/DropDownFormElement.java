@@ -6,6 +6,11 @@ import javafx.scene.Node;
 import javafx.scene.control.ComboBox;
 import viewcontroller.SLogoFont;
 
+/**
+ * drop down form element
+ * @author Jonathan Tseng
+ *
+ */
 public class DropDownFormElement extends ComboBox<String> implements FormElement {
 
 	public DropDownFormElement(Collection<String> choices) {

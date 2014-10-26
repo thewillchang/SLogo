@@ -3,6 +3,11 @@ package turtle.draw;
 import javafx.geometry.Point2D;
 import turtle.Turtle;
 
+/**
+ * animation for a turtle moving forward/backward
+ * @author Jonathan Tseng
+ *
+ */
 public class MoveTransition extends LinearTransition {
 	
 	@Override

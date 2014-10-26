@@ -11,6 +11,7 @@ import transitionstate.TransitionState.PenChange;
 
 /**
  * class for creating paths drawn
+ * stores state about a turtle's pen
  * @author Jonathan Tseng
  *
  */

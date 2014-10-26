@@ -9,8 +9,9 @@ import transitionstate.TransitionState.VisibleChange;
 import turtle.draw.Pen;
 import turtle.draw.TransitionFactory;
 import viewcontroller.turtlegrid.GridViewController;
+
 /**
- * Turtle Object. Contains its own Turtle Model and Turtle View Controllers
+ * Turtle Object. contains its own state and image view
  * 
  * @author Jonathan Tseng
  *

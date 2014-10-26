@@ -15,6 +15,11 @@ import javafx.stage.Stage;
 import viewcontroller.SLogoFont;
 import viewcontroller.View;
 
+/**
+ * start menu that allows user to choose language
+ * @author Jonathan Tseng
+ *
+ */
 public class StartMenu {
 
 	private final static String LANGUAGES_KEY = "Languages";
