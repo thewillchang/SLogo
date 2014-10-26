@@ -41,31 +41,35 @@ public class MainViewController implements ViewController, MainModelObserver {
 	public void passSLogoCommand(String command) {
 		myMainModel.interpretSLogoCommand(command);
 	}
-	
+
 	public void passSLogoCommand(String commandKey, String operands) {
 		myMainModel.interpretSLogoCommand(commandKey, operands);
 	}
-	
+
 	public void loadScript(String script) {
 		myCommandWindow.loadScript(script);
 	}
-	
+
 	public void toggleGridLines() {
 		myTurtleWindow.toggleGridLines();
 	}
-	
+
 	public void gridColorChanged(Color color) {
 		myMainModel.setBackgroundColor(color);
 	}
-	
+
 	public void penColorChanged(Color color) {
 		myMainModel.updatePenColor(color);
 	}
-	
+
 	public void animationSpeedChanged(double speed) {
 		myMainModel.updateAnimationSpeed(speed);
 	}
 
+	/**
+	 * Sets up left side of the screen - the Turtle Window/Grid related
+	 * animations
+	 */
 	private void placeTurtleWindowView() {
 		myTurtleWindow = new TurtleWindowViewController(this);
 		BorderPane.setAlignment(myTurtleWindow.getNode(), Pos.CENTER);
@@ -74,6 +78,9 @@ public class MainViewController implements ViewController, MainModelObserver {
 		myChildObservers.add(myTurtleWindow);
 	}
 
+	/**
+	 * Sets up right side of the screen - the Command Window related panes
+	 */
 	private void placeCommandWindowView() {
 		myCommandWindow = new CommandWindowContainerViewController(this);
 		BorderPane.setAlignment(myTurtleWindow.getNode(), Pos.CENTER);

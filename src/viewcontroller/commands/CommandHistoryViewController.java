@@ -10,6 +10,7 @@ import viewcontroller.MainModelObserver;
 
 /**
  * View controller for window of history of commands
+ * A type of extension of ClickableListWindowViewController
  * 
  * @author Abhishek B
  *
@@ -17,7 +18,7 @@ import viewcontroller.MainModelObserver;
 
 public class CommandHistoryViewController extends CommandClickableListWindowViewController implements MainModelObserver {
 	
-	private final String History = "History";
+	private final String HISTORY_KEY = "History";
 	private String myHistoryTranslation;
 
 	public CommandHistoryViewController(int width, int height, CommandWindowContainerViewController commandWindowContainer) {
@@ -32,6 +33,9 @@ public class CommandHistoryViewController extends CommandClickableListWindowView
 		return myPane;
 	}
 
+	/**
+	 * Updates by repopulating the command history list with strings
+	 */
 	@Override
 	public void update(MainModel model) {
 		myListVerticalBox.getChildren().clear();
@@ -44,6 +48,6 @@ public class CommandHistoryViewController extends CommandClickableListWindowView
 
 	@Override
 	public void applyTranslations() {
-		myHistoryTranslation = GUIReferenceLibrary.getStringTranslation(History);
+		myHistoryTranslation = GUIReferenceLibrary.getStringTranslation(HISTORY_KEY);
 	}
 }

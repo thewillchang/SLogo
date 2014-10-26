@@ -14,7 +14,7 @@ import viewcontroller.GUIReferenceLibrary;
 import viewcontroller.MainModelObserver;
 
 /**
- * View controller for window for user defined variables
+ * ViewController contained User-Defined Variable string names and values
  * 
  * @author Abhishek B
  *
