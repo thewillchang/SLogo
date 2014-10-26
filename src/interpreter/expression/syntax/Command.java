@@ -13,6 +13,12 @@ import interpreter.SyntaxResult;
 import interpreter.expression.SLogoExpression;
 import interpreter.expression.SyntaxExpression;
 
+/**
+ * 
+ * @author Will
+ *
+ */
+
 public class Command extends SyntaxExpression {
     
     private SLogoExpression myCommands;
