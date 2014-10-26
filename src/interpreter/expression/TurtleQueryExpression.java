@@ -1,11 +1,11 @@
 package interpreter.expression;
 
-import java.util.ArrayDeque;
 import java.util.Deque;
 
 import model.MainModel;
-import model.UserDefinedVariablesModel;
+import interpreter.CommandReferenceLibrary;
 import interpreter.SLogoResult;
+import interpreter.expression.query.QueryResult;
 
 /**
  * superclass for SLogoExpressions that are Turtle Queries
@@ -17,11 +17,20 @@ public abstract class TurtleQueryExpression implements SLogoExpression {
 
 	protected MainModel myModel;
 
+	@Override
+	public void setNumArgs(int value) {
+	}
+
 	/**
 	 * Querying expressions do not take arguments, so this is not defined
 	 */
 	@Override
 	public void loadArguments(Deque<SLogoExpression> args) {
+	}
+
+	@Override
+	public void loadLibrary(CommandReferenceLibrary library) {
+
 	}
 
 	@Override
@@ -31,16 +40,16 @@ public abstract class TurtleQueryExpression implements SLogoExpression {
 
 	@Override
 	public SLogoResult evaluate() {
-		Deque<SLogoResult> results = new ArrayDeque<>();
-		
-		return null;
+		SLogoResult myResult = new QueryResult();
+		myResult.setValue(getValueFromModel(myModel));
+		return myResult;
 	}
-	
+
 	@Override
 	public int getNumArgs() {
 		return 0;
 	}
-	
-	protected abstract double getValueFromModel(MainModel model) ;
+
+	protected abstract double getValueFromModel(MainModel model);
 
 }
