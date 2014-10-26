@@ -24,6 +24,7 @@ import viewcontroller.MainModelObserver;
 
 /**
  * main model of program--contains and updates other models
+ * 
  * @author Tanaka Jimha
  *
  */
@@ -34,6 +35,7 @@ public class MainModel {
 	private Color myBackgroundColor;
 	private boolean myTurtleAdded;
 	private boolean myFailedParse;
+	private String myErrorMessage;
 	private List<MainModelObserver> myObservers;
 	private transient Interpreter myInterpreter;
 	private transient List<Turtle> myTurtles;
@@ -50,7 +52,7 @@ public class MainModel {
 	final String PROPERTIES_FILENAME = "SLogoState";
 	final String LANGUAGE_PROPERTY = "Language";
 
-	public MainModel(String language){
+	public MainModel(String language) {
 		this.myLanguage = language;
 		this.myObservers = new ArrayList<>();
 		this.myTurtles = new ArrayList<>();
@@ -62,10 +64,11 @@ public class MainModel {
 		this.myAnimation = new ParallelTransition();
 		this.myTurtleListHistory = new TurtleListHistory();
 		this.myBackgroundColor = DEFAULT_BACKGROUND_COLOR;
-
 	}
 
-	public MainModel(String language, CommandHistoryModel cHM, UserDefinedCommandsModel uDCM, UserDefinedVariablesModel uDVM, String backGroundColor){
+	public MainModel(String language, CommandHistoryModel cHM,
+			UserDefinedCommandsModel uDCM, UserDefinedVariablesModel uDVM,
+			String backGroundColor) {
 		this.myLanguage = language;
 		this.myObservers = new ArrayList<>();
 		this.myTurtles = new ArrayList<>();
@@ -122,7 +125,7 @@ public class MainModel {
 		myTurtleAdded = true;
 		notifyObservers();
 		myTurtleAdded = false;
-	}	
+	}
 
 	public List<Turtle> getTurtles() {
 		return myTurtles;
@@ -138,21 +141,23 @@ public class MainModel {
 
 	/**
 	 * interprets a String SLogoCommand by passing it to the Interpreter
+	 * 
 	 * @param sLogoCommand
 	 */
 	public void interpretSLogoCommand(String sLogoCommand) {
 		mySLogoResult = myInterpreter.interpret(sLogoCommand);
 		myFailedParse = mySLogoResult.getHasError();
-		if(!mySLogoResult.getHasError()){
+		if (!myFailedParse) {
 			myCommandHistoryModel.addCommand(sLogoCommand);
 			updateModel();
 		}
 		notifyObservers();
 		myFailedParse = false;
 	}
-	
+
 	public void interpretSLogoCommand(String commandKey, String operands) {
-		Map<String, String> commandMap = myInterpreter.getCommandReferenceLibrary().getReferencesToCommands();
+		Map<String, String> commandMap = myInterpreter
+				.getCommandReferenceLibrary().getReferencesToCommands();
 		String command = commandKey.trim() + " " + operands.trim();
 		for (String key : commandMap.keySet()) {
 			if (commandMap.get(key).equals(commandKey)) {
@@ -162,14 +167,22 @@ public class MainModel {
 		interpretSLogoCommand(command);
 	}
 
-	public boolean failedParse() {
+	public boolean getFailedParse() {
 		return myFailedParse;
+	}
+
+	public String getErrorMessage() {
+		return myErrorMessage;
+	}
+
+	public void setErrorMessage(String errorMessage) {
+		myErrorMessage = errorMessage;
 	}
 
 	private void updateModel() {
 		ModelUpdater updater = new ModelUpdater();
-		Map<Turtle, List<TransitionState>>  turtleTransitionMap = 
-				updater.updateModel(myTurtles, mySLogoResult.getTransition());
+		Map<Turtle, List<TransitionState>> turtleTransitionMap = updater
+				.updateModel(myTurtles, mySLogoResult.getTransition());
 		setMyAnimation(turtleTransitionMap);
 	}
 
@@ -189,6 +202,7 @@ public class MainModel {
 
 	/**
 	 * used to set the language in which the commands are written in
+	 * 
 	 * @param myLanguage
 	 */
 	public void setLanguage(String languageName) {
@@ -218,7 +232,7 @@ public class MainModel {
 		return this.myUserDefinedVariablesModel;
 	}
 
-	private void setProperty(String propertyName, String value){
+	private void setProperty(String propertyName, String value) {
 		Properties prop = new Properties();
 		OutputStream output = null;
 		try {
@@ -228,7 +242,7 @@ public class MainModel {
 			// save properties to project root folder
 			prop.store(output, null);
 		} catch (IOException io) {
-			io.printStackTrace();
+			//
 		} finally {
 			if (output != null) {
 				try {
@@ -240,7 +254,7 @@ public class MainModel {
 		}
 	}
 
-	public String getLanguage () {
+	public String getLanguage() {
 		return myLanguage;
 	}
 
@@ -263,10 +277,9 @@ public class MainModel {
 		}
 		notifyObservers();
 	}
+
 	public void setmyInterpreter() {
 		this.myInterpreter = new Interpreter(this);
 	}
 
-
 }
-

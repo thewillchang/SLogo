@@ -53,6 +53,9 @@ public class CommandStatusViewController extends CommandWindowViewController
 		if (latestResult != null && !latestResult.getHasError()) {
 			updateCommandStatusText(Double.toString(latestResult.getValue()));
 		}
+		else {
+			updateCommandStatusText(model.getErrorMessage());
+		}
 	}
 
 	public void updateCommandStatusText(String commandResult) {

@@ -92,7 +92,7 @@ public class GridViewController implements ViewController, MainModelObserver {
 		setBackgroundColor(model.getBackgroundColor());
 		if (model.isTurtleAdded()) {
 			updateTurtles(model.getTurtles());
-		} else if (!model.failedParse()) {
+		} else if (!model.getFailedParse()) {
 			moveTurtles(model.getAnimation());
 		}	
 	}
