@@ -1,9 +1,7 @@
 package viewcontroller.commands;
-
 import javafx.event.EventHandler;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
-
 /**
  * Abstract class for clickable lists - particularly, the command history and
  * user defined methods lists.
@@ -13,13 +11,10 @@ import javafx.scene.input.MouseEvent;
  */
 public abstract class CommandClickableListWindowViewController extends
 		CommandListWindowViewController {
-
 	protected CommandWindowContainerViewController myCommandWindowContainer;
-
 	public CommandClickableListWindowViewController(int width, int height) {
 		super(width, height);
 	}
-
 	/**
 	 * Add a command as a Label, and upon click, this will be populated in the 
 	 * command prompt window via the parent container.
@@ -37,5 +32,4 @@ public abstract class CommandClickableListWindowViewController extends
 		myListVerticalBox.getChildren().add(commandLabel);
 		updateScroller();
 	}
-
 }

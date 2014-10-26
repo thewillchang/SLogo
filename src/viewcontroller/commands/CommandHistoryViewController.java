@@ -1,13 +1,10 @@
 package viewcontroller.commands;
-
 import java.util.List;
-
 import model.CommandHistoryModel;
 import model.MainModel;
 import javafx.scene.Node;
 import viewcontroller.GUIReferenceLibrary;
 import viewcontroller.MainModelObserver;
-
 /**
  * View controller for window of history of commands
  * A type of extension of ClickableListWindowViewController
@@ -15,24 +12,20 @@ import viewcontroller.MainModelObserver;
  * @author Abhishek B
  *
  */
-
 public class CommandHistoryViewController extends CommandClickableListWindowViewController implements MainModelObserver {
 	
 	private final String HISTORY_KEY = "History";
 	private String myHistoryTranslation;
-
 	public CommandHistoryViewController(int width, int height, CommandWindowContainerViewController commandWindowContainer) {
 		super(width, height);
-		applyTranslations();
 		myCommandWindowContainer = commandWindowContainer;
-		myTitleLabel.setText(myHistoryTranslation);
+		applyTranslations();
+		setTitle(myHistoryTranslation);
 	}
-
 	@Override
 	public Node getNode() {
 		return myPane;
 	}
-
 	/**
 	 * Updates by repopulating the command history list with strings
 	 */
@@ -45,7 +38,6 @@ public class CommandHistoryViewController extends CommandClickableListWindowView
 			addCommand(command);
 		}
 	}
-
 	@Override
 	public void applyTranslations() {
 		myHistoryTranslation = GUIReferenceLibrary.getStringTranslation(HISTORY_KEY);

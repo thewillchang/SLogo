@@ -1,7 +1,5 @@
 package viewcontroller.commands;
-
 import java.awt.Dimension;
-
 import javafx.geometry.Insets;
 import javafx.scene.control.Label;
 import javafx.scene.layout.Background;
@@ -10,8 +8,8 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.CornerRadii;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
+import viewcontroller.SLogoFont;
 import viewcontroller.ViewController;
-
 /**
  * Abstract class for command window units
  * Sets up the BorderPane, overall VBox for ViewController elements,
@@ -21,12 +19,10 @@ import viewcontroller.ViewController;
  *
  */
 public abstract class CommandWindowViewController implements ViewController {
-
 	protected BorderPane myPane;
 	protected VBox myCommandWindowVerticalBox;
 	protected Label myTitleLabel;
 	protected Dimension SIZE = new Dimension();
-
 	public CommandWindowViewController(int width, int height) {
 		myPane = new BorderPane();
 		myPane.setPrefSize(width, height);
@@ -34,9 +30,14 @@ public abstract class CommandWindowViewController implements ViewController {
 		SIZE.height = height;
 		myPane.setBackground(new Background(new BackgroundFill(Color.WHITE,
 				new CornerRadii(0), new Insets(0))));
-		myCommandWindowVerticalBox = new VBox();
 		myTitleLabel = new Label();
-		myCommandWindowVerticalBox.getChildren().add(myTitleLabel);
+		myCommandWindowVerticalBox = new VBox();
+		myPane.setTop(myTitleLabel);
 		myPane.setCenter(myCommandWindowVerticalBox);
+	}
+	
+	protected void setTitle(String titleText){
+		myTitleLabel.setText(titleText);
+		myTitleLabel.setFont(new SLogoFont().createSubWindowTitleFont());
 	}
 }

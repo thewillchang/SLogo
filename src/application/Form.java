@@ -19,7 +19,7 @@ import viewcontroller.SLogoFont;
 
 public class Form {
 
-	private final static String SUBMIT_KEY = "Submit";
+	private final static String SUBMIT_KEY = "SubmitForm";
 	
     private Stage myStage;
     private BorderPane myPane;
