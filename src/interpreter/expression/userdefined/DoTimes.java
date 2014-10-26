@@ -1,27 +1,57 @@
 package interpreter.expression.userdefined;
 
+import java.util.ArrayDeque;
+import java.util.ArrayList;
 import java.util.Deque;
+import java.util.List;
+import model.UserDefinedVariablesModel;
+import transitionstate.TransitionState;
+import interpreter.ControlStructureResult;
 import interpreter.SLogoResult;
+import interpreter.SyntaxResult;
 import interpreter.expression.SLogoExpression;
 import interpreter.expression.UserDefinedExpression;
 
+/**
+ * 
+ * @author Will Chang
+ *
+ */
+
 public class DoTimes extends UserDefinedExpression {
     
-    //DOTIMES [ variable limit ]
-     //       [ command(s) ]  runs the commands for each value specified in the range, i.e., from (1 - limit) inclusive 
-       //     note, variable is assigned to each succeeding value so that it can be accessed by the commands
-    
-    @Override
-    public void loadArguments (Deque<SLogoExpression> args) {
-        // TODO Auto-generated method stub
-        
-    }
+    //TODO Refactor for duplicated code with REPEAT!!!
 
     @Override
     public SLogoResult evaluate () {
-        // TODO Auto-generated method stub
-        return null;
+        SLogoResult myResult = new ControlStructureResult();
+        List<TransitionState> transitionStates = myResult.getTransition();
+        Deque<SLogoResult> results = new ArrayDeque<>();
+        UserDefinedVariablesModel myVariables = myLibrary.getUserDefinedVariables();
+        //TODO fix this 
+        List<SLogoExpression> argumentCopy = new ArrayList<>(myArguments);
+        Deque<SLogoExpression> myParams = ((SyntaxResult) argumentCopy.get(0).evaluate()).getGroupedExpressions();
+        String myLimitVariable = myParams.pop().getValue();
+        //TODO Add checks/exception handling
+        Integer limit = (int) myParams.pop().evaluate().getValue();
+        
+        
+        SLogoExpression expressionList = argumentCopy.get(1);
+        
+        for(Integer currentRep = 1 ; currentRep <= limit; currentRep++) {
+            myVariables.putVariable(myLimitVariable, currentRep);
+            results.add(expressionList.evaluate());
+        }
+        
+        for(SLogoResult result : results) {
+            transitionStates.addAll(result.getTransition());    
+        }
+        myResult.setValue(results.getLast().getValue());
+        myVariables.remove(myLimitVariable);
+        return myResult;
     }
+    
+    
 
     
 }
