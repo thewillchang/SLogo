@@ -28,12 +28,12 @@ public class TransitionState {
 		CHANGE_VISIBLE, CHANGE_INVISIBLE, NO_CHANGE
 	}
 	
-	public TransitionState(PenChange penChange, VisibleChange visibleChange, double distance, double rotateClock, double rotateCounter) {
+	public TransitionState(PenChange penChange, VisibleChange visibleChange, double distance, double rotateClock, double rotateCounterClockwise) {
 	    myPenUp = penChange;
 	    myTurtleVisible = visibleChange;
 	    myMove = distance;
 	    myRotateClockwise = rotateClock;
-	    myRotateCounterClockwise = rotateCounter;
+	    myRotateCounterClockwise = rotateCounterClockwise;
 	    myTurtleIDs = new HashSet<>();
 	}
 	

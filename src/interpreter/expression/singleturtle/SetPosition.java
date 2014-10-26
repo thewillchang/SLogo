@@ -17,21 +17,33 @@ import turtle.Turtle;
 
 public class SetPosition extends TurtleCommandExpression {
 
-    @Override
-    protected void setNextTransition (SLogoResult myResult, Deque<Double> values) {
-        List<Turtle> allTurtles = myModel.getTurtles();
-        Double distance = 0.0;
-        Double rotate = 0.0;
-        if(!allTurtles.isEmpty()) {
-            Turtle turtle = allTurtles.get(allTurtles.size()-1);
-            Double deltaX = values.pop() - turtle.getX();
-            Double deltaY = values.pop() - turtle.getY();
-            if(x)        
-            distance = Math.sqrt(Math.pow(deltaX, 2) + Math.pow(deltaY, 2));
-        }
-        myResult.getTransition().add(new TransitionState(PenChange.NO_CHANGE, 
-                                                         VisibleChange.NO_CHANGE, 0,    , 0));
-        myResult.setValue(distance);
-    }
+	private final int[][] thetaArray = { { 90, 180 }, { 360, 270 } };
 
+	@Override
+	protected void setNextTransition(SLogoResult myResult, Deque<Double> values) {
+		List<Turtle> allTurtles = myModel.getTurtles();
+		double distance = 0.0;
+		double rotate = 0.0;
+		if (!allTurtles.isEmpty()) {
+			Turtle turtle = allTurtles.get(allTurtles.size() - 1);
+			double destinationX = values.pop();
+			double destinationY = values.pop();
+			double turtleX = turtle.getX();
+			double turtleY = turtle.getY();
+			double deltaX = destinationX - turtleX;
+			double deltaY = destinationY - turtleY;
+
+			distance = pythagoreanTheorem(deltaX, deltaY);
+
+		}
+
+		myResult.getTransition().add(
+				new TransitionState(PenChange.NO_CHANGE,
+						VisibleChange.NO_CHANGE, 0, 0, rotate));
+		myResult.setValue(distance);
+	}
+
+	private double pythagoreanTheorem(double x, double y) {
+		return Math.sqrt(Math.pow(x, 2) + Math.pow(y, 2));
+	}
 }
