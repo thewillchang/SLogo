@@ -8,7 +8,6 @@ import java.io.FileNotFoundException;
 import javafx.scene.Group;
 import javafx.scene.Node;
 import javafx.scene.image.Image;
-import transitionstate.TransitionState.VisibleChange;
 import viewcontroller.ViewController;
 import application.Main;
 
@@ -37,8 +36,8 @@ public class TurtleViewController implements ViewController {
 		return myTurtleImage.isSelected();
 	}
 
-	public void updateVisible(VisibleChange visibleChange) {
-		myTurtleImage.updateVisible(visibleChange);
+	public void updateVisible(boolean visible) {
+		myTurtleImage.updateVisible(visible);
 	}
 	
 	public void setImage(File file) {

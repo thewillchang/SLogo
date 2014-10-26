@@ -4,7 +4,6 @@ import java.awt.Dimension;
 
 import javafx.scene.Group;
 import javafx.scene.paint.Color;
-import transitionstate.TransitionState.VisibleChange;
 
 public abstract class TurtleImage extends Group {
 
@@ -39,12 +38,8 @@ public abstract class TurtleImage extends Group {
 	
 	public abstract double getRadius();
 	
-	public void updateVisible(VisibleChange visibleChange) {
-		if (visibleChange.equals(VisibleChange.CHANGE_INVISIBLE)) {
-			this.setVisible(false);
-		} else if (visibleChange.equals(VisibleChange.CHANGE_VISIBLE)) {
-			this.setVisible(true);
-		}
+	public void updateVisible(boolean visible) {
+		this.setVisible(visible);
 	}
 	
 }

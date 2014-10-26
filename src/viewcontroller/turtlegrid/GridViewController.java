@@ -34,6 +34,7 @@ public class GridViewController implements ViewController, MainModelObserver {
 	
 	private TurtleWindowViewController myParent;
 	private GridLines myGridLines;
+	private boolean myResizeGrid;
 	private Group myGrid;
 	private Rectangle myGridBackground;
 	private List<Turtle> myTurtles;
@@ -44,6 +45,7 @@ public class GridViewController implements ViewController, MainModelObserver {
 		myGrid = new Group();
 		setUpGridKeyListeners();
 		createBackground();
+		myResizeGrid = true;
 	}
 	
 	private void setUpGridKeyListeners() {
@@ -108,7 +110,10 @@ public class GridViewController implements ViewController, MainModelObserver {
 				turtle.getTurtle().setTranslateX(turtle.getTurtle().getTranslateX() + SIZE.width / 2);
 				turtle.getTurtle().setTranslateY(turtle.getTurtle().getTranslateY() + SIZE.height / 2);
 			}
-			fixGridBackground(turtle.getTurtleRadius());
+			if (myResizeGrid) {
+				fixGridBackground(turtle.getTurtleRadius()); 
+				myResizeGrid = false;
+			}
 		}
 	}
 	

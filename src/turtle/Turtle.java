@@ -7,8 +7,10 @@ import javafx.animation.ParallelTransition;
 import javafx.animation.Transition;
 import javafx.scene.Node;
 import transitionstate.TransitionState;
+import transitionstate.TransitionState.VisibleChange;
 import turtle.draw.Pen;
 import turtle.draw.TransitionFactory;
+import viewcontroller.turtlegrid.GridViewController;
 
 /**
  * Turtle Object. Contains its own Turtle Model and Turtle View Controllers
@@ -21,6 +23,7 @@ public class Turtle {
 	private int myId;
 	private TurtleViewController myTurtleViewController;
 	private Pen myPen;
+	private boolean myIsVisible;
 	private TurtleHistory myTurtleHistory;
 	
 	public Turtle() {
@@ -29,6 +32,7 @@ public class Turtle {
 		myId = ourTurtleCount;
 		ourTurtleCount++;
 		myTurtleHistory = new TurtleHistory();
+		myIsVisible = true;
 	}
 	
 	public Transition createAnimation(List<TransitionState> states) {
@@ -43,7 +47,8 @@ public class Turtle {
 	
 	public void updateVisualState(TransitionState transitionState) {	
 		myPen.update(transitionState.getPenChange());
-		myTurtleViewController.updateVisible(transitionState.getVisibleChange());
+		updateVisible(transitionState.getVisibleChange());
+		myTurtleViewController.updateVisible(myIsVisible);
 	}
 
 	public TurtleHistoryState redo() {
@@ -56,6 +61,22 @@ public class Turtle {
 	
 	public int getId() {
 		return myId;
+	}
+	
+	public double getX() {
+		return getTurtle().getTranslateX() - GridViewController.SIZE.width / 2;
+	}
+	
+	public double getY() {
+		return -1 * (getTurtle().getTranslateY() - GridViewController.SIZE.width / 2);
+	}
+	
+	public boolean getIsVisible() {
+		return myIsVisible;
+	}
+	
+	public double getHeading() {
+		return getTurtle().getRotate();
 	}
 	
 	public Pen getPen() {
@@ -72,6 +93,14 @@ public class Turtle {
 	
 	public double getTurtleRadius() {
 		return myTurtleViewController.getRadius();
+	}
+	
+	private void updateVisible(VisibleChange visibleChange) {
+		if (visibleChange.equals(VisibleChange.CHANGE_INVISIBLE)) {
+			myIsVisible = false;
+		} else if (visibleChange.equals(VisibleChange.CHANGE_VISIBLE)) {
+			myIsVisible = true;
+		}
 	}
 	
 	public boolean isSelected() {
