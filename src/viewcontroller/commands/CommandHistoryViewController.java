@@ -5,7 +5,6 @@ import java.util.List;
 import model.CommandHistoryModel;
 import model.MainModel;
 import javafx.scene.Node;
-import javafx.scene.control.ScrollPane;
 import viewcontroller.GUIReferenceLibrary;
 import viewcontroller.MainModelObserver;
 
@@ -26,7 +25,6 @@ public class CommandHistoryViewController extends CommandClickableListWindowView
 		applyTranslations();
 		myCommandWindowContainer = commandWindowContainer;
 		myTitleLabel.setText(myHistoryTranslation);
-		addCommand("fd 50");
 	}
 
 	@Override
@@ -41,7 +39,7 @@ public class CommandHistoryViewController extends CommandClickableListWindowView
 		List<String> commandHistory = historyModel.getHistory();
 		for (String command : commandHistory) {
 			addCommand(command);
-		}	
+		}
 	}
 
 	@Override

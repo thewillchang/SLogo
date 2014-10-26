@@ -8,7 +8,6 @@ import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.HBox;
-import javafx.scene.layout.VBox;
 import model.MainModel;
 import model.UserDefinedVariablesModel;
 import viewcontroller.GUIReferenceLibrary;
@@ -22,11 +21,10 @@ import viewcontroller.SLogoFont;
  *
  */
 public class UserDefinedVariablesViewController extends
-		CommandWindowViewController implements MainModelObserver {
+		CommandListWindowViewController implements MainModelObserver {
 
 	private final static String MAKE_KEY = "MakeVariable";
 	
-	private VBox myListVerticalBox;
 	private CommandWindowContainerViewController myParent;
 	private Map<String, Double> myVariableMap;
 	private final String UserVariables = "UserVariables";
@@ -39,7 +37,6 @@ public class UserDefinedVariablesViewController extends
 		applyTranslations();
 		myTitleLabel.setText(myUserTranslation);
 		myTitleLabel.setFont(new SLogoFont().createTextFont());
-		placeVariableTable();
 	}
 
 	@Override
@@ -47,12 +44,7 @@ public class UserDefinedVariablesViewController extends
 		myUserTranslation = GUIReferenceLibrary
 				.getStringTranslation(UserVariables);
 	}
-
-	private void placeVariableTable() {
-		myListVerticalBox = new VBox();
-		myCommandWindowVerticalBox.getChildren().add(myListVerticalBox);
-	}
-
+	
 	@Override
 	public Node getNode() {
 		return myPane;
@@ -71,6 +63,7 @@ public class UserDefinedVariablesViewController extends
 		for (String variable : myVariableMap.keySet()) {
 			addVariableToList(variable, myVariableMap.get(variable));
 		}
+		updateScroller();
 	}
 
 	private void addVariableToList(String variable, double value) {
