@@ -6,6 +6,7 @@ import interpreter.result.SLogoResult;
 
 /**
  * Implements the < operation on given operands
+ *
  * @authors Tanaka Jimha and Will Chang
  */
 

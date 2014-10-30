@@ -8,14 +8,15 @@ import transitionstate.NullTransitionState;
 import transitionstate.TransitionState;
 import exceptions.SLogoParsingException;
 
+
 /**
- * 
+ *
  * @author Will
  *
  */
 
 public class SyntaxResult extends SLogoResult {
-    private String myLabel; 
+    private String myLabel;
     private Deque<SLogoExpression> myGroupedExpressions;
 
     public SyntaxResult () {
@@ -31,7 +32,7 @@ public class SyntaxResult extends SLogoResult {
     public SyntaxResult (double value) {
         super(value);
         myTransitionStates.add(new NullTransitionState());
-        myGroupedExpressions = new ArrayDeque<>(); 
+        myGroupedExpressions = new ArrayDeque<>();
     }
 
     @Override
@@ -44,7 +45,7 @@ public class SyntaxResult extends SLogoResult {
     }
 
     public void setGroupedExpressions (Deque<SLogoExpression> groupedExpressions) {
-        myGroupedExpressions = groupedExpressions;   
+        myGroupedExpressions = groupedExpressions;
     }
 
     @Override

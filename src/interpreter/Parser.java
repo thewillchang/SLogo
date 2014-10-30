@@ -8,9 +8,11 @@ import java.util.List;
 import model.MainModel;
 import exceptions.SLogoParsingException;
 
+
 /**
  * class that parses the input and creates an SLogoExpression representing it
  * throws parsing exception if fails
+ *
  * @author Will Chang
  *
  */
@@ -19,29 +21,31 @@ public class Parser {
     private Deque<SLogoExpression> loadedExpressions;
 
     private SLogoExpressionFactory myFactory;
-    
 
     /**
      * Constructor
+     *
      * @param library
      */
-    public Parser(CommandReferenceLibrary library, MainModel model) {
-        
+    public Parser (CommandReferenceLibrary library, MainModel model) {
+
         myFactory = new SLogoExpressionFactory(library, model);
-        
-        parameterStack =  new ArrayDeque<>();
+
+        parameterStack = new ArrayDeque<>();
         loadedExpressions = new ArrayDeque<>();
     }
 
     /**
      * Reads expression from back, parsing using a stack and returns list of expressions to evaluate
+     *
      * @param input String read from frontend
-     * @return a deque of SLogoExpressions to evaluate 
+     * @return a deque of SLogoExpressions to evaluate
      * @throws SLogoParsingException if invalid input
      */
     public Deque<SLogoExpression> parseSLogoExpression (String input) throws SLogoParsingException {
         try {
-            Deque<SLogoExpression> expressionStack = createExpressionsFromProcessedInput(processInput(input));
+            Deque<SLogoExpression> expressionStack =
+                    createExpressionsFromProcessedInput(processInput(input));
             loadAllExpressionParameters(expressionStack);
         }
         catch (SLogoParsingException e) {
@@ -52,13 +56,14 @@ public class Parser {
 
     /**
      * Calls Factory to create all SLogoExpressions from user input
+     *
      * @param processedInputStack processed String deque
      * @return Deque of SLogoExpressions
      * @throws SLogoParsingException
      */
-    private Deque<SLogoExpression> createExpressionsFromProcessedInput (Deque<String> processedInputStack) 
+    private Deque<SLogoExpression> createExpressionsFromProcessedInput (Deque<String> processedInputStack)
             throws SLogoParsingException {
-        while(!processedInputStack.isEmpty()) {
+        while (!processedInputStack.isEmpty()) {
             String input = processedInputStack.pop();
             parameterStack.push(myFactory.createExpression(input));
         }
@@ -67,21 +72,24 @@ public class Parser {
 
     /**
      * Processes initial String input
+     *
      * @param input String from frontend
      * @return Deque of all potential user specified commands
      */
-    private Deque<String> processInput(String input) {
+    private Deque<String> processInput (String input) {
         List<String> processedInputs = Arrays.asList(input.toLowerCase().split("\\s+"));
         return new ArrayDeque<>(processedInputs);
     }
 
     /**
      * Loads all parameters into all generated expressions.
+     *
      * @param expressionStack
      */
-    private void loadAllExpressionParameters (Deque<SLogoExpression> expressionStack) 
-            throws SLogoParsingException, NullPointerException {
-        loadedExpressions = new ArrayDeque<>(); 
+    private void loadAllExpressionParameters (Deque<SLogoExpression> expressionStack)
+            throws SLogoParsingException,
+            NullPointerException {
+        loadedExpressions = new ArrayDeque<>();
         while (!expressionStack.isEmpty()) {
             SLogoExpression expression = expressionStack.pop();
             expression.loadArguments(loadedExpressions);

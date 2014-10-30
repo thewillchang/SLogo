@@ -4,8 +4,10 @@ import interpreter.result.SLogoResult;
 import java.util.ArrayDeque;
 import java.util.Deque;
 
+
 /**
  * Merges Expressions from a High Level in the Interpreter
+ *
  * @author Will
  *
  */
@@ -13,27 +15,30 @@ import java.util.Deque;
 public class SLogoResultMerger {
 
     private Deque<SLogoResult> resultsToMerge;
+
     /**
      * Constructors
      */
     public SLogoResultMerger () {
         this(new ArrayDeque<>());
     }
-    
+
     public SLogoResultMerger (Deque<SLogoResult> results) {
         resultsToMerge = results;
     }
-    
+
     /**
      * Adds an SLogoResult to be merged
+     *
      * @param result to be merged
      */
     protected void append (SLogoResult result) {
         resultsToMerge.add(result);
     }
-    
+
     /**
      * Merges all SLogoResults
+     *
      * @return one SLogo result containing all changes
      */
     protected SLogoResult mergeAndReturn () {

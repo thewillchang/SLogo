@@ -5,8 +5,10 @@ import interpreter.result.SLogoResult;
 import java.util.Deque;
 import exceptions.SLogoParsingException;
 
+
 /**
  * Evaluates given Expressions and merges results as needed
+ *
  * @author Will Chang
  *
  */
@@ -14,26 +16,28 @@ import exceptions.SLogoParsingException;
 public class ExpressionEvaluator {
 
     private SLogoResultMerger myResultMerger;
-    
+
     /**
      * Initializes the Merger
      */
     public ExpressionEvaluator () {
         myResultMerger = new SLogoResultMerger();
     }
-    
+
     /**
      * Evaluates all expressions and Merges the Results
+     *
      * @param parsedExpressions
-     * @throws SLogoParsingException 
+     * @throws SLogoParsingException
      * @returns one SLogo results
      */
-    public SLogoResult evaluateExpressionsAndMergeResults (Deque<SLogoExpression> parsedExpressions) throws SLogoParsingException {
-        while(!parsedExpressions.isEmpty()) {
+    public SLogoResult evaluateExpressionsAndMergeResults (Deque<SLogoExpression> parsedExpressions)
+            throws SLogoParsingException {
+        while (!parsedExpressions.isEmpty()) {
             SLogoResult result = parsedExpressions.pop().evaluate();
             myResultMerger.append(result);
         }
-        
+
         return myResultMerger.mergeAndReturn();
     }
 }

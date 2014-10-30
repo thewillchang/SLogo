@@ -1,18 +1,20 @@
 package interpreter.expression.userdefined;
+
 import interpreter.expression.SLogoExpression;
 import interpreter.expression.UserDefinedExpression;
 import interpreter.result.SLogoResult;
 import java.util.ArrayList;
 import java.util.List;
 import model.UserDefinedVariablesModel;
+
+
 /**
- * 
+ *
  * @author Will
  *
  */
 
 public class MakeVariable extends UserDefinedExpression {
-    
 
     @Override
     public SLogoResult evaluate () {
@@ -23,5 +25,5 @@ public class MakeVariable extends UserDefinedExpression {
         myVariables.putVariable(myVarName.evaluate().toString(), myAssignment.getValue());
         return myAssignment;
     }
-    
+
 }

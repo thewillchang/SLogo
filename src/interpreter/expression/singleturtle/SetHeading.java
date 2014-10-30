@@ -9,8 +9,9 @@ import transitionstate.TransitionState.PenChange;
 import transitionstate.TransitionState.VisibleChange;
 import turtle.Turtle;
 
+
 /**
- * 
+ *
  * @author Will Chang
  *
  */
@@ -21,11 +22,12 @@ public class SetHeading extends TurtleCommandExpression {
     protected void setNextTransition (SLogoResult myResult, Deque<Double> values) {
         List<Turtle> allTurtles = myModel.getTurtles();
         Double value = values.peek();
-        if(!allTurtles.isEmpty()) {
-            Turtle turtle = allTurtles.get(allTurtles.size()-1);
+        if (!allTurtles.isEmpty()) {
+            Turtle turtle = allTurtles.get(allTurtles.size() - 1);
             value -= turtle.getHeading();
         }
-        myResult.getTransition().add(new TransitionState(PenChange.NO_CHANGE, VisibleChange.NO_CHANGE, 0, value, 0));
+        myResult.getTransition().add(new TransitionState(PenChange.NO_CHANGE,
+                                                         VisibleChange.NO_CHANGE, 0, value, 0));
         myResult.setValue(value);
     }
 

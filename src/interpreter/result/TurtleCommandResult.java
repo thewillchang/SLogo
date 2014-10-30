@@ -3,10 +3,11 @@ package interpreter.result;
 import java.util.List;
 import transitionstate.TransitionState;
 import exceptions.SLogoParsingException;
-/**
- * @author Will Chang 
- */
 
+
+/**
+ * @author Will Chang
+ */
 
 public class TurtleCommandResult extends SLogoResult {
 
@@ -14,7 +15,7 @@ public class TurtleCommandResult extends SLogoResult {
         super(0);
     }
 
-    public TurtleCommandResult(double myValue) {
+    public TurtleCommandResult (double myValue) {
         super(myValue);
     }
 
@@ -23,11 +24,11 @@ public class TurtleCommandResult extends SLogoResult {
         return null;
     }
 
-    @Override 
-    public void setValue(double value) {
+    @Override
+    public void setValue (double value) {
         myValue = value;
     }
-    
+
     @Override
     public List<TransitionState> getTransition () {
         return myTransitionStates;

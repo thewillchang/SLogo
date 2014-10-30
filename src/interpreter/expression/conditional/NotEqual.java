@@ -5,13 +5,13 @@ import interpreter.result.SLogoResult;
 
 
 /**
- * 
+ *
  * @author Will Chang
  *
  */
 
 public class NotEqual extends ConditionalExpression {
-    //TODO Refactor...
+    // TODO Refactor...
     @Override
     protected boolean hasSatisfiedCondition (SLogoResult argument) {
         if (valuesToCompare.isEmpty()) {
@@ -20,6 +20,5 @@ public class NotEqual extends ConditionalExpression {
         }
         return valuesToCompare.peek() != argument.getValue();
     }
-
 
 }

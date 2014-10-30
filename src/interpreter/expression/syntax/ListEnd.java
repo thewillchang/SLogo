@@ -3,13 +3,15 @@ package interpreter.expression.syntax;
 import interpreter.expression.SyntaxExpression;
 import interpreter.result.SLogoResult;
 import interpreter.result.SyntaxResult;
+
+
 /**
- * 
+ *
  * @author Will
  *
  */
 
-public class ListEnd extends SyntaxExpression {   
+public class ListEnd extends SyntaxExpression {
 
     @Override
     public SLogoResult evaluate () {
@@ -17,6 +19,6 @@ public class ListEnd extends SyntaxExpression {
     }
 
     @Override
-    public void setValue (String value) {        
+    public void setValue (String value) {
     }
 }

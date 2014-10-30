@@ -5,12 +5,12 @@ import interpreter.result.SLogoResult;
 
 
 /**
- * 
+ *
  * @author Will Chang
  *
  */
 
-public class Equal extends ConditionalExpression { 
+public class Equal extends ConditionalExpression {
     @Override
     protected boolean hasSatisfiedCondition (SLogoResult argument) {
         if (valuesToCompare.isEmpty()) {

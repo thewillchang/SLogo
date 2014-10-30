@@ -4,19 +4,20 @@ import java.util.List;
 import transitionstate.TransitionState;
 import exceptions.SLogoParsingException;
 
+
 /**
- * 
+ *
  * @author Will
  *
  */
 
-public class ControlStructureResult extends SLogoResult{
+public class ControlStructureResult extends SLogoResult {
 
-
-    public ControlStructureResult() {
+    public ControlStructureResult () {
         super();
     }
-    public ControlStructureResult(double myValue) {
+
+    public ControlStructureResult (double myValue) {
         super(myValue);
     }
 
@@ -31,7 +32,7 @@ public class ControlStructureResult extends SLogoResult{
     }
 
     @Override
-    public void setValue(double value) {
+    public void setValue (double value) {
         myValue = value;
     }
 
@@ -41,9 +42,3 @@ public class ControlStructureResult extends SLogoResult{
     }
 
 }
-
-
-
-
-
-

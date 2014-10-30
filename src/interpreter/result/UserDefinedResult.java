@@ -4,8 +4,10 @@ import java.util.List;
 import transitionstate.TransitionState;
 import exceptions.SLogoParsingException;
 
+
 /**
  * Results for User Defined Expression
+ *
  * @author Will Chang
  *
  */
@@ -15,11 +17,11 @@ public class UserDefinedResult extends SLogoResult {
     /**
      * Constructor
      */
-    public UserDefinedResult() {
+    public UserDefinedResult () {
         super();
     }
-    
-    public UserDefinedResult(double myValue) {
+
+    public UserDefinedResult (double myValue) {
         super(myValue);
     }
 
@@ -34,7 +36,7 @@ public class UserDefinedResult extends SLogoResult {
     }
 
     @Override
-    public void setValue(double value) {
+    public void setValue (double value) {
         myValue = value;
     }
 
