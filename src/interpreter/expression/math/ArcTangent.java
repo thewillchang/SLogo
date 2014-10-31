@@ -1,5 +1,3 @@
-// This entire file is part of my masterpiece.
-// William Chang
 package interpreter.expression.math;
 
 import java.util.Deque;
