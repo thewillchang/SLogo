@@ -32,7 +32,6 @@ public class MainModel {
 	private Color myBackgroundColor;
 	private boolean myTurtleAdded;
 	private boolean myFailedParse;
-	private String myErrorMessage;
 	private List<MainModelObserver> myObservers;
 	private transient Interpreter myInterpreter;
 	private transient List<Turtle> myTurtles;
@@ -187,14 +186,6 @@ public class MainModel {
 
 	public boolean getFailedParse() {
 		return myFailedParse;
-	}
-
-	public String getErrorMessage() {
-		return myErrorMessage;
-	}
-
-	public void setErrorMessage(String errorMessage) {
-		myErrorMessage = errorMessage;
 	}
 
 	private void updateModel() {

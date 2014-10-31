@@ -2,6 +2,7 @@ package interpreter;
 
 
 import interpreter.expression.SLogoExpression;
+import interpreter.result.ErrorResult;
 import interpreter.result.SLogoResult;
 
 import java.util.ArrayList;
@@ -47,10 +48,9 @@ public class Interpreter {
             Deque<SLogoExpression> parsedExpressions = myParser.parseSLogoExpression(filteredInput);
             return myEvaluator.evaluateExpressionsAndMergeResults(parsedExpressions);
         }
-        catch (SLogoParsingException e) {
-			myModel.setErrorMessage("Invalid input - parsing error");
+        catch (SLogoParsingException slpException) {
+			return new ErrorResult(slpException);
         }
-        return null;
     }
    
     private String parseOutComments(String input) {
