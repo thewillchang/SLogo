@@ -1,4 +1,5 @@
 package viewcontroller.commands;
+
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.Node;
@@ -7,9 +8,11 @@ import javafx.scene.control.TextArea;
 import javafx.scene.layout.HBox;
 import viewcontroller.GUIReferenceLibrary;
 import viewcontroller.ViewController;
+
 /**
- * View Controller for the TextArea where the user types
- * the commands as strings to be sent to the back end.
+ * View Controller for the TextArea where the user types the commands as strings
+ * to be sent to the back end.
+ * 
  * @author Abhishek B
  *
  */
@@ -21,8 +24,10 @@ public class CommandPromptViewController extends CommandWindowViewController
 	private Button mySubmitButton;
 	private final String PROMPT_KEY = "Prompt";
 	private final String SUBMIT_KEY = "Submit";
+	private final String TEXTAREA_CSS = "text-area";
 	private String myPromptTranslation;
 	private String mySubmitTranslation;
+
 	public CommandPromptViewController(int width, int height,
 			CommandWindowContainerViewController parent) {
 		super(width, height);
@@ -33,13 +38,16 @@ public class CommandPromptViewController extends CommandWindowViewController
 		myCommandWindowVerticalBox.getChildren().add(
 				myCommandPromptHorizontalBox);
 	}
+
 	/**
 	 * Set the command prompt text area with the input text string.
+	 * 
 	 * @param commandText
 	 */
 	public void setCommandPromptText(String commandText) {
 		myCommandPromptTextArea.setText(commandText);
 	}
+
 	/**
 	 * Initialize the HBox containing the TextArea and Button
 	 */
@@ -52,22 +60,25 @@ public class CommandPromptViewController extends CommandWindowViewController
 		myCommandPromptHorizontalBox.getChildren().addAll(
 				myCommandPromptTextArea, mySubmitButton);
 	}
+
 	/**
 	 * Initialize the TextArea for inputting command text
+	 * 
 	 * @param parentWidth
 	 * @param parentHeight
 	 */
 	private void setUpCommandPrompt(int parentWidth, int parentHeight) {
 		myCommandPromptTextArea = new TextArea();
+		myCommandPromptTextArea.getStyleClass().add(TEXTAREA_CSS);
 		myCommandPromptTextArea.setPrefSize(parentWidth * 9 / 10,
 				parentHeight * 8 / 10);
-		myCommandPromptTextArea.setPrefColumnCount(10);
-		myCommandPromptTextArea.setPrefRowCount(4);
 		myCommandPromptTextArea.setWrapText(true);
 	}
+
 	/**
-	 * Initialize button, which will send all content from TextArea
-	 * and clear the TextArea upon execution.
+	 * Initialize button, which will send all content from TextArea and clear
+	 * the TextArea upon execution.
+	 * 
 	 * @param parentWidth
 	 * @param parentHeight
 	 */
@@ -82,21 +93,27 @@ public class CommandPromptViewController extends CommandWindowViewController
 			}
 		});
 	}
+
 	/**
 	 * Called by submit button
+	 * 
 	 * @param commandFromPromptTextArea
 	 */
 	private void passCommandToModel(String commandFromPromptTextArea) {
 		if (commandFromPromptTextArea.trim().length() > 0)
 			myParent.passSLogoCommand(commandFromPromptTextArea);
 	}
+
 	@Override
 	public Node getNode() {
 		return myPane;
 	}
+
 	@Override
 	public void applyTranslations() {
-		myPromptTranslation = GUIReferenceLibrary.getStringTranslation(PROMPT_KEY);
-		mySubmitTranslation = GUIReferenceLibrary.getStringTranslation(SUBMIT_KEY);
+		myPromptTranslation = GUIReferenceLibrary
+				.getStringTranslation(PROMPT_KEY);
+		mySubmitTranslation = GUIReferenceLibrary
+				.getStringTranslation(SUBMIT_KEY);
 	}
 }

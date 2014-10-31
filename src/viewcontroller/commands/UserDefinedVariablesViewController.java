@@ -67,6 +67,7 @@ public class UserDefinedVariablesViewController extends
 	private void variableClicked(HBox variableHBox, Label variableLabel,
 			Label valueLabel) {
 		TextField editableValueLabel = new TextField(valueLabel.getText());
+		editableValueLabel.getStyleClass().add("text-field");
 		variableHBox.getChildren().remove(valueLabel);
 		variableHBox.getChildren().add(editableValueLabel);
 		editableValueLabel.setOnKeyPressed(event -> keyPressed(event,
