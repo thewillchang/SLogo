@@ -66,4 +66,5 @@ public class TurtleViewController implements ViewController {
 	@Override
 	public void applyTranslations() {
 	}
+	
 }

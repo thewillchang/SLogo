@@ -1,3 +1,6 @@
+// This Entire File is Part of my MasterPiece
+// Tanaka Jimha 
+
 package model;
 import interpreter.Interpreter;
 import interpreter.result.SLogoResult;
@@ -20,6 +23,7 @@ import turtle.TurtleListHistory;
 import viewcontroller.MainModelObserver;
 import application.PenForm;
 import application.PenFormResult;
+
 /**
  * Main model of program--Holds the state of the program, also holds and updates other models
  * 
@@ -46,7 +50,8 @@ public class MainModel {
 	private transient ParallelTransition myAnimation;
 	final String PROPERTIES_FILENAME = "SLogoState";
 	final String LANGUAGE_PROPERTY = "Language";
-
+	
+	
 	public MainModel(String language) {
 		
 		this.myLanguage = language;
@@ -61,7 +66,12 @@ public class MainModel {
 		this.myTurtleListHistory = new TurtleListHistory();
 		this.myBackgroundColor = DEFAULT_BACKGROUND_COLOR;
 	}
-
+	
+	/**
+	 * 
+	 * Alternate Constructor used by the Serialisable Model
+	 *
+	 */
 	public MainModel(String language, CommandHistoryModel cHM,
 			UserDefinedCommandsModel uDCM, UserDefinedVariablesModel uDVM,
 			String backGroundColor) {
@@ -79,6 +89,13 @@ public class MainModel {
 		this.myBackgroundColor = myBackgroundColor.valueOf(backGroundColor);
 	}
 	
+	
+	
+	
+	/** 
+	 * Changes the image of the selected turtle
+	 *
+	 */
 	public void changeTurtleImages(File file) {
 		for (Turtle turtle : myTurtles) {
 			if (turtle.isSelected()) {
@@ -87,25 +104,13 @@ public class MainModel {
 		}
 	}
 	
-	public Color getBackgroundColor() {
-		return myBackgroundColor;
-	}
+	/**
+	 * Although getters and setter are undesirable, because the MainModel holds the state of 
+	 * a number of elements in the program needed access to some fields in the model, due to our design,
+	 * we had to implement the getters and setters. This is definitely an are to consider redesigning our program
+	 *
+	 */
 	
-	public String getBackgroundColorName() {
-		return myBackgroundColor.toString();
-	}
-	
-	public void updateAnimationSpeed(double speed) {
-		myAnimation.setRate(speed);
-		myAnimationSpeed = speed;
-	}
-	
-	public void setBackgroundColor(Color color) {
-		myBackgroundColor = color;
-		myAnimation = new ParallelTransition();
-		notifyObservers();
-	}
-
 	public void updatePen(PenForm penForm) {
 		PenFormResult penFormResult = penForm.getResult();
 		for (Turtle turtle : myTurtles) {
@@ -124,7 +129,12 @@ public class MainModel {
 			}
 		}
 	}
-
+	
+	/**
+	 * 
+	 * Get the selected turtles
+	 *
+	 */
 	public Turtle getActiveTurtle() {
 		for (Turtle turtle : myTurtles) {
 			if (turtle.isSelected()) {
@@ -134,27 +144,19 @@ public class MainModel {
 		return null;
 	}
 
+	
 	/**
 	 * adds a turtle
 	 */
 	public void addTurtle() {
+		Turtle turtle = new Turtle();
 		myTurtles.add(new Turtle());
 		myTurtleAdded = true;
 		notifyObservers();
 		myTurtleAdded = false;
 	}	
 
-	public List<Turtle> getTurtles() {
-		return myTurtles;
-	}
 	
-	public boolean isTurtleAdded() {
-		return myTurtleAdded;
-	}
-	
-	public SLogoResult getResult() {
-		return mySLogoResult;
-	}
 	
 	/**
 	 * interprets a String SLogoCommand by passing it to the Interpreter
@@ -185,14 +187,12 @@ public class MainModel {
 		interpretSLogoCommand(command);
 	}
 
-	public boolean getFailedParse() {
-		return myFailedParse;
-	}
-
-	public String getErrorMessage() {
-		return myErrorMessage;
-	}
-
+	
+	/**
+	 * 
+	 * Sets Error message 
+	 *
+	 */
 	public void setErrorMessage(String errorMessage) {
 		myErrorMessage = errorMessage;
 	}
@@ -203,6 +203,7 @@ public class MainModel {
 				.updateModel(myTurtles, mySLogoResult.getTransition());
 		setMyAnimation(turtleTransitionMap);
 	}
+	
 	private void setMyAnimation(Map<Turtle, List<TransitionState>> map) {
 		myAnimation = new ParallelTransition();
 		for (Turtle turtle : map.keySet()) {
@@ -213,27 +214,73 @@ public class MainModel {
 		myTurtleListHistory.updateList(map.keySet());
 	}
 	
-	public ParallelTransition getAnimation() {
-		return myAnimation;
-	}
+	
+	
+	
 	/**
 	 * used to set the language in which the commands are written in
 	 * 
 	 * @param myLanguage
 	 */
-	public void setLanguage(String languageName) {
-		setProperty(LANGUAGE_PROPERTY, languageName);
-		this.myLanguage = languageName;
-	}
 	
 	public void attachObserver(MainModelObserver observer) {
 		myObservers.add(observer);
 	}
 	
-	private void notifyObservers() {
+	public void notifyObservers() {
 		for (MainModelObserver observer : myObservers) {
 			observer.update(this);
 		}
+	}
+	
+	/**
+	 * 
+	 * Undoes an action by reverting to previous state
+	 *
+	 */
+	public void undoClicked() {
+		TurtleHistoryState state = myTurtleListHistory.undo();
+		myAnimation = state.getAnimation();
+		myAnimation.setRate(Math.abs(myAnimation.getRate()) * -1);
+		for (Line line : state.getLines()) {
+			line.setVisible(false);
+		}
+		notifyObservers();
+	}
+	
+	/**
+	 * 
+	 * Redoes an action by bringning back a state
+	 *
+	 */
+	public void redoClicked() {
+		TurtleHistoryState state = myTurtleListHistory.redo();
+		myAnimation = state.getAnimation();
+		myAnimation.setRate(Math.abs(myAnimation.getRate()));
+		for (Line line : state.getLines()) {
+			line.setVisible(true);
+		}
+		notifyObservers();
+	}
+	
+	private void updateAnimationSpeed(double speed) {
+		myAnimation.setRate(speed);
+		myAnimationSpeed = speed;
+	}
+	
+	private void setBackgroundColor(Color color) {
+		myBackgroundColor = color;
+		myAnimation = new ParallelTransition();
+		notifyObservers();
+	}
+
+
+	public boolean getFailedParse() {
+		return myFailedParse;
+	}
+
+	public String getErrorMessage() {
+		return myErrorMessage;
 	}
 	
 	public CommandHistoryModel getCommandHistory() {
@@ -248,50 +295,12 @@ public class MainModel {
 		return this.myUserDefinedVariablesModel;
 	}
 
-	private void setProperty(String propertyName, String value) {
-		Properties prop = new Properties();
-		OutputStream output = null;
-		try {
-			output = new FileOutputStream(PROPERTIES_FILENAME);
-			// set the properties value
-			prop.setProperty(propertyName, value);
-			// save properties to project root folder
-			prop.store(output, null);
-		} catch (IOException io) {
-			System.out.println("File Output Stream Exception");
-		} finally {
-			if (output != null) {
-				try {
-					output.close();
-				} catch (IOException e) {
-					System.out.println("File Output Stream Exception");
-				}
-			}
-		}
-	}
 
 	public String getLanguage () {
 		return myLanguage;
 	}
-	public void undoClicked() {
-		TurtleHistoryState state = myTurtleListHistory.undo();
-		myAnimation = state.getAnimation();
-		myAnimation.setRate(Math.abs(myAnimation.getRate()) * -1);
-		for (Line line : state.getLines()) {
-			line.setVisible(false);
-		}
-		notifyObservers();
-	}
-	public void redoClicked() {
-		TurtleHistoryState state = myTurtleListHistory.redo();
-		myAnimation = state.getAnimation();
-		myAnimation.setRate(Math.abs(myAnimation.getRate()));
-		for (Line line : state.getLines()) {
-			line.setVisible(true);
-		}
-		notifyObservers();
-	}
-
+	
+	
 	public void setmyInterpreter() {
 		this.myInterpreter = new Interpreter(this);
 	}

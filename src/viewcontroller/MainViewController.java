@@ -34,8 +34,8 @@ public class MainViewController implements ViewController, MainModelObserver {
 		myChildObservers = new ArrayList<>();
 		mainModel.attachObserver(this);
 		myPane = new BorderPane();
-		placeTurtleWindowView();
-		placeCommandWindowView();
+		//placeTurtleWindowView();
+		//placeCommandWindowView();
 	}
 
 	public void passSLogoCommand(String command) {
