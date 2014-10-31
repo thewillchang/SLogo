@@ -1,3 +1,5 @@
+// This entire file is part of my masterpiece.
+// Abhishek Balakrishnan
 package viewcontroller.commands;
 
 import java.awt.Dimension;
@@ -23,19 +25,22 @@ public abstract class CommandWindowViewController implements ViewController {
 	protected Label myTitleLabel;
 	protected Dimension SIZE = new Dimension();
 
-	private static String PANE_KEY = "pane";
-	private static String TEXT_KEY = "text";
-	private static String VBOX_KEY = "vbox";
+	private final String PANE_KEY = "pane";
+	private final String TEXT_KEY = "text";
+	private final String VBOX_KEY = "vbox";
 
 	public CommandWindowViewController(int width, int height) {
 		myPane = new BorderPane();
 		myPane.setPrefSize(width, height);
-		addStyleSheets();
 		SIZE.width = width;
 		SIZE.height = height;
+
+		addStyleSheets();
 		myPane.getStyleClass().add(PANE_KEY);
+
 		myTitleLabel = new Label();
 		myCommandWindowVerticalBox = new VBox();
+
 		myPane.setTop(myTitleLabel);
 		myPane.setCenter(myCommandWindowVerticalBox);
 	}
