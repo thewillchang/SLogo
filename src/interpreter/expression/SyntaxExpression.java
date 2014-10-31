@@ -7,7 +7,7 @@ import java.util.Deque;
 import model.MainModel;
 import exceptions.SLogoParsingException;
 /**
- * superclass for SLogoExpressions that are purely syntax
+ * Superclass for SLogoExpressions that are purely syntax
  * examples include variables, constant numbers, and brackets
  * @author Will Chang and Jonathan Tseng
  *
@@ -62,6 +62,4 @@ public abstract class SyntaxExpression implements SLogoExpression {
     public String getValue () {
         return myValue;
     }
-    
-    
 }

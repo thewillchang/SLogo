@@ -13,8 +13,11 @@ import interpreter.result.SLogoResult;
 
 public class MathResult extends SLogoResult {
 
+    /**
+     * Constructors
+     */
     public MathResult() {
-        super();
+        this(0);
     }
     
     public MathResult(double value) {

@@ -2,35 +2,35 @@ package interpreter;
 
 import interpreter.expression.SLogoExpression;
 import java.util.ArrayDeque;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Deque;
 import java.util.List;
+import java.util.NoSuchElementException;
 import model.MainModel;
 import exceptions.SLogoParsingException;
 
 /**
- * class that parses the input and creates an SLogoExpression representing it
+ * Parses the input and creates an SLogoExpression representing it
  * throws parsing exception if fails
  * @author Will Chang
- *
  */
 public class Parser {
-    private Deque<SLogoExpression> parameterStack;
-    private Deque<SLogoExpression> loadedExpressions;
-
+    private final String spaceSplit = "\\s+";
+    private final String comment = "#";
+    private final String newline = "\n";
+    private Deque<SLogoExpression> myParameterStack;
+    private Deque<SLogoExpression> myLoadedExpressions;
     private SLogoExpressionFactory myFactory;
-    
 
     /**
      * Constructor
      * @param library
      */
-    public Parser(CommandReferenceLibrary library, MainModel model) {
-        
-        myFactory = new SLogoExpressionFactory(library, model);
-        
-        parameterStack =  new ArrayDeque<>();
-        loadedExpressions = new ArrayDeque<>();
+    public Parser (CommandReferenceLibrary library, MainModel model) {    
+        myFactory = new SLogoExpressionFactory(library, model);     
+        myParameterStack =  new ArrayDeque<>();
+        myLoadedExpressions = new ArrayDeque<>();
     }
 
     /**
@@ -39,15 +39,12 @@ public class Parser {
      * @return a deque of SLogoExpressions to evaluate 
      * @throws SLogoParsingException if invalid input
      */
-    public Deque<SLogoExpression> parseSLogoExpression (String input) throws SLogoParsingException {
-        try {
-            Deque<SLogoExpression> expressionStack = createExpressionsFromProcessedInput(processInput(input));
-            loadAllExpressionParameters(expressionStack);
-        }
-        catch (SLogoParsingException e) {
-            System.out.println("Invalid Input");
-        }
-        return loadedExpressions;
+    public Deque<SLogoExpression> parseSLogoExpression (String input) 
+            throws SLogoParsingException, NoSuchElementException {
+        String filteredInput = parseOutComments(input);
+        Deque<SLogoExpression> expressionStack = makeExpressionsFromInput(processInput(filteredInput));
+        loadAllExpressionParameters(expressionStack);
+        return myLoadedExpressions;
     }
 
     /**
@@ -56,13 +53,13 @@ public class Parser {
      * @return Deque of SLogoExpressions
      * @throws SLogoParsingException
      */
-    private Deque<SLogoExpression> createExpressionsFromProcessedInput (Deque<String> processedInputStack) 
-            throws SLogoParsingException {
-        while(!processedInputStack.isEmpty()) {
+    private Deque<SLogoExpression> makeExpressionsFromInput (Deque<String> processedInputStack) 
+            throws SLogoParsingException, NullPointerException {
+        while (!processedInputStack.isEmpty()) {
             String input = processedInputStack.pop();
-            parameterStack.push(myFactory.createExpression(input));
+            myParameterStack.push(myFactory.createExpression(input));
         }
-        return parameterStack;
+        return myParameterStack;
     }
 
     /**
@@ -70,8 +67,8 @@ public class Parser {
      * @param input String from frontend
      * @return Deque of all potential user specified commands
      */
-    private Deque<String> processInput(String input) {
-        List<String> processedInputs = Arrays.asList(input.toLowerCase().split("\\s+"));
+    private Deque<String> processInput (String input) {
+        List<String> processedInputs = Arrays.asList(input.toLowerCase().split(spaceSplit));
         return new ArrayDeque<>(processedInputs);
     }
 
@@ -80,13 +77,28 @@ public class Parser {
      * @param expressionStack
      */
     private void loadAllExpressionParameters (Deque<SLogoExpression> expressionStack) 
-            throws SLogoParsingException, NullPointerException {
-        loadedExpressions = new ArrayDeque<>(); 
+            throws SLogoParsingException, NoSuchElementException {
+        myLoadedExpressions = new ArrayDeque<>(); 
         while (!expressionStack.isEmpty()) {
             SLogoExpression expression = expressionStack.pop();
-            expression.loadArguments(loadedExpressions);
-            loadedExpressions.push(expression);
+            expression.loadArguments(myLoadedExpressions);
+            myLoadedExpressions.push(expression);
         }
+    }
 
+    /**
+     * Removes comments from the string
+     * @param input string
+     * @return string without comments
+     */
+    private String parseOutComments (String input) {
+        List<String> lines = new ArrayList<>(Arrays.asList(input.split(newline)));
+        List<String> filteredLines = new ArrayList<>();
+        for (String line : lines) {
+            if (!line.trim().startsWith(comment)) {
+                filteredLines.add(line.trim());
+            }
+        }
+        return String.join(" ", filteredLines);
     }
 }

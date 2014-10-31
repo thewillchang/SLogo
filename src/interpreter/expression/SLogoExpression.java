@@ -1,3 +1,5 @@
+// This entire file is part of my masterpiece.
+// William Chang
 package interpreter.expression;
 
 import java.util.Deque;
@@ -8,11 +10,10 @@ import interpreter.result.SLogoResult;
 
 /**
  * Interface that SLogo Expressions must implement
- * @author Jonathan Tseng
+ * @author Jonathan Tseng and William Chang
  *
  */
 public interface SLogoExpression {
-        //TODO implement iterator
     
 	/**
 	 * loads the list of expressions as arguments for the expression
@@ -22,8 +23,16 @@ public interface SLogoExpression {
 	 */
 	public abstract void loadArguments(Deque<SLogoExpression> args) throws SLogoParsingException, NullPointerException;
 	
+	/**
+	 * Sets the number of arguments
+	 * @param value
+	 */
 	public abstract void setNumArgs(int value);
 	
+	/**
+	 * Sets the library from the CommandReferenceLibrary
+	 * @param library
+	 */
 	public abstract void loadLibrary(CommandReferenceLibrary library);
 	
 	/**
@@ -32,7 +41,10 @@ public interface SLogoExpression {
 	 */
 	public abstract void loadModel(MainModel model);
 	
-	
+	/**
+	 * Gets the number of arguments for the expression.
+	 * @return
+	 */
 	public abstract int getNumArgs();
 	
 	/**
@@ -42,8 +54,16 @@ public interface SLogoExpression {
 	 */
 	public abstract SLogoResult evaluate();
 	
+	/**
+	 * Sets the value of the expression
+	 * @param value
+	 */
 	public abstract void setValue(String value);
 	
+	/**
+	 * Gets the String value of the expression
+	 * @return value
+	 */
 	public abstract String getValue ();
 	
 	

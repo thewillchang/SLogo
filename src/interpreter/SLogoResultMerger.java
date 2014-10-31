@@ -6,40 +6,40 @@ import java.util.Deque;
 
 /**
  * Merges Expressions from a High Level in the Interpreter
- * @author Will
+ * @author Will Chang
  *
  */
 
 public class SLogoResultMerger {
 
-    private Deque<SLogoResult> resultsToMerge;
+    private Deque<SLogoResult> myResultsToMerge;
     /**
      * Constructors
      */
     public SLogoResultMerger () {
         this(new ArrayDeque<>());
     }
-    
+
     public SLogoResultMerger (Deque<SLogoResult> results) {
-        resultsToMerge = results;
+        myResultsToMerge = results;
     }
-    
+
     /**
      * Adds an SLogoResult to be merged
      * @param result to be merged
      */
     protected void append (SLogoResult result) {
-        resultsToMerge.add(result);
+        myResultsToMerge.add(result);
     }
-    
+
     /**
      * Merges all SLogoResults
      * @return one SLogo result containing all changes
      */
     protected SLogoResult mergeAndReturn () {
-        SLogoResult topResult = resultsToMerge.pop();
-        while (!resultsToMerge.isEmpty()) {
-            SLogoResult nextResult = resultsToMerge.pop();
+        SLogoResult topResult = myResultsToMerge.pop();
+        while (!myResultsToMerge.isEmpty()) {
+            SLogoResult nextResult = myResultsToMerge.pop();
             topResult.getTransition().addAll(nextResult.getTransition());
             topResult.setValue(nextResult.getValue());
         }

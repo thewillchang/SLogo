@@ -35,7 +35,7 @@ public abstract class SLogoResult {
 	 * 
 	 * @return
 	 */
-	public abstract SLogoParsingException getException();
+	public abstract Exception getException();
 
 	/**
 	 * returns a list of transition states from evaluating the SLogoExpression

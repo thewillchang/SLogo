@@ -21,8 +21,6 @@ public class Forward extends TurtleCommandExpression {
     protected void setNextTransition (SLogoResult myResult, Deque<Double> values) {
         Double value = values.peek();
         myResult.getTransition().add(new TransitionState(PenChange.NO_CHANGE, VisibleChange.NO_CHANGE, value,0,0));
-        myResult.setValue(value);
-        
+        myResult.setValue(value);   
     }
-
 }

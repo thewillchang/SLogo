@@ -1,3 +1,5 @@
+// This entire file is part of my masterpiece.
+// William Chang
 package interpreter.expression;
 
 import interpreter.CommandReferenceLibrary;
@@ -14,7 +16,7 @@ import transitionstate.TransitionState;
 import exceptions.SLogoParsingException;
 
 /**
- * superclass of SLogoExpressions for Math expressions
+ * Superclass of SLogoExpressions for Math expressions
  * 
  * @author Will Chang
  *
@@ -57,10 +59,7 @@ public abstract class MathExpression implements SLogoExpression {
 		myModel = model;
 	}
 
-	/* public void setNumArgs(double numArgs); */
-
-	// TODO Change deque in the evaluate/load phases... to list...
-	@Override
+	@Override      
 	public SLogoResult evaluate() {
 		Deque<SLogoResult> results = new ArrayDeque<>();
 		for (SLogoExpression argument : myArguments) {
@@ -69,6 +68,11 @@ public abstract class MathExpression implements SLogoExpression {
 		return applyOperatorAndMerge(results);
 	}
 
+	/**
+	 * Applies the Math operator and merges the results.
+	 * @param results
+	 * @return
+	 */
 	protected SLogoResult applyOperatorAndMerge(Deque<SLogoResult> results) {
 		SLogoResult myResult = new MathResult();
 		myResult.setValue(applyMath(results));
@@ -76,16 +80,24 @@ public abstract class MathExpression implements SLogoExpression {
 		return myResult;
 	}
 
+	/**
+	 * Applies the defined math operator in each subclass.
+	 * @param results
+	 * @return
+	 */
 	protected abstract double applyMath(Deque<SLogoResult> results);
 
-	// Using deque, dont have to reference the indices...
+	/**
+	 * Merges the results
+	 * @param results list to merge
+	 * @param myResult result current expression is returning
+	 */
 	protected void mergePreviousResults(Deque<SLogoResult> results,
 			SLogoResult myResult) {
 		List<TransitionState> transitionStates = myResult.getTransition();
 		for (SLogoResult result : results) {
 			transitionStates.addAll(result.getTransition());
 		}
-		// Add a nulltransition? at the end...?
 		transitionStates.add(new NullTransitionState());
 	}
 

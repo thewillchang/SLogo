@@ -28,8 +28,9 @@ public class ExpressionEvaluator {
      * @throws SLogoParsingException 
      * @returns one SLogo results
      */
-    public SLogoResult evaluateExpressionsAndMergeResults (Deque<SLogoExpression> parsedExpressions) throws SLogoParsingException {
-        while(!parsedExpressions.isEmpty()) {
+    public SLogoResult evaluateExpressionsAndMerge (Deque<SLogoExpression> parsedExpressions) 
+            throws SLogoParsingException {
+        while (!parsedExpressions.isEmpty()) {
             SLogoResult result = parsedExpressions.pop().evaluate();
             myResultMerger.append(result);
         }
