@@ -3,6 +3,8 @@ package interpreter.result;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
+
+import transitionstate.NullTransitionState;
 import transitionstate.TransitionState;
 import exceptions.SLogoParsingException;
 
@@ -22,6 +24,12 @@ public abstract class SLogoResult {
 
 	public SLogoResult() {
 		this(0);
+	}
+	
+	public SLogoResult(SLogoParsingException slpe) {
+		myHasError = true;
+		myTransitionStates = new ArrayList<>();
+		myTransitionStates.add(new NullTransitionState());
 	}
 
 	public SLogoResult(double value) {

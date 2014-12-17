@@ -39,11 +39,11 @@ public abstract class MathExpression implements SLogoExpression {
 	}
 
 	@Override
-	public void loadArguments(Deque<SLogoExpression> args)
-			throws SLogoParsingException {
+	public void loadArguments(Deque<SLogoExpression> args) throws SLogoParsingException {
 		if (args.size() < myNumArgs) {
-			throw new SLogoParsingException();
+			throw new SLogoParsingException("Invalid arguments - parsing error");
 		}
+		
 		for (int i = 0; i < myNumArgs; i++) {
 			myArguments.add(args.pop());
 		}

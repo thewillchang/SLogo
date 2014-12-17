@@ -26,7 +26,7 @@ public class MainViewController implements ViewController, MainModelObserver {
 	private MainModel myMainModel;
 	private BorderPane myPane;
 	private TurtleWindowViewController myTurtleWindow;
-	private CommandWindowContainerViewController myCommandWindow;
+	private CommandWindowContainerViewController myCommandWindowContainer;
 	private List<MainModelObserver> myChildObservers;
 
 	public MainViewController(MainModel mainModel) {
@@ -47,7 +47,7 @@ public class MainViewController implements ViewController, MainModelObserver {
 	}
 
 	public void loadScript(String script) {
-		myCommandWindow.loadScript(script);
+		myCommandWindowContainer.loadScript(script);
 	}
 
 	public void toggleGridLines() {
@@ -82,13 +82,17 @@ public class MainViewController implements ViewController, MainModelObserver {
 	 * Sets up right side of the screen - the Command Window related panes
 	 */
 	private void placeCommandWindowView() {
-		myCommandWindow = new CommandWindowContainerViewController(this);
+		myCommandWindowContainer = new CommandWindowContainerViewController(this);
 		BorderPane.setAlignment(myTurtleWindow.getNode(), Pos.CENTER);
 		BorderPane.setMargin(myTurtleWindow.getNode(), GRID_MARGIN);
-		myPane.setRight(myCommandWindow.getNode());
-		myChildObservers.add(myCommandWindow);
+		myPane.setRight(myCommandWindowContainer.getNode());
+		myChildObservers.add(myCommandWindowContainer);
 	}
 
+	public CommandWindowContainerViewController getCommandWindowContainer() {
+		return myCommandWindowContainer;
+	}
+	
 	@Override
 	public Node getNode() {
 		return myPane;

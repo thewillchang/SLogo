@@ -1,11 +1,38 @@
 package interpreter.result;
 
 import java.util.List;
+<<<<<<< HEAD
+import transitionstate.NullTransitionState;
+=======
 
+>>>>>>> master
 import transitionstate.TransitionState;
 import exceptions.SLogoParsingException;
 
 public class ErrorResult extends SLogoResult {
+<<<<<<< HEAD
+    private Exception myException;
+    
+    public ErrorResult (Exception myException2) {
+        myException = myException2;
+    }
+
+    @Override
+    public Exception getException () {
+        return myException;
+    }
+
+    @Override
+    public List<TransitionState> getTransition () {
+        myTransitionStates.add(new NullTransitionState());
+        return myTransitionStates;
+    }
+
+    @Override
+    public double getValue () {
+        return 0;
+    }
+=======
 
 	private SLogoParsingException mySLogoParsingException;
 
@@ -28,5 +55,6 @@ public class ErrorResult extends SLogoResult {
 	public double getValue() {
 		return myValue;
 	}
+>>>>>>> master
 
 }
