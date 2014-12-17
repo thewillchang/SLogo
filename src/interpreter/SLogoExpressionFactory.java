@@ -108,3 +108,4 @@ public class SLogoExpressionFactory {
         expression.loadModel(myModel);
     }
 }
+

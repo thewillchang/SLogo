@@ -43,8 +43,8 @@ public class Interpreter {
             Deque<SLogoExpression> parsedExpressions = myParser.parseSLogoExpression(input);
             return myEvaluator.evaluateExpressionsAndMerge(parsedExpressions);
         }
-        catch (SLogoParsingException slpException) {
-			return new ErrorResult(slpException);
+        catch (SLogoParsingException | NoSuchElementException | NullPointerException e) {
+            return new ErrorResult(e);
         }
     }
 

@@ -1,32 +1,31 @@
 package interpreter.result;
 
 import java.util.List;
-
+import transitionstate.NullTransitionState;
 import transitionstate.TransitionState;
-import exceptions.SLogoParsingException;
 
 public class ErrorResult extends SLogoResult {
+    private Exception myException;
+    
+    public ErrorResult (Exception myException2) {
+        myException = myException2;
+    }
 
-	private SLogoParsingException mySLogoParsingException;
+    @Override
+    public Exception getException () {
+        return myException;
+    }
 
-	public ErrorResult(SLogoParsingException slpe) {
-		super(slpe);
-		mySLogoParsingException = slpe;
-	}
+    @Override
+    public List<TransitionState> getTransition () {
+        myTransitionStates.add(new NullTransitionState());
+        return myTransitionStates;
+    }
 
-	@Override
-	public SLogoParsingException getException() {
-		return mySLogoParsingException;
-	}
-
-	@Override
-	public List<TransitionState> getTransition() {
-		return myTransitionStates;
-	}
-
-	@Override
-	public double getValue() {
-		return myValue;
-	}
+    @Override
+    public double getValue () {
+        return 0;
+    }
 
 }
+
