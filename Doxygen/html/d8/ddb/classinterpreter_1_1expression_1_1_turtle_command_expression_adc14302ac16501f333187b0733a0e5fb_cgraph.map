@@ -1,5 +1,0 @@
-<map id="interpreter.expression.TurtleCommandExpression.applyOperatorAndMerge" name="interpreter.expression.TurtleCommandExpression.applyOperatorAndMerge">
-<area shape="rect" id="node2" href="$df/df6/classinterpreter_1_1result_1_1_s_logo_result.html#a11062748597af4f6622d9cbc92d4d9c0" title="interpreter.result.SLogo\lResult.getTransition" alt="" coords="423,5,596,46"/>
-<area shape="rect" id="node3" href="$df/df6/classinterpreter_1_1result_1_1_s_logo_result.html#a7e050bbb65d7c7eb5e9b9970c6e2616f" title="interpreter.result.SLogo\lResult.getValue" alt="" coords="423,70,596,111"/>
-<area shape="rect" id="node4" href="$d8/ddb/classinterpreter_1_1expression_1_1_turtle_command_expression.html#a9d36572c76e57f5de7351a3419292612" title="interpreter.expression.Turtle\lCommandExpression.setNextTransition" alt="" coords="373,135,645,177"/>
-</map>

@@ -1,7 +1,0 @@
-<map id="viewcontroller.turtlegrid.SLogoColorPicker.getColor" name="viewcontroller.turtlegrid.SLogoColorPicker.getColor">
-<area shape="rect" id="node2" href="$db/d5b/classviewcontroller_1_1turtlegrid_1_1_grid_button_bar.html#abcf833dea3b893c8fda4e482d8e082ff" title="viewcontroller.turtlegrid.\lGridButtonBar.getGridColor" alt="" coords="246,17,442,58"/>
-<area shape="rect" id="node5" href="$db/d5b/classviewcontroller_1_1turtlegrid_1_1_grid_button_bar.html#aac1086f8c3fdafa48746685429e645c0" title="viewcontroller.turtlegrid.\lGridButtonBar.getPenColor" alt="" coords="247,86,441,127"/>
-<area shape="rect" id="node3" href="$d3/daf/classviewcontroller_1_1turtlegrid_1_1_turtle_window_view_controller.html#ad20e08a23f6390736b1de5252cd2a514" title="viewcontroller.turtlegrid.\lTurtleWindowViewController.grid\lColorChanged" alt="" coords="491,5,712,61"/>
-<area shape="rect" id="node4" href="$d3/daf/classviewcontroller_1_1turtlegrid_1_1_turtle_window_view_controller.html#a732df23c6854ab63ebaac21d105c7072" title="viewcontroller.turtlegrid.\lTurtleWindowViewController.Turtle\lWindowViewController" alt="" coords="761,45,991,101"/>
-<area shape="rect" id="node6" href="$d3/daf/classviewcontroller_1_1turtlegrid_1_1_turtle_window_view_controller.html#a1b7bacbdd2f48f2b80c1ce40380b7602" title="viewcontroller.turtlegrid.\lTurtleWindowViewController.pen\lColorChanged" alt="" coords="491,85,712,141"/>
-</map>

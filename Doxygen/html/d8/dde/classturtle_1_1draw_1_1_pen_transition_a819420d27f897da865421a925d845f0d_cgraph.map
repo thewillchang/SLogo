@@ -1,6 +1,0 @@
-<map id="turtle.draw.PenTransition.formatLine" name="turtle.draw.PenTransition.formatLine">
-<area shape="rect" id="node2" href="$dd/da0/classturtle_1_1draw_1_1_pen.html#aa1cfa7c148b990a796edcdce0c1ef4dc" title="turtle.draw.Pen.getColor" alt="" coords="306,5,481,32"/>
-<area shape="rect" id="node3" href="$dd/da0/classturtle_1_1draw_1_1_pen.html#acd8614ebe09681bbd4ac2ac5e4108d17" title="turtle.draw.Pen.getDash" alt="" coords="306,56,481,83"/>
-<area shape="rect" id="node4" href="$df/dcb/classturtle_1_1_turtle.html#a0b8bdf8fc097cab5bf51d46567c2d749" title="turtle.Turtle.getPen" alt="" coords="322,107,465,133"/>
-<area shape="rect" id="node5" href="$dd/da0/classturtle_1_1draw_1_1_pen.html#a94bdbfaa93c36af4f16c5f43364abb07" title="turtle.draw.Pen.getWidth" alt="" coords="305,157,482,184"/>
-</map>

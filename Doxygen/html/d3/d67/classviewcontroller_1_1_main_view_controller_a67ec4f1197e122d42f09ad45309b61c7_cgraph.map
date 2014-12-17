@@ -1,7 +1,0 @@
-<map id="viewcontroller.MainViewController.MainViewController" name="viewcontroller.MainViewController.MainViewController">
-<area shape="rect" id="node2" href="$de/d21/classmodel_1_1_main_model.html#a8019cab5cb64b5856e5d15e526a55c1f" title="model.MainModel.attachObserver" alt="" coords="308,5,545,32"/>
-<area shape="rect" id="node3" href="$d3/d67/classviewcontroller_1_1_main_view_controller.html#a47ad1be50a2765da27846b026f53147a" title="viewcontroller.MainViewController.place\lCommandWindowView" alt="" coords="291,122,562,163"/>
-<area shape="rect" id="node6" href="$d3/d67/classviewcontroller_1_1_main_view_controller.html#a035c3c8e42cfd71088138196cf3e8f1c" title="viewcontroller.MainViewController.place\lTurtleWindowView" alt="" coords="291,57,562,98"/>
-<area shape="rect" id="node4" href="$d3/daf/classviewcontroller_1_1turtlegrid_1_1_turtle_window_view_controller.html#ad58a94777cb799134577243c0b6eb9d9" title="viewcontroller.turtlegrid.\lTurtleWindowViewController.getNode" alt="" coords="658,57,910,98"/>
-<area shape="rect" id="node5" href="$d0/d7c/classviewcontroller_1_1commands_1_1_command_window_container_view_controller.html#ade851955a9a3301301afb8fbc4814a17" title="viewcontroller.commands.\lCommandWindowContainerViewController.getNode" alt="" coords="611,122,957,163"/>
-</map>

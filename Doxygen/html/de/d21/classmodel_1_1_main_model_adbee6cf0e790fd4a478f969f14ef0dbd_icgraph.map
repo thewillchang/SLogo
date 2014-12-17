@@ -1,5 +1,0 @@
-<map id="model.MainModel.getUserDefinedVariables" name="model.MainModel.getUserDefinedVariables">
-<area shape="rect" id="node2" href="$d2/dc7/classinterpreter_1_1_interpreter.html#a023a2012605ac5b6b043e61755c9b0c1" title="interpreter.Interpreter.\lInterpreter" alt="" coords="361,5,525,46"/>
-<area shape="rect" id="node3" href="$d3/d5e/classmodel_1_1_serialisable_model.html#afb3dd469985638173108801bbcd2d2e4" title="model.SerialisableModel.\lSerialisableModel" alt="" coords="352,70,533,111"/>
-<area shape="rect" id="node4" href="$d4/dc8/classviewcontroller_1_1commands_1_1_user_defined_variables_view_controller.html#a1e84f755902379519ddf5438bc2d27ee" title="viewcontroller.commands.\lUserDefinedVariablesViewController.update" alt="" coords="293,135,592,177"/>
-</map>

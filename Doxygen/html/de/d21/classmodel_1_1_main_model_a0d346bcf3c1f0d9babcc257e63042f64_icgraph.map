@@ -1,5 +1,0 @@
-<map id="model.MainModel.updateAnimationSpeed" name="model.MainModel.updateAnimationSpeed">
-<area shape="rect" id="node2" href="$d3/d67/classviewcontroller_1_1_main_view_controller.html#a5cdd7f7ddd825dd463f57d193943fd58" title="viewcontroller.MainViewController.animation\lSpeedChanged" alt="" coords="302,11,602,53"/>
-<area shape="rect" id="node3" href="$d3/daf/classviewcontroller_1_1turtlegrid_1_1_turtle_window_view_controller.html#ad20747828f10e957b0439e77cf253dc6" title="viewcontroller.turtlegrid.\lTurtleWindowViewController.animation\lSpeedChanged" alt="" coords="651,4,912,60"/>
-<area shape="rect" id="node4" href="$d3/daf/classviewcontroller_1_1turtlegrid_1_1_turtle_window_view_controller.html#a732df23c6854ab63ebaac21d105c7072" title="viewcontroller.turtlegrid.\lTurtleWindowViewController.Turtle\lWindowViewController" alt="" coords="961,4,1191,60"/>
-</map>

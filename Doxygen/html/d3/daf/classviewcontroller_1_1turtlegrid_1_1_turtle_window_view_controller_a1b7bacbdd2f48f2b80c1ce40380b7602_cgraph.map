@@ -1,6 +1,0 @@
-<map id="viewcontroller.turtlegrid.TurtleWindowViewController.penColorChanged" name="viewcontroller.turtlegrid.TurtleWindowViewController.penColorChanged">
-<area shape="rect" id="node2" href="$db/d5b/classviewcontroller_1_1turtlegrid_1_1_grid_button_bar.html#aac1086f8c3fdafa48746685429e645c0" title="viewcontroller.turtlegrid.\lGridButtonBar.getPenColor" alt="" coords="308,5,503,46"/>
-<area shape="rect" id="node4" href="$d3/d67/classviewcontroller_1_1_main_view_controller.html#acdf600eb8fbec8c663ae15d9d88e9882" title="viewcontroller.MainViewController.pen\lColorChanged" alt="" coords="275,70,535,111"/>
-<area shape="rect" id="node3" href="$db/dbf/classviewcontroller_1_1turtlegrid_1_1_s_logo_color_picker.html#a24bb9b34500f114e800eb96d04fa91ab" title="viewcontroller.turtlegrid.\lSLogoColorPicker.getColor" alt="" coords="593,5,783,46"/>
-<area shape="rect" id="node5" href="$de/d21/classmodel_1_1_main_model.html#a381912d7b438ad1e2e100f86e91ffd23" title="model.MainModel.updatePen\lColor" alt="" coords="585,70,791,111"/>
-</map>

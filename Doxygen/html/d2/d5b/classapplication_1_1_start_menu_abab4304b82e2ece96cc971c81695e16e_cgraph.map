@@ -1,6 +1,0 @@
-<map id="application.StartMenu.StartMenu" name="application.StartMenu.StartMenu">
-<area shape="rect" id="node2" href="$d2/d5b/classapplication_1_1_start_menu.html#aa14bd89e876cd7cb01cf96aac602204b" title="application.StartMenu.create\lLanguageChooser" alt="" coords="289,5,495,46"/>
-<area shape="rect" id="node3" href="$d2/d5b/classapplication_1_1_start_menu.html#a087587d7e5be9ed034756043019f7291" title="application.StartMenu.create\lOkayButton" alt="" coords="289,70,495,111"/>
-<area shape="rect" id="node5" href="$d2/d5b/classapplication_1_1_start_menu.html#a971dc828afa4260d7e0ff7423cd69b81" title="application.StartMenu.create\lTitleBox" alt="" coords="289,135,495,177"/>
-<area shape="rect" id="node4" href="$da/d4e/classviewcontroller_1_1_view.html#a89203d50fd0c92cfa4518ac9506bb6cd" title="viewcontroller.View.init" alt="" coords="544,77,707,104"/>
-</map>

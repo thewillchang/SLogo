@@ -1,9 +1,0 @@
-<map id="turtle.draw.PenTransition.setEndPoint" name="turtle.draw.PenTransition.setEndPoint">
-<area shape="rect" id="node2" href="$d8/dde/classturtle_1_1draw_1_1_pen_transition.html#a2f62d2a4cd27a83158b09c0d4357efb9" title="turtle.draw.PenTransition.interpolate\lChanges" alt="" coords="256,5,507,46"/>
-<area shape="rect" id="node3" href="$d8/dde/classturtle_1_1draw_1_1_pen_transition.html#a7eaf834f0b2189acc2f53ca8f561b07d" title="turtle.draw.PenTransition.perform\lWrappingChanges" alt="" coords="265,70,497,111"/>
-<area shape="rect" id="node4" href="$d8/dde/classturtle_1_1draw_1_1_pen_transition.html#aa0a682d77c6f7e56adb8a7cad589a140" title="turtle.draw.PenTransition.set\lDistance" alt="" coords="281,135,482,177"/>
-<area shape="rect" id="node5" href="$dc/d3e/classturtle_1_1draw_1_1_transition_factory.html#a6ff1cfc7cfe2396040ddb55408ee854e" title="turtle.draw.TransitionFactory.create\lForwardTransition" alt="" coords="555,135,797,177"/>
-<area shape="rect" id="node6" href="$dc/d3e/classturtle_1_1draw_1_1_transition_factory.html#adb38be68a00bde2421dbdf0d55a93e54" title="turtle.draw.TransitionFactory.create\lTurtleTransition" alt="" coords="845,135,1088,177"/>
-<area shape="rect" id="node7" href="$dc/d3e/classturtle_1_1draw_1_1_transition_factory.html#a31b362130278174931595c1ce68c7ff5" title="turtle.draw.TransitionFactory.create\lAnimation" alt="" coords="1136,135,1379,177"/>
-<area shape="rect" id="node8" href="$df/dcb/classturtle_1_1_turtle.html#a72a5d11b319fe2819a646569d5034557" title="turtle.Turtle.createAnimation" alt="" coords="1427,143,1631,169"/>
-</map>

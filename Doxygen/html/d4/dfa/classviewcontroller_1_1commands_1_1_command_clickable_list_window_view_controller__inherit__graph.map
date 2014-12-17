@@ -1,7 +1,0 @@
-<map id="viewcontroller.commands.CommandClickableListWindowViewController" name="viewcontroller.commands.CommandClickableListWindowViewController">
-<area shape="rect" id="node5" href="$d3/d76/classviewcontroller_1_1commands_1_1_command_history_view_controller.html" title="viewcontroller.commands.\lCommandHistoryViewController" alt="" coords="1131,5,1357,46"/>
-<area shape="rect" id="node6" href="$de/d01/classviewcontroller_1_1commands_1_1_user_defined_methods_view_controller.html" title="viewcontroller.commands.\lUserDefinedMethodsViewController" alt="" coords="1121,70,1367,111"/>
-<area shape="rect" id="node2" href="$d4/d3f/classviewcontroller_1_1commands_1_1_command_list_window_view_controller.html" title="viewcontroller.commands.\lCommandListWindowViewController" alt="" coords="531,38,781,79"/>
-<area shape="rect" id="node3" href="$d8/d68/classviewcontroller_1_1commands_1_1_command_window_view_controller.html" title="viewcontroller.commands.\lCommandWindowViewController" alt="" coords="256,38,483,79"/>
-<area shape="rect" id="node4" href="$d4/deb/interfaceviewcontroller_1_1_view_controller.html" title="viewcontroller.ViewController" alt="" coords="5,45,208,72"/>
-</map>

@@ -1,8 +1,0 @@
-<map id="turtle.Turtle.updateVisualState" name="turtle.Turtle.updateVisualState">
-<area shape="rect" id="node2" href="$d0/dce/classtransitionstate_1_1_transition_state.html#ab51672ddfecc15b6a4abf25362625c53" title="transitionstate.Transition\lState.getPenChange" alt="" coords="263,5,441,46"/>
-<area shape="rect" id="node3" href="$d0/dce/classtransitionstate_1_1_transition_state.html#aa7fbf8e1c635fcfab8abdc3944db35af" title="transitionstate.Transition\lState.getVisibleChange" alt="" coords="263,70,441,111"/>
-<area shape="rect" id="node4" href="$dd/da0/classturtle_1_1draw_1_1_pen.html#adaf88ea81215149c382ba56b9c4894eb" title="turtle.draw.Pen.update" alt="" coords="269,136,435,163"/>
-<area shape="rect" id="node5" href="$d4/de5/classturtle_1_1_turtle_view_controller.html#a27ab1368e9369b701b2d49ede5b2aaab" title="turtle.TurtleViewController.update\lVisible" alt="" coords="235,187,469,229"/>
-<area shape="rect" id="node7" href="$df/dcb/classturtle_1_1_turtle.html#ae874771e2fd28fce250e1de7f9d9647d" title="turtle.Turtle.updateVisible" alt="" coords="260,253,444,280"/>
-<area shape="rect" id="node6" href="$d8/d9e/classturtle_1_1_turtle_image.html#a003d507b71fbc99ec5a1cb53aef1b2ab" title="turtle.TurtleImage.update\lVisible" alt="" coords="518,187,701,229"/>
-</map>

@@ -1,5 +1,0 @@
-<map id="model.MainModel.setBackgroundColor" name="model.MainModel.setBackgroundColor">
-<area shape="rect" id="node2" href="$d3/d67/classviewcontroller_1_1_main_view_controller.html#ad838f61ff54b140140b60dfe625a269a" title="viewcontroller.MainViewController.grid\lColorChanged" alt="" coords="289,11,549,53"/>
-<area shape="rect" id="node3" href="$d3/daf/classviewcontroller_1_1turtlegrid_1_1_turtle_window_view_controller.html#ad20e08a23f6390736b1de5252cd2a514" title="viewcontroller.turtlegrid.\lTurtleWindowViewController.grid\lColorChanged" alt="" coords="597,4,819,60"/>
-<area shape="rect" id="node4" href="$d3/daf/classviewcontroller_1_1turtlegrid_1_1_turtle_window_view_controller.html#a732df23c6854ab63ebaac21d105c7072" title="viewcontroller.turtlegrid.\lTurtleWindowViewController.Turtle\lWindowViewController" alt="" coords="867,4,1098,60"/>
-</map>

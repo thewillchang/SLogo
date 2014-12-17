@@ -1,6 +1,0 @@
-<map id="model.MainModel.undoClicked" name="model.MainModel.undoClicked">
-<area shape="rect" id="node2" href="$d5/d4b/classturtle_1_1_turtle_history_state.html#a819af201b267b72af77d41bc672d60b7" title="turtle.TurtleHistoryState.get\lAnimation" alt="" coords="558,5,757,46"/>
-<area shape="rect" id="node3" href="$d5/d4b/classturtle_1_1_turtle_history_state.html#a6ef2f21cc6638628e67e324582883428" title="turtle.TurtleHistoryState.get\lLines" alt="" coords="558,87,757,129"/>
-<area shape="rect" id="node4" href="$de/d21/classmodel_1_1_main_model.html#a81fd23aa152cf9311abb569fa3c656fb" title="model.MainModel.notifyObservers" alt="" coords="270,88,509,115"/>
-<area shape="rect" id="node5" href="$d4/d57/classturtle_1_1_turtle_list_history.html#ad3969f3a8332ac512ce944d50d946fe7" title="turtle.TurtleListHistory.undo" alt="" coords="292,37,487,64"/>
-</map>

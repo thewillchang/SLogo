@@ -1,7 +1,0 @@
-<map id="viewcontroller.commands.CommandWindowViewController.setTitle" name="viewcontroller.commands.CommandWindowViewController.setTitle">
-<area shape="rect" id="node2" href="$d3/d76/classviewcontroller_1_1commands_1_1_command_history_view_controller.html#a917d00668cf6b7386e39c033dac3ea85" title="viewcontroller.commands.\lCommandHistoryViewController.\lCommandHistoryViewController" alt="" coords="343,5,571,61"/>
-<area shape="rect" id="node3" href="$de/d8d/classviewcontroller_1_1commands_1_1_command_prompt_view_controller.html#a7e92ce4136e77a153ee6ef862f99052a" title="viewcontroller.commands.\lCommandPromptViewController.\lCommandPromptViewController" alt="" coords="342,85,573,141"/>
-<area shape="rect" id="node4" href="$da/d40/classviewcontroller_1_1commands_1_1_command_status_view_controller.html#ab706eb7ec2c4d7d3fa785d655fa83c2f" title="viewcontroller.commands.\lCommandStatusViewController.\lCommandStatusViewController" alt="" coords="345,165,570,221"/>
-<area shape="rect" id="node5" href="$de/d01/classviewcontroller_1_1commands_1_1_user_defined_methods_view_controller.html#a6a921839af31a0929e156cbedb2c5133" title="viewcontroller.commands.\lUserDefinedMethodsViewController.\lUserDefinedMethodsViewController" alt="" coords="332,245,583,301"/>
-<area shape="rect" id="node6" href="$d4/dc8/classviewcontroller_1_1commands_1_1_user_defined_variables_view_controller.html#a2788ecdf0550c165712b8e2585bb1a0b" title="viewcontroller.commands.\lUserDefinedVariablesViewController.\lUserDefinedVariablesViewController" alt="" coords="331,325,584,381"/>
-</map>

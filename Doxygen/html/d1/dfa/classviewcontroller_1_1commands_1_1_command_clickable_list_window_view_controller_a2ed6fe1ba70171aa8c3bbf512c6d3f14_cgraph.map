@@ -1,5 +1,0 @@
-<map id="viewcontroller.commands.CommandClickableListWindowViewController.addCommand" name="viewcontroller.commands.CommandClickableListWindowViewController.addCommand">
-<area shape="rect" id="node2" href="$d0/d7c/classviewcontroller_1_1commands_1_1_command_window_container_view_controller.html#ae3ec4d2b2cfd7d931ed2da8328e13f31" title="viewcontroller.commands.\lCommandWindowContainerViewController.move\lCommandTextToPromptWindow" alt="" coords="296,5,624,61"/>
-<area shape="rect" id="node4" href="$d4/d3f/classviewcontroller_1_1commands_1_1_command_list_window_view_controller.html#a606e37bfe6fc9ce9500c9a705e5f10ee" title="viewcontroller.commands.\lCommandListWindowViewController.update\lScroller" alt="" coords="311,85,609,141"/>
-<area shape="rect" id="node3" href="$de/d8d/classviewcontroller_1_1commands_1_1_command_prompt_view_controller.html#ac5b8ed43553efe6667328fe2d2d7130a" title="viewcontroller.commands.\lCommandPromptViewController.set\lCommandPromptText" alt="" coords="672,5,923,61"/>
-</map>

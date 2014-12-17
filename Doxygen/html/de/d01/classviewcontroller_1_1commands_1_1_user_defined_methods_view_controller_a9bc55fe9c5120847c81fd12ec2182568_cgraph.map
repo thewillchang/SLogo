@@ -1,8 +1,0 @@
-<map id="viewcontroller.commands.UserDefinedMethodsViewController.update" name="viewcontroller.commands.UserDefinedMethodsViewController.update">
-<area shape="rect" id="node2" href="$d1/dfa/classviewcontroller_1_1commands_1_1_command_clickable_list_window_view_controller.html#a2ed6fe1ba70171aa8c3bbf512c6d3f14" title="viewcontroller.commands.\lCommandClickableListWindowView\lController.addCommand" alt="" coords="349,45,592,101"/>
-<area shape="rect" id="node6" href="$da/dee/classmodel_1_1_user_defined_commands_model.html#af2a852a2d5a0fd3728e6cc714088ebe4" title="model.UserDefinedCommands\lModel.getAllDefinedCommands" alt="" coords="359,125,582,166"/>
-<area shape="rect" id="node7" href="$de/d21/classmodel_1_1_main_model.html#ad7dab4717c031b1d8b2f88e671bb98cd" title="model.MainModel.getUserDefined\lMethods" alt="" coords="351,190,590,231"/>
-<area shape="rect" id="node3" href="$d0/d7c/classviewcontroller_1_1commands_1_1_command_window_container_view_controller.html#ae3ec4d2b2cfd7d931ed2da8328e13f31" title="viewcontroller.commands.\lCommandWindowContainerViewController.move\lCommandTextToPromptWindow" alt="" coords="640,5,968,61"/>
-<area shape="rect" id="node5" href="$d4/d3f/classviewcontroller_1_1commands_1_1_command_list_window_view_controller.html#a606e37bfe6fc9ce9500c9a705e5f10ee" title="viewcontroller.commands.\lCommandListWindowViewController.update\lScroller" alt="" coords="655,85,953,141"/>
-<area shape="rect" id="node4" href="$de/d8d/classviewcontroller_1_1commands_1_1_command_prompt_view_controller.html#ac5b8ed43553efe6667328fe2d2d7130a" title="viewcontroller.commands.\lCommandPromptViewController.set\lCommandPromptText" alt="" coords="1016,5,1267,61"/>
-</map>

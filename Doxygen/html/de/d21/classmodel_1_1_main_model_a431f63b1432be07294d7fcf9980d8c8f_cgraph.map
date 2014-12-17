@@ -1,6 +1,0 @@
-<map id="model.MainModel.redoClicked" name="model.MainModel.redoClicked">
-<area shape="rect" id="node2" href="$d5/d4b/classturtle_1_1_turtle_history_state.html#a819af201b267b72af77d41bc672d60b7" title="turtle.TurtleHistoryState.get\lAnimation" alt="" coords="555,5,754,46"/>
-<area shape="rect" id="node3" href="$d5/d4b/classturtle_1_1_turtle_history_state.html#a6ef2f21cc6638628e67e324582883428" title="turtle.TurtleHistoryState.get\lLines" alt="" coords="555,87,754,129"/>
-<area shape="rect" id="node4" href="$de/d21/classmodel_1_1_main_model.html#a81fd23aa152cf9311abb569fa3c656fb" title="model.MainModel.notifyObservers" alt="" coords="267,88,506,115"/>
-<area shape="rect" id="node5" href="$d4/d57/classturtle_1_1_turtle_list_history.html#a38bde8e8aef6a8454244e1014db8cb17" title="turtle.TurtleListHistory.redo" alt="" coords="291,37,483,64"/>
-</map>

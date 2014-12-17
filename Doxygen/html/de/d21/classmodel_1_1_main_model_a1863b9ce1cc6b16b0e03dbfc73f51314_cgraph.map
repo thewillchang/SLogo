@@ -1,8 +1,0 @@
-<map id="model.MainModel.updateModel" name="model.MainModel.updateModel">
-<area shape="rect" id="node2" href="$df/df6/classinterpreter_1_1result_1_1_s_logo_result.html#a11062748597af4f6622d9cbc92d4d9c0" title="interpreter.result.SLogo\lResult.getTransition" alt="" coords="309,5,483,46"/>
-<area shape="rect" id="node3" href="$de/d21/classmodel_1_1_main_model.html#aad9f626d0b472cbc3d57e8af0c4326cc" title="model.MainModel.setMyAnimation" alt="" coords="275,71,517,97"/>
-<area shape="rect" id="node5" href="$dd/d63/classmodel_1_1_model_updater.html#a08dce6edfc21ceba207d7a534d2bd71c" title="model.ModelUpdater.update\lModel" alt="" coords="294,122,498,163"/>
-<area shape="rect" id="node4" href="$d4/d57/classturtle_1_1_turtle_list_history.html#a1d6e950f470e133d79684a9c3baf54b4" title="turtle.TurtleListHistory.updateList" alt="" coords="566,71,797,97"/>
-<area shape="rect" id="node6" href="$dd/d63/classmodel_1_1_model_updater.html#ad73b783b59545c68e1fb9123e44492d4" title="model.ModelUpdater.create\lTurtleTransitionMapping" alt="" coords="581,122,781,163"/>
-<area shape="rect" id="node7" href="$dd/d63/classmodel_1_1_model_updater.html#a44e91f3e31045ca0a067ffe9d270ab29" title="model.ModelUpdater.findSelected\lTurtles" alt="" coords="846,122,1085,163"/>
-</map>

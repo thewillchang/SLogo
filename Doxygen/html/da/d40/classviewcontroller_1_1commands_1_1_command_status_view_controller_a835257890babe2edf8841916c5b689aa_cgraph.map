@@ -1,6 +1,0 @@
-<map id="viewcontroller.commands.CommandStatusViewController.update" name="viewcontroller.commands.CommandStatusViewController.update">
-<area shape="rect" id="node2" href="$df/df6/classinterpreter_1_1result_1_1_s_logo_result.html#a6047e8ac53bae47b06b7f8daee701c43" title="interpreter.result.SLogo\lResult.getHasError" alt="" coords="375,5,548,46"/>
-<area shape="rect" id="node3" href="$de/d21/classmodel_1_1_main_model.html#a808727052533249dc816e034ce13e8cb" title="model.MainModel.getResult" alt="" coords="363,71,560,97"/>
-<area shape="rect" id="node4" href="$df/df6/classinterpreter_1_1result_1_1_s_logo_result.html#a7e050bbb65d7c7eb5e9b9970c6e2616f" title="interpreter.result.SLogo\lResult.getValue" alt="" coords="375,122,548,163"/>
-<area shape="rect" id="node5" href="$da/d40/classviewcontroller_1_1commands_1_1_command_status_view_controller.html#af664937064debfb80dfdab10ef635650" title="viewcontroller.commands.\lCommandStatusViewController.update\lCommandStatusText" alt="" coords="326,187,597,243"/>
-</map>

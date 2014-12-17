@@ -1,7 +1,0 @@
-<map id="viewcontroller.turtlegrid.TurtleWindowViewController.gridColorChanged" name="viewcontroller.turtlegrid.TurtleWindowViewController.gridColorChanged">
-<area shape="rect" id="node2" href="$db/d5b/classviewcontroller_1_1turtlegrid_1_1_grid_button_bar.html#abcf833dea3b893c8fda4e482d8e082ff" title="viewcontroller.turtlegrid.\lGridButtonBar.getGridColor" alt="" coords="307,5,503,46"/>
-<area shape="rect" id="node4" href="$d3/d67/classviewcontroller_1_1_main_view_controller.html#ad838f61ff54b140140b60dfe625a269a" title="viewcontroller.MainViewController.grid\lColorChanged" alt="" coords="275,70,535,111"/>
-<area shape="rect" id="node3" href="$db/dbf/classviewcontroller_1_1turtlegrid_1_1_s_logo_color_picker.html#a24bb9b34500f114e800eb96d04fa91ab" title="viewcontroller.turtlegrid.\lSLogoColorPicker.getColor" alt="" coords="606,5,797,46"/>
-<area shape="rect" id="node5" href="$de/d21/classmodel_1_1_main_model.html#a4018fb674a6db15b5972b96ce05e2393" title="model.MainModel.setBackground\lColor" alt="" coords="584,70,819,111"/>
-<area shape="rect" id="node6" href="$de/d21/classmodel_1_1_main_model.html#a81fd23aa152cf9311abb569fa3c656fb" title="model.MainModel.notifyObservers" alt="" coords="867,77,1106,104"/>
-</map>

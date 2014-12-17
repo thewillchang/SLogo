@@ -1,8 +1,0 @@
-<map id="interpreter.expression.singleturtle.SetHeading.setNextTransition" name="interpreter.expression.singleturtle.SetHeading.setNextTransition">
-<area shape="rect" id="node2" href="$df/dcb/classturtle_1_1_turtle.html#a4a3429238504006424e085c075908061" title="turtle.Turtle.getHeading" alt="" coords="310,5,482,32"/>
-<area shape="rect" id="node5" href="$df/df6/classinterpreter_1_1result_1_1_s_logo_result.html#a11062748597af4f6622d9cbc92d4d9c0" title="interpreter.result.SLogo\lResult.getTransition" alt="" coords="309,57,483,98"/>
-<area shape="rect" id="node6" href="$de/d21/classmodel_1_1_main_model.html#a71bb008e7ce1ebe1a072adc180d28e18" title="model.MainModel.getTurtles" alt="" coords="296,123,496,149"/>
-<area shape="rect" id="node7" href="$df/df6/classinterpreter_1_1result_1_1_s_logo_result.html#ade0879b3224a3216bf17e17e25bfd4ca" title="interpreter.result.SLogo\lResult.setValue" alt="" coords="309,174,483,215"/>
-<area shape="rect" id="node3" href="$df/dcb/classturtle_1_1_turtle.html#a29ef6cfcd7794054df8ef83724022983" title="turtle.Turtle.getTurtle" alt="" coords="545,5,698,32"/>
-<area shape="rect" id="node4" href="$d4/de5/classturtle_1_1_turtle_view_controller.html#a24215ad9dea4b06da7652230ac822973" title="turtle.TurtleViewController.getNode" alt="" coords="747,5,989,32"/>
-</map>

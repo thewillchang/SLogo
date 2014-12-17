@@ -1,6 +1,0 @@
-<map id="interpreter.expression.ConditionalExpression.evaluate" name="interpreter.expression.ConditionalExpression.evaluate">
-<area shape="rect" id="node2" href="$db/da4/classinterpreter_1_1expression_1_1_conditional_expression.html#af82e4d2336040e0bdaae8feb50311880" title="interpreter.expression.Conditional\lExpression.applyOperatorAndMerge" alt="" coords="291,70,541,111"/>
-<area shape="rect" id="node3" href="$df/df6/classinterpreter_1_1result_1_1_s_logo_result.html#a11062748597af4f6622d9cbc92d4d9c0" title="interpreter.result.SLogo\lResult.getTransition" alt="" coords="621,5,795,46"/>
-<area shape="rect" id="node4" href="$db/da4/classinterpreter_1_1expression_1_1_conditional_expression.html#aeeab84d6be4be6ef757ef1677dbecf05" title="interpreter.expression.Conditional\lExpression.hasSatisfiedCondition" alt="" coords="589,70,827,111"/>
-<area shape="rect" id="node5" href="$df/df6/classinterpreter_1_1result_1_1_s_logo_result.html#ade0879b3224a3216bf17e17e25bfd4ca" title="interpreter.result.SLogo\lResult.setValue" alt="" coords="621,135,795,177"/>
-</map>

@@ -1,7 +1,0 @@
-<map id="interpreter.ExpressionEvaluator.evaluateExpressionsAndMerge" name="interpreter.ExpressionEvaluator.evaluateExpressionsAndMerge">
-<area shape="rect" id="node2" href="$d6/d76/classinterpreter_1_1_s_logo_result_merger.html#a706aced67e4d219faa11f9821fef9000" title="interpreter.SLogoResultMerger.append" alt="" coords="333,19,600,45"/>
-<area shape="rect" id="node3" href="$d6/d76/classinterpreter_1_1_s_logo_result_merger.html#a8c0879f8ab9d66e54b0317229ee6aa77" title="interpreter.SLogoResultMerger.merge\lAndReturn" alt="" coords="336,70,597,111"/>
-<area shape="rect" id="node4" href="$df/df6/classinterpreter_1_1result_1_1_s_logo_result.html#a11062748597af4f6622d9cbc92d4d9c0" title="interpreter.result.SLogo\lResult.getTransition" alt="" coords="648,5,821,46"/>
-<area shape="rect" id="node5" href="$df/df6/classinterpreter_1_1result_1_1_s_logo_result.html#ade0879b3224a3216bf17e17e25bfd4ca" title="interpreter.result.SLogo\lResult.setValue" alt="" coords="648,70,821,111"/>
-<area shape="rect" id="node6" href="$df/df6/classinterpreter_1_1result_1_1_s_logo_result.html#a7e050bbb65d7c7eb5e9b9970c6e2616f" title="interpreter.result.SLogo\lResult.getValue" alt="" coords="648,135,821,177"/>
-</map>

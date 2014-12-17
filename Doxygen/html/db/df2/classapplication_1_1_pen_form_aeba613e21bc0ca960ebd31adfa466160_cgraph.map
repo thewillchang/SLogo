@@ -1,9 +1,0 @@
-<map id="application.PenForm.PenForm" name="application.PenForm.PenForm">
-<area shape="rect" id="node2" href="$d8/d90/classapplication_1_1_form.html#a1d01c2e77c80067edf5247f5858e3100" title="application.Form.addForm\lElement" alt="" coords="295,5,484,46"/>
-<area shape="rect" id="node4" href="$d9/dd7/classviewcontroller_1_1_g_u_i_reference_library.html#ac147f33c0bfa0252d247d7c0174ff688" title="viewcontroller.GUIReference\lLibrary.getStringTranslation" alt="" coords="581,93,779,134"/>
-<area shape="rect" id="node5" href="$db/df2/classapplication_1_1_pen_form.html#a5832fa433c31798116c5a88b1d82d70f" title="application.PenForm.initialize\lPenStyles" alt="" coords="286,122,493,163"/>
-<area shape="rect" id="node6" href="$da/da5/classapplication_1_1_drop_down_form_element.html#aa886e8e7d0fd6d800b39c9a8a95d168e" title="application.DropDownForm\lElement.setInitialValue" alt="" coords="292,187,487,229"/>
-<area shape="rect" id="node7" href="$d7/de6/classapplication_1_1_number_input_form_element.html#aa71e58632faca0ee3cb60c2c966d536d" title="application.NumberInputForm\lElement.setInitialValue" alt="" coords="283,253,495,294"/>
-<area shape="rect" id="node8" href="$df/d65/classapplication_1_1_toggle_form_element.html#a0da52996e2bc83476f576ce9b9e98fe2" title="application.ToggleFormElement.set\lInitialValue" alt="" coords="267,318,512,359"/>
-<area shape="rect" id="node3" href="$d0/d1b/interfaceapplication_1_1_form_element.html#a388bbc27c5cb0a017dbfd36d50b518f7" title="application.FormElement.getNode" alt="" coords="560,12,800,39"/>
-</map>

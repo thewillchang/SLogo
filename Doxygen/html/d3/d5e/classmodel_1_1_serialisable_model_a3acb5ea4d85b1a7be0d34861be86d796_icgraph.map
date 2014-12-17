@@ -1,7 +1,0 @@
-<map id="model.SerialisableModel.getMyUserDefinedMethodsModel" name="model.SerialisableModel.getMyUserDefinedMethodsModel">
-<area shape="rect" id="node2" href="$d2/d33/classmodel_1_1_deserialiser.html#a2fbfdc424927c111f445271967687f28" title="model.Deserialiser.deserialise" alt="" coords="267,12,479,39"/>
-<area shape="rect" id="node3" href="$da/d4e/classviewcontroller_1_1_view.html#a4b671855769c23246f5698d72dc12618" title="viewcontroller.View.load\lSerialisedWorkspace" alt="" coords="528,5,699,46"/>
-<area shape="rect" id="node4" href="$da/d4e/classviewcontroller_1_1_view.html#a3ce37900baf65c2a31c0a2a7d5349aae" title="viewcontroller.View.load\lWorkspace" alt="" coords="747,5,917,46"/>
-<area shape="rect" id="node5" href="$df/df9/classviewcontroller_1_1_s_logo_menu_bar.html#aea535ae86d7ac7a2fffe549d7bdf2a1d" title="viewcontroller.SLogoMenu\lBar.initializeFileMenu" alt="" coords="965,5,1152,46"/>
-<area shape="rect" id="node6" href="$df/df9/classviewcontroller_1_1_s_logo_menu_bar.html#a75b45d0a4b08de5ff8588fc15b2f14fe" title="viewcontroller.SLogoMenu\lBar.SLogoMenuBar" alt="" coords="1200,5,1387,46"/>
-</map>

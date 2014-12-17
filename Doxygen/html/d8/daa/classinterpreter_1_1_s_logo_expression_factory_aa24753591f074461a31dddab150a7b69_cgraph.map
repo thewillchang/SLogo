@@ -1,6 +1,0 @@
-<map id="interpreter.SLogoExpressionFactory.SLogoExpressionFactory" name="interpreter.SLogoExpressionFactory.SLogoExpressionFactory">
-<area shape="rect" id="node2" href="$d5/d09/classinterpreter_1_1_command_reference_library.html#a8b215d5ed08f259a2cf14b4d42feb425" title="interpreter.CommandReference\lLibrary.getCommandsToDirectories" alt="" coords="281,5,525,46"/>
-<area shape="rect" id="node3" href="$d5/d09/classinterpreter_1_1_command_reference_library.html#a25d84bc91b913e6c853f53319a0bfcf7" title="interpreter.CommandReference\lLibrary.getCommandsToNumArgs" alt="" coords="285,70,520,111"/>
-<area shape="rect" id="node4" href="$d5/d09/classinterpreter_1_1_command_reference_library.html#a552ef93cd8eca34ee35926f94e9fbb7e" title="interpreter.CommandReference\lLibrary.getReferencesToCommands" alt="" coords="280,135,525,177"/>
-<area shape="rect" id="node5" href="$d5/d09/classinterpreter_1_1_command_reference_library.html#a3e31d80afd3a750a552b7d6e8be0ef73" title="interpreter.CommandReference\lLibrary.getReverseSyntaxes" alt="" coords="291,201,514,242"/>
-</map>

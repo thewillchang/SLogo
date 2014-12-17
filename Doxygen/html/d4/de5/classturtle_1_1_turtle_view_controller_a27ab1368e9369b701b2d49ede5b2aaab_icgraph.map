@@ -1,6 +1,0 @@
-<map id="turtle.TurtleViewController.updateVisible" name="turtle.TurtleViewController.updateVisible">
-<area shape="rect" id="node2" href="$df/dcb/classturtle_1_1_turtle.html#a19d13fd5d60f50cdbcea2a4e4b4a533d" title="turtle.Turtle.updateVisual\lState" alt="" coords="288,5,469,46"/>
-<area shape="rect" id="node3" href="$dc/d3e/classturtle_1_1draw_1_1_transition_factory.html#adb38be68a00bde2421dbdf0d55a93e54" title="turtle.draw.TransitionFactory.create\lTurtleTransition" alt="" coords="517,5,760,46"/>
-<area shape="rect" id="node4" href="$dc/d3e/classturtle_1_1draw_1_1_transition_factory.html#a31b362130278174931595c1ce68c7ff5" title="turtle.draw.TransitionFactory.create\lAnimation" alt="" coords="808,5,1051,46"/>
-<area shape="rect" id="node5" href="$df/dcb/classturtle_1_1_turtle.html#a72a5d11b319fe2819a646569d5034557" title="turtle.Turtle.createAnimation" alt="" coords="1099,12,1303,39"/>
-</map>

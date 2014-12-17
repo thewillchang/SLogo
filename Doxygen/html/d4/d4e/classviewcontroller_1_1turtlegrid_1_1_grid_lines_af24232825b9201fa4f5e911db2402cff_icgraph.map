@@ -1,7 +1,0 @@
-<map id="viewcontroller.turtlegrid.GridLines.createGridLines" name="viewcontroller.turtlegrid.GridLines.createGridLines">
-<area shape="rect" id="node2" href="$d4/d4e/classviewcontroller_1_1turtlegrid_1_1_grid_lines.html#a1cb8b04bbce74da615655b6f87d560e8" title="viewcontroller.turtlegrid.\lGridLines.changeSize" alt="" coords="241,5,415,46"/>
-<area shape="rect" id="node6" href="$d4/d4e/classviewcontroller_1_1turtlegrid_1_1_grid_lines.html#ab274bdf8fe3c7748ee28f43252677d7f" title="viewcontroller.turtlegrid.\lGridLines.GridLines" alt="" coords="241,70,415,111"/>
-<area shape="rect" id="node3" href="$d5/dcc/classviewcontroller_1_1turtlegrid_1_1_grid_view_controller.html#ad47f1eb64161a940fffabaa00b1e19f0" title="viewcontroller.turtlegrid.\lGridViewController.fixGridBackground" alt="" coords="464,5,723,46"/>
-<area shape="rect" id="node4" href="$d5/dcc/classviewcontroller_1_1turtlegrid_1_1_grid_view_controller.html#a58f23297f6cf137808ab6d7196416e06" title="viewcontroller.turtlegrid.\lGridViewController.updateTurtles" alt="" coords="771,5,999,46"/>
-<area shape="rect" id="node5" href="$d5/dcc/classviewcontroller_1_1turtlegrid_1_1_grid_view_controller.html#ac4cf56a8a55a4d56d47a946719dfbc8e" title="viewcontroller.turtlegrid.\lGridViewController.update" alt="" coords="1048,5,1235,46"/>
-</map>

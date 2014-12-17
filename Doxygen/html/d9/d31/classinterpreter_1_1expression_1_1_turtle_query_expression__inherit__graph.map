@@ -1,8 +1,0 @@
-<map id="interpreter.expression.TurtleQueryExpression" name="interpreter.expression.TurtleQueryExpression">
-<area shape="rect" id="node3" href="$da/d9f/classinterpreter_1_1expression_1_1query_1_1_heading.html" title="interpreter.expression.query.\lHeading" alt="" coords="510,5,714,46"/>
-<area shape="rect" id="node4" href="$dc/d20/classinterpreter_1_1expression_1_1query_1_1_is_pen_down.html" title="interpreter.expression.query.\lIsPenDown" alt="" coords="510,70,714,111"/>
-<area shape="rect" id="node5" href="$da/dc0/classinterpreter_1_1expression_1_1query_1_1_is_showing.html" title="interpreter.expression.query.\lIsShowing" alt="" coords="510,135,714,177"/>
-<area shape="rect" id="node6" href="$d4/da7/classinterpreter_1_1expression_1_1query_1_1_x_coordinate.html" title="interpreter.expression.query.\lXCoordinate" alt="" coords="510,201,714,242"/>
-<area shape="rect" id="node7" href="$db/d56/classinterpreter_1_1expression_1_1query_1_1_y_coordinate.html" title="interpreter.expression.query.\lYCoordinate" alt="" coords="510,266,714,307"/>
-<area shape="rect" id="node2" href="$db/d09/interfaceinterpreter_1_1expression_1_1_s_logo_expression.html" title="interpreter.expression.SLogo\lExpression" alt="" coords="6,135,213,177"/>
-</map>

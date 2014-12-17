@@ -1,6 +1,0 @@
-<map id="viewcontroller.commands.CommandStatusViewController.CommandStatusViewController" name="viewcontroller.commands.CommandStatusViewController.CommandStatusViewController">
-<area shape="rect" id="node2" href="$da/d40/classviewcontroller_1_1commands_1_1_command_status_view_controller.html#a0451e57d2995d441049468ef3e7120bf" title="viewcontroller.commands.\lCommandStatusViewController.apply\lTranslations" alt="" coords="289,5,548,61"/>
-<area shape="rect" id="node4" href="$da/d40/classviewcontroller_1_1commands_1_1_command_status_view_controller.html#a3f9ac20ae91eaafab95dfd292e0f0b34" title="viewcontroller.commands.\lCommandStatusViewController.set\lStatusLabel" alt="" coords="296,85,541,141"/>
-<area shape="rect" id="node5" href="$d8/d68/classviewcontroller_1_1commands_1_1_command_window_view_controller.html#a62c54d52ea3c2f55be0a741a1c5fb240" title="viewcontroller.commands.\lCommandWindowViewController.setTitle" alt="" coords="281,165,557,206"/>
-<area shape="rect" id="node3" href="$d9/dd7/classviewcontroller_1_1_g_u_i_reference_library.html#ac147f33c0bfa0252d247d7c0174ff688" title="viewcontroller.GUIReference\lLibrary.getStringTranslation" alt="" coords="606,13,805,54"/>
-</map>

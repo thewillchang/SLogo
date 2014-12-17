@@ -1,7 +1,0 @@
-<map id="interpreter.expression.MathExpression.evaluate" name="interpreter.expression.MathExpression.evaluate">
-<area shape="rect" id="node2" href="$da/da4/classinterpreter_1_1expression_1_1_math_expression.html#a64014232560c48c902ac5abe5a3f5086" title="interpreter.expression.Math\lExpression.applyOperatorAndMerge" alt="" coords="253,70,504,111"/>
-<area shape="rect" id="node3" href="$da/da4/classinterpreter_1_1expression_1_1_math_expression.html#aff0f6d9e45dd9c326149178b3dfd81cc" title="interpreter.expression.Math\lExpression.applyMath" alt="" coords="571,5,770,46"/>
-<area shape="rect" id="node4" href="$da/da4/classinterpreter_1_1expression_1_1_math_expression.html#a01d7f3cfe3de99727323f6bfa2713fa5" title="interpreter.expression.Math\lExpression.mergePreviousResults" alt="" coords="553,70,789,111"/>
-<area shape="rect" id="node6" href="$df/df6/classinterpreter_1_1result_1_1_s_logo_result.html#ade0879b3224a3216bf17e17e25bfd4ca" title="interpreter.result.SLogo\lResult.setValue" alt="" coords="584,135,757,177"/>
-<area shape="rect" id="node5" href="$df/df6/classinterpreter_1_1result_1_1_s_logo_result.html#a11062748597af4f6622d9cbc92d4d9c0" title="interpreter.result.SLogo\lResult.getTransition" alt="" coords="837,70,1011,111"/>
-</map>

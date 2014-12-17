@@ -1,9 +1,0 @@
-<map id="turtle.SerialisableTurtle.SerialisableTurtle" name="turtle.SerialisableTurtle.SerialisableTurtle">
-<area shape="rect" id="node2" href="$dd/da0/classturtle_1_1draw_1_1_pen.html#aa1cfa7c148b990a796edcdce0c1ef4dc" title="turtle.draw.Pen.getColor" alt="" coords="238,5,413,32"/>
-<area shape="rect" id="node3" href="$dd/da0/classturtle_1_1draw_1_1_pen.html#a4b37d6e4ace1be3dd8f4bcc840f8cf28" title="turtle.draw.Pen.getDrawn\lLines" alt="" coords="234,57,417,98"/>
-<area shape="rect" id="node4" href="$df/dcb/classturtle_1_1_turtle.html#a3196d156c56093addee52593c5c53e0b" title="turtle.Turtle.getId" alt="" coords="260,123,391,149"/>
-<area shape="rect" id="node5" href="$df/dcb/classturtle_1_1_turtle.html#a0b8bdf8fc097cab5bf51d46567c2d749" title="turtle.Turtle.getPen" alt="" coords="254,173,397,200"/>
-<area shape="rect" id="node6" href="$dd/da0/classturtle_1_1draw_1_1_pen.html#aeb5df1ca76663eb6043d2c885063aeb6" title="turtle.draw.Pen.getPenDown" alt="" coords="225,224,426,251"/>
-<area shape="rect" id="node7" href="$df/dcb/classturtle_1_1_turtle.html#a29ef6cfcd7794054df8ef83724022983" title="turtle.Turtle.getTurtle" alt="" coords="249,275,402,301"/>
-<area shape="rect" id="node8" href="$d4/de5/classturtle_1_1_turtle_view_controller.html#a24215ad9dea4b06da7652230ac822973" title="turtle.TurtleViewController.getNode" alt="" coords="475,275,717,301"/>
-</map>
