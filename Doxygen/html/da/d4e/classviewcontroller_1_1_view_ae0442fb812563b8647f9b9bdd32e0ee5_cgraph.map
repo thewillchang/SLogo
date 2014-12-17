@@ -1,0 +1,12 @@
+<map id="viewcontroller.View.View" name="viewcontroller.View.View">
+<area shape="rect" id="node2" href="$da/d4e/classviewcontroller_1_1_view.html#a64b659e383de6c070b48a80ddfa72668" title="viewcontroller.View.addNew\lWorkspace" alt="" coords="229,71,424,113"/>
+<area shape="rect" id="node4" href="$d9/dd7/classviewcontroller_1_1_g_u_i_reference_library.html#ac147f33c0bfa0252d247d7c0174ff688" title="viewcontroller.GUIReference\lLibrary.getStringTranslation" alt="" coords="806,9,1005,50"/>
+<area shape="rect" id="node7" href="$da/d4e/classviewcontroller_1_1_view.html#a87baca4ea0850b271ae95871aab914b5" title="viewcontroller.View.initialize\lTabPane" alt="" coords="229,137,424,178"/>
+<area shape="rect" id="node9" href="$da/d4e/classviewcontroller_1_1_view.html#ad51060ca3f818b08d25a7d9afcb90062" title="viewcontroller.View.place\lMenuBar" alt="" coords="237,202,416,243"/>
+<area shape="rect" id="node10" href="$d9/dd7/classviewcontroller_1_1_g_u_i_reference_library.html#abd91c73bc84a1e09b9c69b190149c348" title="viewcontroller.GUIReference\lLibrary.setGUIReference" alt="" coords="227,267,426,309"/>
+<area shape="rect" id="node3" href="$da/d4e/classviewcontroller_1_1_view.html#ad16a35ae1b446b10bc9cc74395e0aeab" title="viewcontroller.View.addWorkspace" alt="" coords="475,80,711,107"/>
+<area shape="rect" id="node5" href="$d8/d3a/classviewcontroller_1_1_workspace.html#a27576951466201164923fcc7b190a42e" title="viewcontroller.Workspace.get\lViewController" alt="" coords="803,74,1008,115"/>
+<area shape="rect" id="node6" href="$d3/d67/classviewcontroller_1_1_main_view_controller.html#ab2d2098053847d03306f31284a351b95" title="viewcontroller.MainViewController.getNode" alt="" coords="760,140,1051,167"/>
+<area shape="rect" id="node8" href="$da/d4e/classviewcontroller_1_1_view.html#a379c3c43471d40115f1038fd1c6b0b02" title="viewcontroller.View.tabChanged" alt="" coords="482,144,705,171"/>
+<area shape="rect" id="node11" href="$d9/dd7/classviewcontroller_1_1_g_u_i_reference_library.html#ac772486bc7bc5d85f1ca6c69cf6f17ce" title="viewcontroller.GUIReference\lLibrary.setPathReference" alt="" coords="494,267,693,309"/>
+</map>

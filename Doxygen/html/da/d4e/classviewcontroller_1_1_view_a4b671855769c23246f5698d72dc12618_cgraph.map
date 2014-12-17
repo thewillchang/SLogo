@@ -1,0 +1,17 @@
+<map id="viewcontroller.View.loadSerialisedWorkspace" name="viewcontroller.View.loadSerialisedWorkspace">
+<area shape="rect" id="node2" href="$da/d4e/classviewcontroller_1_1_view.html#ad16a35ae1b446b10bc9cc74395e0aeab" title="viewcontroller.View.addWorkspace" alt="" coords="225,97,461,124"/>
+<area shape="rect" id="node6" href="$d2/d33/classmodel_1_1_deserialiser.html#a2fbfdc424927c111f445271967687f28" title="model.Deserialiser.deserialise" alt="" coords="237,325,449,352"/>
+<area shape="rect" id="node12" href="$da/d4e/classviewcontroller_1_1_view.html#a98e7b6a5716e94a0052d7bb51dc3a404" title="viewcontroller.View.show\lMessage" alt="" coords="255,442,431,483"/>
+<area shape="rect" id="node3" href="$d3/d67/classviewcontroller_1_1_main_view_controller.html#ab2d2098053847d03306f31284a351b95" title="viewcontroller.MainViewController.getNode" alt="" coords="509,5,800,32"/>
+<area shape="rect" id="node4" href="$d9/dd7/classviewcontroller_1_1_g_u_i_reference_library.html#ac147f33c0bfa0252d247d7c0174ff688" title="viewcontroller.GUIReference\lLibrary.getStringTranslation" alt="" coords="555,57,754,98"/>
+<area shape="rect" id="node5" href="$d8/d3a/classviewcontroller_1_1_workspace.html#a27576951466201164923fcc7b190a42e" title="viewcontroller.Workspace.get\lViewController" alt="" coords="552,122,757,163"/>
+<area shape="rect" id="node7" href="$d3/d5e/classmodel_1_1_serialisable_model.html#acd6f583bd4760c71758447d8da52b957" title="model.SerialisableModel.get\lBackGroundColorName" alt="" coords="553,187,756,229"/>
+<area shape="rect" id="node8" href="$d3/d5e/classmodel_1_1_serialisable_model.html#a95d6c1f18e7a764d9bd0b47d1606b3f2" title="model.SerialisableModel.get\lMyCommandHistoryModel" alt="" coords="553,253,756,294"/>
+<area shape="rect" id="node9" href="$d3/d5e/classmodel_1_1_serialisable_model.html#acbeaa1958664dae32fb55d92a504854a" title="model.SerialisableModel.get\lMyLanguage" alt="" coords="553,318,756,359"/>
+<area shape="rect" id="node10" href="$d3/d5e/classmodel_1_1_serialisable_model.html#a3acb5ea4d85b1a7be0d34861be86d796" title="model.SerialisableModel.get\lMyUserDefinedMethodsModel" alt="" coords="549,383,761,425"/>
+<area shape="rect" id="node11" href="$d3/d5e/classmodel_1_1_serialisable_model.html#a530afce46890f6bd3aa9fb22dad28df6" title="model.SerialisableModel.get\lMyUserDefinedVariablesModel" alt="" coords="547,449,762,490"/>
+<area shape="rect" id="node13" href="$d6/dd4/classapplication_1_1_message_box.html#a272fc424b595a91a6d2048981ac95e5b" title="application.MessageBox.show" alt="" coords="549,515,761,541"/>
+<area shape="rect" id="node14" href="$d6/dd4/classapplication_1_1_message_box.html#a6c41f7d51b489df9b0a577d1a318c58d" title="application.MessageBox.create\lMessageBox" alt="" coords="848,507,1069,549"/>
+<area shape="rect" id="node15" href="$d6/dd4/classapplication_1_1_message_box.html#ac3b708a4c65b8243168425667649c221" title="application.MessageBox.create\lMessageText" alt="" coords="1117,474,1339,515"/>
+<area shape="rect" id="node16" href="$d6/dd4/classapplication_1_1_message_box.html#a8e5e69eeb3a25bd743a9b376002f875e" title="application.MessageBox.create\lOkayButton" alt="" coords="1117,539,1339,581"/>
+</map>

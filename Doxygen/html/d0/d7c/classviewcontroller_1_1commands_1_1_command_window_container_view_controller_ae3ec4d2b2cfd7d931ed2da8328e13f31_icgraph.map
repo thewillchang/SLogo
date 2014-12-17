@@ -1,0 +1,6 @@
+<map id="viewcontroller.commands.CommandWindowContainerViewController.moveCommandTextToPromptWindow" name="viewcontroller.commands.CommandWindowContainerViewController.moveCommandTextToPromptWindow">
+<area shape="rect" id="node2" href="$d1/dfa/classviewcontroller_1_1commands_1_1_command_clickable_list_window_view_controller.html#a2ed6fe1ba70171aa8c3bbf512c6d3f14" title="viewcontroller.commands.\lCommandClickableListWindowView\lController.addCommand" alt="" coords="381,29,624,85"/>
+<area shape="rect" id="node5" href="$d8/d97/classunittest_1_1_command_prompt_text_test.html#ab38f5219e36c87838ae14692e2aa01ac" title="unittest.CommandPromptText\lTest.testTransferOfString" alt="" coords="395,109,610,150"/>
+<area shape="rect" id="node3" href="$d3/d76/classviewcontroller_1_1commands_1_1_command_history_view_controller.html#af6c663c753d2fef3f99f4229395a0c7e" title="viewcontroller.commands.\lCommandHistoryViewController.update" alt="" coords="683,5,957,46"/>
+<area shape="rect" id="node4" href="$de/d01/classviewcontroller_1_1commands_1_1_user_defined_methods_view_controller.html#a9bc55fe9c5120847c81fd12ec2182568" title="viewcontroller.commands.\lUserDefinedMethodsViewController.update" alt="" coords="673,70,967,111"/>
+</map>

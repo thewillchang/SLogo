@@ -1,0 +1,4 @@
+<map id="viewcontroller.MainViewController.gridColorChanged" name="viewcontroller.MainViewController.gridColorChanged">
+<area shape="rect" id="node2" href="$de/d21/classmodel_1_1_main_model.html#a4018fb674a6db15b5972b96ce05e2393" title="model.MainModel.setBackground\lColor" alt="" coords="315,5,549,46"/>
+<area shape="rect" id="node3" href="$de/d21/classmodel_1_1_main_model.html#a81fd23aa152cf9311abb569fa3c656fb" title="model.MainModel.notifyObservers" alt="" coords="598,12,837,39"/>
+</map>

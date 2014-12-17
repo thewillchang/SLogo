@@ -1,0 +1,15 @@
+<map id="interpreter.expression.TurtleQueryExpression" name="interpreter.expression.TurtleQueryExpression">
+<area shape="rect" id="node2" href="$db/d09/interfaceinterpreter_1_1expression_1_1_s_logo_expression.html" title="interpreter.expression.SLogo\lExpression" alt="" coords="985,234,1191,275"/>
+<area shape="rect" id="node3" href="$de/d21/classmodel_1_1_main_model.html" title="model.MainModel" alt="" coords="1021,300,1155,327"/>
+<area shape="rect" id="node21" href="$d2/dc7/classinterpreter_1_1_interpreter.html" title="interpreter.Interpreter" alt="" coords="2150,479,2311,505"/>
+<area shape="rect" id="node27" href="$d8/daa/classinterpreter_1_1_s_logo_expression_factory.html" title="interpreter.SLogoExpression\lFactory" alt="" coords="1381,582,1584,623"/>
+<area shape="rect" id="node4" href="$da/dee/classmodel_1_1_user_defined_commands_model.html" title="model.UserDefinedCommands\lModel" alt="" coords="509,409,728,450"/>
+<area shape="rect" id="node30" href="$d5/d09/classinterpreter_1_1_command_reference_library.html" title="interpreter.CommandReference\lLibrary" alt="" coords="977,582,1199,623"/>
+<area shape="rect" id="node11" href="$db/d84/classmodel_1_1_command_history_model.html" title="model.CommandHistoryModel" alt="" coords="511,240,727,267"/>
+<area shape="rect" id="node14" href="$df/d55/classmodel_1_1_user_defined_variables_model.html" title="model.UserDefinedVariables\lModel" alt="" coords="517,582,720,623"/>
+<area shape="rect" id="node9" href="$d4/d57/classturtle_1_1_turtle_list_history.html" title="turtle.TurtleListHistory" alt="" coords="538,189,699,216"/>
+<area shape="rect" id="node18" href="$df/df6/classinterpreter_1_1result_1_1_s_logo_result.html" title="interpreter.result.SLogo\lResult" alt="" coords="532,291,705,333"/>
+<area shape="rect" id="node22" href="$da/de4/classinterpreter_1_1_expression_evaluator.html" title="interpreter.ExpressionEvaluator" alt="" coords="1793,479,2015,505"/>
+<area shape="rect" id="node23" href="$d6/d76/classinterpreter_1_1_s_logo_result_merger.html" title="interpreter.SLogoResultMerger" alt="" coords="1375,479,1591,505"/>
+<area shape="rect" id="node25" href="$d3/da2/classinterpreter_1_1_parser.html" title="interpreter.Parser" alt="" coords="1837,589,1971,616"/>
+</map>

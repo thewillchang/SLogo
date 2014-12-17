@@ -1,0 +1,34 @@
+<map id="viewcontroller.Workspace" name="viewcontroller.Workspace">
+<area shape="rect" id="node2" href="$d3/d67/classviewcontroller_1_1_main_view_controller.html" title="viewcontroller.MainViewController" alt="" coords="1499,1128,1733,1155"/>
+<area shape="rect" id="node34" href="$d3/daf/classviewcontroller_1_1turtlegrid_1_1_turtle_window_view_controller.html" title="viewcontroller.turtlegrid.\lTurtleWindowViewController" alt="" coords="2040,1881,2235,1922"/>
+<area shape="rect" id="node53" href="$d0/d7c/classviewcontroller_1_1commands_1_1_command_window_container_view_controller.html" title="viewcontroller.commands.\lCommandWindowContainerViewController" alt="" coords="1993,1263,2282,1305"/>
+<area shape="rect" id="node3" href="$d4/deb/interfaceviewcontroller_1_1_view_controller.html" title="viewcontroller.ViewController" alt="" coords="517,1949,720,1976"/>
+<area shape="rect" id="node42" href="$d5/dcc/classviewcontroller_1_1turtlegrid_1_1_grid_view_controller.html" title="viewcontroller.turtlegrid.\lGridViewController" alt="" coords="2571,1929,2746,1970"/>
+<area shape="rect" id="node48" href="$d8/d68/classviewcontroller_1_1commands_1_1_command_window_view_controller.html" title="viewcontroller.commands.\lCommandWindowViewController" alt="" coords="987,1757,1213,1798"/>
+<area shape="rect" id="node60" href="$de/d8d/classviewcontroller_1_1commands_1_1_command_prompt_view_controller.html" title="viewcontroller.commands.\lCommandPromptViewController" alt="" coords="2545,2303,2772,2345"/>
+<area shape="rect" id="node4" href="$d1/d41/interfaceviewcontroller_1_1_main_model_observer.html" title="viewcontroller.MainModel\lObserver" alt="" coords="1010,1526,1190,1567"/>
+<area shape="rect" id="node47" href="$d5/d37/classviewcontroller_1_1turtlegrid_1_1_turtle_status_view_controller.html" title="viewcontroller.turtlegrid.\lTurtleStatusViewController" alt="" coords="1521,1822,1711,1863"/>
+<area shape="rect" id="node54" href="$d3/d76/classviewcontroller_1_1commands_1_1_command_history_view_controller.html" title="viewcontroller.commands.\lCommandHistoryViewController" alt="" coords="2846,1437,3071,1478"/>
+<area shape="rect" id="node58" href="$de/d01/classviewcontroller_1_1commands_1_1_user_defined_methods_view_controller.html" title="viewcontroller.commands.\lUserDefinedMethodsViewController" alt="" coords="2835,1249,3082,1290"/>
+<area shape="rect" id="node59" href="$da/d40/classviewcontroller_1_1commands_1_1_command_status_view_controller.html" title="viewcontroller.commands.\lCommandStatusViewController" alt="" coords="1505,1389,1727,1430"/>
+<area shape="rect" id="node63" href="$d4/dc8/classviewcontroller_1_1commands_1_1_user_defined_variables_view_controller.html" title="viewcontroller.commands.\lUserDefinedVariablesViewController" alt="" coords="2533,1318,2784,1359"/>
+<area shape="rect" id="node5" href="$de/d21/classmodel_1_1_main_model.html" title="model.MainModel" alt="" coords="1033,665,1167,692"/>
+<area shape="rect" id="node23" href="$d2/dc7/classinterpreter_1_1_interpreter.html" title="interpreter.Interpreter" alt="" coords="2578,460,2739,487"/>
+<area shape="rect" id="node29" href="$d8/daa/classinterpreter_1_1_s_logo_expression_factory.html" title="interpreter.SLogoExpression\lFactory" alt="" coords="1515,374,1717,415"/>
+<area shape="rect" id="node6" href="$da/dee/classmodel_1_1_user_defined_commands_model.html" title="model.UserDefinedCommands\lModel" alt="" coords="509,429,728,470"/>
+<area shape="rect" id="node32" href="$d5/d09/classinterpreter_1_1_command_reference_library.html" title="interpreter.CommandReference\lLibrary" alt="" coords="989,305,1211,346"/>
+<area shape="rect" id="node13" href="$db/d84/classmodel_1_1_command_history_model.html" title="model.CommandHistoryModel" alt="" coords="511,577,727,604"/>
+<area shape="rect" id="node16" href="$df/d55/classmodel_1_1_user_defined_variables_model.html" title="model.UserDefinedVariables\lModel" alt="" coords="517,494,720,535"/>
+<area shape="rect" id="node11" href="$d4/d57/classturtle_1_1_turtle_list_history.html" title="turtle.TurtleListHistory" alt="" coords="538,755,699,781"/>
+<area shape="rect" id="node20" href="$df/df6/classinterpreter_1_1result_1_1_s_logo_result.html" title="interpreter.result.SLogo\lResult" alt="" coords="532,629,705,670"/>
+<area shape="rect" id="node24" href="$da/de4/classinterpreter_1_1_expression_evaluator.html" title="interpreter.ExpressionEvaluator" alt="" coords="2026,228,2249,255"/>
+<area shape="rect" id="node25" href="$d6/d76/classinterpreter_1_1_s_logo_result_merger.html" title="interpreter.SLogoResultMerger" alt="" coords="1508,83,1724,109"/>
+<area shape="rect" id="node27" href="$d3/da2/classinterpreter_1_1_parser.html" title="interpreter.Parser" alt="" coords="2071,511,2204,537"/>
+<area shape="rect" id="node43" href="$d4/d4e/classviewcontroller_1_1turtlegrid_1_1_grid_lines.html" title="viewcontroller.turtlegrid.\lGridLines" alt="" coords="2050,2093,2225,2134"/>
+<area shape="rect" id="node35" href="$db/d5b/classviewcontroller_1_1turtlegrid_1_1_grid_button_bar.html" title="viewcontroller.turtlegrid.\lGridButtonBar" alt="" coords="1529,2041,1703,2082"/>
+<area shape="rect" id="node38" href="$d7/d11/classviewcontroller_1_1turtlegrid_1_1_s_logo_labeled_container.html" title="viewcontroller.turtlegrid.\lSLogoLabeledContainer" alt="" coords="531,2346,706,2387"/>
+<area shape="rect" id="node37" href="$db/dbf/classviewcontroller_1_1turtlegrid_1_1_s_logo_color_picker.html" title="viewcontroller.turtlegrid.\lSLogoColorPicker" alt="" coords="1013,2346,1187,2387"/>
+<area shape="rect" id="node40" href="$d4/d7d/classviewcontroller_1_1turtlegrid_1_1_s_logo_slider.html" title="viewcontroller.turtlegrid.\lSLogoSlider" alt="" coords="1013,2229,1187,2270"/>
+<area shape="rect" id="node56" href="$d4/d3f/classviewcontroller_1_1commands_1_1_command_list_window_view_controller.html" title="viewcontroller.commands.\lCommandListWindowViewController" alt="" coords="1491,870,1741,911"/>
+<area shape="rect" id="node55" href="$d1/dfa/classviewcontroller_1_1commands_1_1_command_clickable_list_window_view_controller.html" title="viewcontroller.commands.\lCommandClickableListWindowView\lController" alt="" coords="2537,1175,2780,1231"/>
+</map>

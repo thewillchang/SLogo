@@ -1,0 +1,33 @@
+<map id="viewcontroller.SLogoMenuBar.initializeFileMenu" name="viewcontroller.SLogoMenuBar.initializeFileMenu">
+<area shape="rect" id="node2" href="$da/d4e/classviewcontroller_1_1_view.html#a64b659e383de6c070b48a80ddfa72668" title="viewcontroller.View.addNew\lWorkspace" alt="" coords="245,166,440,208"/>
+<area shape="rect" id="node4" href="$d9/dd7/classviewcontroller_1_1_g_u_i_reference_library.html#ac147f33c0bfa0252d247d7c0174ff688" title="viewcontroller.GUIReference\lLibrary.getStringTranslation" alt="" coords="1219,32,1418,73"/>
+<area shape="rect" id="node7" href="$df/df9/classviewcontroller_1_1_s_logo_menu_bar.html#a9528a27d87aa916a568a0aec28ddf8bd" title="viewcontroller.SLogoMenu\lBar.createMenuItem" alt="" coords="249,556,436,597"/>
+<area shape="rect" id="node8" href="$da/d4e/classviewcontroller_1_1_view.html#a1f7ce4457b38e302cf3a052c8d36a7a6" title="viewcontroller.View.loadFile" alt="" coords="247,380,438,407"/>
+<area shape="rect" id="node19" href="$da/d4e/classviewcontroller_1_1_view.html#a3ce37900baf65c2a31c0a2a7d5349aae" title="viewcontroller.View.load\lWorkspace" alt="" coords="257,285,428,326"/>
+<area shape="rect" id="node27" href="$da/d4e/classviewcontroller_1_1_view.html#a6d302784ecfa68080791115cc18e308e" title="viewcontroller.View.save\lWorkspace" alt="" coords="255,490,430,532"/>
+<area shape="rect" id="node30" href="$da/d4e/classviewcontroller_1_1_view.html#a8765e51b56decbfc5561bddba86a8ac3" title="viewcontroller.View.showHelp" alt="" coords="240,651,445,678"/>
+<area shape="rect" id="node3" href="$da/d4e/classviewcontroller_1_1_view.html#ad16a35ae1b446b10bc9cc74395e0aeab" title="viewcontroller.View.addWorkspace" alt="" coords="847,154,1083,180"/>
+<area shape="rect" id="node5" href="$d8/d3a/classviewcontroller_1_1_workspace.html#a27576951466201164923fcc7b190a42e" title="viewcontroller.Workspace.get\lViewController" alt="" coords="1216,149,1421,190"/>
+<area shape="rect" id="node6" href="$d3/d67/classviewcontroller_1_1_main_view_controller.html#ab2d2098053847d03306f31284a351b95" title="viewcontroller.MainViewController.getNode" alt="" coords="1173,98,1464,124"/>
+<area shape="rect" id="node9" href="$d3/d67/classviewcontroller_1_1_main_view_controller.html#a29ed3b9e1441359bc7ffb6eea450c7e9" title="viewcontroller.MainViewController.load\lScript" alt="" coords="494,373,757,414"/>
+<area shape="rect" id="node12" href="$da/d4e/classviewcontroller_1_1_view.html#a2cf38fe953a8a424eb5712b11ecbc57a" title="viewcontroller.View.readFile" alt="" coords="529,322,722,348"/>
+<area shape="rect" id="node13" href="$da/d4e/classviewcontroller_1_1_view.html#a98e7b6a5716e94a0052d7bb51dc3a404" title="viewcontroller.View.show\lMessage" alt="" coords="877,478,1053,520"/>
+<area shape="rect" id="node18" href="$da/d4e/classviewcontroller_1_1_view.html#a9ad52fdebf34b834ab51d0a969833e75" title="viewcontroller.View.noCurrent\lWorkspace" alt="" coords="521,490,729,532"/>
+<area shape="rect" id="node10" href="$d0/d7c/classviewcontroller_1_1commands_1_1_command_window_container_view_controller.html#a855fafa32d3167f000f659fc3ae8bede" title="viewcontroller.commands.\lCommandWindowContainerViewController.load\lScript" alt="" coords="806,387,1125,443"/>
+<area shape="rect" id="node11" href="$de/d8d/classviewcontroller_1_1commands_1_1_command_prompt_view_controller.html#ac5b8ed43553efe6667328fe2d2d7130a" title="viewcontroller.commands.\lCommandPromptViewController.set\lCommandPromptText" alt="" coords="1193,540,1444,596"/>
+<area shape="rect" id="node14" href="$d6/dd4/classapplication_1_1_message_box.html#a272fc424b595a91a6d2048981ac95e5b" title="application.MessageBox.show" alt="" coords="1213,620,1425,647"/>
+<area shape="rect" id="node15" href="$d6/dd4/classapplication_1_1_message_box.html#a6c41f7d51b489df9b0a577d1a318c58d" title="application.MessageBox.create\lMessageBox" alt="" coords="1512,613,1733,654"/>
+<area shape="rect" id="node16" href="$d6/dd4/classapplication_1_1_message_box.html#ac3b708a4c65b8243168425667649c221" title="application.MessageBox.create\lMessageText" alt="" coords="1781,580,2003,621"/>
+<area shape="rect" id="node17" href="$d6/dd4/classapplication_1_1_message_box.html#a8e5e69eeb3a25bd743a9b376002f875e" title="application.MessageBox.create\lOkayButton" alt="" coords="1781,645,2003,686"/>
+<area shape="rect" id="node20" href="$da/d4e/classviewcontroller_1_1_view.html#a4b671855769c23246f5698d72dc12618" title="viewcontroller.View.load\lSerialisedWorkspace" alt="" coords="540,256,711,297"/>
+<area shape="rect" id="node21" href="$d2/d33/classmodel_1_1_deserialiser.html#a2fbfdc424927c111f445271967687f28" title="model.Deserialiser.deserialise" alt="" coords="859,331,1071,358"/>
+<area shape="rect" id="node22" href="$d3/d5e/classmodel_1_1_serialisable_model.html#acd6f583bd4760c71758447d8da52b957" title="model.SerialisableModel.get\lBackGroundColorName" alt="" coords="1217,214,1420,256"/>
+<area shape="rect" id="node23" href="$d3/d5e/classmodel_1_1_serialisable_model.html#a95d6c1f18e7a764d9bd0b47d1606b3f2" title="model.SerialisableModel.get\lMyCommandHistoryModel" alt="" coords="1217,280,1420,321"/>
+<area shape="rect" id="node24" href="$d3/d5e/classmodel_1_1_serialisable_model.html#acbeaa1958664dae32fb55d92a504854a" title="model.SerialisableModel.get\lMyLanguage" alt="" coords="1217,345,1420,386"/>
+<area shape="rect" id="node25" href="$d3/d5e/classmodel_1_1_serialisable_model.html#a3acb5ea4d85b1a7be0d34861be86d796" title="model.SerialisableModel.get\lMyUserDefinedMethodsModel" alt="" coords="1213,410,1425,452"/>
+<area shape="rect" id="node26" href="$d3/d5e/classmodel_1_1_serialisable_model.html#a530afce46890f6bd3aa9fb22dad28df6" title="model.SerialisableModel.get\lMyUserDefinedVariablesModel" alt="" coords="1211,476,1426,517"/>
+<area shape="rect" id="node28" href="$dc/d7f/classmodel_1_1_serialiser.html#a501c0afddf519054e7d84e8f452824a6" title="model.Serialiser.serialise" alt="" coords="535,622,715,648"/>
+<area shape="rect" id="node29" href="$d8/d3a/classviewcontroller_1_1_workspace.html#a1b461756646e982d8efbb5a286576c7a" title="viewcontroller.Workspace.get\lMainModel" alt="" coords="523,556,728,597"/>
+<area shape="rect" id="node31" href="$d2/d70/classviewcontroller_1_1_help_dialog_box.html#a66212318db1ac171a11750c63a8d6e2e" title="viewcontroller.HelpDialog\lBox.show" alt="" coords="535,673,716,714"/>
+<area shape="rect" id="node32" href="$d2/d70/classviewcontroller_1_1_help_dialog_box.html#aaa0274fd659fdd6b1e788de2e76dfb03" title="viewcontroller.HelpDialog\lBox.makePageDisplay" alt="" coords="875,673,1056,714"/>
+</map>

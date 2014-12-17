@@ -1,0 +1,5 @@
+<map id="application.PenForm.getResult" name="application.PenForm.getResult">
+<area shape="rect" id="node2" href="$da/da5/classapplication_1_1_drop_down_form_element.html#a4c3c66bc06516f9ff3466d4c08d37955" title="application.DropDownForm\lElement.getSelectedValue" alt="" coords="296,5,491,46"/>
+<area shape="rect" id="node3" href="$d7/de6/classapplication_1_1_number_input_form_element.html#a4febe2c6736041a60d0515fad2036c52" title="application.NumberInputForm\lElement.getSelectedValue" alt="" coords="287,70,499,111"/>
+<area shape="rect" id="node4" href="$df/d65/classapplication_1_1_toggle_form_element.html#a181fba0f0737bc4f22baf061a0c2a956" title="application.ToggleFormElement.get\lSelectedValue" alt="" coords="270,135,517,177"/>
+</map>

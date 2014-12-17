@@ -1,0 +1,8 @@
+<map id="viewcontroller.commands.CommandListWindowViewController" name="viewcontroller.commands.CommandListWindowViewController">
+<area shape="rect" id="node4" href="$d1/dfa/classviewcontroller_1_1commands_1_1_command_clickable_list_window_view_controller.html" title="viewcontroller.commands.\lCommandClickableListWindowView\lController" alt="" coords="833,29,1076,85"/>
+<area shape="rect" id="node7" href="$d4/dc8/classviewcontroller_1_1commands_1_1_user_defined_variables_view_controller.html" title="viewcontroller.commands.\lUserDefinedVariablesViewController" alt="" coords="829,109,1080,150"/>
+<area shape="rect" id="node2" href="$d8/d68/classviewcontroller_1_1commands_1_1_command_window_view_controller.html" title="viewcontroller.commands.\lCommandWindowViewController" alt="" coords="256,73,483,114"/>
+<area shape="rect" id="node3" href="$d4/deb/interfaceviewcontroller_1_1_view_controller.html" title="viewcontroller.ViewController" alt="" coords="5,80,208,107"/>
+<area shape="rect" id="node5" href="$d3/d76/classviewcontroller_1_1commands_1_1_command_history_view_controller.html" title="viewcontroller.commands.\lCommandHistoryViewController" alt="" coords="1139,5,1365,46"/>
+<area shape="rect" id="node6" href="$de/d01/classviewcontroller_1_1commands_1_1_user_defined_methods_view_controller.html" title="viewcontroller.commands.\lUserDefinedMethodsViewController" alt="" coords="1129,70,1375,111"/>
+</map>

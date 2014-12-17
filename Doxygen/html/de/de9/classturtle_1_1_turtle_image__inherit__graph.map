@@ -1,0 +1,4 @@
+<map id="turtle.TurtleImage" name="turtle.TurtleImage">
+<area shape="rect" id="node3" href="$d2/d10/classturtle_1_1_default_turtle_image.html" title="turtle.DefaultTurtleImage" alt="" coords="5,155,184,181"/>
+<area shape="rect" id="node4" href="$d7/da7/classturtle_1_1_user_chosen_turtle_image.html" title="turtle.UserChosenTurtleImage" alt="" coords="209,155,420,181"/>
+</map>
