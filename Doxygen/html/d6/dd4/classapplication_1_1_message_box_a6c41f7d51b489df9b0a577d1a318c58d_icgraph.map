@@ -1,0 +1,18 @@
+<map id="application.MessageBox.createMessageBox" name="application.MessageBox.createMessageBox">
+<area shape="rect" id="node2" href="$d6/dd4/classapplication_1_1_message_box.html#a272fc424b595a91a6d2048981ac95e5b" title="application.MessageBox.show" alt="" coords="275,397,487,424"/>
+<area shape="rect" id="node3" href="$da/d4e/classviewcontroller_1_1_view.html#a98e7b6a5716e94a0052d7bb51dc3a404" title="viewcontroller.View.show\lMessage" alt="" coords="536,390,712,431"/>
+<area shape="rect" id="node4" href="$da/d4e/classviewcontroller_1_1_view.html#a9ad52fdebf34b834ab51d0a969833e75" title="viewcontroller.View.noCurrent\lWorkspace" alt="" coords="760,234,968,275"/>
+<area shape="rect" id="node15" href="$da/d4e/classviewcontroller_1_1_view.html#a1f7ce4457b38e302cf3a052c8d36a7a6" title="viewcontroller.View.loadFile" alt="" coords="1022,397,1213,424"/>
+<area shape="rect" id="node16" href="$da/d4e/classviewcontroller_1_1_view.html#a4b671855769c23246f5698d72dc12618" title="viewcontroller.View.load\lSerialisedWorkspace" alt="" coords="779,449,949,490"/>
+<area shape="rect" id="node5" href="$da/d4e/classviewcontroller_1_1_view.html#a6d302784ecfa68080791115cc18e308e" title="viewcontroller.View.save\lWorkspace" alt="" coords="1030,331,1205,373"/>
+<area shape="rect" id="node8" href="$da/d4e/classviewcontroller_1_1_view.html#a663f58ba5e84352186e4c332b407cd8e" title="viewcontroller.View.toggle\lGridLines" alt="" coords="1025,5,1209,46"/>
+<area shape="rect" id="node10" href="$da/d4e/classviewcontroller_1_1_view.html#ab0cf08da4f357ee008acc7c294930637" title="viewcontroller.View.undo\lClicked" alt="" coords="1029,201,1205,242"/>
+<area shape="rect" id="node12" href="$da/d4e/classviewcontroller_1_1_view.html#a487061003bc9857296875d07d9b531cc" title="viewcontroller.View.redo\lClicked" alt="" coords="1031,266,1204,307"/>
+<area shape="rect" id="node13" href="$da/d4e/classviewcontroller_1_1_view.html#ad56492108159c72ac56423b7fabe3b81" title="viewcontroller.View.addTurtle\lClicked" alt="" coords="1016,70,1219,111"/>
+<area shape="rect" id="node14" href="$da/d4e/classviewcontroller_1_1_view.html#a89076f3aec0df7ef97f43fef2912e54f" title="viewcontroller.View.change\lTurtleImages" alt="" coords="1022,135,1213,177"/>
+<area shape="rect" id="node6" href="$df/df9/classviewcontroller_1_1_s_logo_menu_bar.html#aea535ae86d7ac7a2fffe549d7bdf2a1d" title="viewcontroller.SLogoMenu\lBar.initializeFileMenu" alt="" coords="1267,346,1453,387"/>
+<area shape="rect" id="node7" href="$df/df9/classviewcontroller_1_1_s_logo_menu_bar.html#a75b45d0a4b08de5ff8588fc15b2f14fe" title="viewcontroller.SLogoMenu\lBar.SLogoMenuBar" alt="" coords="1501,251,1688,293"/>
+<area shape="rect" id="node9" href="$df/df9/classviewcontroller_1_1_s_logo_menu_bar.html#a068f788551874f8c8862c10f8f0f6253" title="viewcontroller.SLogoMenu\lBar.initializeGridMenu" alt="" coords="1267,103,1453,145"/>
+<area shape="rect" id="node11" href="$df/df9/classviewcontroller_1_1_s_logo_menu_bar.html#acdf079204224a9c0c24ce028f942e628" title="viewcontroller.SLogoMenu\lBar.initializeEditMenu" alt="" coords="1267,251,1453,293"/>
+<area shape="rect" id="node17" href="$da/d4e/classviewcontroller_1_1_view.html#a3ce37900baf65c2a31c0a2a7d5349aae" title="viewcontroller.View.load\lWorkspace" alt="" coords="1032,449,1203,490"/>
+</map>

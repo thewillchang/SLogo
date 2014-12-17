@@ -1,0 +1,13 @@
+<map id="interpreter.Interpreter" name="interpreter.Interpreter">
+<area shape="rect" id="node2" href="$de/d21/classmodel_1_1_main_model.html" title="model.MainModel" alt="" coords="1838,295,1973,321"/>
+<area shape="rect" id="node26" href="$d8/daa/classinterpreter_1_1_s_logo_expression_factory.html" title="interpreter.SLogoExpression\lFactory" alt="" coords="2099,570,2301,611"/>
+<area shape="rect" id="node3" href="$da/dee/classmodel_1_1_user_defined_commands_model.html" title="model.UserDefinedCommands\lModel" alt="" coords="509,206,728,247"/>
+<area shape="rect" id="node29" href="$d5/d09/classinterpreter_1_1_command_reference_library.html" title="interpreter.CommandReference\lLibrary" alt="" coords="969,454,1191,495"/>
+<area shape="rect" id="node10" href="$db/d84/classmodel_1_1_command_history_model.html" title="model.CommandHistoryModel" alt="" coords="511,68,727,95"/>
+<area shape="rect" id="node13" href="$df/d55/classmodel_1_1_user_defined_variables_model.html" title="model.UserDefinedVariables\lModel" alt="" coords="517,343,720,385"/>
+<area shape="rect" id="node8" href="$d4/d57/classturtle_1_1_turtle_list_history.html" title="turtle.TurtleListHistory" alt="" coords="1455,176,1617,203"/>
+<area shape="rect" id="node17" href="$df/df6/classinterpreter_1_1result_1_1_s_logo_result.html" title="interpreter.result.SLogo\lResult" alt="" coords="993,758,1167,799"/>
+<area shape="rect" id="node21" href="$da/de4/classinterpreter_1_1_expression_evaluator.html" title="interpreter.ExpressionEvaluator" alt="" coords="969,288,1191,315"/>
+<area shape="rect" id="node22" href="$d6/d76/classinterpreter_1_1_s_logo_result_merger.html" title="interpreter.SLogoResultMerger" alt="" coords="511,275,727,301"/>
+<area shape="rect" id="node24" href="$d3/da2/classinterpreter_1_1_parser.html" title="interpreter.Parser" alt="" coords="2509,488,2643,515"/>
+</map>

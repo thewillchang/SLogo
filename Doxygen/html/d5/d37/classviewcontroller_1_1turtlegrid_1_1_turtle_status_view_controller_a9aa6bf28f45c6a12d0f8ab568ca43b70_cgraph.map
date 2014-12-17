@@ -1,0 +1,9 @@
+<map id="viewcontroller.turtlegrid.TurtleStatusViewController.update" name="viewcontroller.turtlegrid.TurtleStatusViewController.update">
+<area shape="rect" id="node2" href="$de/d21/classmodel_1_1_main_model.html#a74167dccd2ccca89988e6466376ea56d" title="model.MainModel.getActive\lTurtle" alt="" coords="333,5,531,46"/>
+<area shape="rect" id="node3" href="$df/dcb/classturtle_1_1_turtle.html#a3196d156c56093addee52593c5c53e0b" title="turtle.Turtle.getId" alt="" coords="367,71,497,97"/>
+<area shape="rect" id="node4" href="$df/dcb/classturtle_1_1_turtle.html#aa74144bda987a463827533ef432fede2" title="turtle.Turtle.getX" alt="" coords="369,121,495,148"/>
+<area shape="rect" id="node7" href="$df/dcb/classturtle_1_1_turtle.html#a072c675b5b2da4989e217c155aae6994" title="turtle.Turtle.getY" alt="" coords="369,172,495,199"/>
+<area shape="rect" id="node8" href="$d5/d37/classviewcontroller_1_1turtlegrid_1_1_turtle_status_view_controller.html#a1a92ec1a1f94a80bc41be55562c44a72" title="viewcontroller.turtlegrid.\lTurtleStatusViewController.populateHBox" alt="" coords="291,223,573,265"/>
+<area shape="rect" id="node5" href="$df/dcb/classturtle_1_1_turtle.html#a29ef6cfcd7794054df8ef83724022983" title="turtle.Turtle.getTurtle" alt="" coords="622,147,775,173"/>
+<area shape="rect" id="node6" href="$d4/de5/classturtle_1_1_turtle_view_controller.html#a24215ad9dea4b06da7652230ac822973" title="turtle.TurtleViewController.getNode" alt="" coords="824,147,1067,173"/>
+</map>

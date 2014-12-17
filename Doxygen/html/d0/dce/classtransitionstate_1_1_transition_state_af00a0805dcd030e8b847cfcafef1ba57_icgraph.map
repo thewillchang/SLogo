@@ -1,0 +1,6 @@
+<map id="transitionstate.TransitionState.getRotateCounterClockwise" name="transitionstate.TransitionState.getRotateCounterClockwise">
+<area shape="rect" id="node2" href="$dc/d3e/classturtle_1_1draw_1_1_transition_factory.html#ac71cc2cb5d25b3db756926c69b2da8a6" title="turtle.draw.TransitionFactory.create\lTurnTransition" alt="" coords="288,5,531,46"/>
+<area shape="rect" id="node3" href="$dc/d3e/classturtle_1_1draw_1_1_transition_factory.html#adb38be68a00bde2421dbdf0d55a93e54" title="turtle.draw.TransitionFactory.create\lTurtleTransition" alt="" coords="579,5,821,46"/>
+<area shape="rect" id="node4" href="$dc/d3e/classturtle_1_1draw_1_1_transition_factory.html#a31b362130278174931595c1ce68c7ff5" title="turtle.draw.TransitionFactory.create\lAnimation" alt="" coords="869,5,1112,46"/>
+<area shape="rect" id="node5" href="$df/dcb/classturtle_1_1_turtle.html#a72a5d11b319fe2819a646569d5034557" title="turtle.Turtle.createAnimation" alt="" coords="1161,12,1365,39"/>
+</map>

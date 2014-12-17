@@ -1,0 +1,8 @@
+<map id="turtle.draw.MoveTransition.setStartPoint" name="turtle.draw.MoveTransition.setStartPoint">
+<area shape="rect" id="node2" href="$de/d1a/classturtle_1_1draw_1_1_move_transition.html#ae6057f04c4fd8af3a81614aa870433d6" title="turtle.draw.MoveTransition.perform\lWrappingChanges" alt="" coords="264,5,507,46"/>
+<area shape="rect" id="node3" href="$de/d1a/classturtle_1_1draw_1_1_move_transition.html#ad82006c1e8db96a8b9f1c68cdac07b88" title="turtle.draw.MoveTransition.set\lTurtle" alt="" coords="280,70,491,111"/>
+<area shape="rect" id="node4" href="$dc/d3e/classturtle_1_1draw_1_1_transition_factory.html#a6ff1cfc7cfe2396040ddb55408ee854e" title="turtle.draw.TransitionFactory.create\lForwardTransition" alt="" coords="555,70,797,111"/>
+<area shape="rect" id="node5" href="$dc/d3e/classturtle_1_1draw_1_1_transition_factory.html#adb38be68a00bde2421dbdf0d55a93e54" title="turtle.draw.TransitionFactory.create\lTurtleTransition" alt="" coords="845,70,1088,111"/>
+<area shape="rect" id="node6" href="$dc/d3e/classturtle_1_1draw_1_1_transition_factory.html#a31b362130278174931595c1ce68c7ff5" title="turtle.draw.TransitionFactory.create\lAnimation" alt="" coords="1136,70,1379,111"/>
+<area shape="rect" id="node7" href="$df/dcb/classturtle_1_1_turtle.html#a72a5d11b319fe2819a646569d5034557" title="turtle.Turtle.createAnimation" alt="" coords="1427,77,1631,104"/>
+</map>

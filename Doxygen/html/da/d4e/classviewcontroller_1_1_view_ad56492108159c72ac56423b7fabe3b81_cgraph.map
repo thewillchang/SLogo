@@ -1,0 +1,11 @@
+<map id="viewcontroller.View.addTurtleClicked" name="viewcontroller.View.addTurtleClicked">
+<area shape="rect" id="node2" href="$de/d21/classmodel_1_1_main_model.html#ad72fa580bd0a6764968613507bae2155" title="model.MainModel.addTurtle" alt="" coords="262,5,458,32"/>
+<area shape="rect" id="node4" href="$d8/d3a/classviewcontroller_1_1_workspace.html#a1b461756646e982d8efbb5a286576c7a" title="viewcontroller.Workspace.get\lMainModel" alt="" coords="257,57,463,98"/>
+<area shape="rect" id="node5" href="$da/d4e/classviewcontroller_1_1_view.html#a9ad52fdebf34b834ab51d0a969833e75" title="viewcontroller.View.noCurrent\lWorkspace" alt="" coords="256,122,464,163"/>
+<area shape="rect" id="node3" href="$de/d21/classmodel_1_1_main_model.html#a81fd23aa152cf9311abb569fa3c656fb" title="model.MainModel.notifyObservers" alt="" coords="513,5,751,32"/>
+<area shape="rect" id="node6" href="$da/d4e/classviewcontroller_1_1_view.html#a98e7b6a5716e94a0052d7bb51dc3a404" title="viewcontroller.View.show\lMessage" alt="" coords="544,122,720,163"/>
+<area shape="rect" id="node7" href="$d6/dd4/classapplication_1_1_message_box.html#a272fc424b595a91a6d2048981ac95e5b" title="application.MessageBox.show" alt="" coords="801,129,1013,156"/>
+<area shape="rect" id="node8" href="$d6/dd4/classapplication_1_1_message_box.html#a6c41f7d51b489df9b0a577d1a318c58d" title="application.MessageBox.create\lMessageBox" alt="" coords="1061,122,1283,163"/>
+<area shape="rect" id="node9" href="$d6/dd4/classapplication_1_1_message_box.html#ac3b708a4c65b8243168425667649c221" title="application.MessageBox.create\lMessageText" alt="" coords="1331,89,1552,130"/>
+<area shape="rect" id="node10" href="$d6/dd4/classapplication_1_1_message_box.html#a8e5e69eeb3a25bd743a9b376002f875e" title="application.MessageBox.create\lOkayButton" alt="" coords="1331,154,1552,195"/>
+</map>

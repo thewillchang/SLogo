@@ -1,0 +1,11 @@
+<map id="viewcontroller.commands.CommandWindowViewController" name="viewcontroller.commands.CommandWindowViewController">
+<area shape="rect" id="node3" href="$d4/d3f/classviewcontroller_1_1commands_1_1_command_list_window_view_controller.html" title="viewcontroller.commands.\lCommandListWindowViewController" alt="" coords="531,73,781,114"/>
+<area shape="rect" id="node8" href="$de/d8d/classviewcontroller_1_1commands_1_1_command_prompt_view_controller.html" title="viewcontroller.commands.\lCommandPromptViewController" alt="" coords="543,138,769,179"/>
+<area shape="rect" id="node9" href="$da/d40/classviewcontroller_1_1commands_1_1_command_status_view_controller.html" title="viewcontroller.commands.\lCommandStatusViewController" alt="" coords="545,203,767,245"/>
+<area shape="rect" id="node10" href="$d5/d37/classviewcontroller_1_1turtlegrid_1_1_turtle_status_view_controller.html" title="viewcontroller.turtlegrid.\lTurtleStatusViewController" alt="" coords="561,269,751,310"/>
+<area shape="rect" id="node2" href="$d4/deb/interfaceviewcontroller_1_1_view_controller.html" title="viewcontroller.ViewController" alt="" coords="5,179,208,205"/>
+<area shape="rect" id="node4" href="$d1/dfa/classviewcontroller_1_1commands_1_1_command_clickable_list_window_view_controller.html" title="viewcontroller.commands.\lCommandClickableListWindowView\lController" alt="" coords="833,29,1076,85"/>
+<area shape="rect" id="node7" href="$d4/dc8/classviewcontroller_1_1commands_1_1_user_defined_variables_view_controller.html" title="viewcontroller.commands.\lUserDefinedVariablesViewController" alt="" coords="829,109,1080,150"/>
+<area shape="rect" id="node5" href="$d3/d76/classviewcontroller_1_1commands_1_1_command_history_view_controller.html" title="viewcontroller.commands.\lCommandHistoryViewController" alt="" coords="1139,5,1365,46"/>
+<area shape="rect" id="node6" href="$de/d01/classviewcontroller_1_1commands_1_1_user_defined_methods_view_controller.html" title="viewcontroller.commands.\lUserDefinedMethodsViewController" alt="" coords="1129,70,1375,111"/>
+</map>

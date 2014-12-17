@@ -1,0 +1,6 @@
+<map id="turtle.DefaultTurtleImage.createTurtle" name="turtle.DefaultTurtleImage.createTurtle">
+<area shape="rect" id="node2" href="$d2/d10/classturtle_1_1_default_turtle_image.html#aca1cbe82d8aa0991c2e2fb1660d62b80" title="turtle.DefaultTurtleImage.color\lTurtle" alt="" coords="301,5,515,46"/>
+<area shape="rect" id="node3" href="$d2/d10/classturtle_1_1_default_turtle_image.html#a763b233e09895258bed5228ddc8f8a06" title="turtle.DefaultTurtleImage.create\lHeadBodyTail" alt="" coords="295,70,521,111"/>
+<area shape="rect" id="node5" href="$d2/d10/classturtle_1_1_default_turtle_image.html#a4ccf2f3277710dbc6817ddb9afb12d91" title="turtle.DefaultTurtleImage.createLegs" alt="" coords="281,136,535,163"/>
+<area shape="rect" id="node4" href="$d2/d10/classturtle_1_1_default_turtle_image.html#a90df67ba036f05186bf298a4fe54a339" title="turtle.DefaultTurtleImage.get\lRadius" alt="" coords="584,70,789,111"/>
+</map>

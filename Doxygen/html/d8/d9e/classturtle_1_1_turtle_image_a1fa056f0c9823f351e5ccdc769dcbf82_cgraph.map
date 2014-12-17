@@ -1,0 +1,5 @@
+<map id="turtle.TurtleImage.setSelection" name="turtle.TurtleImage.setSelection">
+<area shape="rect" id="node2" href="$d8/d9e/classturtle_1_1_turtle_image.html#a6587599d2f864c33ff6086cb9848eaf3" title="turtle.TurtleImage.isSelected" alt="" coords="273,5,477,32"/>
+<area shape="rect" id="node3" href="$d8/d9e/classturtle_1_1_turtle_image.html#a37880a06baff09a9c69d194cb4b33a33" title="turtle.TurtleImage.toggle\lSelection" alt="" coords="285,57,464,98"/>
+<area shape="rect" id="node4" href="$d8/d9e/classturtle_1_1_turtle_image.html#a33d0b969173e754935978dc2516f6477" title="turtle.TurtleImage.selected\lChanged" alt="" coords="525,57,717,98"/>
+</map>

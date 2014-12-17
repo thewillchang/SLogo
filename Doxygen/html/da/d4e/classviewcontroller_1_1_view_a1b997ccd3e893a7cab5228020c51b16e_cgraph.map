@@ -1,0 +1,12 @@
+<map id="viewcontroller.View.shit" name="viewcontroller.View.shit">
+<area shape="rect" id="node2" href="$d8/d90/classapplication_1_1_form.html#a1ac739cc4abecfc8d419d238fc4cb1b1" title="application.Form.close" alt="" coords="243,5,408,32"/>
+<area shape="rect" id="node3" href="$d8/d3a/classviewcontroller_1_1_workspace.html#a1b461756646e982d8efbb5a286576c7a" title="viewcontroller.Workspace.get\lMainModel" alt="" coords="223,57,428,98"/>
+<area shape="rect" id="node4" href="$de/d21/classmodel_1_1_main_model.html#a204ebf190cf6e56575b5d7ebf5691ad7" title="model.MainModel.updatePen" alt="" coords="222,123,429,149"/>
+<area shape="rect" id="node5" href="$de/d68/classapplication_1_1_pen_form_result.html#af1076dbdfbf821685beb0fbe8c83d9f4" title="application.PenFormResult.get\lPenDash" alt="" coords="478,17,693,58"/>
+<area shape="rect" id="node6" href="$de/d68/classapplication_1_1_pen_form_result.html#a7ebac34c61209dee90451ac962d16fd5" title="application.PenFormResult.get\lPenUp" alt="" coords="478,82,693,123"/>
+<area shape="rect" id="node7" href="$de/d68/classapplication_1_1_pen_form_result.html#af6022e0a69d50a96ee78f27043646053" title="application.PenFormResult.get\lPenWidth" alt="" coords="478,147,693,189"/>
+<area shape="rect" id="node8" href="$db/df2/classapplication_1_1_pen_form.html#ac805fbb2e32beca643b8195164353c82" title="application.PenForm.getResult" alt="" coords="478,213,693,240"/>
+<area shape="rect" id="node9" href="$da/da5/classapplication_1_1_drop_down_form_element.html#a4c3c66bc06516f9ff3466d4c08d37955" title="application.DropDownForm\lElement.getSelectedValue" alt="" coords="768,141,963,182"/>
+<area shape="rect" id="node10" href="$d7/de6/classapplication_1_1_number_input_form_element.html#a4febe2c6736041a60d0515fad2036c52" title="application.NumberInputForm\lElement.getSelectedValue" alt="" coords="759,206,971,247"/>
+<area shape="rect" id="node11" href="$df/d65/classapplication_1_1_toggle_form_element.html#a181fba0f0737bc4f22baf061a0c2a956" title="application.ToggleFormElement.get\lSelectedValue" alt="" coords="742,271,989,313"/>
+</map>

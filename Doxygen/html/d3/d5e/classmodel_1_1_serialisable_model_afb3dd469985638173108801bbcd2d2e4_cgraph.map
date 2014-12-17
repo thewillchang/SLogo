@@ -1,0 +1,7 @@
+<map id="model.SerialisableModel.SerialisableModel" name="model.SerialisableModel.SerialisableModel">
+<area shape="rect" id="node2" href="$de/d21/classmodel_1_1_main_model.html#a71b1668d1f70c70cfe1f1e20e6fe7dc3" title="model.MainModel.getBackground\lColorName" alt="" coords="237,5,472,46"/>
+<area shape="rect" id="node3" href="$de/d21/classmodel_1_1_main_model.html#a34d537c868eba4e59604f4353cc7e1ad" title="model.MainModel.getCommand\lHistory" alt="" coords="241,70,468,111"/>
+<area shape="rect" id="node4" href="$de/d21/classmodel_1_1_main_model.html#ad956188c0d7384b45a1fc36e6f283f88" title="model.MainModel.getLanguage" alt="" coords="243,136,466,163"/>
+<area shape="rect" id="node5" href="$de/d21/classmodel_1_1_main_model.html#ad7dab4717c031b1d8b2f88e671bb98cd" title="model.MainModel.getUserDefined\lMethods" alt="" coords="235,187,474,229"/>
+<area shape="rect" id="node6" href="$de/d21/classmodel_1_1_main_model.html#adbee6cf0e790fd4a478f969f14ef0dbd" title="model.MainModel.getUserDefined\lVariables" alt="" coords="235,253,474,294"/>
+</map>

@@ -1,0 +1,6 @@
+<map id="interpreter.expression.userdefined.DoTimes.evaluate" name="interpreter.expression.userdefined.DoTimes.evaluate">
+<area shape="rect" id="node2" href="$db/d09/interfaceinterpreter_1_1expression_1_1_s_logo_expression.html#a33b4dd877541ab4da1b4bbe087925a15" title="interpreter.expression.SLogo\lExpression.evaluate" alt="" coords="309,5,515,46"/>
+<area shape="rect" id="node3" href="$df/df6/classinterpreter_1_1result_1_1_s_logo_result.html#a11062748597af4f6622d9cbc92d4d9c0" title="interpreter.result.SLogo\lResult.getTransition" alt="" coords="325,70,499,111"/>
+<area shape="rect" id="node4" href="$d5/d09/classinterpreter_1_1_command_reference_library.html#a342d174c5d09ce98ba6313d032030131" title="interpreter.CommandReference\lLibrary.getUserDefinedVariables" alt="" coords="299,135,525,177"/>
+<area shape="rect" id="node5" href="$df/df6/classinterpreter_1_1result_1_1_s_logo_result.html#ade0879b3224a3216bf17e17e25bfd4ca" title="interpreter.result.SLogo\lResult.setValue" alt="" coords="325,201,499,242"/>
+</map>

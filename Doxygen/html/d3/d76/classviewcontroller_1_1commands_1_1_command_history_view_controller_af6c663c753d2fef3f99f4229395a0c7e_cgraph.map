@@ -1,0 +1,8 @@
+<map id="viewcontroller.commands.CommandHistoryViewController.update" name="viewcontroller.commands.CommandHistoryViewController.update">
+<area shape="rect" id="node2" href="$d1/dfa/classviewcontroller_1_1commands_1_1_command_clickable_list_window_view_controller.html#a2ed6fe1ba70171aa8c3bbf512c6d3f14" title="viewcontroller.commands.\lCommandClickableListWindowView\lController.addCommand" alt="" coords="328,45,571,101"/>
+<area shape="rect" id="node6" href="$de/d21/classmodel_1_1_main_model.html#a34d537c868eba4e59604f4353cc7e1ad" title="model.MainModel.getCommand\lHistory" alt="" coords="336,125,563,166"/>
+<area shape="rect" id="node7" href="$db/d84/classmodel_1_1_command_history_model.html#a2da5eaccedbd853d7c7e6f3123454f1d" title="model.CommandHistoryModel.get\lHistory" alt="" coords="329,190,570,231"/>
+<area shape="rect" id="node3" href="$d0/d7c/classviewcontroller_1_1commands_1_1_command_window_container_view_controller.html#ae3ec4d2b2cfd7d931ed2da8328e13f31" title="viewcontroller.commands.\lCommandWindowContainerViewController.move\lCommandTextToPromptWindow" alt="" coords="619,5,947,61"/>
+<area shape="rect" id="node5" href="$d4/d3f/classviewcontroller_1_1commands_1_1_command_list_window_view_controller.html#a606e37bfe6fc9ce9500c9a705e5f10ee" title="viewcontroller.commands.\lCommandListWindowViewController.update\lScroller" alt="" coords="634,85,931,141"/>
+<area shape="rect" id="node4" href="$de/d8d/classviewcontroller_1_1commands_1_1_command_prompt_view_controller.html#ac5b8ed43553efe6667328fe2d2d7130a" title="viewcontroller.commands.\lCommandPromptViewController.set\lCommandPromptText" alt="" coords="995,5,1245,61"/>
+</map>

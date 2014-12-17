@@ -1,0 +1,11 @@
+<map id="interpreter.expression.syntax.Command.evaluate" name="interpreter.expression.syntax.Command.evaluate">
+<area shape="rect" id="node2" href="$da/dee/classmodel_1_1_user_defined_commands_model.html#a1ad7aee8eccad4edf52ea5ce9640705e" title="model.UserDefinedCommands\lModel.containsCommand" alt="" coords="271,5,489,46"/>
+<area shape="rect" id="node3" href="$db/d09/interfaceinterpreter_1_1expression_1_1_s_logo_expression.html#a33b4dd877541ab4da1b4bbe087925a15" title="interpreter.expression.SLogo\lExpression.evaluate" alt="" coords="277,70,483,111"/>
+<area shape="rect" id="node4" href="$da/dee/classmodel_1_1_user_defined_commands_model.html#aa6a9405fc5a57f113e533dc417ff793c" title="model.UserDefinedCommands\lModel.getCommand" alt="" coords="271,135,489,177"/>
+<area shape="rect" id="node5" href="$df/df6/classinterpreter_1_1result_1_1_s_logo_result.html#a11062748597af4f6622d9cbc92d4d9c0" title="interpreter.result.SLogo\lResult.getTransition" alt="" coords="293,201,467,242"/>
+<area shape="rect" id="node6" href="$d5/d09/classinterpreter_1_1_command_reference_library.html#a342d174c5d09ce98ba6313d032030131" title="interpreter.CommandReference\lLibrary.getUserDefinedVariables" alt="" coords="267,266,493,307"/>
+<area shape="rect" id="node7" href="$df/df6/classinterpreter_1_1result_1_1_s_logo_result.html#a7e050bbb65d7c7eb5e9b9970c6e2616f" title="interpreter.result.SLogo\lResult.getValue" alt="" coords="293,331,467,373"/>
+<area shape="rect" id="node8" href="$df/d55/classmodel_1_1_user_defined_variables_model.html#aed273935a6c1c03e6904abf47febb3b9" title="model.UserDefinedVariables\lModel.putVariable" alt="" coords="279,397,481,438"/>
+<area shape="rect" id="node9" href="$df/d55/classmodel_1_1_user_defined_variables_model.html#aab223016325673e3b40cc589fe8a70d4" title="model.UserDefinedVariables\lModel.remove" alt="" coords="279,462,481,503"/>
+<area shape="rect" id="node10" href="$df/df6/classinterpreter_1_1result_1_1_s_logo_result.html#ade0879b3224a3216bf17e17e25bfd4ca" title="interpreter.result.SLogo\lResult.setValue" alt="" coords="293,527,467,569"/>
+</map>

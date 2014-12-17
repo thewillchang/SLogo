@@ -1,0 +1,8 @@
+<map id="unittest.CommandPromptTextTest.testTransferOfString" name="unittest.CommandPromptTextTest.testTransferOfString">
+<area shape="rect" id="node2" href="$d0/d7c/classviewcontroller_1_1commands_1_1_command_window_container_view_controller.html#ab13930b0440e2e12d3827994a08a8ca0" title="viewcontroller.commands.\lCommandWindowContainerViewController.get\lCommandPrompt" alt="" coords="277,5,590,61"/>
+<area shape="rect" id="node3" href="$de/d8d/classviewcontroller_1_1commands_1_1_command_prompt_view_controller.html#a59b6f7cc49e3637e633540928a9fd2b1" title="viewcontroller.commands.\lCommandPromptViewController.get\lCommandPromptText" alt="" coords="308,85,559,141"/>
+<area shape="rect" id="node4" href="$d3/d67/classviewcontroller_1_1_main_view_controller.html#a1909b0a535abc16e237d8d54edce6520" title="viewcontroller.MainViewController.get\lCommandWindowContainer" alt="" coords="305,165,562,206"/>
+<area shape="rect" id="node5" href="$d8/d3a/classviewcontroller_1_1_workspace.html#a27576951466201164923fcc7b190a42e" title="viewcontroller.Workspace.get\lViewController" alt="" coords="331,230,536,271"/>
+<area shape="rect" id="node6" href="$d0/d7c/classviewcontroller_1_1commands_1_1_command_window_container_view_controller.html#ae3ec4d2b2cfd7d931ed2da8328e13f31" title="viewcontroller.commands.\lCommandWindowContainerViewController.move\lCommandTextToPromptWindow" alt="" coords="269,295,597,351"/>
+<area shape="rect" id="node7" href="$de/d8d/classviewcontroller_1_1commands_1_1_command_prompt_view_controller.html#ac5b8ed43553efe6667328fe2d2d7130a" title="viewcontroller.commands.\lCommandPromptViewController.set\lCommandPromptText" alt="" coords="645,295,896,351"/>
+</map>
